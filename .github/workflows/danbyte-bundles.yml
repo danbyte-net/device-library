@@ -1,0 +1,22 @@
+# Validate the Danbyte layer. Deliberately scoped to `danbyte/**` so it never
+# fires on an upstream sync — upstream files are not ours to check.
+name: Danbyte bundles
+
+on:
+  pull_request:
+    paths: ["danbyte/**"]
+  push:
+    branches: [master]
+    paths: ["danbyte/**"]
+
+jobs:
+  schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install jsonschema
+      - name: Validate every bundle against the schema
+        run: python danbyte/bin/validate.py

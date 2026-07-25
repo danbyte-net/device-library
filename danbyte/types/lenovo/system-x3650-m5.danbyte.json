@@ -1,0 +1,537 @@
+{
+  "danbyte_device_type": 1,
+  "manufacturer": "Lenovo",
+  "name": "System x3650 M5",
+  "model": "8871",
+  "part_number": "8871",
+  "u_height": 2,
+  "rack_width": "full",
+  "is_full_depth": true,
+  "airflow": "front-to-rear",
+  "weight": "19.00",
+  "weight_unit": "kg",
+  "subdevice_role": "",
+  "exclude_from_utilization": false,
+  "description": "[Lenovo System x3650 M5 product guide](https://lenovopress.lenovo.com/lp0068.pdf)",
+  "components": {
+    "interfaces": [
+      {
+        "name": "Ethernet 1",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Ethernet 2",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Ethernet 3",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Ethernet 4",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "IMM",
+        "description": "",
+        "type": "100base-tx",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": true
+      }
+    ],
+    "power_ports": [
+      {
+        "name": "Psu 0",
+        "description": "",
+        "type": "iec-60320-c14",
+        "maximum_draw": 750,
+        "allocated_draw": 750
+      },
+      {
+        "name": "Psu 1",
+        "description": "",
+        "type": "iec-60320-c14",
+        "maximum_draw": 750,
+        "allocated_draw": 750
+      },
+      {
+        "name": "Psu 2",
+        "description": "",
+        "type": "iec-60320-c14",
+        "maximum_draw": 750,
+        "allocated_draw": 750
+      }
+    ],
+    "module_bays": [
+      {
+        "name": "Mezzanine LOM (ML2)",
+        "description": "",
+        "position": "PCIe-8"
+      },
+      {
+        "name": "PCIe slot 1 - FH",
+        "description": "",
+        "position": "PCIe-1"
+      },
+      {
+        "name": "PCIe slot 2 - FH",
+        "description": "",
+        "position": "PCIe-2"
+      },
+      {
+        "name": "PCIe slot 3 or ML2 - FH",
+        "description": "",
+        "position": "PCIe-3"
+      },
+      {
+        "name": "PCIe slot 4 - LP",
+        "description": "",
+        "position": "PCIe-4"
+      },
+      {
+        "name": "PCIe slot 5 - LP",
+        "description": "",
+        "position": "PCIe-5"
+      },
+      {
+        "name": "PCIe slot 6 - FH",
+        "description": "",
+        "position": "PCIe-6"
+      },
+      {
+        "name": "PCIe slot 7 - FH",
+        "description": "",
+        "position": "PCIe-7"
+      },
+      {
+        "name": "PCIe slot 8 - FH",
+        "description": "",
+        "position": "PCIe-8"
+      },
+      {
+        "name": "PSU 1",
+        "description": "",
+        "position": "1"
+      },
+      {
+        "name": "PSU 2",
+        "description": "",
+        "position": "2"
+      }
+    ],
+    "inventory_items": [
+      {
+        "name": "disk0",
+        "description": "",
+        "part_id": "",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 300000000000,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Lenovo"
+      },
+      {
+        "name": "disk1",
+        "description": "",
+        "part_id": "",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 300000000000,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Lenovo"
+      },
+      {
+        "name": "disk10",
+        "description": "",
+        "part_id": "",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 300000000000,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Lenovo"
+      },
+      {
+        "name": "disk11",
+        "description": "",
+        "part_id": "",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 300000000000,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Lenovo"
+      },
+      {
+        "name": "disk12",
+        "description": "",
+        "part_id": "",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 300000000000,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Lenovo"
+      },
+      {
+        "name": "disk13",
+        "description": "",
+        "part_id": "",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 300000000000,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Lenovo"
+      },
+      {
+        "name": "disk14",
+        "description": "",
+        "part_id": "",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 300000000000,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Lenovo"
+      },
+      {
+        "name": "disk15",
+        "description": "",
+        "part_id": "",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 300000000000,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Lenovo"
+      },
+      {
+        "name": "disk2",
+        "description": "",
+        "part_id": "",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 300000000000,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Lenovo"
+      },
+      {
+        "name": "disk3",
+        "description": "",
+        "part_id": "",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 300000000000,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Lenovo"
+      },
+      {
+        "name": "disk4",
+        "description": "",
+        "part_id": "",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 300000000000,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Lenovo"
+      },
+      {
+        "name": "disk5",
+        "description": "",
+        "part_id": "",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 300000000000,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Lenovo"
+      },
+      {
+        "name": "disk6",
+        "description": "",
+        "part_id": "",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 300000000000,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Lenovo"
+      },
+      {
+        "name": "disk7",
+        "description": "",
+        "part_id": "",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 300000000000,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Lenovo"
+      },
+      {
+        "name": "disk8",
+        "description": "",
+        "part_id": "",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 300000000000,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Lenovo"
+      },
+      {
+        "name": "disk9",
+        "description": "",
+        "part_id": "",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 300000000000,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Lenovo"
+      }
+    ]
+  },
+  "faceplate": null,
+  "image_ports": {
+    "rear": [
+      {
+        "h": 0.12,
+        "w": 0.035,
+        "x": 0.6015406162464986,
+        "y": 0.8501856971321661,
+        "kind": "interface",
+        "name": "Ethernet 1"
+      },
+      {
+        "h": 0.12,
+        "w": 0.035,
+        "x": 0.6421568627450981,
+        "y": 0.8501856971321661,
+        "kind": "interface",
+        "name": "Ethernet 2"
+      },
+      {
+        "h": 0.12,
+        "w": 0.035,
+        "x": 0.6925770308123249,
+        "y": 0.8430370556532909,
+        "kind": "interface",
+        "name": "Ethernet 3"
+      },
+      {
+        "h": 0.12,
+        "w": 0.035,
+        "x": 0.7324929971988795,
+        "y": 0.8430370556532909,
+        "kind": "interface",
+        "name": "Ethernet 4"
+      },
+      {
+        "h": 0.12,
+        "w": 0.035,
+        "x": 0.08,
+        "y": 0.83,
+        "kind": "interface",
+        "name": "IMM"
+      },
+      {
+        "h": 0.365,
+        "w": 0.05,
+        "x": 0.9369747899159664,
+        "y": 0.259,
+        "kind": "power-port",
+        "name": "Psu 1"
+      },
+      {
+        "h": 0.365,
+        "w": 0.05,
+        "x": 0.9369747899159664,
+        "y": 0.735,
+        "kind": "power-port",
+        "name": "Psu 2"
+      }
+    ],
+    "front": [
+      {
+        "h": 0.8,
+        "w": 0.035,
+        "x": 0.07492997198879552,
+        "y": 0.513,
+        "kind": "inventory-item",
+        "name": "disk0"
+      },
+      {
+        "h": 0.8,
+        "w": 0.035,
+        "x": 0.11195144724556488,
+        "y": 0.513,
+        "kind": "inventory-item",
+        "name": "disk1"
+      },
+      {
+        "h": 0.8,
+        "w": 0.035,
+        "x": 0.14897292250233427,
+        "y": 0.513,
+        "kind": "inventory-item",
+        "name": "disk2"
+      },
+      {
+        "h": 0.8,
+        "w": 0.035,
+        "x": 0.18599439775910365,
+        "y": 0.513,
+        "kind": "inventory-item",
+        "name": "disk3"
+      },
+      {
+        "h": 0.8,
+        "w": 0.035,
+        "x": 0.223015873015873,
+        "y": 0.513,
+        "kind": "inventory-item",
+        "name": "disk4"
+      },
+      {
+        "h": 0.8,
+        "w": 0.035,
+        "x": 0.26003734827264235,
+        "y": 0.513,
+        "kind": "inventory-item",
+        "name": "disk5"
+      },
+      {
+        "h": 0.8,
+        "w": 0.035,
+        "x": 0.29705882352941176,
+        "y": 0.513,
+        "kind": "inventory-item",
+        "name": "disk6"
+      },
+      {
+        "h": 0.8,
+        "w": 0.035,
+        "x": 0.3340802987861812,
+        "y": 0.513,
+        "kind": "inventory-item",
+        "name": "disk7"
+      },
+      {
+        "h": 0.8,
+        "w": 0.035,
+        "x": 0.3711017740429505,
+        "y": 0.513,
+        "kind": "inventory-item",
+        "name": "disk8"
+      },
+      {
+        "h": 0.8,
+        "w": 0.035,
+        "x": 0.4081232492997199,
+        "y": 0.513,
+        "kind": "inventory-item",
+        "name": "disk9"
+      },
+      {
+        "h": 0.8,
+        "w": 0.035,
+        "x": 0.44514472455648924,
+        "y": 0.513,
+        "kind": "inventory-item",
+        "name": "disk10"
+      },
+      {
+        "h": 0.8,
+        "w": 0.035,
+        "x": 0.4821661998132587,
+        "y": 0.513,
+        "kind": "inventory-item",
+        "name": "disk11"
+      },
+      {
+        "h": 0.8,
+        "w": 0.035,
+        "x": 0.519187675070028,
+        "y": 0.513,
+        "kind": "inventory-item",
+        "name": "disk12"
+      },
+      {
+        "h": 0.8,
+        "w": 0.035,
+        "x": 0.5562091503267974,
+        "y": 0.513,
+        "kind": "inventory-item",
+        "name": "disk13"
+      },
+      {
+        "h": 0.8,
+        "w": 0.035,
+        "x": 0.5932306255835668,
+        "y": 0.513,
+        "kind": "inventory-item",
+        "name": "disk14"
+      },
+      {
+        "h": 0.8,
+        "w": 0.035,
+        "x": 0.6302521008403361,
+        "y": 0.513,
+        "kind": "inventory-item",
+        "name": "disk15"
+      }
+    ]
+  },
+  "sensors": [
+    {
+      "name": "Disk",
+      "slug": "disk",
+      "description": "",
+      "oid": "1.3.6.1.4.1.2.3.51.3.1.12.2.1.3",
+      "walk": true,
+      "item_kind": "disk",
+      "name_template": "disk{index}",
+      "value_map": {
+        "Normal": "active",
+        "Warning": "failed",
+        "Critical": "failed"
+      },
+      "absent_status": "empty",
+      "enabled": true
+    },
+    {
+      "name": "PSU",
+      "slug": "psu",
+      "description": "",
+      "oid": "1.3.6.1.4.1.2.3.51.3.1.11.2.1.6",
+      "walk": true,
+      "item_kind": "other",
+      "name_template": "{kind} {index}",
+      "value_map": {
+        "Normal": "active",
+        "Warning": "failed",
+        "Critical": "failed"
+      },
+      "absent_status": "empty",
+      "enabled": true
+    }
+  ],
+  "images": {
+    "front": "danbyte/images/lenovo/lenovo-system-x3650-m5.front.png",
+    "rear": "danbyte/images/lenovo/lenovo-system-x3650-m5.rear.png"
+  },
+  "contributed_by": "DenDanskeMine"
+}
