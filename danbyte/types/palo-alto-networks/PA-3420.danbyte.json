@@ -1,0 +1,596 @@
+{
+  "danbyte_device_type": 1,
+  "manufacturer": "Palo Alto Networks",
+  "name": "PA-3420",
+  "model": "PA-3420",
+  "part_number": "PA-3420",
+  "u_height": 1,
+  "rack_width": "full",
+  "is_full_depth": false,
+  "airflow": "front-to-rear",
+  "weight": 7,
+  "weight_unit": "kg",
+  "subdevice_role": "",
+  "exclude_from_utilization": false,
+  "description": "",
+  "components": {
+    "interfaces": [
+      {
+        "name": "ethernet1/1",
+        "description": "",
+        "type": "10gbase-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/10",
+        "description": "",
+        "type": "10gbase-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/11",
+        "description": "",
+        "type": "10gbase-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/12",
+        "description": "",
+        "type": "10gbase-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/13",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/14",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/15",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/16",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/17",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/18",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/19",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/2",
+        "description": "",
+        "type": "10gbase-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/20",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/21",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/22",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/23",
+        "description": "",
+        "type": "25gbase-x-sfp28",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/24",
+        "description": "",
+        "type": "25gbase-x-sfp28",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/25",
+        "description": "",
+        "type": "25gbase-x-sfp28",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/26",
+        "description": "",
+        "type": "25gbase-x-sfp28",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/3",
+        "description": "",
+        "type": "10gbase-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/4",
+        "description": "",
+        "type": "10gbase-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/5",
+        "description": "",
+        "type": "10gbase-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/6",
+        "description": "",
+        "type": "10gbase-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/7",
+        "description": "",
+        "type": "10gbase-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/8",
+        "description": "",
+        "type": "10gbase-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ethernet1/9",
+        "description": "",
+        "type": "10gbase-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ha1-a",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "ha1-b",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "hsci",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "management",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": true
+      }
+    ],
+    "console_ports": [
+      {
+        "name": "console",
+        "description": "",
+        "type": "rj-45"
+      }
+    ],
+    "inventory_items": [
+      {
+        "name": "PSU-1",
+        "description": "",
+        "part_id": "",
+        "kind": "psu",
+        "media": "",
+        "capacity_bytes": null,
+        "speed": "",
+        "manufacturer": "Palo Alto Networks"
+      },
+      {
+        "name": "PSU-2",
+        "description": "",
+        "part_id": "",
+        "kind": "psu",
+        "media": "",
+        "capacity_bytes": null,
+        "speed": "",
+        "manufacturer": "Palo Alto Networks"
+      }
+    ]
+  },
+  "faceplate": null,
+  "image_ports": {
+    "rear": [
+      {
+        "h": 0.52,
+        "w": 0.07,
+        "x": 0.705,
+        "y": 0.475,
+        "kind": "inventory-item",
+        "name": "PSU-1"
+      },
+      {
+        "h": 0.52,
+        "w": 0.07,
+        "x": 0.84,
+        "y": 0.45,
+        "kind": "inventory-item",
+        "name": "PSU-2"
+      }
+    ],
+    "front": [
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.14353707342880892,
+        "y": 0.34771142892730506,
+        "kind": "interface",
+        "name": "ethernet1/1"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.14353707342880892,
+        "y": 0.65,
+        "kind": "interface",
+        "name": "ethernet1/2"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.17236012267718426,
+        "y": 0.34771142892730506,
+        "kind": "interface",
+        "name": "ethernet1/3"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.17236012267718426,
+        "y": 0.65,
+        "kind": "interface",
+        "name": "ethernet1/4"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.20118317192555962,
+        "y": 0.34771142892730506,
+        "kind": "interface",
+        "name": "ethernet1/5"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.20118317192555962,
+        "y": 0.65,
+        "kind": "interface",
+        "name": "ethernet1/6"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.23000622117393496,
+        "y": 0.34771142892730506,
+        "kind": "interface",
+        "name": "ethernet1/7"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.23000622117393496,
+        "y": 0.65,
+        "kind": "interface",
+        "name": "ethernet1/8"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.2794171627425784,
+        "y": 0.348,
+        "kind": "interface",
+        "name": "ethernet1/9"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.2794171627425784,
+        "y": 0.65,
+        "kind": "interface",
+        "name": "ethernet1/10"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.30824021199095375,
+        "y": 0.348,
+        "kind": "interface",
+        "name": "ethernet1/11"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.30824021199095375,
+        "y": 0.65,
+        "kind": "interface",
+        "name": "ethernet1/12"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027999999999999997,
+        "x": 0.3541218005904084,
+        "y": 0.3227291713581939,
+        "kind": "interface",
+        "name": "ethernet1/13"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027999999999999997,
+        "x": 0.3541218005904084,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "ethernet1/14"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027999999999999997,
+        "x": 0.3833860189599323,
+        "y": 0.3227291713581939,
+        "kind": "interface",
+        "name": "ethernet1/15"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027999999999999997,
+        "x": 0.3833860189599323,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "ethernet1/16"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027999999999999997,
+        "x": 0.41265023732945627,
+        "y": 0.3227291713581939,
+        "kind": "interface",
+        "name": "ethernet1/17"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027999999999999997,
+        "x": 0.41265023732945627,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "ethernet1/18"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027999999999999997,
+        "x": 0.44191445569898025,
+        "y": 0.3227291713581939,
+        "kind": "interface",
+        "name": "ethernet1/19"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027999999999999997,
+        "x": 0.44191445569898025,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "ethernet1/20"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027999999999999997,
+        "x": 0.47117867406850417,
+        "y": 0.3227291713581939,
+        "kind": "interface",
+        "name": "ethernet1/21"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027999999999999997,
+        "x": 0.47117867406850417,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "ethernet1/22"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027999999999999997,
+        "x": 0.5147073606884995,
+        "y": 0.31023804257363835,
+        "kind": "interface",
+        "name": "ethernet1/23"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027999999999999997,
+        "x": 0.5147073606884995,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "ethernet1/24"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027999999999999997,
+        "x": 0.544,
+        "y": 0.31023804257363835,
+        "kind": "interface",
+        "name": "ethernet1/25"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027999999999999997,
+        "x": 0.544,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "ethernet1/26"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.7410694617334614,
+        "y": 0.6463555369678688,
+        "kind": "console-port",
+        "name": "console"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.7414415057423791,
+        "y": 0.3611961529015867,
+        "kind": "interface",
+        "name": "management"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.6947043621171293,
+        "y": 0.3664481221041384,
+        "kind": "interface",
+        "name": "ha1-a"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.6947043621171293,
+        "y": 0.645,
+        "kind": "interface",
+        "name": "ha1-b"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027999999999999997,
+        "x": 0.6485019493586102,
+        "y": 0.6706353929737591,
+        "kind": "interface",
+        "name": "hsci"
+      }
+    ]
+  },
+  "sensors": [],
+  "images": {
+    "front": true,
+    "rear": true
+  },
+  "contributed_by": "DenDanskeMine"
+}

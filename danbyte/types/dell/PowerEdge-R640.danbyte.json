@@ -1,0 +1,336 @@
+{
+  "danbyte_device_type": 1,
+  "manufacturer": "Dell",
+  "name": "PowerEdge R640",
+  "model": "R640",
+  "part_number": "",
+  "u_height": 1,
+  "rack_width": "full",
+  "is_full_depth": true,
+  "airflow": "",
+  "weight": null,
+  "weight_unit": "",
+  "subdevice_role": "",
+  "exclude_from_utilization": false,
+  "description": "",
+  "components": {
+    "interfaces": [
+      {
+        "name": "eno1",
+        "description": "",
+        "type": "10gbase-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "eno2",
+        "description": "",
+        "type": "10gbase-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "eno3",
+        "description": "",
+        "type": "10gbase-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "eno4",
+        "description": "",
+        "type": "10gbase-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "idrac",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": true
+      }
+    ],
+    "inventory_items": [
+      {
+        "name": "Disk 0",
+        "description": "",
+        "part_id": "MZ7LH960HAJR",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 960197124096,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Dell"
+      },
+      {
+        "name": "Disk 1",
+        "description": "",
+        "part_id": "MZ7LH960HAJR",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 960197124096,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Dell"
+      },
+      {
+        "name": "Disk 2",
+        "description": "",
+        "part_id": "MZ7LH960HAJR",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 960197124096,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Dell"
+      },
+      {
+        "name": "Disk 3",
+        "description": "",
+        "part_id": "MZ7LH960HAJR",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 960197124096,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Dell"
+      },
+      {
+        "name": "Disk 4",
+        "description": "",
+        "part_id": "MZ7LH960HAJR",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 960197124096,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Dell"
+      },
+      {
+        "name": "Disk 5",
+        "description": "",
+        "part_id": "MZ7LH960HAJR",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 960197124096,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Dell"
+      },
+      {
+        "name": "Disk 6",
+        "description": "",
+        "part_id": "MZ7LH960HAJR",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 960197124096,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Dell"
+      },
+      {
+        "name": "Disk 7",
+        "description": "",
+        "part_id": "MZ7LH960HAJR",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 960197124096,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Dell"
+      },
+      {
+        "name": "Disk 8",
+        "description": "",
+        "part_id": "MZ7LH960HAJR",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 960197124096,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Dell"
+      },
+      {
+        "name": "Disk 9",
+        "description": "",
+        "part_id": "MZ7LH960HAJR",
+        "kind": "disk",
+        "media": "ssd",
+        "capacity_bytes": 960197124096,
+        "speed": "SATA 6Gb/s",
+        "manufacturer": "Dell"
+      },
+      {
+        "name": "PSU-1",
+        "description": "",
+        "part_id": "",
+        "kind": "psu",
+        "media": "",
+        "capacity_bytes": null,
+        "speed": "",
+        "manufacturer": "Dell"
+      },
+      {
+        "name": "PSU-2",
+        "description": "",
+        "part_id": "",
+        "kind": "psu",
+        "media": "",
+        "capacity_bytes": null,
+        "speed": "",
+        "manufacturer": "Dell"
+      }
+    ]
+  },
+  "faceplate": null,
+  "image_ports": {
+    "rear": [
+      {
+        "h": 0.22,
+        "w": 0.03,
+        "x": 0.08286100472820708,
+        "y": 0.6998930889979832,
+        "kind": "interface",
+        "name": "idrac"
+      },
+      {
+        "h": 0.22,
+        "w": 0.03,
+        "x": 0.3447101926725715,
+        "y": 0.773396403544202,
+        "kind": "interface",
+        "name": "eno1"
+      },
+      {
+        "h": 0.22,
+        "w": 0.03,
+        "x": 0.39588581072580936,
+        "y": 0.773396403544202,
+        "kind": "interface",
+        "name": "eno2"
+      },
+      {
+        "h": 0.22,
+        "w": 0.03,
+        "x": 0.44706142877904725,
+        "y": 0.773396403544202,
+        "kind": "interface",
+        "name": "eno3"
+      },
+      {
+        "h": 0.22,
+        "w": 0.03,
+        "x": 0.4982370468322851,
+        "y": 0.773396403544202,
+        "kind": "interface",
+        "name": "eno4"
+      },
+      {
+        "h": 0.695,
+        "w": 0.055,
+        "x": 0.625,
+        "y": 0.53,
+        "kind": "inventory-item",
+        "name": "PSU-1"
+      },
+      {
+        "h": 0.695,
+        "w": 0.055,
+        "x": 0.83,
+        "y": 0.535,
+        "kind": "inventory-item",
+        "name": "PSU-2"
+      }
+    ],
+    "front": [
+      {
+        "h": 0.245,
+        "w": 0.135,
+        "x": 0.14883110288259213,
+        "y": 0.35118643841869107,
+        "kind": "inventory-item",
+        "name": "Disk 0"
+      },
+      {
+        "h": 0.245,
+        "w": 0.135,
+        "x": 0.14883110288259213,
+        "y": 0.725,
+        "kind": "inventory-item",
+        "name": "Disk 1"
+      },
+      {
+        "h": 0.245,
+        "w": 0.135,
+        "x": 0.32012332716194414,
+        "y": 0.35118643841869107,
+        "kind": "inventory-item",
+        "name": "Disk 2"
+      },
+      {
+        "h": 0.245,
+        "w": 0.135,
+        "x": 0.32012332716194414,
+        "y": 0.725,
+        "kind": "inventory-item",
+        "name": "Disk 3"
+      },
+      {
+        "h": 0.245,
+        "w": 0.135,
+        "x": 0.4914155514412961,
+        "y": 0.35118643841869107,
+        "kind": "inventory-item",
+        "name": "Disk 4"
+      },
+      {
+        "h": 0.245,
+        "w": 0.135,
+        "x": 0.4914155514412961,
+        "y": 0.725,
+        "kind": "inventory-item",
+        "name": "Disk 5"
+      },
+      {
+        "h": 0.245,
+        "w": 0.135,
+        "x": 0.6627077757206481,
+        "y": 0.35118643841869107,
+        "kind": "inventory-item",
+        "name": "Disk 6"
+      },
+      {
+        "h": 0.245,
+        "w": 0.135,
+        "x": 0.6627077757206481,
+        "y": 0.725,
+        "kind": "inventory-item",
+        "name": "Disk 7"
+      },
+      {
+        "h": 0.245,
+        "w": 0.135,
+        "x": 0.8340000000000001,
+        "y": 0.35118643841869107,
+        "kind": "inventory-item",
+        "name": "Disk 8"
+      },
+      {
+        "h": 0.245,
+        "w": 0.135,
+        "x": 0.8340000000000001,
+        "y": 0.725,
+        "kind": "inventory-item",
+        "name": "Disk 9"
+      }
+    ]
+  },
+  "sensors": [],
+  "images": {
+    "front": true,
+    "rear": true
+  },
+  "contributed_by": "DenDanskeMine"
+}
