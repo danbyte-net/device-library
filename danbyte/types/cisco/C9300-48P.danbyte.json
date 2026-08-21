@@ -1,0 +1,1017 @@
+{
+  "danbyte_device_type": 1,
+  "manufacturer": "Cisco",
+  "name": "Catalyst 9300-48P",
+  "model": "C9300-48P",
+  "part_number": "",
+  "u_height": 1,
+  "rack_width": "full",
+  "is_full_depth": true,
+  "airflow": "",
+  "weight": null,
+  "weight_unit": "",
+  "subdevice_role": "",
+  "exclude_from_utilization": false,
+  "description": "",
+  "components": {
+    "interfaces": [
+      {
+        "name": "Gi0/0",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": true
+      },
+      {
+        "name": "Gi1/0/1",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/10",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/11",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/12",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/13",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/14",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/15",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/16",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/17",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/18",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/19",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/2",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/20",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/21",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/22",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/23",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/24",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/25",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/26",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/27",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/28",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/29",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/3",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/30",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/31",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/32",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/33",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/34",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/35",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/36",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/37",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/38",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/39",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/4",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/40",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/41",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/42",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/43",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/44",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/45",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/46",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/47",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/48",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/5",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/6",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/7",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/8",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Gi1/0/9",
+        "description": "",
+        "type": "1000base-t",
+        "enabled": true,
+        "poe_mode": "pse",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Te1/1/1",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Te1/1/2",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Te1/1/3",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Te1/1/4",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Te1/1/5",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Te1/1/6",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Te1/1/7",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      },
+      {
+        "name": "Te1/1/8",
+        "description": "",
+        "type": "10gbase-x-sfpp",
+        "enabled": true,
+        "poe_mode": "",
+        "poe_type": "",
+        "mgmt_only": false
+      }
+    ],
+    "console_ports": [
+      {
+        "name": "Console",
+        "description": "",
+        "type": "rj-45"
+      }
+    ]
+  },
+  "faceplate": null,
+  "image_ports": {
+    "rear": [
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.0921390311742279,
+        "y": 0.63,
+        "kind": "console-port",
+        "name": "Console"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.12000805363421681,
+        "y": 0.6303478050401536,
+        "kind": "interface",
+        "name": "Gi0/0"
+      }
+    ],
+    "front": [
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.071,
+        "y": 0.35,
+        "kind": "interface",
+        "name": "Gi1/0/1"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.071,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/2"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.10044834225532777,
+        "y": 0.35,
+        "kind": "interface",
+        "name": "Gi1/0/3"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.10044834225532777,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/4"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.12989668451065556,
+        "y": 0.35,
+        "kind": "interface",
+        "name": "Gi1/0/5"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.12989668451065556,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/6"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.15934502676598333,
+        "y": 0.35,
+        "kind": "interface",
+        "name": "Gi1/0/7"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.15934502676598333,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/8"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.1887933690213111,
+        "y": 0.35,
+        "kind": "interface",
+        "name": "Gi1/0/9"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.1887933690213111,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/10"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.21824171127663888,
+        "y": 0.35,
+        "kind": "interface",
+        "name": "Gi1/0/11"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.21824171127663888,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/12"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.2564763684428511,
+        "y": 0.3632200707093429,
+        "kind": "interface",
+        "name": "Gi1/0/13"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.2564763684428511,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/14"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.28565235298814534,
+        "y": 0.3632200707093429,
+        "kind": "interface",
+        "name": "Gi1/0/15"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.28565235298814534,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/16"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.31482833753343953,
+        "y": 0.3632200707093429,
+        "kind": "interface",
+        "name": "Gi1/0/17"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.31482833753343953,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/18"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.34400432207873377,
+        "y": 0.3632200707093429,
+        "kind": "interface",
+        "name": "Gi1/0/19"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.34400432207873377,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/20"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.373180306624028,
+        "y": 0.3632200707093429,
+        "kind": "interface",
+        "name": "Gi1/0/21"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.373180306624028,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/22"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.4023562911693222,
+        "y": 0.3632200707093429,
+        "kind": "interface",
+        "name": "Gi1/0/23"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.4023562911693222,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/24"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.441767399325264,
+        "y": 0.3571332642450088,
+        "kind": "interface",
+        "name": "Gi1/0/25"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.441767399325264,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/26"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.4711786740685041,
+        "y": 0.3571332642450088,
+        "kind": "interface",
+        "name": "Gi1/0/27"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.4711786740685041,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/28"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.5005899488117442,
+        "y": 0.3571332642450088,
+        "kind": "interface",
+        "name": "Gi1/0/29"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.5005899488117442,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/30"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.5300012235549845,
+        "y": 0.3571332642450088,
+        "kind": "interface",
+        "name": "Gi1/0/31"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.5300012235549845,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/32"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.5594124982982246,
+        "y": 0.3571332642450088,
+        "kind": "interface",
+        "name": "Gi1/0/33"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.5594124982982246,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/34"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.5888237730414647,
+        "y": 0.3571332642450088,
+        "kind": "interface",
+        "name": "Gi1/0/35"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.5888237730414647,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/36"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.6264702047128121,
+        "y": 0.3571332642450088,
+        "kind": "interface",
+        "name": "Gi1/0/37"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.6264702047128121,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/38"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.6559991245550252,
+        "y": 0.3571332642450088,
+        "kind": "interface",
+        "name": "Gi1/0/39"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.6559991245550252,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/40"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.6855280443972384,
+        "y": 0.3571332642450088,
+        "kind": "interface",
+        "name": "Gi1/0/41"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.6855280443972384,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/42"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.7150569642394514,
+        "y": 0.3571332642450088,
+        "kind": "interface",
+        "name": "Gi1/0/43"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.7150569642394514,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/44"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.7445858840816646,
+        "y": 0.3571332642450088,
+        "kind": "interface",
+        "name": "Gi1/0/45"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.7445858840816646,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/46"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.7741148039238777,
+        "y": 0.3571332642450088,
+        "kind": "interface",
+        "name": "Gi1/0/47"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.7741148039238777,
+        "y": 0.66,
+        "kind": "interface",
+        "name": "Gi1/0/48"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.8182317160387379,
+        "y": 0.34495965131634065,
+        "kind": "interface",
+        "name": "Te1/1/1"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.8182317160387379,
+        "y": 0.675,
+        "kind": "interface",
+        "name": "Te1/1/2"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.8478390659469329,
+        "y": 0.34495965131634065,
+        "kind": "interface",
+        "name": "Te1/1/3"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.8478390659469329,
+        "y": 0.675,
+        "kind": "interface",
+        "name": "Te1/1/4"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.8774464158551281,
+        "y": 0.34495965131634065,
+        "kind": "interface",
+        "name": "Te1/1/5"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.8774464158551281,
+        "y": 0.675,
+        "kind": "interface",
+        "name": "Te1/1/6"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.9070537657633231,
+        "y": 0.34495965131634065,
+        "kind": "interface",
+        "name": "Te1/1/7"
+      },
+      {
+        "h": 0.22,
+        "w": 0.027000000000000003,
+        "x": 0.9070537657633231,
+        "y": 0.675,
+        "kind": "interface",
+        "name": "Te1/1/8"
+      }
+    ]
+  },
+  "sensors": [],
+  "images": {
+    "front": true,
+    "rear": true
+  },
+  "contributed_by": "DenDanskeMine"
+}
