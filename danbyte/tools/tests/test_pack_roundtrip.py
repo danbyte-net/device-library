@@ -1,7 +1,7 @@
 """Every type converted from the cisco-catalyst-9500 pack merges back to the
 pack's own (edit-in-place) YAML: same interfaces, bays, power ports, model3d.
 
-The fixtures are the pack's YAML files as split (v1.6.16), copied unchanged."""
+The fixtures are the pack's YAML files as split (v1.6.19), copied unchanged."""
 import json
 
 import pytest
@@ -42,6 +42,7 @@ def test_preview_of_c9300_overlays_matches_the_pack(ref, capsys):
     got = json.loads(capsys.readouterr().out)
     want = m.load_file(PACK_FIXTURE / "device-types" / f"{ref}.yaml")
     got.pop("meta", None)
+    want.pop("meta", None)
     assert got == want
 
 
@@ -52,7 +53,8 @@ ACC = sorted((PACK_FIXTURE / "accessory-types").glob("*/*.yaml"))
 def test_pluggable_is_the_accessory(src):
     e = repo.find(f"pluggable/{src.parent.name}/{src.stem}")
     got = {k: v for k, v in e.data.items() if k not in ("format", "meta")}
-    assert m.rewrite_paths(got, "assets/", "models/") == m.load_file(src)
+    want = {k: v for k, v in m.load_file(src).items() if k != "meta"}
+    assert m.rewrite_paths(got, "assets/", "models/") == want
     assert e.data["meta"]["category"] == "pluggable"
 
 
@@ -68,7 +70,8 @@ def test_racks_are_the_pack_racks(src):
     else:
         e = repo.find(f"rack-type/{src.parent.name}/{src.stem}")
     got = {k: v for k, v in e.data.items() if k not in ("format", "meta")}
-    assert m.rewrite_paths(got, "assets/", "models/") == m.load_file(src)
+    want = {k: v for k, v in m.load_file(src).items() if k != "meta"}
+    assert m.rewrite_paths(got, "assets/", "models/") == want
 
 
 def test_pack_lists_every_converted_entry():

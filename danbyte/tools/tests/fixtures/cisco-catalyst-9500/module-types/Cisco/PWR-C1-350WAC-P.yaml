@@ -10,6 +10,19 @@ power-ports:
     type: iec-60320-c16
     maximum_draw: 350
 
+# danbyte: meta (spec 1.14 section 8): only what the listed sources state
+meta:
+  category: module
+  module_kind: psu
+  roles: [power]
+  family: "Catalyst 9300"
+  summary: "350 W AC field-replaceable power supply for C9300/C9300L."
+  links:
+    - { kind: product-page, title: "Cisco Catalyst 9300 Series Switches", url: "https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/index.html" }
+    - { kind: datasheet, title: "Cisco Catalyst 9300 Series Switches Data Sheet", url: "https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9300-series-switches/nb-06-cat9300-ser-data-sheet-cte-en.html" }
+    - { kind: install-guide, title: "Cisco Catalyst 9300 Series Switches Hardware Installation Guide", url: "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/hardware/install/b_c9300_hig.html" }
+    - { kind: support, title: "Cisco Catalyst 9300 Series Switches - Support", url: "https://www.cisco.com/c/en/us/support/switches/catalyst-9300-series-switches/series.html" }
+    - { kind: eol-listing, title: "Cisco Catalyst 9300 Series Switches - End-of-Life and End-of-Sale Notices", url: "https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/eos-eol-notice-listing.html" }
 model3d:
   file: models/Cisco/PWR-C1-350WAC-P.glb
   far: models/Cisco/PWR-C1-350WAC-P.far.glb

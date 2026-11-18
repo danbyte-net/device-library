@@ -4,5 +4,11 @@ connector: mpo
 fits: [40gbase-x-qsfpp, 100gbase-x-qsfp28]
 parts: []
 comments: "QSFP-family optical transceiver, pull tab (loop, grey), MPO receptacle with the cord anchor port:mpo."
+# danbyte: meta (spec 1.14 section 8): only what the listed sources state
+meta:
+  category: pluggable
+  roles: [optic]
+  family: "Generic transceivers"
+  summary: "Generic QSFP-family optical transceiver with an MPO receptacle."
 model3d:
   file: models/Generic/QSFP-GENERIC.glb

@@ -1,5 +1,10 @@
 name: CABINET
 frame: cabinet
+# danbyte: meta (spec 1.14 section 8): only what the listed sources state
+meta:
+  category: rack-kit
+  family: "Generic racks"
+  summary: "Parts kit for an enclosed 19-inch cabinet."
 model3d:
   file: models/Generic/CABINET.kit.glb
   far: models/Generic/CABINET.far.glb

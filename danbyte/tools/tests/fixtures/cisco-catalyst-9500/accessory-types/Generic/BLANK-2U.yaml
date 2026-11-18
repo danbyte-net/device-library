@@ -2,5 +2,11 @@ name: BLANK-2U
 kind: blanking
 u_height: 2
 comments: "Generic 2U 19-inch blanking panel (EIA-310), steel, black."
+# danbyte: meta (spec 1.14 section 8): only what the listed sources state
+meta:
+  category: pluggable
+  roles: [rack, blanking]
+  family: "Generic rack accessories"
+  summary: "2U 19-inch blanking panel (EIA-310)."
 model3d:
   file: models/Generic/BLANK-2U.glb

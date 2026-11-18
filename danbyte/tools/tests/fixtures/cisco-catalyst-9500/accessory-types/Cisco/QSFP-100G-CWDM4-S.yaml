@@ -6,5 +6,16 @@ parts: [QSFP-100G-CWDM4-S]
 standard: 100GBASE-CWDM4
 wavelength_nm: 1310
 comments: "QSFP-family optical transceiver, pull tab (grip, green), LC receptacle with the cord anchor port:lc."
+# danbyte: meta (spec 1.14 section 8): only what the listed sources state
+meta:
+  category: pluggable
+  roles: [optic, singlemode]
+  family: "Cisco 100GBASE QSFP-100G Modules"
+  summary: "100G CWDM4 QSFP28 optic, 4 CWDM lanes (1271-1331 nm), single-mode, duplex LC, up to 2 km on G.652 SMF."
+  links:
+    - { kind: other, title: "Optics Compatibility Matrix (Cisco Transceiver Module Group, TMG)", url: "https://tmgmatrix.cisco.com" }
+    - { kind: product-page, title: "Cisco Optics (transceiver modules)", url: "https://www.cisco.com/c/en/us/products/interfaces-modules/transceiver-modules" }
+    - { kind: other, title: "Cisco transceiver modules End-of-Life and End-of-Sale notices", url: "https://www.cisco.com/c/en/us/products/interfaces-modules/transceiver-modules/eos-eol-notice-listing.html" }
+    - { kind: datasheet, title: "Cisco 100GBASE QSFP-100G Modules Data Sheet", url: "https://cisco.com/c/en/us/products/collateral/interfaces-modules/transceiver-modules/datasheet-c78-736282.html" }
 model3d:
   file: models/Cisco/QSFP-100G-CWDM4-S.glb

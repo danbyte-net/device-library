@@ -1,0 +1,24 @@
+name: STACK-T3
+kind: cord
+connector: stack
+fits: [cisco-stackwise-320]
+parts: [STACK-T3-50CM, STACK-T3-1M, STACK-T3-3M]
+standard: StackWise-320
+comments: "Cisco StackWise-320 stack cable end (Catalyst 9300L; C9300L-STACK adapter): one connector head, bright metal shell tapering toward the cable, flat spring-latch lever on top, a nose and flat plug into the adapter's socket, a round cable straight out of the back, 40 mm stub to the cable empty. Cisco C9300 HIG: the connector is held by a spring latch; each StackWise link must use the matching adapter and cable at both ends (C9300L-STACK + STACK-T3, C9300L-STACK-A + STACK-T3A, do not mix). Minimum bend radius 41 mm, the 3 m cable 82 mm (HIG Connector and Cable Specifications, table 4). Head size from product photos scaled to our stack slot, +-2 mm; the 8 mm cable diameter is an estimate. Origin is the stack port anchor. CABLE is recoloured by Danbyte."
+cable:
+  profile: round
+  jacket_mm: 8.0
+  min_bend_mm: 41
+  min_bend_by_part:
+    STACK-T3-3M: 82
+# danbyte: meta (spec 1.14 section 8): only what the listed sources state
+meta:
+  category: pluggable
+  roles: [stacking, cable]
+  family: "Catalyst 9300L"
+  summary: "StackWise-320 data stacking cable end for Catalyst 9300L switches (with the C9300L-STACK adapter), 0.5 m, 1 m or 3 m."
+  links:
+    - { kind: install-guide, title: "Cisco Catalyst 9300 Series Switches Hardware Installation Guide - Connector and Cable Specifications", url: "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/hardware/install/b_c9300_hig/connector-cable-specs.html" }
+    - { kind: install-guide, title: "Cisco Catalyst 9300 Series Switches Hardware Installation Guide - Installing a Switch", url: "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/hardware/install/b_c9300_hig/Installing-a-switch.html" }
+model3d:
+  file: models/Cisco/STACK-T3.glb

@@ -66,7 +66,7 @@ One vendor document.
 
 | Key | Type | Required | Description |
 |---|---|---|---|
-| `kind` | one of `datasheet`, `install-guide`, `config-guide`, `product-page`, `eol-notice`, `support`, `software`, `other` | yes | What the document is. |
+| `kind` | one of `datasheet`, `install-guide`, `config-guide`, `product-page`, `eol-notice`, `eol-listing`, `support`, `software`, `other` | yes | What the document is. |
 | `title` | string |  | The document's title as the vendor gives it. |
 | `url` | [url](#url) | yes | An http(s) URL, as found, without tracking parameters. |
 

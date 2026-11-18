@@ -13,5 +13,17 @@ cable:
   min_bend_mm: 41
   min_bend_by_part:
     STACK-T1-3M: 82
+# danbyte: meta (spec 1.14 section 8): only what the listed sources state
+meta:
+  category: pluggable
+  roles: [stacking, cable]
+  family: "Catalyst 9300"
+  summary: "StackWise-480 data stacking cable, 0.5 m, 1 m or 3 m (STACK-T1-50CM / -1M / -3M)."
+  links:
+    - { kind: product-page, title: "Cisco Catalyst 9300 Series Switches", url: "https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/index.html" }
+    - { kind: datasheet, title: "Cisco Catalyst 9300 Series Switches Data Sheet", url: "https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9300-series-switches/nb-06-cat9300-ser-data-sheet-cte-en.html" }
+    - { kind: install-guide, title: "Cisco Catalyst 9300 Series Switches Hardware Installation Guide", url: "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/hardware/install/b_c9300_hig.html" }
+    - { kind: support, title: "Cisco Catalyst 9300 Series Switches - Support", url: "https://www.cisco.com/c/en/us/support/switches/catalyst-9300-series-switches/series.html" }
+    - { kind: eol-listing, title: "Cisco Catalyst 9300 Series Switches - End-of-Life and End-of-Sale Notices", url: "https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/eos-eol-notice-listing.html" }
 model3d:
   file: models/Cisco/STACK-T1.glb

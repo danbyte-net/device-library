@@ -1,5 +1,10 @@
 name: TELCO-2POST
 frame: 2-post
+# danbyte: meta (spec 1.14 section 8): only what the listed sources state
+meta:
+  category: rack-kit
+  family: "Generic racks"
+  summary: "Parts kit for a 2-post 19-inch relay rack."
 model3d:
   file: models/Generic/TELCO-2POST.kit.glb
   far: models/Generic/TELCO-2POST.far.glb

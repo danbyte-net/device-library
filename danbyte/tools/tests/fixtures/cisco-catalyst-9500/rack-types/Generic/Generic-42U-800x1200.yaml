@@ -14,3 +14,8 @@ look:
   top: vented
   base: plinth
   colour: black
+# danbyte: meta (spec 1.14 section 8): only what the listed sources state
+meta:
+  category: rack
+  family: "Generic racks"
+  summary: "42U 19-inch cabinet, 800 mm wide, 1200 mm deep, split doors."

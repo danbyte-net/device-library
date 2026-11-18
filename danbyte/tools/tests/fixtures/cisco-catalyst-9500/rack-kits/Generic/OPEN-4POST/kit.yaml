@@ -1,5 +1,10 @@
 name: OPEN-4POST
 frame: 4-post
+# danbyte: meta (spec 1.14 section 8): only what the listed sources state
+meta:
+  category: rack-kit
+  family: "Generic racks"
+  summary: "Parts kit for an open 4-post 19-inch frame."
 model3d:
   file: models/Generic/OPEN-4POST.kit.glb
   far: models/Generic/OPEN-4POST.far.glb

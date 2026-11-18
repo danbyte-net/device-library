@@ -8,5 +8,11 @@ cable:
   jacket_mm: 1.8
   pitch_mm: 1.84
   min_bend_mm: 30
+# danbyte: meta (spec 1.14 section 8): only what the listed sources state
+meta:
+  category: pluggable
+  roles: [fibre, cord]
+  family: "Fibre connectors"
+  summary: "LC duplex fibre patch-cord end."
 model3d:
   file: models/Generic/LC-DUPLEX.glb

@@ -411,7 +411,9 @@ def split_pack(repo: Repo, folder: Path, *, rules_path: Path | None = None,
         else:
             out = {"format": "danbyte-library/v1", "meta": {"category": "rack", **meta}, **doc}
         emit(dan / "racks" / "types" / vendor / f"{stem}.yaml", out, "rack-type.schema.json")
+        # pack.yaml may name it by model or by file name.
         found["rack-type"][str(doc.get("model") or stem)] = f"{vendor}/{stem}"
+        found["rack-type"].setdefault(stem, f"{vendor}/{stem}")
         report.count("rack-type")
 
     # assets

@@ -1,5 +1,10 @@
 name: WALL-CABINET
 frame: wall-cabinet
+# danbyte: meta (spec 1.14 section 8): only what the listed sources state
+meta:
+  category: rack-kit
+  family: "Generic racks"
+  summary: "Parts kit for a 6-18U 19-inch wall cabinet with a hinged door."
 model3d:
   file: models/Generic/WALL-CABINET.kit.glb
   far: models/Generic/WALL-CABINET.far.glb

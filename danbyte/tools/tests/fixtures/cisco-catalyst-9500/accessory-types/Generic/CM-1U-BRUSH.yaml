@@ -2,5 +2,11 @@ name: CM-1U-BRUSH
 kind: cable-manager
 u_height: 1
 comments: "Generic 1U brush cable manager: 420 x 22 mm brush slot, 60 mm channel behind."
+# danbyte: meta (spec 1.14 section 8): only what the listed sources state
+meta:
+  category: pluggable
+  roles: [rack, cable-management]
+  family: "Generic rack accessories"
+  summary: "1U horizontal cable manager with a brush strip."
 model3d:
   file: models/Generic/CM-1U-BRUSH.glb

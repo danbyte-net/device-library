@@ -60,6 +60,12 @@ power-outlets:
     type: iec-60320-c13
     power_port: Input
 
+# danbyte: meta (spec 1.14 section 8): only what the listed sources state
+meta:
+  category: pdu
+  roles: [power, 0u]
+  family: "Generic PDUs"
+  summary: "Vertical 0U PDU, 1 m, 12 x C13 and 4 x C19 outlets in two breaker-protected banks."
 model3d:
   file: models/Generic/PDU-0U-12xC13-4xC19.glb
   far: models/Generic/PDU-0U-12xC13-4xC19.far.glb

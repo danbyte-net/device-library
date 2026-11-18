@@ -11,5 +11,15 @@ cable:
   min_bend_mm: 66
   min_bend_by_part:
     STACK-T4-3M: 91
+# danbyte: meta (spec 1.14 section 8): only what the listed sources state
+meta:
+  category: pluggable
+  roles: [stacking, cable]
+  family: "Catalyst 9200"
+  summary: "Data stack cable for Catalyst 9200/9200L stacking, in 50 cm, 1 m and 3 m lengths."
+  links:
+    - { kind: datasheet, title: "Cisco Catalyst 9200 Series Switches Data Sheet", url: "https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9200-series-switches/nb-06-cat9200-ser-data-sheet-cte-en.html" }
+    - { kind: install-guide, title: "Cisco Catalyst 9200 Series Switches Hardware Installation Guide", url: "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9200/hardware/install/b-c9200-hig.html" }
+    - { kind: product-page, title: "Catalyst 9200 Switches Overview", url: "https://www.cisco.com/c/en/us/products/switches/catalyst-9200-series-switches/index.html" }
 model3d:
   file: models/Cisco/STACK-T4.glb

@@ -6,5 +6,16 @@ parts: [QSFP-40G-SR-BD]
 standard: 40GBASE-SR-BiDi
 wavelength_nm: 850
 comments: "QSFP-family optical transceiver, pull tab (loop, grey), LC receptacle with the cord anchor port:lc."
+# danbyte: meta (spec 1.14 section 8): only what the listed sources state
+meta:
+  category: pluggable
+  roles: [optic, multimode]
+  family: "Cisco 40GBASE QSFP Modules"
+  summary: "40GBASE-SR BiDi QSFP+ optic, two wavelengths in 832-918 nm, duplex multimode, LC, up to 100 m on OM3 and 150 m on OM4."
+  links:
+    - { kind: other, title: "Optics Compatibility Matrix (Cisco Transceiver Module Group, TMG)", url: "https://tmgmatrix.cisco.com" }
+    - { kind: product-page, title: "Cisco Optics (transceiver modules)", url: "https://www.cisco.com/c/en/us/products/interfaces-modules/transceiver-modules" }
+    - { kind: other, title: "Cisco transceiver modules End-of-Life and End-of-Sale notices", url: "https://www.cisco.com/c/en/us/products/interfaces-modules/transceiver-modules/eos-eol-notice-listing.html" }
+    - { kind: datasheet, title: "Cisco 40GBASE QSFP Modules Data Sheet", url: "https://www.cisco.com/c/en/us/products/collateral/interfaces-modules/transceiver-modules/data_sheet_c78-660083.html" }
 model3d:
   file: models/Cisco/QSFP-40G-SR-BD.glb

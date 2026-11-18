@@ -130,6 +130,22 @@ rack_mount:
     front: 0
   default: front
   rails: none
+# danbyte: meta (spec 1.14 section 8): only what the listed sources state
+meta:
+  category: switch
+  roles: [core, aggregation, campus]
+  family: "Catalyst 9500"
+  summary: "40-port 1/10G SFP/SFP+ 1RU core/aggregation switch with one uplink network module slot."
+  lifecycle:
+    end_of_sale: "2024-04-30"
+    end_of_security_updates: "2029-04-30"
+    end_of_support: "2029-04-30"
+    source: "https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/c9500-12q-c9500-24q-c9500-40x-eol.html"
+  links:
+    - { kind: product-page, title: "Cisco Catalyst 9500 Series Switches", url: "https://www.cisco.com/c/en/us/products/switches/catalyst-9500-series-switches/index.html" }
+    - { kind: datasheet, title: "Cisco Catalyst 9500 Series Switches Data Sheet", url: "https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/nb-06-cat9500-ser-data-sheet-cte-en.html" }
+    - { kind: install-guide, title: "Cisco Catalyst 9500 Series Switches Hardware Installation Guide", url: "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9500/hardware/install/b_catalyst_9500_hig.html" }
+    - { kind: eol-notice, title: "End-of-Sale and End-of-Life Announcement for the Cisco C9500 selected Switch Models: C9500-12Q, C9500-24Q and C9500-40X", url: "https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/c9500-12q-c9500-24q-c9500-40x-eol.html" }
 model3d:
   file: models/Cisco/C9500-40X.glb
   far: models/Cisco/C9500-40X.far.glb
