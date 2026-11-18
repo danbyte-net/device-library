@@ -1,0 +1,11 @@
+name: OPEN-4POST
+frame: 4-post
+model3d:
+  file: models/Generic/OPEN-4POST.kit.glb
+  far: models/Generic/OPEN-4POST.far.glb
+widths_mm: [600, 800]
+depths_mm: [600, 800, 1000, 1200]
+colours:
+  black: "#1b1c1e"
+  grey: "#c9ccce"
+comments: "Generic open 4-post 19-inch frame, unbranded. Reference 42U 600 x 1000 (rail depth 740 mm, ear plane y 100 mm, U1 at z 130 mm), same rails as CABINET. No doors, panels or pathways by default."

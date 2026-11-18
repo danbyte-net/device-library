@@ -1,0 +1,10 @@
+name: QSFP-100G-LR4-S
+kind: transceiver
+connector: lc
+fits: [100gbase-x-qsfp28]
+parts: [QSFP-100G-LR4-S]
+standard: 100GBASE-LR4
+wavelength_nm: 1310
+comments: "QSFP-family optical transceiver, pull tab (grip, blue), LC receptacle with the cord anchor port:lc."
+model3d:
+  file: models/Cisco/QSFP-100G-LR4-S.glb

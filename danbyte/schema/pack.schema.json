@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pack.schema.json",
+  "$comment": "danbyte-library/v1",
+  "title": "Pack",
+  "description": "A pack is a named, versioned selection of library entries, in `danbyte/packs/<id>/pack.yaml`. `danbyte-lib build` turns it into the zip Danbyte installs (pack import, online or air-gapped); the catalog shows each entry's pack, version, licence and author. Entries are named `<Vendor>/<NAME>`, as their file paths under the matching folder.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "version",
+    "license",
+    "author",
+    "types"
+  ],
+  "properties": {
+    "format": {
+      "$ref": "common.schema.json#/$defs/format"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,63}$",
+      "description": "Stable id, equal to the folder name."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "description": "Display name."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)([-+][0-9A-Za-z.-]+)?$",
+      "description": "Semantic version; Danbyte compares it with the installed one for \"update available\"."
+    },
+    "license": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "description": "SPDX licence of the pack's models and photos (overlays and schema are CC0-1.0 regardless)."
+    },
+    "author": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Who made the models; credited in the catalog and in Danbyte's pack info."
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "One paragraph on what the pack holds."
+    },
+    "blender": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "description": "Blender version the models were exported with."
+    },
+    "spec": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "description": "Export spec version the models follow."
+    },
+    "types": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "description": "The entries, by kind.",
+      "properties": {
+        "device": {
+          "$ref": "#/$defs/refs",
+          "description": "Device overlays: `danbyte/overlays/<ref>.yaml`."
+        },
+        "module": {
+          "$ref": "#/$defs/refs",
+          "description": "Module overlays: `danbyte/module-overlays/<ref>.yaml`."
+        },
+        "pluggable": {
+          "$ref": "#/$defs/refs",
+          "description": "Pluggables: `danbyte/pluggables/<ref>.yaml`."
+        },
+        "rack-kit": {
+          "$ref": "#/$defs/refs",
+          "description": "Rack kits: `danbyte/racks/kits/<ref>/kit.yaml`."
+        },
+        "rack-type": {
+          "$ref": "#/$defs/refs",
+          "description": "Rack types: `danbyte/racks/types/<ref>.yaml`."
+        }
+      }
+    }
+  },
+  "$defs": {
+    "refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[^/\\s][^/]*/[^/]+$"
+      }
+    }
+  },
+  "examples": [
+    {
+      "id": "cisco-catalyst-9500",
+      "name": "Cisco Catalyst 9500",
+      "version": "1.6.15",
+      "license": "CC-BY-4.0",
+      "author": "A. Modeller",
+      "types": {
+        "device": [
+          "Cisco/C9300-24P"
+        ],
+        "module": [
+          "Cisco/FAN-T2"
+        ],
+        "pluggable": [
+          "Generic/RJ45-PLUG"
+        ]
+      }
+    }
+  ]
+}

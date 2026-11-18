@@ -1,0 +1,121 @@
+---
+manufacturer: Cisco
+model: Catalyst 9500-24Y4C
+slug: cisco-c9500-24y4c
+part_number: C9500-24Y4C
+u_height: 1
+is_full_depth: true
+front_image: true
+rear_image: true
+weight: 9.52
+weight_unit: kg
+comments: '[Cisco Catalyst 9500 Series Switches Data Sheet](https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/nb-06-cat9500-ser-data-sheet-cte-en.html)'
+console-ports:
+  - name: con 0
+    type: rj-45
+  - name: usb
+    type: usb-mini-b
+module-bays:
+  - name: PS-0
+    position: '0'
+    modules: [C9K-PWR-650WAC-R, C9K-PWR-650WACL-R, C9K-PWR-930WDC-R]
+  - name: PS-1
+    position: '1'
+    modules: [C9K-PWR-650WAC-R, C9K-PWR-650WACL-R, C9K-PWR-930WDC-R]
+  # Danbyte overlay: bay added (field-replaceable part missing in the library)
+  - name: FAN 0
+    position: '0'
+    modules: [C9K-T1-FANTRAY]
+  # Danbyte overlay: bay added (field-replaceable part missing in the library)
+  - name: FAN 1
+    position: '1'
+    modules: [C9K-T1-FANTRAY]
+interfaces:
+  - name: GigabitEthernet0/0
+    type: 1000base-t
+    mgmt_only: true
+  - name: TwentyFiveGigE1/0/1
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/2
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/3
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/4
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/5
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/6
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/7
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/8
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/9
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/10
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/11
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/12
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/13
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/14
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/15
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/16
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/17
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/18
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/19
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/20
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/21
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/22
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/23
+    type: 25gbase-x-sfp28
+  - name: TwentyFiveGigE1/0/24
+    type: 25gbase-x-sfp28
+  - name: HundredGigE1/0/25
+    type: 100gbase-x-qsfp28
+  - name: HundredGigE1/0/26
+    type: 100gbase-x-qsfp28
+  - name: HundredGigE1/0/27
+    type: 100gbase-x-qsfp28
+  - name: HundredGigE1/0/28
+    type: 100gbase-x-qsfp28
+
+rack_mount:
+  # danbyte: rack mounting (spec 1.11 section 8) from Cisco's install guide; middle / rear positions exist but have no published offsets (see REPORT)
+  ears: true
+  positions:
+    front: 0
+  default: front
+  rails: none
+model3d:
+  file: models/Cisco/C9500-24Y4C.glb
+  far: models/Cisco/C9500-24Y4C.far.glb
+  empty: filler
+  leds:
+    SYS: { source: device.status }
+    BEACON: { source: device.locate }
+    PSU: { source: modules.status, bays: [PS-0, PS-1] }
+    FAN: { source: modules.status, bays: [FAN 0, FAN 1] }
+    MGMT_ACT: { source: none }
+    "port:*": { source: interface.oper_status }
+  renders:
+    front: models/Cisco/C9500-24Y4C.front.webp
+    rear:  models/Cisco/C9500-24Y4C.rear.webp
+    iso:   models/Cisco/C9500-24Y4C.iso.webp
+    model_sha256: 13e9e873df9edd0db919803cc80549880ee6619a771ed47111542ae9b3894601
+    modules:
+      PS-0: C9K-PWR-650WAC-R
+      PS-1: C9K-PWR-650WAC-R
+      FAN 0: C9K-T1-FANTRAY
+      FAN 1: C9K-T1-FANTRAY

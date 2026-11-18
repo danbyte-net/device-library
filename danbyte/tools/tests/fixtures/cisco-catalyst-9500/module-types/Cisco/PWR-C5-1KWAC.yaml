@@ -1,0 +1,15 @@
+---
+manufacturer: Cisco
+model: PWR-C5-1KWAC
+part_number: PWR-C5-1KWAC
+power-ports:
+  - name: PSU{module}
+    type: iec-60320-c16
+    maximum_draw: 1000
+
+model3d:
+  file: models/Cisco/PWR-C5-1KWAC.glb
+  far: models/Cisco/PWR-C5-1KWAC.far.glb
+  leds:
+    AC_OK: { source: module.status }
+    PS_OK: { source: module.status }

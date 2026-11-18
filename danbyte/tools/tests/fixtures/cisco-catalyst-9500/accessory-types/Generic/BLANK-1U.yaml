@@ -1,0 +1,6 @@
+name: BLANK-1U
+kind: blanking
+u_height: 1
+comments: "Generic 1U 19-inch blanking panel (EIA-310), steel, black."
+model3d:
+  file: models/Generic/BLANK-1U.glb

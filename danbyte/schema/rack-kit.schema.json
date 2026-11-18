@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rack-kit.schema.json",
+  "$comment": "danbyte-library/v1",
+  "title": "Rack kit",
+  "description": "One style of rack as a kit of named parts, in `danbyte/racks/kits/<Vendor>/<NAME>/kit.yaml` (export spec §14). Danbyte builds every rack of that style from the parts, to the rack's own height, width and depth: `post:segment` repeated per U, beams and panels stretched, doors swung on their `hinge` empty. Pathways (`path:`, `entry:`, `channel:0u:` empties) live in the kit model.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "frame",
+    "model3d"
+  ],
+  "properties": {
+    "format": {
+      "$ref": "common.schema.json#/$defs/format"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "description": "The kit's name, equal to its folder (`CABINET`, `OPEN-4POST`)."
+    },
+    "frame": {
+      "enum": [
+        "cabinet",
+        "4-post",
+        "2-post",
+        "wall-cabinet"
+      ],
+      "description": "The frame type the kit builds."
+    },
+    "model3d": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "file"
+      ],
+      "description": "The kit model (every part as a named object; ≤ 20,000 unique triangles) and its far box (≤ 2,000).",
+      "properties": {
+        "file": {
+          "$ref": "common.schema.json#/$defs/glbPath"
+        },
+        "far": {
+          "$ref": "common.schema.json#/$defs/glbPath"
+        }
+      }
+    },
+    "widths_mm": {
+      "description": "Outer widths the kit is meant for, mm.",
+      "type": "array",
+      "maxItems": 16,
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 100,
+        "maximum": 3000
+      }
+    },
+    "depths_mm": {
+      "description": "Outer depths the kit is meant for, mm.",
+      "type": "array",
+      "maxItems": 16,
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 100,
+        "maximum": 3000
+      }
+    },
+    "colours": {
+      "description": "Colour name → hex: base colours Danbyte may recolour the `FRAME` material to.",
+      "type": "object",
+      "maxProperties": 16,
+      "propertyNames": {
+        "minLength": 1,
+        "maxLength": 16
+      },
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^#[0-9a-fA-F]{6}$"
+      }
+    },
+    "comments": {
+      "type": "string",
+      "description": "What the kit's model shows and where its sizes come from."
+    },
+    "meta": {
+      "allOf": [
+        {
+          "$ref": "meta.schema.json"
+        },
+        {
+          "properties": {
+            "category": {
+              "const": "rack-kit"
+            },
+            "module_kind": false
+          }
+        }
+      ],
+      "description": "Catalog facts (see meta); category `rack-kit`."
+    }
+  },
+  "examples": [
+    {
+      "name": "CABINET",
+      "frame": "cabinet",
+      "model3d": {
+        "file": "assets/Generic/CABINET.kit.glb",
+        "far": "assets/Generic/CABINET.far.glb"
+      },
+      "widths_mm": [
+        600,
+        800
+      ],
+      "depths_mm": [
+        1000,
+        1200
+      ],
+      "colours": {
+        "black": "#1b1c1e"
+      }
+    }
+  ]
+}

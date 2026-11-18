@@ -1,0 +1,6 @@
+name: CM-VERT-2POST
+kind: cable-manager
+u_height: 0
+comments: "Generic vertical cable manager for 2-post racks, 150 x 115 mm channel; stretched in z (ref 1000 mm) to the rack height. Origin on the upright's outer face."
+model3d:
+  file: models/Generic/CM-VERT-2POST.glb

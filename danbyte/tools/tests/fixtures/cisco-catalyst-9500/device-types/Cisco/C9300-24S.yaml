@@ -1,0 +1,128 @@
+---
+manufacturer: Cisco
+model: Catalyst 9300-24S
+part_number: C9300-24S
+slug: cisco-c9300-24s
+u_height: 1
+is_full_depth: true
+weight: 7.64
+weight_unit: kg
+front_image: true
+rear_image: true
+comments: '[Cisco Catalyst 9300 Series Switches Data Sheet](https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9300-series-switches/nb-06-cat9300-ser-data-sheet-cte-en.html)'
+console-ports:
+  - name: con 0
+    type: rj-45
+  - name: usb
+    type: usb-mini-b
+power-ports:
+  - name: StackPower1/A
+    type: cisco-stackpower
+  - name: StackPower1/B
+    type: cisco-stackpower
+interfaces:
+  - name: GigabitEthernet1/0/1
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/2
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/3
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/4
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/5
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/6
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/7
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/8
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/9
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/10
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/11
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/12
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/13
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/14
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/15
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/16
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/17
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/18
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/19
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/20
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/21
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/22
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/23
+    type: 1000base-x-sfp
+  - name: GigabitEthernet1/0/24
+    type: 1000base-x-sfp
+  - name: StackPort1/1
+    type: cisco-stackwise-480
+  - name: StackPort1/2
+    type: cisco-stackwise-480
+  # Danbyte overlay: interface added (rear RJ45 management port, as in the Danbyte C9300-24P YAML)
+  - name: GigabitEthernet0/0
+    type: 1000base-t
+    mgmt_only: true
+module-bays:
+  - name: Network Module
+    position: '1'
+    modules: [C9300-NM-4G, C9300-NM-4M, C9300-NM-8X, C9300-NM-2Q, C9300-NM-2Y]
+  - name: PS-A
+    position: A
+    modules: [PWR-C1-715WAC-P, PWR-C1-350WAC-P, PWR-C1-1100WAC-P]
+  - name: PS-B
+    position: B
+    modules: [PWR-C1-715WAC-P, PWR-C1-350WAC-P, PWR-C1-1100WAC-P]
+  - name: FAN 1
+    position: '1'
+    modules: [FAN-T2]
+  - name: FAN 2
+    position: '2'
+    modules: [FAN-T2]
+  - name: FAN 3
+    position: '3'
+    modules: [FAN-T2]
+
+rack_mount:
+  # danbyte: rack mounting (spec 1.11 section 8) from Cisco's install guide; mid = Cisco's mid-mount figure (bracket turned round on the front holes), ~98 mm from our bracket model; Cisco's rear mount turns the switch round (see REPORT)
+  ears: true
+  positions:
+    front: 0
+    mid: 98
+  default: front
+  rails: none
+model3d:
+  file: models/Cisco/C9300-24S.glb
+  far: models/Cisco/C9300-24S.far.glb
+  empty: filler
+  leds:
+    SYS: { source: device.status }
+    BEACON: { source: device.locate }
+    STACK: { source: none }
+    "port:*": { source: interface.oper_status }
+  renders:
+    front: models/Cisco/C9300-24S.front.webp
+    rear:  models/Cisco/C9300-24S.rear.webp
+    iso:   models/Cisco/C9300-24S.iso.webp
+    model_sha256: daa16fc3c4d82b6b2c9a5bfd956ad11ab2177e9488fa97c3945ba797163b7149
+    modules:
+      Network Module: C9300-NM-8X
+      PS-A: PWR-C1-715WAC-P
+      PS-B: PWR-C1-715WAC-P
+      FAN 1: FAN-T2
+      FAN 2: FAN-T2
+      FAN 3: FAN-T2

@@ -1,0 +1,15 @@
+---
+manufacturer: Cisco
+model: PWR-C6-125WAC
+part_number: PWR-C6-125WAC
+power-ports:
+  - name: PSU{module}
+    type: iec-60320-c16
+    maximum_draw: 125
+
+model3d:
+  file: models/Cisco/PWR-C6-125WAC.glb
+  far: models/Cisco/PWR-C6-125WAC.far.glb
+  leds:
+    AC_OK: { source: module.status }
+    PS_OK: { source: module.status }

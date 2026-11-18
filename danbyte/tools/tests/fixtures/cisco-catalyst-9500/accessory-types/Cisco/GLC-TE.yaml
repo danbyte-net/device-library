@@ -1,0 +1,9 @@
+name: GLC-TE
+kind: transceiver
+connector: rj45
+fits: [1000base-x-sfp]
+parts: [GLC-TE]
+standard: 1000BASE-T
+comments: "RJ45 copper SFP - SFP body with a tall nose carrying an RJ45 jack (latch notch up), bail with black colour-code paint; an RJ45-PLUG seats at port:rj45."
+model3d:
+  file: models/Cisco/GLC-TE.glb

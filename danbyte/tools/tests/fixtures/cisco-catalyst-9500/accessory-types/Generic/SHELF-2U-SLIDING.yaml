@@ -1,0 +1,6 @@
+name: SHELF-2U-SLIDING
+kind: shelf
+u_height: 2
+comments: "Generic 2U sliding shelf, 600 mm deep tray."
+model3d:
+  file: models/Generic/SHELF-2U-SLIDING.glb

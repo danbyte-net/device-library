@@ -1,0 +1,8 @@
+name: QSFP-GENERIC
+kind: transceiver
+connector: mpo
+fits: [40gbase-x-qsfpp, 100gbase-x-qsfp28]
+parts: []
+comments: "QSFP-family optical transceiver, pull tab (loop, grey), MPO receptacle with the cord anchor port:mpo."
+model3d:
+  file: models/Generic/QSFP-GENERIC.glb

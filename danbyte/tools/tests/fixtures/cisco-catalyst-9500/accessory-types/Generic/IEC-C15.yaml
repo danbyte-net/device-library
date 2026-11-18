@@ -1,0 +1,11 @@
+name: IEC-C15
+kind: plug
+connector: c15
+fits: [iec-60320-c16]
+comments: "IEC C15 cord connector (10 A, hot condition): a C13 with the slot for the C16 key under the line/neutral sockets - moulded body with grip ribs, nose with the three contact sockets, strain relief, 7.0 mm cord ending at the cable empty. Origin is the PSU inlet port anchor; the earth side is +Y (every PSU anchor's +Y points at the inlet's earth / chamfer side). CABLE is recoloured by Danbyte."
+cable:
+  profile: round
+  jacket_mm: 7.0
+  min_bend_mm: 40
+model3d:
+  file: models/Generic/IEC-C15.glb

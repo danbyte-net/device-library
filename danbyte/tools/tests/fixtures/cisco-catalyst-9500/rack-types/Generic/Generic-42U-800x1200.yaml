@@ -1,0 +1,16 @@
+manufacturer: Generic
+model: Generic 42U 800x1200 cabinet
+u_height: 42
+width: 19
+outer_width_mm: 800
+outer_depth_mm: 1200
+rail_depth_mm: 940
+look:
+  kit: CABINET
+  front_door: split-perforated
+  rear_door: split-perforated
+  hinge: left
+  side_panels: true
+  top: vented
+  base: plinth
+  colour: black

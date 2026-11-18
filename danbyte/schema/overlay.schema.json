@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "overlay.schema.json",
+  "$comment": "danbyte-library/v1",
+  "title": "Device overlay",
+  "description": "What Danbyte adds to one upstream NetBox device type, in `danbyte/overlays/<Vendor>/<model>.yaml`. It names its upstream file and adds or patches only what Danbyte needs: Danbyte keys (`model3d`, `rack_mount`, `meta`), NetBox top-level keys that need correcting, and component lists patched by name with `add:` / `remove:` entries that each say `why`. The merge (`danbyte-lib preview`) is what Danbyte imports; upstream fixes flow in untouched, and `sync-check` reports patched names that upstream no longer has.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "upstream"
+  ],
+  "properties": {
+    "format": {
+      "$ref": "common.schema.json#/$defs/format"
+    },
+    "upstream": {
+      "description": "The NetBox YAML this overlay adds to, relative to the repository root: an upstream file under `device-types/`, or a Danbyte-only base under `danbyte/types-new/device-types/` for hardware upstream doesn't have yet. Never edited by the overlay.",
+      "type": "string",
+      "pattern": "^(device-types|danbyte/types-new/device-types)/[^/]+/[^/]+\\.ya?ml$"
+    },
+    "meta": {
+      "allOf": [
+        {
+          "$ref": "meta.schema.json"
+        },
+        {
+          "properties": {
+            "category": {
+              "not": {
+                "enum": [
+                  "module",
+                  "pluggable",
+                  "rack",
+                  "rack-kit"
+                ]
+              }
+            },
+            "module_kind": false
+          }
+        }
+      ],
+      "description": "Catalog facts (see meta)."
+    },
+    "model3d": {
+      "$ref": "common.schema.json#/$defs/model3d"
+    },
+    "rack_mount": {
+      "$ref": "common.schema.json#/$defs/rackMount"
+    },
+    "part_number": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "NetBox key, overriding upstream: The vendor part number, when upstream's is wrong."
+    },
+    "u_height": {
+      "type": "number",
+      "minimum": 0,
+      "multipleOf": 0.5,
+      "description": "NetBox key, overriding upstream: Height in rack units."
+    },
+    "is_full_depth": {
+      "type": "boolean",
+      "description": "NetBox key, overriding upstream: Whether it occupies the rack's full depth."
+    },
+    "airflow": {
+      "type": "string",
+      "description": "NetBox key, overriding upstream: NetBox airflow slug (front-to-rear, rear-to-front, …)."
+    },
+    "weight": {
+      "type": "number",
+      "minimum": 0,
+      "description": "NetBox key, overriding upstream: Weight, in weight_unit."
+    },
+    "weight_unit": {
+      "enum": [
+        "kg",
+        "g",
+        "lb",
+        "oz"
+      ],
+      "description": "NetBox key, overriding upstream: Unit of weight."
+    },
+    "front_image": {
+      "type": "boolean",
+      "description": "NetBox key, overriding upstream: Whether a front elevation image exists."
+    },
+    "rear_image": {
+      "type": "boolean",
+      "description": "NetBox key, overriding upstream: Whether a rear elevation image exists."
+    },
+    "subdevice_role": {
+      "enum": [
+        "parent",
+        "child"
+      ],
+      "description": "NetBox key, overriding upstream: NetBox subdevice role."
+    },
+    "is_powered": {
+      "type": "boolean",
+      "description": "NetBox key, overriding upstream: Whether the type draws power."
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "NetBox key, overriding upstream: Short description."
+    },
+    "comments": {
+      "type": "string",
+      "description": "NetBox key, overriding upstream: Free text (Markdown)."
+    },
+    "console-ports": {
+      "$ref": "common.schema.json#/$defs/consolePortSection"
+    },
+    "console-server-ports": {
+      "$ref": "common.schema.json#/$defs/consoleServerPortSection"
+    },
+    "power-ports": {
+      "$ref": "common.schema.json#/$defs/powerPortSection"
+    },
+    "power-outlets": {
+      "$ref": "common.schema.json#/$defs/powerOutletSection"
+    },
+    "interfaces": {
+      "$ref": "common.schema.json#/$defs/interfaceSection"
+    },
+    "front-ports": {
+      "$ref": "common.schema.json#/$defs/frontPortSection"
+    },
+    "rear-ports": {
+      "$ref": "common.schema.json#/$defs/rearPortSection"
+    },
+    "module-bays": {
+      "$ref": "common.schema.json#/$defs/moduleBaySection"
+    },
+    "device-bays": {
+      "$ref": "common.schema.json#/$defs/deviceBaySection"
+    },
+    "inventory-items": {
+      "$ref": "common.schema.json#/$defs/inventoryItemSection"
+    }
+  },
+  "examples": [
+    {
+      "upstream": "device-types/Cisco/C9300-24P.yaml",
+      "meta": {
+        "category": "switch",
+        "family": "Catalyst 9300"
+      },
+      "interfaces": {
+        "StackPort1/1": {
+          "type": "cisco-stackwise-480"
+        }
+      },
+      "power-ports": {
+        "add": [
+          {
+            "name": "StackPower1/A",
+            "type": "cisco-stackpower",
+            "why": "StackPower receptacle, rear panel"
+          }
+        ]
+      },
+      "module-bays": {
+        "PS-A": {
+          "modules": [
+            "PWR-C1-350WAC-P",
+            "PWR-C1-715WAC-P"
+          ]
+        }
+      },
+      "model3d": {
+        "file": "assets/Cisco/C9300-24P.glb"
+      }
+    }
+  ]
+}

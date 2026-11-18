@@ -1,0 +1,15 @@
+name: STACK-T4
+kind: cord
+connector: stack
+fits: [cisco-stackwise-160, cisco-stackwise-80]
+parts: [STACK-T4-50CM, STACK-T4-1M, STACK-T4-3M]
+standard: StackWise-160
+comments: "Cisco StackWise-160 / StackWise-80 stack cable end (Catalyst 9200 with C9200-STACK-KIT, 9200L): one connector head, a metal shell with a flat plug into the stack adapter's socket, two knurled thumbscrews at diagonal corners (upper left and lower right seen from the rear), a round cable straight out of the middle of the rear, 40 mm stub to the cable empty. Minimum bend radius 66 mm, the 3 m cable 91 mm (Cisco C9200 HIG table 1). Head size from Cisco's HIG figure 14 and product photos (no published drawing), +-2 mm; the 6.5 mm cable diameter is an estimate. Origin is the stack port anchor. CABLE is recoloured by Danbyte."
+cable:
+  profile: round
+  jacket_mm: 6.5
+  min_bend_mm: 66
+  min_bend_by_part:
+    STACK-T4-3M: 91
+model3d:
+  file: models/Cisco/STACK-T4.glb

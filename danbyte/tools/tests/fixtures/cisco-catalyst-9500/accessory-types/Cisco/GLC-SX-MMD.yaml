@@ -1,0 +1,10 @@
+name: GLC-SX-MMD
+kind: transceiver
+connector: lc
+fits: [1000base-x-sfp]
+parts: [GLC-SX-MMD]
+standard: 1000BASE-SX
+wavelength_nm: 850
+comments: "SFP-family optical transceiver, bail closed (colour code black), LC duplex receptacle with the cord anchor port:lc (TX left, RX right, seen from the front)."
+model3d:
+  file: models/Cisco/GLC-SX-MMD.glb
