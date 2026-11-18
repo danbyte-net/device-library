@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+format: danbyte-library/v1
+upstream: module-types/Cisco/FAN-T2.yaml
+meta: {category: module, module_kind: fan}
+model3d:
+  file: assets/Cisco/FAN-T2.glb
+  far: assets/Cisco/FAN-T2.far.glb
+  leds:
+    STATUS: {source: module.status}

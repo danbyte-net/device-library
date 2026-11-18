@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Cisco/C9200-48P.yaml
+meta: {category: switch, family: Catalyst 9200}
+front_image: true
+module-bays:
+  Network Module:
+    modules: [C9200-NM-4G, C9200-NM-4X, C9200-NM-BLANK]
+  StackPort1/1:
+    modules: [C9200-STACK-KIT]
+  StackPort1/2:
+    modules: [C9200-STACK-KIT]
+  PS-0:
+    modules: [PWR-C6-1KWAC, PWR-C6-715WDC]
+  PS-1:
+    modules: [PWR-C6-1KWAC, PWR-C6-715WDC]
+  add:
+    - name: FAN 1
+      position: '1'
+      modules: [FAN-T2]
+      why: bay added (field-replaceable part missing in the library)
+    - name: FAN 2
+      position: '2'
+      modules: [FAN-T2]
+      why: bay added (field-replaceable part missing in the library)
+
+model3d:
+  file: assets/Cisco/C9200-48P.glb
+  far: assets/Cisco/C9200-48P.far.glb
+  empty: filler
+  leds:
+    SYS: {source: device.status}
+    BEACON: {source: device.locate}
+    STACK: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Cisco/C9200-48P.front.webp
+    rear: assets/Cisco/C9200-48P.rear.webp
+    iso: assets/Cisco/C9200-48P.iso.webp
+    model_sha256: 5d2a14e8a560e0444b12c845ab5169affbc1389ae76b5ed5d66e94c46f473d8d
+    modules: {Network Module: C9200-NM-4X, FAN 1: FAN-T2, FAN 2: FAN-T2, PS-0: PWR-C6-1KWAC, PS-1: PWR-C6-1KWAC}
+
+# rack mounting (spec 1.11 section 8) from Cisco's install guide; mid = Cisco's 'rear-mount' figure (bracket turned round on the front holes), ~98 mm from our bracket model
+rack_mount:
+  ears: true
+  positions: {front: 0, mid: 98}
+  default: front
+  rails: none

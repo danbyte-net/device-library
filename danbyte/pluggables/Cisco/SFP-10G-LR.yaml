@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta: {category: pluggable}
+name: SFP-10G-LR
+kind: transceiver
+connector: lc
+fits: [10gbase-x-sfpp]
+parts: [SFP-10G-LR, SFP-10G-LR-S, SFP-10G-LR-X]
+standard: 10GBASE-LR
+wavelength_nm: 1310
+comments: SFP-family optical transceiver, bail closed (colour code blue), LC duplex receptacle with the cord anchor port:lc (TX left, RX right, seen from the front).
+model3d: {file: assets/Cisco/SFP-10G-LR.glb}

@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+format: danbyte-library/v1
+upstream: module-types/Cisco/PWR-C1-350WAC-P.yaml
+meta: {category: module, family: Catalyst 9300, module_kind: psu}
+power-ports:
+  PS-{module}: {type: iec-60320-c16}
+
+model3d:
+  file: assets/Cisco/PWR-C1-350WAC-P.glb
+  far: assets/Cisco/PWR-C1-350WAC-P.far.glb
+  leds:
+    AC_OK: {source: module.status}
+    PS_OK: {source: module.status}

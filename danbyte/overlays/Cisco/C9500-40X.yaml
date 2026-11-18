@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Cisco/C9500-40X.yaml
+meta: {category: switch, family: Catalyst 9500}
+module-bays:
+  Network Module:
+    modules: [C9500-NM-8X, C9500-NM-2Q]
+  PS-0:
+    modules: [PWR-C4-950WAC-R, PWR-C4-950WDC-R]
+  PS-1:
+    modules: [PWR-C4-950WAC-R, PWR-C4-950WDC-R]
+  add:
+    - name: FAN 0
+      position: '0'
+      modules: [FAN-T4-R]
+      why: fan bays added (Cisco 9500 HIG rear panel figure); the NetBox library has none.
+    - name: FAN 1
+      position: '1'
+      modules: [FAN-T4-R]
+      why: fan bays added (Cisco 9500 HIG rear panel figure); the NetBox library has none.
+    - name: FAN 2
+      position: '2'
+      modules: [FAN-T4-R]
+      why: fan bays added (Cisco 9500 HIG rear panel figure); the NetBox library has none.
+    - name: FAN 3
+      position: '3'
+      modules: [FAN-T4-R]
+      why: fan bays added (Cisco 9500 HIG rear panel figure); the NetBox library has none.
+    - name: FAN 4
+      position: '4'
+      modules: [FAN-T4-R]
+      why: fan bays added (Cisco 9500 HIG rear panel figure); the NetBox library has none.
+
+model3d:
+  file: assets/Cisco/C9500-40X.glb
+  far: assets/Cisco/C9500-40X.far.glb
+  empty: filler
+  leds:
+    SYS: {source: device.status}
+    BEACON: {source: device.locate}
+    PSU:
+      source: modules.status
+      bays: [PS-0, PS-1]
+    FAN:
+      source: modules.status
+      bays: [FAN 0, FAN 1, FAN 2, FAN 3, FAN 4]
+    MGMT_ACT: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Cisco/C9500-40X.front.webp
+    rear: assets/Cisco/C9500-40X.rear.webp
+    iso: assets/Cisco/C9500-40X.iso.webp
+    model_sha256: adc94e100227c9e9a8f5a3e842abee7126ddff985d14f18c5f9827b20c1ea860
+    modules:
+      Network Module: C9500-NM-2Q
+      PS-0: PWR-C4-950WAC-R
+      PS-1: PWR-C4-950WAC-R
+      FAN 0: FAN-T4-R
+      FAN 1: FAN-T4-R
+      FAN 2: FAN-T4-R
+      FAN 3: FAN-T4-R
+      FAN 4: FAN-T4-R
+
+# rack mounting (spec 1.11 section 8) from Cisco's install guide; middle / rear positions exist but have no published offsets (see REPORT)
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: none

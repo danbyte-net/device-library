@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta: {category: pluggable}
+name: BLANK-2U
+kind: blanking
+u_height: 2
+comments: Generic 2U 19-inch blanking panel (EIA-310), steel, black.
+model3d: {file: assets/Generic/BLANK-2U.glb}

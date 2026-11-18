@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/device-types/Generic/PDU-0U-12xC13-4xC19.yaml
+meta: {category: pdu}
+model3d: {file: assets/Generic/PDU-0U-12xC13-4xC19.glb, far: assets/Generic/PDU-0U-12xC13-4xC19.far.glb}

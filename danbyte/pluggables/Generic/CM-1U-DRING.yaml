@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta: {category: pluggable}
+name: CM-1U-DRING
+kind: cable-manager
+u_height: 1
+comments: 'Generic 1U D-ring cable manager: five D-rings, 66 mm deep opening in front of the panel.'
+model3d: {file: assets/Generic/CM-1U-DRING.glb}

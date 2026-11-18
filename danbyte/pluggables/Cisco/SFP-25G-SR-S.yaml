@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta: {category: pluggable}
+name: SFP-25G-SR-S
+kind: transceiver
+connector: lc
+fits: [25gbase-x-sfp28]
+parts: [SFP-25G-SR-S]
+standard: 25GBASE-SR
+wavelength_nm: 850
+comments: SFP-family optical transceiver, bail closed (colour code beige), LC duplex receptacle with the cord anchor port:lc (TX left, RX right, seen from the front).
+model3d: {file: assets/Cisco/SFP-25G-SR-S.glb}

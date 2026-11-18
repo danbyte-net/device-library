@@ -1,0 +1,49 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Cisco/C9500-24Y4C.yaml
+meta: {category: switch, family: Catalyst 9500}
+front_image: true
+rear_image: true
+module-bays:
+  PS-0:
+    modules: [C9K-PWR-650WAC-R, C9K-PWR-650WACL-R, C9K-PWR-930WDC-R]
+  PS-1:
+    modules: [C9K-PWR-650WAC-R, C9K-PWR-650WACL-R, C9K-PWR-930WDC-R]
+  add:
+    - name: FAN 0
+      position: '0'
+      modules: [C9K-T1-FANTRAY]
+      why: bay added (field-replaceable part missing in the library)
+    - name: FAN 1
+      position: '1'
+      modules: [C9K-T1-FANTRAY]
+      why: bay added (field-replaceable part missing in the library)
+
+model3d:
+  file: assets/Cisco/C9500-24Y4C.glb
+  far: assets/Cisco/C9500-24Y4C.far.glb
+  empty: filler
+  leds:
+    SYS: {source: device.status}
+    BEACON: {source: device.locate}
+    PSU:
+      source: modules.status
+      bays: [PS-0, PS-1]
+    FAN:
+      source: modules.status
+      bays: [FAN 0, FAN 1]
+    MGMT_ACT: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Cisco/C9500-24Y4C.front.webp
+    rear: assets/Cisco/C9500-24Y4C.rear.webp
+    iso: assets/Cisco/C9500-24Y4C.iso.webp
+    model_sha256: 13e9e873df9edd0db919803cc80549880ee6619a771ed47111542ae9b3894601
+    modules: {PS-0: C9K-PWR-650WAC-R, PS-1: C9K-PWR-650WAC-R, FAN 0: C9K-T1-FANTRAY, FAN 1: C9K-T1-FANTRAY}
+
+# rack mounting (spec 1.11 section 8) from Cisco's install guide; middle / rear positions exist but have no published offsets (see REPORT)
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: none

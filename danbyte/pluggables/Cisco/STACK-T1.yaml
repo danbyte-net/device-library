@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta: {category: pluggable}
+name: STACK-T1
+kind: cord
+connector: stack
+fits: [cisco-stackwise-480, cisco-stackwise-1t]
+parts: [STACK-T1-50CM, STACK-T1-1M, STACK-T1-3M]
+standard: StackWise-480
+comments: 'Cisco StackWise-480 / StackWise-1T stack cable end (Catalyst 9300 / 9300X): one connector head, three plug tongues in the rear StackWise socket, two thumbscrews (top and bottom), three 6.1 mm cables stacked vertically 11.2 mm apart, 40 mm stub to the cable empty (middle cable; its X is vertical, along the ribbon). Minimum bend radius 41 mm, the 3 m cable 82 mm (Cisco C9300 HIG table 4). Head size from Cisco''s white paper figure and product photos (no published drawing), +-2 mm. Origin is the StackWise port anchor. CABLE is recoloured by Danbyte.'
+cable:
+  profile: ribbon
+  count: 3
+  pitch_mm: 11.2
+  jacket_mm: 6.1
+  min_bend_mm: 41
+  min_bend_by_part: {STACK-T1-3M: 82}
+
+model3d: {file: assets/Cisco/STACK-T1.glb}

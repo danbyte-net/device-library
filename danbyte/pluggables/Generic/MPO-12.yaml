@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta: {category: pluggable}
+name: MPO-12
+kind: plug
+connector: mpo
+fits: [mpo-8, mpo-12]
+comments: MPO-12 trunk end - inner housing seated in the receptacle (key up), coupling sleeve with grip ridges, black boot, 3.0 mm round trunk ending at the cable empty. Origin is the mating face. LC_BODY (housing) and FIBRE (trunk) are recoloured by Danbyte.
+cable: {profile: round, jacket_mm: 3.0, min_bend_mm: 30}
+model3d: {file: assets/Generic/MPO-12.glb}

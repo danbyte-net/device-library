@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta: {category: pluggable}
+name: QSFP-40G-LR4
+kind: transceiver
+connector: lc
+fits: [40gbase-x-qsfpp]
+parts: [QSFP-40G-LR4, QSFP-40G-LR4-S]
+standard: 40GBASE-LR4
+wavelength_nm: 1310
+comments: QSFP-family optical transceiver, pull tab (loop, blue), LC receptacle with the cord anchor port:lc.
+model3d: {file: assets/Cisco/QSFP-40G-LR4.glb}

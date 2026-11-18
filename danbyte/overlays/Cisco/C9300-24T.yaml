@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Cisco/C9300-24T.yaml
+meta: {category: switch, family: Catalyst 9300}
+power-ports:
+  add:
+    - name: StackPower1/A
+      type: cisco-stackpower
+      why: StackPower receptacles on the rear panel, A top and B bottom (Cisco C9300 HIG; pack report v1.6.15); NetBox has no StackPower port type, so Danbyte adds them as cisco-stackpower power ports
+    - name: StackPower1/B
+      type: cisco-stackpower
+      why: StackPower receptacles on the rear panel, A top and B bottom (Cisco C9300 HIG; pack report v1.6.15); NetBox has no StackPower port type, so Danbyte adds them as cisco-stackpower power ports
+
+interfaces:
+  StackPort1/1:
+    type: cisco-stackwise-480
+    why: typed by stack system so Danbyte picks the right stack cable head (export spec v1.12 section 8); upstream has the generic cisco-stackwise
+  StackPort1/2:
+    type: cisco-stackwise-480
+    why: typed by stack system so Danbyte picks the right stack cable head (export spec v1.12 section 8); upstream has the generic cisco-stackwise
+
+module-bays:
+  Network Module:
+    modules: [C9300-NM-4G, C9300-NM-4M, C9300-NM-8X, C9300-NM-2Q, C9300-NM-2Y]
+  PS-A:
+    modules: [PWR-C1-350WAC-P, PWR-C1-715WAC-P, PWR-C1-1100WAC-P]
+  PS-B:
+    modules: [PWR-C1-350WAC-P, PWR-C1-715WAC-P, PWR-C1-1100WAC-P]
+  FAN 1:
+    modules: [FAN-T2]
+  FAN 2:
+    modules: [FAN-T2]
+  FAN 3:
+    modules: [FAN-T2]
+
+model3d:
+  file: assets/Cisco/C9300-24T.glb
+  far: assets/Cisco/C9300-24T.far.glb
+  empty: filler
+  leds:
+    SYS: {source: device.status}
+    BEACON: {source: device.locate}
+    STACK: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Cisco/C9300-24T.front.webp
+    rear: assets/Cisco/C9300-24T.rear.webp
+    iso: assets/Cisco/C9300-24T.iso.webp
+    model_sha256: ffedfe070d872cf2dae1dede2813fc13eeede16cf9c4b8a45e95ca7983023870
+    modules:
+      Network Module: C9300-NM-8X
+      PS-A: PWR-C1-350WAC-P
+      PS-B: PWR-C1-350WAC-P
+      FAN 1: FAN-T2
+      FAN 2: FAN-T2
+      FAN 3: FAN-T2
+
+# rack mounting (spec 1.11 section 8) from Cisco's install guide; mid = Cisco's mid-mount figure (bracket turned round on the front holes), ~98 mm from our bracket model; Cisco's rear mount turns the switch round (see REPORT)
+rack_mount:
+  ears: true
+  positions: {front: 0, mid: 98}
+  default: front
+  rails: none

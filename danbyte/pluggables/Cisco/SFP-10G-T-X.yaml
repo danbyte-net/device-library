@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta: {category: pluggable}
+name: SFP-10G-T-X
+kind: transceiver
+connector: rj45
+fits: [10gbase-x-sfpp]
+parts: [SFP-10G-T-X]
+standard: 10GBASE-T
+comments: RJ45 copper SFP - SFP body with a tall nose carrying an RJ45 jack (latch notch up), bail with golden colour-code paint; an RJ45-PLUG seats at port:rj45.
+model3d: {file: assets/Cisco/SFP-10G-T-X.glb}

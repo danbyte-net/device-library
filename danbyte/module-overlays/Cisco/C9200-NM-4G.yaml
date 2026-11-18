@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+format: danbyte-library/v1
+upstream: module-types/Cisco/C9200-NM-4G.yaml
+meta: {category: module, family: Catalyst 9200, module_kind: network-module}
+model3d:
+  file: assets/Cisco/C9200-NM-4G.glb
+  far: assets/Cisco/C9200-NM-4G.far.glb
+  leds:
+    port:*: {source: interface.oper_status}

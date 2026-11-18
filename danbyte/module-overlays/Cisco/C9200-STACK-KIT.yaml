@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Cisco/C9200-STACK-KIT.yaml
+meta: {category: module, family: Catalyst 9200, module_kind: stack-kit}
+model3d: {file: assets/Cisco/C9200-STACK-KIT.glb, far: assets/Cisco/C9200-STACK-KIT.far.glb}

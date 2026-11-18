@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+format: danbyte-library/v1
+upstream: module-types/Cisco/PWR-C4-950WAC-R.yaml
+meta: {category: module, family: Catalyst 9500, module_kind: psu}
+model3d:
+  file: assets/Cisco/PWR-C4-950WAC-R.glb
+  far: assets/Cisco/PWR-C4-950WAC-R.far.glb
+  leds:
+    STATUS: {source: module.status}

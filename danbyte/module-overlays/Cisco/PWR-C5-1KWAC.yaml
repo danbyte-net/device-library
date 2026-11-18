@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+format: danbyte-library/v1
+upstream: module-types/Cisco/PWR-C5-1KWAC.yaml
+meta: {category: module, family: Catalyst 9200, module_kind: psu}
+model3d:
+  file: assets/Cisco/PWR-C5-1KWAC.glb
+  far: assets/Cisco/PWR-C5-1KWAC.far.glb
+  leds:
+    AC_OK: {source: module.status}
+    PS_OK: {source: module.status}

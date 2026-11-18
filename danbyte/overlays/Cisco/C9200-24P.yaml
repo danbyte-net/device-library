@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Cisco/C9200-24P.yaml
+meta: {category: switch, family: Catalyst 9200}
+front_image: true
+module-bays:
+  Network Module:
+    modules: [C9200-NM-4G, C9200-NM-4X, C9200-NM-BLANK]
+  StackPort1/1:
+    modules: [C9200-STACK-KIT]
+  StackPort1/2:
+    modules: [C9200-STACK-KIT]
+  PS-A:
+    modules: [PWR-C6-600WAC, PWR-C6-715WDC]
+  PS-B:
+    modules: [PWR-C6-600WAC, PWR-C6-715WDC]
+  FAN 1:
+    modules: [FAN-T2]
+  FAN 2:
+    modules: [FAN-T2]
+
+model3d:
+  file: assets/Cisco/C9200-24P.glb
+  far: assets/Cisco/C9200-24P.far.glb
+  empty: filler
+  leds:
+    SYS: {source: device.status}
+    BEACON: {source: device.locate}
+    STACK: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Cisco/C9200-24P.front.webp
+    rear: assets/Cisco/C9200-24P.rear.webp
+    iso: assets/Cisco/C9200-24P.iso.webp
+    model_sha256: 737f8d609d6abd92e2475bd56c99a4c69bfed642ad1fcda9281c10aba55ed391
+    modules:
+      Network Module: C9200-NM-4X
+      PS-A: PWR-C6-600WAC
+      PS-B: PWR-C6-600WAC
+      FAN 1: FAN-T2
+      FAN 2: FAN-T2
+
+# rack mounting (spec 1.11 section 8) from Cisco's install guide; mid = Cisco's 'rear-mount' figure (bracket turned round on the front holes), ~98 mm from our bracket model
+rack_mount:
+  ears: true
+  positions: {front: 0, mid: 98}
+  default: front
+  rails: none

@@ -1,0 +1,97 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: cisco-catalyst-9500
+name: Cisco Catalyst 9500
+version: 1.6.16
+license: CC-BY-4.0
+author: Christian Rose
+blender: 5.3
+spec: 1.13
+types:
+  device:
+    - Cisco/C9200-24P
+    - Cisco/C9200-24T
+    - Cisco/C9200-48P
+    - Cisco/C9200L-24P-4X
+    - Cisco/C9200L-48P-4X
+    - Cisco/C9300-24P
+    - Cisco/C9300-24S
+    - Cisco/C9300-24T
+    - Cisco/C9300-48P
+    - Cisco/C9300-48T
+    - Cisco/C9300-48U
+    - Cisco/C9300L-24P-4G
+    - Cisco/C9300L-24P-4X
+    - Cisco/C9300L-48P-4X
+    - Cisco/C9500-16X
+    - Cisco/C9500-24Y4C
+    - Cisco/C9500-40X
+    - Cisco/C9500-48Y4C
+    - Generic/PDU-0U-12xC13-4xC19
+    - Generic/PDU-0U-24xC13-6xC19
+  module:
+    - Cisco/C9200-NM-4G
+    - Cisco/C9200-NM-4X
+    - Cisco/C9200-STACK-KIT
+    - Cisco/C9300-NM-2Q
+    - Cisco/C9300-NM-4G
+    - Cisco/C9300-NM-8X
+    - Cisco/C9500-NM-2Q
+    - Cisco/C9K-PWR-650WAC-R
+    - Cisco/C9K-PWR-650WACL-R
+    - Cisco/C9K-T1-FANTRAY
+    - Cisco/FAN-T2
+    - Cisco/FAN-T4-R
+    - Cisco/PWR-C1-350WAC-P
+    - Cisco/PWR-C1-715WAC-P
+    - Cisco/PWR-C4-950WAC-R
+    - Cisco/PWR-C5-1KWAC
+    - Cisco/PWR-C5-600WAC
+    - Cisco/PWR-C6-125WAC
+    - Cisco/PWR-C6-1KWAC
+    - Cisco/PWR-C6-600WAC
+  pluggable:
+    - Cisco/CAB-SPWR
+    - Cisco/GLC-LH-SMD
+    - Cisco/GLC-SX-MMD
+    - Cisco/GLC-TE
+    - Cisco/QSFP-100G-CWDM4-S
+    - Cisco/QSFP-100G-DR-S
+    - Cisco/QSFP-100G-LR4-S
+    - Cisco/QSFP-100G-SR4-S
+    - Cisco/QSFP-40G-LR4
+    - Cisco/QSFP-40G-SR-BD
+    - Cisco/QSFP-40G-SR4
+    - Cisco/SFP-10G-ER
+    - Cisco/SFP-10G-LR
+    - Cisco/SFP-10G-LRM
+    - Cisco/SFP-10G-SR
+    - Cisco/SFP-10G-T-X
+    - Cisco/SFP-10G-ZR
+    - Cisco/SFP-25G-SR-S
+    - Cisco/SFP-H10GB-CU3M
+    - Cisco/STACK-T1
+    - Cisco/STACK-T4
+    - Generic/BLANK-1U
+    - Generic/BLANK-2U
+    - Generic/CM-1U-BRUSH
+    - Generic/CM-1U-DRING
+    - Generic/CM-2U-FINGER
+    - Generic/CM-VERT-2POST
+    - Generic/IEC-C13
+    - Generic/IEC-C15
+    - Generic/IEC-C19
+    - Generic/LC-DUPLEX
+    - Generic/MPO-12
+    - Generic/QSFP-GENERIC
+    - Generic/RJ45-PLUG
+    - Generic/SFP-GENERIC
+    - Generic/SHELF-1U-FIXED
+    - Generic/SHELF-2U-SLIDING
+  rack-kit: [Generic/CABINET, Generic/OPEN-4POST, Generic/TELCO-2POST, Generic/WALL-CABINET]
+  rack-type:
+    - Generic/Generic-12U-wall
+    - Generic/Generic-42U-4post-open
+    - Generic/Generic-42U-600x1000
+    - Generic/Generic-42U-800x1200
+    - Generic/Generic-45U-2post

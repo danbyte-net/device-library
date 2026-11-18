@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta: {category: pluggable}
+name: LC-DUPLEX
+kind: plug
+connector: lc
+fits: [lc-duplex, lc-apc-duplex]
+comments: LC duplex patch-cord end - two LC plugs each with its own latch, duplex clip with a curved shared trigger, white boots printed A (TX, left) and B (RX, right), the two jackets fusing into a zip cord that ends at the cable empty (+Z along the cable, +Y up, jackets along X). Origin is the mating (receptacle) face. FIBRE and LC_BODY are recoloured by Danbyte.
+cable: {profile: zipcord, jacket_mm: 1.8, pitch_mm: 1.84, min_bend_mm: 30}
+model3d: {file: assets/Generic/LC-DUPLEX.glb}

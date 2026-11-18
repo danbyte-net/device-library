@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Cisco/FAN-T4-R.yaml
+meta: {category: module, family: Catalyst 9500, module_kind: fan}
+model3d:
+  file: assets/Cisco/FAN-T4-R.glb
+  far: assets/Cisco/FAN-T4-R.far.glb
+  leds:
+    STATUS: {source: module.status}

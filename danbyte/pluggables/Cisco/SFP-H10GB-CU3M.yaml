@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta: {category: pluggable}
+name: SFP-H10GB-CU3M
+kind: cord
+connector: dac
+fits: [10gbase-x-sfpp, 25gbase-x-sfp28]
+parts: [SFP-H10GB-CU3M]
+standard: 10GBASE-CU
+comments: 'SFP+ passive direct-attach twinax copper cable head (30 AWG, 3m), one piece: SFP+ body in the cage, metal backshell with a neck where it leaves the cage, overmoulded strain relief, orange pull tab (Cisco colour code) lying back over the boot, label with the part number on both sides, 4.5 mm cable ending at the cable empty. Origin is the host port anchor. CABLE (boot and jacket) is recoloured by Danbyte.'
+cable: {profile: round, jacket_mm: 4.5, min_bend_mm: 35}
+model3d: {file: assets/Cisco/SFP-H10GB-CU3M.glb}

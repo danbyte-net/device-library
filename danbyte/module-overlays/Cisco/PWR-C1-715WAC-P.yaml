@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+format: danbyte-library/v1
+upstream: module-types/Cisco/PWR-C1-715WAC-P.yaml
+meta: {category: module, family: Catalyst 9300, module_kind: psu}
+
+# the pack models PWR-C1-715WAC-P; upstream's file gives PWR-C1-715WAC
+part_number: PWR-C1-715WAC-P
+model3d:
+  file: assets/Cisco/PWR-C1-715WAC-P.glb
+  far: assets/Cisco/PWR-C1-715WAC-P.far.glb
+  leds:
+    AC_OK: {source: module.status}
+    PS_OK: {source: module.status}

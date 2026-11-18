@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta: {category: pluggable}
+name: GLC-LH-SMD
+kind: transceiver
+connector: lc
+fits: [1000base-x-sfp]
+parts: [GLC-LH-SMD]
+standard: 1000BASE-LX/LH
+wavelength_nm: 1310
+comments: SFP-family optical transceiver, bail closed (colour code blue), LC duplex receptacle with the cord anchor port:lc (TX left, RX right, seen from the front).
+model3d: {file: assets/Cisco/GLC-LH-SMD.glb}
