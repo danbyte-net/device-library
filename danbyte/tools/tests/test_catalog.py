@@ -53,7 +53,10 @@ def test_rows_carry_what_the_site_needs(built):
 def test_vendors(built):
     out, _ = built
     vendors = {v["slug"]: v for v in json.loads((out / "vendors.json").read_text())["vendors"]}
-    assert vendors["cisco"]["categories"]["switch"] == 18
+    # As many switches as the repo has Cisco device overlays: the count
+    # follows the library, not a number that breaks with every new type.
+    overlays = len(list((REPO / "danbyte/overlays/Cisco").glob("*.yaml")))
+    assert vendors["cisco"]["categories"]["switch"] == overlays
     assert "Catalyst 9300" in vendors["cisco"]["families"]
     assert vendors["cisco"]["with_3d"] == vendors["cisco"]["count"]
 

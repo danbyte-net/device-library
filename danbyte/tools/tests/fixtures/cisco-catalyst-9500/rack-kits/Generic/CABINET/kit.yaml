@@ -1,10 +1,5 @@
 name: CABINET
 frame: cabinet
-# danbyte: meta (spec 1.14 section 8): only what the listed sources state
-meta:
-  category: rack-kit
-  family: "Generic racks"
-  summary: "Parts kit for an enclosed 19-inch cabinet."
 model3d:
   file: models/Generic/CABINET.kit.glb
   far: models/Generic/CABINET.far.glb
@@ -13,4 +8,4 @@ depths_mm: [1000, 1200]
 colours:
   black: "#1b1c1e"
   grey: "#c9ccce"
-comments: "Generic enclosed 19-inch cabinet, unbranded. Parts modelled in place for the 42U 600 x 1000 reference (rail depth 740 mm, U1 at z 130 mm, front rail face = ear plane at y 100 mm). Stretched parts are 1000 mm meshes with their origin at the start of each stretch axis. Rails: EIA-310, 465.1 mm hole columns, 9.5 mm square holes at 6.35 / 22.225 / 38.1 mm per U. Perforation: FRAME_PERF, 6.4 mm holes on an 8 mm tile (danbyte_tile_mm 8), alpha MASK. Pathways: rear corner channels path:vertical:left/right:rear (inner 52 x 88.5 mm), roof entries front-left / rear-right (brush), rear floor entry (open), 0U channels rear left / right behind the rear rails, inboard of the side beams (x +-258, from z 165 mm, 40U); front and full-depth vertical managers as add-on parts."
+comments: "Generic enclosed 19-inch cabinet, unbranded. Parts modelled in place for the 42U 600 x 1000 reference (rail depth 740 mm, U1 at z 130 mm, front rail face = ear plane at y 100 mm). Stretched parts are 1000 mm meshes with their origin at the start of each stretch axis. Rails: EIA-310, 465.1 mm hole columns, 9.5 mm square holes at 6.35 / 22.225 / 38.1 mm per U. Perforation: FRAME_PERF, 6.4 mm holes on an 8 mm tile (danbyte_tile_mm 8), alpha MASK. Pathways: rear corner channels path:vertical:left/right:rear (inner 52 x 88.5 mm), roof entries front-left / rear-right (brush), rear floor entry (open), 0U channels rear left / right behind the rear rails, inboard of the side beams (x +-258, from z 165 mm, 40U); front and full-depth vertical managers as add-on parts. Spec 1.15: split doors (door:<kind>:stile / rail / infill) and side panel (side:panel:edge / infill) next to the whole leaves, see-through glass, pdu:bracket on each channel:0u:."

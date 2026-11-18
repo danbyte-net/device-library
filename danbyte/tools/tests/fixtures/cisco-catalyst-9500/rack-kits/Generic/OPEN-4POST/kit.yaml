@@ -9,7 +9,7 @@ model3d:
   file: models/Generic/OPEN-4POST.kit.glb
   far: models/Generic/OPEN-4POST.far.glb
 widths_mm: [600, 800]
-depths_mm: [600, 800, 1000, 1200]
+depths_mm: [1000, 600, 800, 1200]
 colours:
   black: "#1b1c1e"
   grey: "#c9ccce"

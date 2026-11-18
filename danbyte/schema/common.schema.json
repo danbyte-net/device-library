@@ -254,15 +254,28 @@
               "type": "integer",
               "minimum": -2000,
               "maximum": 2000
+            },
+            "reversed": {
+              "description": "The box turned round, its rear panel toward the rack front: the rear face's offset from the ear plane, mm.",
+              "type": "integer",
+              "minimum": -2000,
+              "maximum": 2000
             }
           }
+        },
+        "ear_mm": {
+          "description": "The ear plate's thickness, mm (2 when not given). The model's origin is the front of its ears; their back sits on the rail.",
+          "type": "number",
+          "minimum": 0.5,
+          "maximum": 10
         },
         "default": {
           "description": "The fitting the box ships with.",
           "enum": [
             "front",
             "mid",
-            "rear"
+            "rear",
+            "reversed"
           ]
         },
         "rails": {

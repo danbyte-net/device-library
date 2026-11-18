@@ -227,11 +227,11 @@ module-bays:
   - name: PS-1
     position: '1'
     modules: [PWR-C6-1KWAC, PWR-C6-715WDC]
-  # Danbyte overlay: bay added (field-replaceable part missing in the library)
+  # danbyte: bay added (field-replaceable part missing in the library)
   - name: FAN 1
     position: '1'
     modules: [FAN-T2]
-  # Danbyte overlay: bay added (field-replaceable part missing in the library)
+  # danbyte: bay added (field-replaceable part missing in the library)
   - name: FAN 2
     position: '2'
     modules: [FAN-T2]

@@ -25,23 +25,23 @@ module-bays:
   - name: Network Module
     position: '1'
     modules: [C9500-NM-8X, C9500-NM-2Q]
-  # Danbyte overlay: bay added (field-replaceable part missing in the library)
+  # danbyte: bay added (field-replaceable part missing in the library)
   - name: FAN 0
     position: '0'
     modules: [FAN-T4-R]
-  # Danbyte overlay: bay added (field-replaceable part missing in the library)
+  # danbyte: bay added (field-replaceable part missing in the library)
   - name: FAN 1
     position: '1'
     modules: [FAN-T4-R]
-  # Danbyte overlay: bay added (field-replaceable part missing in the library)
+  # danbyte: bay added (field-replaceable part missing in the library)
   - name: FAN 2
     position: '2'
     modules: [FAN-T4-R]
-  # Danbyte overlay: bay added (field-replaceable part missing in the library)
+  # danbyte: bay added (field-replaceable part missing in the library)
   - name: FAN 3
     position: '3'
     modules: [FAN-T4-R]
-  # Danbyte overlay: bay added (field-replaceable part missing in the library)
+  # danbyte: bay added (field-replaceable part missing in the library)
   - name: FAN 4
     position: '4'
     modules: [FAN-T4-R]
@@ -120,7 +120,7 @@ model3d:
     front: models/Cisco/C9500-16X.front.webp
     rear:  models/Cisco/C9500-16X.rear.webp
     iso:   models/Cisco/C9500-16X.iso.webp
-    model_sha256: 13091a32468012233e91d5668953adfe7f942acc735344c30f0e564d0cc072d4
+    model_sha256: 2699072851446b010f66af876d3853487486933cf3c194207fe32ae53366ef2b
     modules:
       Network Module: C9500-NM-2Q
       PS-0: PWR-C4-950WAC-R

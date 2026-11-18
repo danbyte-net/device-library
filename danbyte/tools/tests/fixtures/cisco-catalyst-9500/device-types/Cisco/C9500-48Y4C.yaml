@@ -23,7 +23,7 @@ module-bays:
   - name: PS-1
     position: '1'
     modules: [C9K-PWR-650WAC-R, C9K-PWR-650WACL-R, C9K-PWR-930WDC-R]
-  # Danbyte overlay: fan bays added (Cisco 9500 HIG rear panel figure); the NetBox library has none.
+  # danbyte: fan bays added (Cisco 9500 HIG rear panel figure); the NetBox library has none.
   - name: FAN 0
     position: '0'
     modules: [C9K-T1-FANTRAY]

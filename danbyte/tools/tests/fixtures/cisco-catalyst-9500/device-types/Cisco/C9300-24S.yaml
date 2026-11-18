@@ -73,7 +73,7 @@ interfaces:
     type: cisco-stackwise-480
   - name: StackPort1/2
     type: cisco-stackwise-480
-  # Danbyte overlay: interface added (rear RJ45 management port, as in the Danbyte C9300-24P YAML)
+  # danbyte: interface added (rear RJ45 management port, as in the Danbyte C9300-24P YAML)
   - name: GigabitEthernet0/0
     type: 1000base-t
     mgmt_only: true
@@ -103,6 +103,8 @@ rack_mount:
   positions:
     front: 0
     mid: 98
+    # danbyte: reversed (spec 1.15): Cisco C9300 HIG figure 18, switch turned round, ears flush with the rear panel
+    reversed: 0
   default: front
   rails: none
 # danbyte: meta (spec 1.14 section 8): only what the listed sources state

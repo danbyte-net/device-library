@@ -1,0 +1,17 @@
+name: IEC-C20
+kind: cord
+connector: c20
+fits: [iec-60320-c19]
+comments: "IEC 60320 C20 cord plug (male, 16 A) for PDU outlets: shroud into the outlet pocket around the female insert, three pins (IEC 60320-1 sheet C20), moulded body with grip ribs, strain relief, 9.0 mm cord, 40 mm stub to the cable empty. Origin is the outlet's port anchor; the earth side is +Y (every outlet anchor's +Y points at the earth side). Body size typical, +-2 mm; min_bend_mm is an estimate. CABLE is recoloured by Danbyte."
+cable:
+  profile: round
+  jacket_mm: 9.0
+  min_bend_mm: 50
+# danbyte: meta (spec 1.14 section 8): only what the listed sources state
+meta:
+  category: pluggable
+  roles: [power, cord]
+  family: "IEC 60320 connectors"
+  summary: "IEC 60320 C20 cord plug (16 A), mates with C19 outlets."
+model3d:
+  file: models/Generic/IEC-C20.glb

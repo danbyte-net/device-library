@@ -107,7 +107,7 @@ module-bays:
   - name: PS-1
     position: '1'
     modules: [PWR-C4-950WAC-R, PWR-C4-950WDC-R]
-  # Danbyte overlay: fan bays added (Cisco 9500 HIG rear panel figure); the NetBox library has none.
+  # danbyte: fan bays added (Cisco 9500 HIG rear panel figure); the NetBox library has none.
   - name: FAN 0
     position: '0'
     modules: [FAN-T4-R]
@@ -161,7 +161,7 @@ model3d:
     front: models/Cisco/C9500-40X.front.webp
     rear:  models/Cisco/C9500-40X.rear.webp
     iso:   models/Cisco/C9500-40X.iso.webp
-    model_sha256: adc94e100227c9e9a8f5a3e842abee7126ddff985d14f18c5f9827b20c1ea860
+    model_sha256: 47673e60981781b62ae79624c638e6b0281b9b47c4ace45e7ebff73a4108c2e5
     modules:
       Network Module: C9500-NM-2Q
       PS-0:  PWR-C4-950WAC-R

@@ -115,7 +115,8 @@ How the device sits on a rack's rails (export spec §3, §8 "Rack mounting"). Da
 |---|---|---|---|
 | `ears` | boolean |  | false: no rack ears (shelf, sliding rails, free-standing). Default true. |
 | `positions` | mapping |  | Ear positions the install guide offers: faceplate in front of the ear plane, in mm (+ toward the rack front; a recessed front fitting is negative). |
-| `default` | one of `front`, `mid`, `rear` |  | The fitting the box ships with. |
+| `ear_mm` | number (0.5–10) |  | The ear plate's thickness, mm (2 when not given). The model's origin is the front of its ears; their back sits on the rail. |
+| `default` | one of `front`, `mid`, `rear`, `reversed` |  | The fitting the box ships with. |
 | `rails` | one of `none`, `fixed`, `sliding` |  | The rail kit it is meant for. |
 
 #### rackMount.positions
@@ -127,6 +128,7 @@ Ear positions the install guide offers: faceplate in front of the ear plane, in 
 | `front` | integer (-2000–2000) |  |  |
 | `mid` | integer (-2000–2000) |  |  |
 | `rear` | integer (-2000–2000) |  |  |
+| `reversed` | integer (-2000–2000) |  | The box turned round, its rear panel toward the rack front: the rear face's offset from the ear plane, mm. |
 
 Example:
 

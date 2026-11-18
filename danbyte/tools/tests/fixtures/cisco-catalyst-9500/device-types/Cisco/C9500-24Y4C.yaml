@@ -22,11 +22,11 @@ module-bays:
   - name: PS-1
     position: '1'
     modules: [C9K-PWR-650WAC-R, C9K-PWR-650WACL-R, C9K-PWR-930WDC-R]
-  # Danbyte overlay: bay added (field-replaceable part missing in the library)
+  # danbyte: bay added (field-replaceable part missing in the library)
   - name: FAN 0
     position: '0'
     modules: [C9K-T1-FANTRAY]
-  # Danbyte overlay: bay added (field-replaceable part missing in the library)
+  # danbyte: bay added (field-replaceable part missing in the library)
   - name: FAN 1
     position: '1'
     modules: [C9K-T1-FANTRAY]
