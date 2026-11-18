@@ -116,6 +116,11 @@ def row_of(repo: Repo, e: Entry, packs: dict[str, list[dict]], today: dt.date) -
         "thumbnail": photos.get("iso"),
         "model_url": block.get("file"),
         "far_url": block.get("far"),
+        "models": {
+            "far": block.get("far"),
+            "standard": block.get("file"),
+            "hq": block.get("hq") if isinstance(block.get("hq"), str) else None,
+        },
         "photos": photos,
         "packs": packs.get(e.id, []),
         "links": list(meta.get("links") or []),

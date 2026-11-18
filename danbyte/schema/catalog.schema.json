@@ -275,6 +275,17 @@
         "far_url": {
           "$ref": "#/$defs/nullableString"
         },
+        "models": {
+          "description": "The 3D model by quality, as paths relative to the catalog root (or absolute URLs for files served from the CDN). `far`: the far level of detail; `standard`: the model Danbyte draws; `hq`: a higher-detail model for close-up viewing, null where none was made (fall back to `standard`).",
+          "type": "object",
+          "properties": {
+            "far": {"$ref": "#/$defs/nullableString"},
+            "standard": {"$ref": "#/$defs/nullableString"},
+            "hq": {"$ref": "#/$defs/nullableString"}
+          },
+          "required": ["far", "standard", "hq"],
+          "additionalProperties": false
+        },
         "photos": {
           "type": "object",
           "additionalProperties": false,

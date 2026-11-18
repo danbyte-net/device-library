@@ -58,6 +58,7 @@ The fields of one catalog entry.
 | `thumbnail` | [nullableString](#nullablestring) |  | The iso render, relative URL. |
 | `model_url` | [nullableString](#nullablestring) |  |  |
 | `far_url` | [nullableString](#nullablestring) |  |  |
+| `models` | mapping |  | The 3D model by quality, as paths relative to the catalog root (or absolute URLs for files served from the CDN). `far`: the far level of detail; `standard`: the model Danbyte draws; `hq`: a higher-detail model for close-up viewing, null where none was made (fall back to `standard`). |
 | `photos` | mapping |  |  |
 | `packs` | list of mapping | yes | The packs this entry ships in. |
 | `links` | list of mapping | yes |  |
@@ -100,6 +101,16 @@ Pluggables: what they fit and stand for.
 | `end_of_support` | [date](#date) |  |  |
 | `source` | string |  |  |
 | `state` | one of `current`, `end-of-sale`, `end-of-support`, `unknown` | yes | Derived on the build date: end-of-support once that date has passed, end-of-sale once that one has, current when dates are known but neither has passed, unknown without dates. A month-only date counts from its first day. |
+
+#### rowFields.models
+
+The 3D model by quality, as paths relative to the catalog root (or absolute URLs for files served from the CDN). `far`: the far level of detail; `standard`: the model Danbyte draws; `hq`: a higher-detail model for close-up viewing, null where none was made (fall back to `standard`).
+
+| Key | Type | Required | Description |
+|---|---|---|---|
+| `far` | [nullableString](#nullablestring) | yes |  |
+| `standard` | [nullableString](#nullablestring) | yes |  |
+| `hq` | [nullableString](#nullablestring) | yes |  |
 
 #### rowFields.photos
 

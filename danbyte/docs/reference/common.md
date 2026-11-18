@@ -76,6 +76,7 @@ The 3D model of a device or module type (export spec §1-§8). Danbyte assembles
 |---|---|---|---|
 | `file` | [glbPath](#glbpath) | yes | The full-detail model. Budgets: chassis ≤ 150,000 triangles, module ≤ 30,000; ≤ 8 MB. |
 | `far` | [glbPath](#glbpath) |  | The far-distance copy: same origin, outer size and `bay:` / `empty:` / `led:` names. Budgets: chassis ≤ 15,000 triangles, module ≤ 3,000; ≤ 1 MB. |
+| `hq` | string (pattern) |  | Optional higher-detail model for close-up viewing on the library website (about 4× the triangles, 2K textures, same names and anchors). Published as a release asset of the pack version, not stored in git: an https URL, or an `assets/` path the catalog build fills from the release zip. Danbyte itself draws `file`. |
 | `empty` | one of `filler`, `hole`, `nothing` |  | What an empty bay shows: the model's `empty:` filler plate, a dark hole, or nothing. |
 | `fit` | one of `auto`, `native` |  | `auto` fits the model to the type's size; `native` keeps the model's own size. |
 | `up` | one of `y`, `z` |  | The model's up axis, when not glTF's Y. |

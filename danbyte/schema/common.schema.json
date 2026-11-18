@@ -128,6 +128,11 @@
           "$ref": "#/$defs/glbPath",
           "description": "The far-distance copy: same origin, outer size and `bay:` / `empty:` / `led:` names. Budgets: chassis ≤ 15,000 triangles, module ≤ 3,000; ≤ 1 MB."
         },
+        "hq": {
+          "type": "string",
+          "pattern": "^(https://\\S+|assets/\\S+)\\.glb$",
+          "description": "Optional higher-detail model for close-up viewing on the library website (about 4× the triangles, 2K textures, same names and anchors). Published as a release asset of the pack version, not stored in git: an https URL, or an `assets/` path the catalog build fills from the release zip. Danbyte itself draws `file`."
+        },
         "empty": {
           "description": "What an empty bay shows: the model's `empty:` filler plate, a dark hole, or nothing.",
           "enum": [
