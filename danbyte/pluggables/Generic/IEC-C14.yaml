@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta:
+  category: pluggable
+  roles: [power, cord]
+  family: IEC 60320 connectors
+  summary: IEC 60320 C14 cord plug (10 A), mates with C13 outlets.
+
+name: IEC-C14
+kind: cord
+connector: c14
+fits: [iec-60320-c13]
+comments: 'IEC 60320 C14 cord plug (male, 10 A) for PDU outlets: shroud into the outlet pocket around the female insert, three pins (IEC 60320-1 sheet C14), moulded body with grip ribs, strain relief, 7.0 mm cord, 40 mm stub to the cable empty. Origin is the outlet''s port anchor; the earth side is +Y (every outlet anchor''s +Y points at the earth side). Body size typical, +-2 mm; min_bend_mm is an estimate. CABLE is recoloured by Danbyte.'
+cable: {profile: round, jacket_mm: 7.0, min_bend_mm: 40}
+model3d: {file: assets/Generic/IEC-C14.glb}

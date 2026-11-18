@@ -1,14 +1,10 @@
 # yaml-language-server: $schema=../../../../schema/rack-kit.schema.json
 format: danbyte-library/v1
-meta:
-  category: rack-kit
-  family: Generic racks
-  summary: Parts kit for a 6-18U 19-inch wall cabinet with a hinged door.
-
+meta: {category: rack-kit}
 name: WALL-CABINET
 frame: wall-cabinet
 model3d: {file: assets/Generic/WALL-CABINET.kit.glb, far: assets/Generic/WALL-CABINET.far.glb}
 widths_mm: [600]
-depths_mm: [350, 450, 600]
+depths_mm: [450, 350, 600]
 colours: {black: '#1b1c1e', grey: '#c9ccce'}
-comments: 'Generic wall cabinet, unbranded, 6-18U. Reference 12U 600 x 450 (ear plane y 70 mm, rail depth 300 mm, U1 at z 40 mm): rails, frame, side panel, roof variants with two brush entries, glass / perforated / solid door (the glass is opaque smoked: spec section 6 has no transparency), wall:bracket on the back.'
+comments: 'Generic wall cabinet, unbranded, 6-18U. Reference 12U 600 x 450 (ear plane y 70 mm, rail depth 300 mm, U1 at z 40 mm): rails, frame, side panel (whole and split), base:panel, roof variants with two brush entries, glass (tinted see-through) / perforated / solid door (whole and split), wall:bracket on the back.'

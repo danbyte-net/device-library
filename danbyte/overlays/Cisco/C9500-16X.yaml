@@ -25,8 +25,6 @@ meta:
       title: End-of-Sale and End-of-Life Announcement for the Cisco C9500-16X Switch and Network Modules C9500-NM-8X and C9500-NM-2Q
       url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/c9500-16x-switch-nm-c9500-nm-8x-nm-2q-eol.html
 
-front_image: true
-rear_image: true
 module-bays:
   PS-0:
     modules: [PWR-C4-950WAC-R, PWR-C4-950WDC-R]
@@ -75,7 +73,7 @@ model3d:
     front: assets/Cisco/C9500-16X.front.webp
     rear: assets/Cisco/C9500-16X.rear.webp
     iso: assets/Cisco/C9500-16X.iso.webp
-    model_sha256: 13091a32468012233e91d5668953adfe7f942acc735344c30f0e564d0cc072d4
+    model_sha256: 2699072851446b010f66af876d3853487486933cf3c194207fe32ae53366ef2b
     modules:
       Network Module: C9500-NM-2Q
       PS-0: PWR-C4-950WAC-R

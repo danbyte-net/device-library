@@ -27,14 +27,18 @@ power-ports:
   add:
     - name: StackPower1/A
       type: cisco-stackpower
-      why: 'StackPower ports A and B on the rear (Cisco C9300 hardware installation guide); Danbyte draws the StackPower ring between them'
+      why: StackPower receptacles on the rear panel, A top and B bottom (Cisco C9300 HIG; pack report v1.6.15); NetBox has no StackPower port type, so Danbyte adds them as cisco-stackpower power ports
     - name: StackPower1/B
       type: cisco-stackpower
-      why: 'StackPower ports A and B on the rear (Cisco C9300 hardware installation guide); Danbyte draws the StackPower ring between them'
+      why: StackPower receptacles on the rear panel, A top and B bottom (Cisco C9300 HIG; pack report v1.6.15); NetBox has no StackPower port type, so Danbyte adds them as cisco-stackpower power ports
 
 interfaces:
-  StackPort1/1: {type: cisco-stackwise-480}
-  StackPort1/2: {type: cisco-stackwise-480}
+  StackPort1/1:
+    type: cisco-stackwise-480
+    why: typed by stack system so Danbyte picks the right stack cable head (export spec v1.12 section 8); upstream has the generic cisco-stackwise
+  StackPort1/2:
+    type: cisco-stackwise-480
+    why: typed by stack system so Danbyte picks the right stack cable head (export spec v1.12 section 8); upstream has the generic cisco-stackwise
   add:
     - name: GigabitEthernet0/0
       type: 1000base-t
@@ -80,6 +84,6 @@ model3d:
 # rack mounting (spec 1.11 section 8) from Cisco's install guide; mid = Cisco's mid-mount figure (bracket turned round on the front holes), ~98 mm from our bracket model; Cisco's rear mount turns the switch round (see REPORT)
 rack_mount:
   ears: true
-  positions: {front: 0, mid: 98}
+  positions: {front: 0, mid: 98, reversed: 0}
   default: front
   rails: none

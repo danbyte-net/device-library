@@ -2,11 +2,11 @@
 format: danbyte-library/v1
 id: cisco-catalyst-9500
 name: Cisco Catalyst 9500
-version: 1.6.19
+version: 1.6.22
 license: CC-BY-4.0
 author: Christian Rose
 blender: 5.3
-spec: 1.14
+spec: 1.15
 types:
   device:
     - Cisco/C9200-24P
@@ -25,6 +25,7 @@ types:
     - Cisco/C9300L-48P-4X
     - Cisco/C9500-16X
     - Cisco/C9500-24Y4C
+    - Cisco/C9500-32C
     - Cisco/C9500-40X
     - Cisco/C9500-48Y4C
     - Generic/PDU-0U-12xC13-4xC19
@@ -37,9 +38,11 @@ types:
     - Cisco/C9300-NM-4G
     - Cisco/C9300-NM-8X
     - Cisco/C9500-NM-2Q
+    - Cisco/C9K-PWR-1600WAC-R
     - Cisco/C9K-PWR-650WAC-R
     - Cisco/C9K-PWR-650WACL-R
     - Cisco/C9K-T1-FANTRAY
+    - Cisco/C9K-T2-FANTRAY
     - Cisco/FAN-T2
     - Cisco/FAN-T4-R
     - Cisco/PWR-C1-350WAC-P
@@ -81,8 +84,10 @@ types:
     - Generic/CM-2U-FINGER
     - Generic/CM-VERT-2POST
     - Generic/IEC-C13
+    - Generic/IEC-C14
     - Generic/IEC-C15
     - Generic/IEC-C19
+    - Generic/IEC-C20
     - Generic/LC-DUPLEX
     - Generic/MPO-12
     - Generic/QSFP-GENERIC

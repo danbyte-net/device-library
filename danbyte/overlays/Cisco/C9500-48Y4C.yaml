@@ -17,8 +17,6 @@ meta:
       title: Cisco Catalyst 9500 Series Switches Hardware Installation Guide
       url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9500/hardware/install/b_catalyst_9500_hig.html
 
-front_image: true
-rear_image: true
 module-bays:
   PS-0:
     modules: [C9K-PWR-650WAC-R, C9K-PWR-650WACL-R, C9K-PWR-930WDC-R]

@@ -17,7 +17,6 @@ meta:
       title: Catalyst 9200 Switches Overview
       url: https://www.cisco.com/c/en/us/products/switches/catalyst-9200-series-switches/index.html
 
-front_image: true
 module-bays:
   Network Module:
     modules: [C9200-NM-4G, C9200-NM-4X, C9200-NM-BLANK]
