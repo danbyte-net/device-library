@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../../../schema/rack-kit.schema.json
 format: danbyte-library/v1
-meta: {category: rack-kit}
+meta: {category: rack-kit, family: Generic racks, summary: Parts kit for a 2-post 19-inch relay rack.}
 name: TELCO-2POST
 frame: 2-post
 model3d: {file: assets/Generic/TELCO-2POST.kit.glb, far: assets/Generic/TELCO-2POST.far.glb}

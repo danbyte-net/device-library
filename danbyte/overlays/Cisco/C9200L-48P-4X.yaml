@@ -1,7 +1,22 @@
 # yaml-language-server: $schema=../../schema/overlay.schema.json
 format: danbyte-library/v1
 upstream: device-types/Cisco/C9200L-48P-4X.yaml
-meta: {category: switch, family: Catalyst 9200}
+meta:
+  category: switch
+  roles: [access, poe, campus]
+  family: Catalyst 9200L
+  summary: 48-port Gigabit PoE+ access switch with four fixed 10G SFP+ uplinks.
+  links:
+    - kind: datasheet
+      title: Cisco Catalyst 9200 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9200-series-switches/nb-06-cat9200-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9200 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9200/hardware/install/b-c9200-hig.html
+    - kind: product-page
+      title: Catalyst 9200 Switches Overview
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9200-series-switches/index.html
+
 front_image: true
 module-bays:
   PS0:
@@ -10,12 +25,8 @@ module-bays:
     modules: [PWR-C5-1KWAC, PWR-C5-715WDC]
 
 interfaces:
-  StackPort1/1:
-    type: cisco-stackwise-80
-    why: typed by stack system so Danbyte picks the right stack cable head (export spec v1.12 section 8); upstream has the generic cisco-stackwise
-  StackPort1/2:
-    type: cisco-stackwise-80
-    why: typed by stack system so Danbyte picks the right stack cable head (export spec v1.12 section 8); upstream has the generic cisco-stackwise
+  StackPort1/1: {type: cisco-stackwise-80}
+  StackPort1/2: {type: cisco-stackwise-80}
 
 model3d:
   file: assets/Cisco/C9200L-48P-4X.glb

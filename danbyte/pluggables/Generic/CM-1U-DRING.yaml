@@ -1,6 +1,11 @@
 # yaml-language-server: $schema=../../schema/pluggable.schema.json
 format: danbyte-library/v1
-meta: {category: pluggable}
+meta:
+  category: pluggable
+  roles: [rack, cable-management]
+  family: Generic rack accessories
+  summary: 1U horizontal cable manager with five D-rings.
+
 name: CM-1U-DRING
 kind: cable-manager
 u_height: 1

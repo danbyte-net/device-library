@@ -1,6 +1,11 @@
 # yaml-language-server: $schema=../../schema/pluggable.schema.json
 format: danbyte-library/v1
-meta: {category: pluggable}
+meta:
+  category: pluggable
+  roles: [power, cord]
+  family: IEC 60320 connectors
+  summary: IEC 60320 C19 cord connector (16 A), mates with C20 inlets.
+
 name: IEC-C19
 kind: plug
 connector: c19

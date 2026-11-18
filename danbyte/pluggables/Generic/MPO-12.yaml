@@ -1,6 +1,11 @@
 # yaml-language-server: $schema=../../schema/pluggable.schema.json
 format: danbyte-library/v1
-meta: {category: pluggable}
+meta:
+  category: pluggable
+  roles: [fibre, cord]
+  family: Fibre connectors
+  summary: MPO-12 multi-fibre trunk end.
+
 name: MPO-12
 kind: plug
 connector: mpo

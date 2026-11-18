@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../../schema/rack-type.schema.json
 format: danbyte-library/v1
-meta: {category: rack}
+meta: {category: rack, family: Generic racks, summary: 12U 19-inch wall cabinet with a glass door.}
 manufacturer: Generic
 model: Generic 12U wall cabinet
 u_height: 12

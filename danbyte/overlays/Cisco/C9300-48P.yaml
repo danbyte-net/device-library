@@ -1,23 +1,40 @@
 # yaml-language-server: $schema=../../schema/overlay.schema.json
 format: danbyte-library/v1
 upstream: device-types/Cisco/C9300-48P.yaml
-meta: {category: switch, family: Catalyst 9300}
+meta:
+  category: switch
+  roles: [access, poe, campus, stacking]
+  family: Catalyst 9300
+  summary: 48-port PoE+ access switch with a modular uplink slot, StackWise-480 and StackPower.
+  links:
+    - kind: product-page
+      title: Cisco Catalyst 9300 Series Switches
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/index.html
+    - kind: datasheet
+      title: Cisco Catalyst 9300 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9300-series-switches/nb-06-cat9300-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9300 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/hardware/install/b_c9300_hig.html
+    - kind: support
+      title: Cisco Catalyst 9300 Series Switches - Support
+      url: https://www.cisco.com/c/en/us/support/switches/catalyst-9300-series-switches/series.html
+    - kind: eol-listing
+      title: Cisco Catalyst 9300 Series Switches - End-of-Life and End-of-Sale Notices
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/eos-eol-notice-listing.html
+
 power-ports:
   add:
     - name: StackPower1/A
       type: cisco-stackpower
-      why: StackPower receptacles on the rear panel, A top and B bottom (Cisco C9300 HIG; pack report v1.6.15); NetBox has no StackPower port type, so Danbyte adds them as cisco-stackpower power ports
+      why: 'StackPower ports A and B on the rear (Cisco C9300 hardware installation guide); Danbyte draws the StackPower ring between them'
     - name: StackPower1/B
       type: cisco-stackpower
-      why: StackPower receptacles on the rear panel, A top and B bottom (Cisco C9300 HIG; pack report v1.6.15); NetBox has no StackPower port type, so Danbyte adds them as cisco-stackpower power ports
+      why: 'StackPower ports A and B on the rear (Cisco C9300 hardware installation guide); Danbyte draws the StackPower ring between them'
 
 interfaces:
-  StackPort1/1:
-    type: cisco-stackwise-480
-    why: typed by stack system so Danbyte picks the right stack cable head (export spec v1.12 section 8); upstream has the generic cisco-stackwise
-  StackPort1/2:
-    type: cisco-stackwise-480
-    why: typed by stack system so Danbyte picks the right stack cable head (export spec v1.12 section 8); upstream has the generic cisco-stackwise
+  StackPort1/1: {type: cisco-stackwise-480}
+  StackPort1/2: {type: cisco-stackwise-480}
 
 module-bays:
   Network Module:

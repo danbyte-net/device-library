@@ -1,6 +1,11 @@
 # yaml-language-server: $schema=../../schema/pluggable.schema.json
 format: danbyte-library/v1
-meta: {category: pluggable}
+meta:
+  category: pluggable
+  roles: [optic]
+  family: Generic transceivers
+  summary: Generic QSFP-family optical transceiver with an MPO receptacle.
+
 name: QSFP-GENERIC
 kind: transceiver
 connector: mpo

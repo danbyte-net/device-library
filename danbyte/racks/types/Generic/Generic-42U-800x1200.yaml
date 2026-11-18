@@ -1,6 +1,10 @@
 # yaml-language-server: $schema=../../../schema/rack-type.schema.json
 format: danbyte-library/v1
-meta: {category: rack}
+meta:
+  category: rack
+  family: Generic racks
+  summary: 42U 19-inch cabinet, 800 mm wide, 1200 mm deep, split doors.
+
 manufacturer: Generic
 model: Generic 42U 800x1200 cabinet
 u_height: 42

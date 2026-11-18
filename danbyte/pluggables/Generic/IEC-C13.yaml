@@ -1,6 +1,11 @@
 # yaml-language-server: $schema=../../schema/pluggable.schema.json
 format: danbyte-library/v1
-meta: {category: pluggable}
+meta:
+  category: pluggable
+  roles: [power, cord]
+  family: IEC 60320 connectors
+  summary: IEC 60320 C13 cord connector (10 A), mates with C14 inlets.
+
 name: IEC-C13
 kind: plug
 connector: c13

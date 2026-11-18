@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../../../schema/rack-kit.schema.json
 format: danbyte-library/v1
-meta: {category: rack-kit}
+meta: {category: rack-kit, family: Generic racks, summary: Parts kit for an enclosed 19-inch cabinet.}
 name: CABINET
 frame: cabinet
 model3d: {file: assets/Generic/CABINET.kit.glb, far: assets/Generic/CABINET.far.glb}

@@ -1,6 +1,11 @@
 # yaml-language-server: $schema=../../schema/pluggable.schema.json
 format: danbyte-library/v1
-meta: {category: pluggable}
+meta:
+  category: pluggable
+  roles: [optic]
+  family: Generic transceivers
+  summary: Generic SFP-family optical transceiver with an LC duplex receptacle.
+
 name: SFP-GENERIC
 kind: transceiver
 connector: lc

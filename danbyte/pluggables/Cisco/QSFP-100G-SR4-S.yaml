@@ -1,6 +1,24 @@
 # yaml-language-server: $schema=../../schema/pluggable.schema.json
 format: danbyte-library/v1
-meta: {category: pluggable}
+meta:
+  category: pluggable
+  roles: [optic, multimode]
+  family: Cisco 100GBASE QSFP-100G Modules
+  summary: 100GBASE-SR4 QSFP28 optic, 4 lanes at 850 nm, multimode, MPO-12, up to 70 m on OM3 and 100 m on OM4.
+  links:
+    - kind: other
+      title: Optics Compatibility Matrix (Cisco Transceiver Module Group, TMG)
+      url: https://tmgmatrix.cisco.com
+    - kind: product-page
+      title: Cisco Optics (transceiver modules)
+      url: https://www.cisco.com/c/en/us/products/interfaces-modules/transceiver-modules
+    - kind: other
+      title: Cisco transceiver modules End-of-Life and End-of-Sale notices
+      url: https://www.cisco.com/c/en/us/products/interfaces-modules/transceiver-modules/eos-eol-notice-listing.html
+    - kind: datasheet
+      title: Cisco 100GBASE QSFP-100G Modules Data Sheet
+      url: https://cisco.com/c/en/us/products/collateral/interfaces-modules/transceiver-modules/datasheet-c78-736282.html
+
 name: QSFP-100G-SR4-S
 kind: transceiver
 connector: mpo

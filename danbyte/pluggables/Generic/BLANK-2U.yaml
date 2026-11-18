@@ -1,6 +1,11 @@
 # yaml-language-server: $schema=../../schema/pluggable.schema.json
 format: danbyte-library/v1
-meta: {category: pluggable}
+meta:
+  category: pluggable
+  roles: [rack, blanking]
+  family: Generic rack accessories
+  summary: 2U 19-inch blanking panel (EIA-310).
+
 name: BLANK-2U
 kind: blanking
 u_height: 2

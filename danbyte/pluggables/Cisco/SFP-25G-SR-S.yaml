@@ -1,6 +1,24 @@
 # yaml-language-server: $schema=../../schema/pluggable.schema.json
 format: danbyte-library/v1
-meta: {category: pluggable}
+meta:
+  category: pluggable
+  roles: [optic, multimode]
+  family: Cisco 25GBASE SFP28 Modules
+  summary: 25GBASE-SR SFP28 optic, 850 nm, multimode, dual LC, up to 70 m on OM3 and 100 m on OM4 (host must run RS-FEC).
+  links:
+    - kind: other
+      title: Optics Compatibility Matrix (Cisco Transceiver Module Group, TMG)
+      url: https://tmgmatrix.cisco.com
+    - kind: product-page
+      title: Cisco Optics (transceiver modules)
+      url: https://www.cisco.com/c/en/us/products/interfaces-modules/transceiver-modules
+    - kind: other
+      title: Cisco transceiver modules End-of-Life and End-of-Sale notices
+      url: https://www.cisco.com/c/en/us/products/interfaces-modules/transceiver-modules/eos-eol-notice-listing.html
+    - kind: datasheet
+      title: Cisco 25GBASE SFP28 Modules Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/interfaces-modules/transceiver-modules/datasheet-c78-736950.html
+
 name: SFP-25G-SR-S
 kind: transceiver
 connector: lc

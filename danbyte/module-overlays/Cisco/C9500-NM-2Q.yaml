@@ -1,7 +1,31 @@
 # yaml-language-server: $schema=../../schema/module-overlay.schema.json
 format: danbyte-library/v1
 upstream: module-types/Cisco/C9500-NM-2Q.yaml
-meta: {category: module, family: Catalyst 9500, module_kind: network-module}
+meta:
+  category: module
+  module_kind: network-module
+  roles: [uplink]
+  family: Catalyst 9500
+  summary: 2-port 40G QSFP+ uplink network module for the C9500-16X/40X.
+  lifecycle:
+    end_of_sale: '2026-04-30'
+    end_of_security_updates: '2031-04-30'
+    end_of_support: '2031-04-30'
+    source: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/c9500-16x-switch-nm-c9500-nm-8x-nm-2q-eol.html
+  links:
+    - kind: product-page
+      title: Cisco Catalyst 9500 Series Switches
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9500-series-switches/index.html
+    - kind: datasheet
+      title: Cisco Catalyst 9500 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/nb-06-cat9500-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9500 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9500/hardware/install/b_catalyst_9500_hig.html
+    - kind: eol-notice
+      title: End-of-Sale and End-of-Life Announcement for the Cisco C9500-16X Switch and Network Modules C9500-NM-8X and C9500-NM-2Q
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/c9500-16x-switch-nm-c9500-nm-8x-nm-2q-eol.html
+
 model3d:
   file: assets/Cisco/C9500-NM-2Q.glb
   far: assets/Cisco/C9500-NM-2Q.far.glb

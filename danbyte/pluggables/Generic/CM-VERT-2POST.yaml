@@ -1,6 +1,11 @@
 # yaml-language-server: $schema=../../schema/pluggable.schema.json
 format: danbyte-library/v1
-meta: {category: pluggable}
+meta:
+  category: pluggable
+  roles: [rack, cable-management]
+  family: Generic rack accessories
+  summary: Vertical finger cable manager for a 2-post rack.
+
 name: CM-VERT-2POST
 kind: cable-manager
 u_height: 0

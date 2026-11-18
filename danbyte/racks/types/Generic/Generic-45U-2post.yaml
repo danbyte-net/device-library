@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../../schema/rack-type.schema.json
 format: danbyte-library/v1
-meta: {category: rack}
+meta: {category: rack, family: Generic racks, summary: 45U 19-inch 2-post relay rack.}
 manufacturer: Generic
 model: Generic 45U 2-post
 u_height: 45

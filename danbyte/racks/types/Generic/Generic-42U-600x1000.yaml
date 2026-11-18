@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../../schema/rack-type.schema.json
 format: danbyte-library/v1
-meta: {category: rack}
+meta: {category: rack, family: Generic racks, summary: '42U 19-inch cabinet, 600 mm wide, 1000 mm deep.'}
 manufacturer: Generic
 model: Generic 42U 600x1000 cabinet
 u_height: 42

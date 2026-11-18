@@ -1,6 +1,11 @@
 # yaml-language-server: $schema=../../schema/pluggable.schema.json
 format: danbyte-library/v1
-meta: {category: pluggable}
+meta:
+  category: pluggable
+  roles: [copper, cord]
+  family: Copper connectors
+  summary: 8P8C (RJ45) patch-cord plug with a snagless boot.
+
 name: RJ45-PLUG
 kind: plug
 connector: rj45

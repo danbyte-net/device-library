@@ -1,6 +1,11 @@
 # yaml-language-server: $schema=../../schema/pluggable.schema.json
 format: danbyte-library/v1
-meta: {category: pluggable}
+meta:
+  category: pluggable
+  roles: [fibre, cord]
+  family: Fibre connectors
+  summary: LC duplex fibre patch-cord end.
+
 name: LC-DUPLEX
 kind: plug
 connector: lc

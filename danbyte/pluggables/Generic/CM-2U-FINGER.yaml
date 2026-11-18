@@ -1,6 +1,11 @@
 # yaml-language-server: $schema=../../schema/pluggable.schema.json
 format: danbyte-library/v1
-meta: {category: pluggable}
+meta:
+  category: pluggable
+  roles: [rack, cable-management]
+  family: Generic rack accessories
+  summary: 2U horizontal finger cable manager.
+
 name: CM-2U-FINGER
 kind: cable-manager
 u_height: 2

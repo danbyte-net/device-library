@@ -2,11 +2,11 @@
 format: danbyte-library/v1
 id: cisco-catalyst-9500
 name: Cisco Catalyst 9500
-version: 1.6.16
+version: 1.6.19
 license: CC-BY-4.0
 author: Christian Rose
 blender: 5.3
-spec: 1.13
+spec: 1.14
 types:
   device:
     - Cisco/C9200-24P
@@ -71,6 +71,8 @@ types:
     - Cisco/SFP-25G-SR-S
     - Cisco/SFP-H10GB-CU3M
     - Cisco/STACK-T1
+    - Cisco/STACK-T3
+    - Cisco/STACK-T3A
     - Cisco/STACK-T4
     - Generic/BLANK-1U
     - Generic/BLANK-2U

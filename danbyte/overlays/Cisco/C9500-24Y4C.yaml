@@ -1,7 +1,22 @@
 # yaml-language-server: $schema=../../schema/overlay.schema.json
 format: danbyte-library/v1
 upstream: device-types/Cisco/C9500-24Y4C.yaml
-meta: {category: switch, family: Catalyst 9500}
+meta:
+  category: switch
+  roles: [core, aggregation, campus]
+  family: Catalyst 9500 High Performance
+  summary: 24-port 1/10/25G SFP28 plus 4-port 40/100G QSFP 1RU core/aggregation switch.
+  links:
+    - kind: product-page
+      title: Cisco Catalyst 9500 Series Switches
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9500-series-switches/index.html
+    - kind: datasheet
+      title: Cisco Catalyst 9500 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/nb-06-cat9500-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9500 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9500/hardware/install/b_catalyst_9500_hig.html
+
 front_image: true
 rear_image: true
 module-bays:

@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../../schema/rack-type.schema.json
 format: danbyte-library/v1
-meta: {category: rack}
+meta: {category: rack, family: Generic racks, summary: 42U open 4-post 19-inch frame.}
 manufacturer: Generic
 model: Generic 42U 4-post open frame
 u_height: 42

@@ -1,9 +1,29 @@
 # yaml-language-server: $schema=../../schema/module-overlay.schema.json
 format: danbyte-library/v1
 upstream: module-types/Cisco/PWR-C1-715WAC-P.yaml
-meta: {category: module, family: Catalyst 9300, module_kind: psu}
+meta:
+  category: module
+  module_kind: psu
+  roles: [power, poe]
+  family: Catalyst 9300
+  summary: 715 W AC field-replaceable power supply for PoE+ C9300/C9300L models.
+  links:
+    - kind: product-page
+      title: Cisco Catalyst 9300 Series Switches
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/index.html
+    - kind: datasheet
+      title: Cisco Catalyst 9300 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9300-series-switches/nb-06-cat9300-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9300 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/hardware/install/b_c9300_hig.html
+    - kind: support
+      title: Cisco Catalyst 9300 Series Switches - Support
+      url: https://www.cisco.com/c/en/us/support/switches/catalyst-9300-series-switches/series.html
+    - kind: eol-listing
+      title: Cisco Catalyst 9300 Series Switches - End-of-Life and End-of-Sale Notices
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/eos-eol-notice-listing.html
 
-# the pack models PWR-C1-715WAC-P; upstream's file gives PWR-C1-715WAC
 part_number: PWR-C1-715WAC-P
 model3d:
   file: assets/Cisco/PWR-C1-715WAC-P.glb

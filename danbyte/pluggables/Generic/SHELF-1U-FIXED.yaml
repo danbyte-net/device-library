@@ -1,6 +1,11 @@
 # yaml-language-server: $schema=../../schema/pluggable.schema.json
 format: danbyte-library/v1
-meta: {category: pluggable}
+meta:
+  category: pluggable
+  roles: [rack, shelf]
+  family: Generic rack accessories
+  summary: 1U fixed cantilever shelf, 400 mm deep.
+
 name: SHELF-1U-FIXED
 kind: shelf
 u_height: 1
