@@ -18,6 +18,9 @@ danbyte-lib build-catalog --out site-data
 | `catalog.json` | `{format, generated, count, entries[]}`, one row per entry: everything a list, filter or search needs. |
 | `vendors.json` | `{format, generated, vendors[]}`, per vendor: count, count per category, families, how many have 3D. |
 | `items/<vendor-slug>/<slug>.json` | One per entry: the row plus the full merged record (`record`) and the library's additions (`additions`). For the detail page. |
+| `items/<vendor-slug>/<slug>.yaml` | The same entry's **definition file** (the row's `definition`): the merged record as YAML, the file Danbyte's device type import reads. Offer it as the "definition" download. |
+| `packs.json` | `{format, generated, packs[]}`: every pack with its zip, size and checksum. |
+| `packs/<id>-<version>.zip` | **The file a user downloads to install a pack in Danbyte.** |
 | `assets/<Vendor>/…` | The models (`.glb`, `.far.glb`) and photos (`.front` / `.rear` / `.iso.webp`) the rows name. |
 
 Every path in the JSON is **relative to the catalog root** (`assets/Cisco/C9300-48P.glb`), or an
@@ -47,6 +50,21 @@ reads** and refuse a newer major.
 | `links` | `{kind, title, url}`: `datasheet`, `install-guide`, `config-guide`, `product-page`, `eol-notice`, `eol-listing`, `support`, `software`, `other`. |
 | `packs` | The pack(s) it ships in: `id`, `name`, `version`, `license`, `author`. **Show the credit**: models are under their pack's licence (e.g. CC-BY-4.0, which requires attribution). |
 | `upstream`, `source`, `updated`, `item` | The upstream file it extends (if any), its library file, the date it last changed, and its item JSON. |
+
+## Installing in Danbyte: what to tell a visitor
+
+- **A whole pack** (the normal way): download `packs/<id>-<version>.zip` and, in Danbyte 0.21 or
+  later, open **Settings → Device library → 3D model packs → Install pack…**, then upload the zip
+  or paste its URL. Danbyte checks it, shows what it would create or update, and installs on
+  confirm. Types arrive with their ports, bays, 3D models, photos, lifecycle dates and links.
+  Danbyte 0.20 and earlier have no pack install.
+- **One part:** its definition file (`definition`) imports as a device type through the device type
+  import; its `.glb` can then be uploaded on that type as its 3D model. A module, pluggable or rack
+  kit comes most easily with its pack.
+- Each pack row in `packs.json` has `size` and `sha256`. The zip is built deterministically, so the
+  checksum only changes when the pack does. Show the pack's `license` and `author` beside the
+  download.
+- The catalog JSON (`items/….json`) is website data. Danbyte does not import it.
 
 ## The models
 

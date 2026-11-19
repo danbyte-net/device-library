@@ -18,6 +18,7 @@ import subprocess
 from pathlib import Path
 
 from . import merge as m
+from . import yamlio
 from . import ports, schemas
 from .repo import Entry, Repo, slugify
 
@@ -128,6 +129,7 @@ def row_of(repo: Repo, e: Entry, packs: dict[str, list[dict]], today: dt.date) -
         "source": e.rel,
         "updated": _git_date(repo.root, [e.rel] + ([e.upstream_rel] if e.upstream_rel else [])),
         "item": f"items/{vendor_slug}/{slug}.json",
+        "definition": f"items/{vendor_slug}/{slug}.yaml",
     }
     return row, record
 
@@ -144,8 +146,11 @@ def _packs(repo: Repo) -> dict[str, list[dict]]:
     return out
 
 
-def build(repo: Repo, out: Path, *, today: dt.date | None = None, copy_assets: bool = True) -> dict:
-    """Build the catalog into ``out``. Returns ``{entries, items, assets, problems}``."""
+def build(repo: Repo, out: Path, *, today: dt.date | None = None, copy_assets: bool = True,
+          build_packs: bool = False) -> dict:
+    """Build the catalog into ``out``. Returns ``{entries, items, assets,
+    packs, problems}``. ``build_packs`` also writes each pack's zip (the
+    file Danbyte installs) under ``packs/`` and lists them in ``packs.json``."""
     today = today or dt.date.today()
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)
@@ -164,11 +169,14 @@ def build(repo: Repo, out: Path, *, today: dt.date | None = None, copy_assets: b
         if row["item"] in used:
             row["slug"] = f"{row['slug']}-{e.kind}"
             row["item"] = f"items/{row['vendor_slug']}/{row['slug']}.json"
+            row["definition"] = f"items/{row['vendor_slug']}/{row['slug']}.yaml"
         used.add(row["item"])
         item = {"format": FORMAT, **row, "record": record, "additions": m.additions(e.data)}
         path = out / row["item"]
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(item, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        # The same record as YAML: the definition file Danbyte imports.
+        (out / row["definition"]).write_text("---\n" + yamlio.dump(record), encoding="utf-8")
         rows.append(row)
         for key in ("model_url", "far_url"):
             if row[key]:
@@ -202,7 +210,23 @@ def build(repo: Repo, out: Path, *, today: dt.date | None = None, copy_assets: b
             dst.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(src, dst)
             copied += 1
-    return {"entries": len(rows), "assets": copied, "problems": problems}
+    built = []
+    if build_packs:
+        from . import build_pack
+
+        for path, _data, _error in repo.packs():
+            try:
+                res = build_pack.build(repo, path.parent.name, out / "packs")
+            except build_pack.PackBuildError as exc:
+                problems += [f"pack {path.parent.name}: {line}" for line in exc.problems]
+                continue
+            built.append({**{k: res[k] for k in ("id", "name", "version", "license", "author",
+                                                  "counts", "size", "sha256")},
+                          "file": f"packs/{res['file']}"})
+    (out / "packs.json").write_text(json.dumps({"format": FORMAT, "generated": today.isoformat(),
+                                                "packs": built}, indent=2, ensure_ascii=False) + "\n",
+                                    encoding="utf-8")
+    return {"entries": len(rows), "assets": copied, "packs": len(built), "problems": problems}
 
 
 def check(repo: Repo, out: Path) -> list[str]:
@@ -215,6 +239,11 @@ def check(repo: Repo, out: Path) -> list[str]:
     vend = json.loads((out / "vendors.json").read_text(encoding="utf-8"))
     problems += [f"vendors.json: {x}" for x in schemas.messages(
         schemas.validator(folder, "catalog.schema.json", "/$defs/vendors"), vend)]
+    packs_file = out / "packs.json"
+    if packs_file.is_file():
+        problems += [f"packs.json: {x}" for x in schemas.messages(
+            schemas.validator(folder, "catalog.schema.json", "/$defs/packs"),
+            json.loads(packs_file.read_text(encoding="utf-8")))]
     iv = schemas.validator(folder, "catalog.schema.json", "/$defs/item")
     for row in cat.get("entries", []):
         p = out / row["item"]

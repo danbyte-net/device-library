@@ -171,8 +171,9 @@ def cmd_build_catalog(args) -> int:
     repo = _repo(args)
     today = dt.date.fromisoformat(args.today) if args.today else None
     out = Path(args.out)
-    res = catalog.build(repo, out, today=today, copy_assets=not args.no_assets)
-    print(f"{res['entries']} entries, {res['assets']} assets copied into {out}")
+    res = catalog.build(repo, out, today=today, copy_assets=not args.no_assets,
+                        build_packs=not args.no_packs)
+    print(f"{res['entries']} entries, {res['assets']} assets copied, {res['packs']} pack zip(s) built into {out}")
     for p in res["problems"]:
         print(f"  problem: {p}")
     bad = catalog.check(repo, out)
@@ -181,6 +182,31 @@ def cmd_build_catalog(args) -> int:
     if not bad:
         print("catalog.json, vendors.json and every item match catalog.schema.json")
     return 1 if bad or (res["problems"] and args.strict) else 0
+
+
+# -- build-pack -------------------------------------------------------------
+
+
+def cmd_build_pack(args) -> int:
+    from . import build_pack
+
+    repo = _repo(args)
+    ids = args.pack or [p.parent.name for p, _d, _e in repo.packs()]
+    bad = 0
+    for pack_id in ids:
+        try:
+            res = build_pack.build(repo, pack_id, Path(args.out))
+        except build_pack.PackBuildError as exc:
+            bad += 1
+            print(f"{pack_id}: not built", file=sys.stderr)
+            for line in exc.problems:
+                print(f"  problem: {line}", file=sys.stderr)
+            continue
+        kinds = ", ".join(f"{v} {k}" for k, v in sorted(res["counts"].items()))
+        print(f"{Path(args.out) / res['file']}: {res['files']} files, "
+              f"{res['size'] / 1e6:.1f} MB ({kinds})")
+        print(f"  sha256 {res['sha256']}")
+    return 1 if bad else 0
 
 
 # -- sync-check -------------------------------------------------------------
@@ -255,8 +281,14 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--out", default="_catalog")
     s.add_argument("--today", help="build date for lifecycle states (YYYY-MM-DD)")
     s.add_argument("--no-assets", action="store_true", help="don't copy glb / webp files")
+    s.add_argument("--no-packs", action="store_true", help="don't build the pack zips")
     s.add_argument("--strict", action="store_true", help="skipped entries or missing assets fail")
     s.set_defaults(func=cmd_build_catalog)
+
+    s = sub.add_parser("build-pack", help="build the zip Danbyte installs from a pack")
+    s.add_argument("pack", nargs="*", help="pack id (danbyte/packs/<id>); every pack when left out")
+    s.add_argument("--out", default="_packs")
+    s.set_defaults(func=cmd_build_pack)
 
     s = sub.add_parser("sync-check", help="overlays whose patched names upstream no longer has")
     s.set_defaults(func=cmd_sync_check)

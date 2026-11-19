@@ -66,6 +66,7 @@ The fields of one catalog entry.
 | `source` | string |  | The entry's file in the repository. |
 | `updated` | string or null |  | Date the entry (or its upstream file) last changed in git; null when not committed. |
 | `item` | string | yes | Relative URL of the item file. |
+| `definition` | string |  | Relative URL of the entry's definition as YAML: the merged record (upstream + overlay), the file Danbyte's device type and pack imports read. Its model and photo paths are relative to the catalog root. |
 
 #### rowFields.weight
 
@@ -160,3 +161,13 @@ Also takes the keys of [rowFields](#rowfields).
 | `format` | `"danbyte-library/catalog/v1"` | yes |  |
 | `generated` | [date](#date) | yes |  |
 | `vendors` | list of mapping | yes |  |
+
+### packs
+
+`packs.json`: every pack with the zip Danbyte installs (Settings, Device library, 3D model packs, Install pack: upload the zip or give its URL).
+
+| Key | Type | Required | Description |
+|---|---|---|---|
+| `format` | `"danbyte-library/catalog/v1"` | yes |  |
+| `generated` | string | yes |  |
+| `packs` | list of mapping | yes |  |

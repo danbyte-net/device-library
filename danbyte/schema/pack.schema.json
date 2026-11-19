@@ -3,7 +3,7 @@
   "$id": "pack.schema.json",
   "$comment": "danbyte-library/v1",
   "title": "Pack",
-  "description": "A pack is a named, versioned selection of library entries, in `danbyte/packs/<id>/pack.yaml`. `danbyte-lib build` turns it into the zip Danbyte installs (pack import, online or air-gapped); the catalog shows each entry's pack, version, licence and author. Entries are named `<Vendor>/<NAME>`, as their file paths under the matching folder.",
+  "description": "A pack is a named, versioned selection of library entries, in `danbyte/packs/<id>/pack.yaml`. `danbyte-lib build-pack` turns it into the zip Danbyte installs (pack import, online or air-gapped); the catalog shows each entry's pack, version, licence and author. Entries are named `<Vendor>/<NAME>`, as their file paths under the matching folder.",
   "type": "object",
   "additionalProperties": false,
   "required": [

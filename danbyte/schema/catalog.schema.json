@@ -279,11 +279,21 @@
           "description": "The 3D model by quality, as paths relative to the catalog root (or absolute URLs for files served from the CDN). `far`: the far level of detail; `standard`: the model Danbyte draws; `hq`: a higher-detail model for close-up viewing, null where none was made (fall back to `standard`).",
           "type": "object",
           "properties": {
-            "far": {"$ref": "#/$defs/nullableString"},
-            "standard": {"$ref": "#/$defs/nullableString"},
-            "hq": {"$ref": "#/$defs/nullableString"}
+            "far": {
+              "$ref": "#/$defs/nullableString"
+            },
+            "standard": {
+              "$ref": "#/$defs/nullableString"
+            },
+            "hq": {
+              "$ref": "#/$defs/nullableString"
+            }
           },
-          "required": ["far", "standard", "hq"],
+          "required": [
+            "far",
+            "standard",
+            "hq"
+          ],
           "additionalProperties": false
         },
         "photos": {
@@ -373,6 +383,10 @@
         "item": {
           "type": "string",
           "description": "Relative URL of the item file."
+        },
+        "definition": {
+          "type": "string",
+          "description": "Relative URL of the entry's definition as YAML: the merged record (upstream + overlay), the file Danbyte's device type and pack imports read. Its model and photo paths are relative to the catalog root."
         }
       }
     },
@@ -546,6 +560,79 @@
               "with_3d": {
                 "type": "integer",
                 "minimum": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "packs": {
+      "description": "`packs.json`: every pack with the zip Danbyte installs (Settings, Device library, 3D model packs, Install pack: upload the zip or give its URL).",
+      "type": "object",
+      "required": [
+        "format",
+        "generated",
+        "packs"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "format": {
+          "const": "danbyte-library/catalog/v1"
+        },
+        "generated": {
+          "type": "string"
+        },
+        "packs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "name",
+              "version",
+              "license",
+              "author",
+              "counts",
+              "file",
+              "size",
+              "sha256"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              },
+              "license": {
+                "type": "string",
+                "description": "The licence of the pack's models and photos."
+              },
+              "author": {
+                "type": "string"
+              },
+              "counts": {
+                "type": "object",
+                "description": "Entries per kind (device, module, pluggable, rack-kit, rack-type).",
+                "additionalProperties": {
+                  "type": "integer"
+                }
+              },
+              "file": {
+                "type": "string",
+                "description": "Relative URL of the zip, `packs/<id>-<version>.zip`."
+              },
+              "size": {
+                "type": "integer",
+                "description": "Bytes."
+              },
+              "sha256": {
+                "type": "string",
+                "description": "The zip's checksum; the build is deterministic."
               }
             }
           }

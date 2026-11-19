@@ -2,7 +2,7 @@
 
 # Pack
 
-A pack is a named, versioned selection of library entries, in `danbyte/packs/<id>/pack.yaml`. `danbyte-lib build` turns it into the zip Danbyte installs (pack import, online or air-gapped); the catalog shows each entry's pack, version, licence and author. Entries are named `<Vendor>/<NAME>`, as their file paths under the matching folder.
+A pack is a named, versioned selection of library entries, in `danbyte/packs/<id>/pack.yaml`. `danbyte-lib build-pack` turns it into the zip Danbyte installs (pack import, online or air-gapped); the catalog shows each entry's pack, version, licence and author. Entries are named `<Vendor>/<NAME>`, as their file paths under the matching folder.
 
 Schema: [`danbyte/schema/pack.schema.json`](../../schema/pack.schema.json) (danbyte-library/v1).
 

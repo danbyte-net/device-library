@@ -27,7 +27,8 @@ pip install -e danbyte/tools
 danbyte-lib validate                 # schema, upstream names, merged record, model checks
 danbyte-lib preview Cisco/C9300-48P  # the merged record Danbyte imports
 danbyte-lib sync-check               # overlays whose patched names upstream no longer has
-danbyte-lib build-catalog --out site-data   # the website's JSON and assets
+danbyte-lib build-catalog --out site-data   # the website's JSON, assets and pack zips
+danbyte-lib build-pack --out _packs  # only the zips Danbyte installs, one per pack
 danbyte-lib docs                     # regenerate docs/reference from the schemas
 danbyte-lib new Cisco/C9300-48P             # start an overlay with its schema header
 ```
