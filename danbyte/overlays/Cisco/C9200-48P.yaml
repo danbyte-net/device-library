@@ -51,7 +51,7 @@ model3d:
     front: assets/Cisco/C9200-48P.front.webp
     rear: assets/Cisco/C9200-48P.rear.webp
     iso: assets/Cisco/C9200-48P.iso.webp
-    model_sha256: 5d2a14e8a560e0444b12c845ab5169affbc1389ae76b5ed5d66e94c46f473d8d
+    model_sha256: 266f15392799cafa527635e272cf9e177b392ee45430c739900fc13bbf8d7808
     modules: {Network Module: C9200-NM-4X, FAN 1: FAN-T2, FAN 2: FAN-T2, PS-0: PWR-C6-1KWAC, PS-1: PWR-C6-1KWAC}
 
 # rack mounting (spec 1.11 section 8) from Cisco's install guide; mid = Cisco's 'rear-mount' figure (bracket turned round on the front holes), ~98 mm from our bracket model

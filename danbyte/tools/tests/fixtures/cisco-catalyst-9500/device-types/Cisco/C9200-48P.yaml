@@ -267,7 +267,7 @@ model3d:
     front: models/Cisco/C9200-48P.front.webp
     rear:  models/Cisco/C9200-48P.rear.webp
     iso:   models/Cisco/C9200-48P.iso.webp
-    model_sha256: 5d2a14e8a560e0444b12c845ab5169affbc1389ae76b5ed5d66e94c46f473d8d
+    model_sha256: 266f15392799cafa527635e272cf9e177b392ee45430c739900fc13bbf8d7808
     modules:
       Network Module: C9200-NM-4X
       FAN 1: FAN-T2

@@ -261,7 +261,7 @@ model3d:
     front: models/Cisco/C9200L-48P-4X.front.webp
     rear:  models/Cisco/C9200L-48P-4X.rear.webp
     iso:   models/Cisco/C9200L-48P-4X.iso.webp
-    model_sha256: 17aa5d62b6d4bd4ac963313a94acb27767f590d0f9199782e7e20d13c1638289
+    model_sha256: afeb53e36e1f759ffd5cbfb10948655c0ccd59da96a0e49dab1bc2ff2617f527
     modules:
       PS0: PWR-C5-1KWAC
       PS1: PWR-C5-1KWAC

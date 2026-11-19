@@ -127,7 +127,7 @@ model3d:
     front: models/Cisco/C9200-24T.front.webp
     rear:  models/Cisco/C9200-24T.rear.webp
     iso:   models/Cisco/C9200-24T.iso.webp
-    model_sha256: e3ee2a34f2929ddeee504f8f05e88725228fe6233fb2638525bb5f40bd3e2fc2
+    model_sha256: ae51f739fdbc27aeb41ccbe3f5f2089cf274e6225c34ec7f6377d2beb3d30cb9
     modules:
       Network Module: C9200-NM-4X
       PS-0: PWR-C6-125WAC

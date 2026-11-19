@@ -272,7 +272,7 @@ model3d:
     front: models/Cisco/C9300L-48P-4X.front.webp
     rear:  models/Cisco/C9300L-48P-4X.rear.webp
     iso:   models/Cisco/C9300L-48P-4X.iso.webp
-    model_sha256: fd0cddc7936574d4a534a35d8708ce60b6017fbc732f5b3bade23417d0d75510
+    model_sha256: afaf834789d1da52cd5d4d9115493ebf004a4da26d5b75b36232d6044a10773f
     modules:
       PS-A:  PWR-C1-350WAC-P
       PS-B:  PWR-C1-350WAC-P

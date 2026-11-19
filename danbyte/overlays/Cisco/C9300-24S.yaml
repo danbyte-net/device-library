@@ -72,7 +72,7 @@ model3d:
     front: assets/Cisco/C9300-24S.front.webp
     rear: assets/Cisco/C9300-24S.rear.webp
     iso: assets/Cisco/C9300-24S.iso.webp
-    model_sha256: adc6414f967937a39effdbb7e01a4b58e63c70f67d9ebf63531b38f78aa01f84
+    model_sha256: 4d885d64385db652b61e102eb7992d126f6c0684c71a6590e0c52555ab1679c0
     modules:
       Network Module: C9300-NM-8X
       PS-A: PWR-C1-715WAC-P

@@ -1,6 +1,6 @@
 name: Cisco Catalyst 9500
 id: cisco-catalyst-9500
-version: 1.6.22
+version: 1.6.23
 license: CC-BY-4.0
 author: Christian Rose
 blender: 5.3
