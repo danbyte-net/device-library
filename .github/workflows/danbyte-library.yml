@@ -1,0 +1,70 @@
+# The Danbyte library layer: validate it, check it against upstream, build the
+# website catalog. Scoped to `danbyte/**` so an upstream sync never triggers it.
+name: Danbyte library
+
+on:
+  pull_request:
+    paths: ["danbyte/**", ".github/workflows/danbyte-library.yml"]
+  push:
+    branches: [master]
+    paths: ["danbyte/**", ".github/workflows/danbyte-library.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: danbyte-library-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install danbyte-lib
+        run: pip install -e "danbyte/tools[test,images]"
+      - name: Tool tests
+        run: python -m pytest -q danbyte/tools
+      - name: Validate every library file and model
+        run: danbyte-lib validate
+      - name: Overlays still match upstream
+        run: danbyte-lib sync-check
+      - name: Reference docs are up to date
+        run: |
+          danbyte-lib docs
+          git diff --exit-code -- danbyte/docs/reference
+      - name: Build the catalog
+        run: danbyte-lib build-catalog --out site-data
+      - uses: actions/upload-artifact@v4
+        with:
+          name: catalog
+          path: site-data
+          retention-days: 14
+
+  # Publish the catalog for the library website. Needs GitHub Pages set to
+  # "GitHub Actions" in the repository settings; until then this job is skipped
+  # by the repository variable below.
+  publish:
+    needs: check
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master' && vars.PUBLISH_CATALOG == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: catalog
+          path: site-data
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site-data
+      - id: deploy
+        uses: actions/deploy-pages@v4
