@@ -19,7 +19,7 @@ danbyte-lib build-catalog --out site-data
 | `vendors.json` | `{format, generated, vendors[]}`, per vendor: count, count per category, families, how many have 3D. |
 | `items/<vendor-slug>/<slug>.json` | One per entry: the row plus the full merged record (`record`) and the library's additions (`additions`). For the detail page. |
 | `items/<vendor-slug>/<slug>.yaml` | The same entry's **definition file** (the row's `definition`): the merged record as YAML, the file Danbyte's device type import reads. Offer it as the "definition" download. |
-| `packs.json` | `{format, generated, packs[]}`: every pack with its zip, size and checksum. |
+| `packs.json` | `{format, generated, packs[]}`: every pack with its `description`, the packs it `requires`, its zip, size and checksum. |
 | `packs/<id>-<version>.zip` | **The file a user downloads to install a pack in Danbyte.** |
 | `assets/<Vendor>/…` | The models (`.glb`, `.far.glb`) and photos (`.front` / `.rear` / `.iso.webp`) the rows name. |
 
@@ -61,6 +61,8 @@ reads** and refuse a newer major.
 - **One part:** its definition file (`definition`) imports as a device type through the device type
   import; its `.glb` can then be uploaded on that type as its 3D model. A module, pluggable or rack
   kit comes most easily with its pack.
+- A pack may list others in `requires` (a switch pack needs the connectors its cabled ports
+  show). Offer those with the download: "Also install: Generic connectors".
 - Each pack row in `packs.json` has `size` and `sha256`. The zip is built deterministically, so the
   checksum only changes when the pack does. Show the pack's `license` and `author` beside the
   download.

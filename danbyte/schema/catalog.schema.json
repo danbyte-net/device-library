@@ -596,7 +596,9 @@
               "counts",
               "file",
               "size",
-              "sha256"
+              "sha256",
+              "description",
+              "requires"
             ],
             "properties": {
               "id": {
@@ -633,6 +635,17 @@
               "sha256": {
                 "type": "string",
                 "description": "The zip's checksum; the build is deterministic."
+              },
+              "description": {
+                "type": "string",
+                "description": "One sentence on what the pack holds; may be empty."
+              },
+              "requires": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Ids of the packs this one needs installed too. Offer them with the download."
               }
             }
           }

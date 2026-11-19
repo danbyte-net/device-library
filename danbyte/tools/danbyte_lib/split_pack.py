@@ -108,13 +108,40 @@ def comment_whys(text: str) -> tuple[dict[tuple[str, str], str], dict[str, str],
 # -- rules ------------------------------------------------------------------
 
 
+def _rules_doc(path: Path | None):
+    return (m.load_file(path) or []) if path is not None else []
+
+
 def load_rules(path: Path | None) -> list[dict]:
-    if path is None:
-        return []
-    rules = m.load_file(path) or []
+    """The ``{match, meta, why, pack}`` rules: the file's list, or its
+    ``rules:`` when it also defines ``packs:``."""
+    doc = _rules_doc(path)
+    rules = doc.get("rules") or [] if isinstance(doc, dict) else doc
     if not isinstance(rules, list):
-        raise ValueError(f"{path}: a list of {{match, meta, why}} rules")
+        raise ValueError(f"{path}: a list of {{match, meta, why, pack}} rules")
     return rules
+
+
+def load_pack_defs(path: Path | None) -> dict[str, dict]:
+    """``packs:`` of a rules file - ``{id: {name, description, requires}}`` -
+    the library packs one source folder is split into. Empty: one pack,
+    named as the source."""
+    doc = _rules_doc(path)
+    defs = doc.get("packs") or {} if isinstance(doc, dict) else {}
+    if not isinstance(defs, dict):
+        raise ValueError(f"{path}: packs: a mapping of pack id to {{name, requires}}")
+    return {str(k): (v or {}) for k, v in defs.items()}
+
+
+def packs_for(rules: list[dict], key: str) -> list[str]:
+    """The packs an entry (``<kind>/<Vendor>/<NAME>``) goes into: the
+    ``pack`` (an id or a list) of the last rule that fits and names one."""
+    out: list[str] = []
+    for rule in rules:
+        if rule.get("pack") and fnmatch.fnmatchcase(key, str(rule.get("match", ""))):
+            got = rule["pack"]
+            out = [str(x) for x in (got if isinstance(got, list) else [got])]
+    return out
 
 
 def rules_for(rules: list[dict], key: str) -> tuple[dict, dict]:
@@ -450,13 +477,43 @@ def split_pack(repo: Repo, folder: Path, *, rules_path: Path | None = None,
             if ref not in types.get(kind, []):
                 report.notes.append(f"{kind} {ref} is in the pack folder but not in pack.yaml; added")
                 types.setdefault(kind, []).append(ref)
-    pack = {"format": "danbyte-library/v1", "id": pack_id,
-            "name": manifest.get("name") or pack_id, "version": version}
-    for k in ("license", "author", "description", "blender", "spec"):
-        if manifest.get(k) is not None:
-            pack[k] = manifest[k]
-    pack["types"] = {k: sorted(v) for k, v in types.items()}
-    emit(dan / "packs" / pack_id / "pack.yaml", pack, "pack.schema.json")
+    defs = load_pack_defs(rules_path)
+
+    def pack_file(pid: str, name: str, its: dict[str, list[str]], extra: dict) -> None:
+        pack = {"format": "danbyte-library/v1", "id": pid, "name": name, "version": version}
+        for k in ("license", "author", "description", "blender", "spec"):
+            value = extra.get(k, manifest.get(k)) if k == "description" else manifest.get(k)
+            if value is not None:
+                pack[k] = value
+        if extra.get("requires"):
+            pack["requires"] = [str(x) for x in extra["requires"]]
+        pack["types"] = {k: sorted(v) for k, v in its.items() if v}
+        emit(dan / "packs" / pid / "pack.yaml", pack, "pack.schema.json")
+
+    if not defs:
+        pack_file(pack_id, manifest.get("name") or pack_id, types, {})
+    else:
+        # One source folder, several library packs: each entry goes where
+        # the rules send it (an entry two packs share is listed by both).
+        split: dict[str, dict[str, list[str]]] = {pid: {} for pid in defs}
+        for kind, refs in types.items():
+            for ref in refs:
+                targets = packs_for(rules, f"{kind}/{ref}")
+                if not targets:
+                    report.problems.append(f"{kind} {ref}: no rule gives it a pack")
+                for pid in targets:
+                    if pid not in defs:
+                        report.problems.append(f"{kind} {ref}: pack {pid} is not defined under packs:")
+                        continue
+                    split[pid].setdefault(kind, []).append(ref)
+        for pid, extra in defs.items():
+            for need in extra.get("requires") or []:
+                if str(need) not in defs:
+                    report.problems.append(f"pack {pid}: requires {need}, which is not defined")
+            if not any(split[pid].values()):
+                report.problems.append(f"pack {pid}: no entry goes into it")
+                continue
+            pack_file(pid, str(extra.get("name") or pid), split[pid], extra)
     for extra in sorted(p.name for p in folder.iterdir()
                         if p.name not in ("pack.yaml", "device-types", "module-types", "accessory-types",
                                           "rack-kits", "rack-types", "models")):

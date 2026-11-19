@@ -36,7 +36,7 @@ LAYOUT = {
     "rack-type": ("rack-types", "rack"),
 }
 #: pack.yaml keys that are the library's own, not the pack's.
-LIBRARY_KEYS = ("format", "types", "requires")
+LIBRARY_KEYS = ("format", "types")
 #: A fixed time for every file, so the zip's bytes depend on its content only.
 STAMP = (2020, 1, 1, 0, 0, 0)
 
@@ -126,6 +126,8 @@ def pack_files(repo: Repo, pack_id: str) -> tuple[dict[str, bytes], dict]:
     files["pack.yaml"] = yamlio.dump(manifest).encode("utf-8")
     facts = {k: str(data.get(k) or "") for k in ("id", "name", "version", "license", "author")}
     facts["id"] = facts["id"] or pack_id
+    facts["description"] = str(data.get("description") or "")
+    facts["requires"] = [str(x) for x in data.get("requires") or []]
     facts["counts"] = counts
     return files, facts
 

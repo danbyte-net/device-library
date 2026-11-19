@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: generic-connectors
+name: Generic connectors
+version: 1.6.23
+license: CC-BY-4.0
+author: Christian Rose
+description: The plugs drawn at cabled ports - RJ45, LC, MPO, IEC power - and generic SFP and QSFP bodies.
+blender: 5.3
+spec: 1.15
+types:
+  pluggable:
+    - Generic/IEC-C13
+    - Generic/IEC-C14
+    - Generic/IEC-C15
+    - Generic/IEC-C19
+    - Generic/IEC-C20
+    - Generic/LC-DUPLEX
+    - Generic/MPO-12
+    - Generic/QSFP-GENERIC
+    - Generic/RJ45-PLUG
+    - Generic/SFP-GENERIC

@@ -13,7 +13,8 @@ upstream sync always merges cleanly.
 | `types-new/` | Complete types upstream doesn't have yet. |
 | `pluggables/` | Transceivers, plugs and cords: what they fit and how they look. |
 | `racks/kits/`, `racks/types/` | Rack kits (the parts a rack is built from) and rack types. |
-| `packs/<pack>/pack.yaml` | A pack: a named, versioned set of the entries above that Danbyte installs together. `split-rules.yaml` beside it holds reasons and meta the source pack doesn't carry. |
+| `packs/<pack>/pack.yaml` | A pack: a named, versioned set of the entries above that Danbyte installs together. It may `requires:` other packs, and an entry may be in more than one pack. |
+| `split-rules/<source>.yaml` | For a pack made in the 3D workflow's working folder: which library packs its entries go into, and the reasons and meta its YAML doesn't carry. |
 | `assets/<Vendor>/` | The 3D models (`.glb`, `.far.glb`) and rendered photos the entries name. Plain git, no LFS. |
 | `schema/` | JSON Schema for every file kind, and for the website catalog. |
 | `docs/` | `reference/` is generated from the schemas; `website.md` is the catalog contract. |
@@ -37,7 +38,7 @@ A pack made in place (a folder of full YAMLs and models, as the 3D workflow expo
 into overlays with:
 
 ```sh
-danbyte-lib split-pack <pack folder> --rules danbyte/packs/<pack>/split-rules.yaml --force
+danbyte-lib split-pack <folder> --rules danbyte/split-rules/<source>.yaml --force
 ```
 
 ## Licences

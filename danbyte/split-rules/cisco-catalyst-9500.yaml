@@ -1,0 +1,113 @@
+# split-pack rules for the 3D workflow's working folder `cisco-catalyst-9500`:
+# which library packs its entries go into, and the meta and reasons its
+# YAML does not carry itself.
+#   danbyte-lib split-pack <folder> --rules danbyte/split-rules/cisco-catalyst-9500.yaml --force
+packs:
+  cisco-catalyst-9200:
+    name: Cisco Catalyst 9200
+    description: Catalyst 9200 and 9200L switches with their network modules, stack kit, power supplies, fan and stack cable.
+    requires: [generic-connectors]
+  cisco-catalyst-9300:
+    name: Cisco Catalyst 9300
+    description: Catalyst 9300 and 9300L switches with their network modules, power supplies, fan, and StackWise and StackPower cables.
+    requires: [generic-connectors]
+  cisco-catalyst-9500:
+    name: Cisco Catalyst 9500
+    description: Catalyst 9500 switches with their network modules, power supplies and fans.
+    requires: [generic-connectors]
+  cisco-optics:
+    name: Cisco optics
+    description: Cisco SFP, SFP+, SFP28 and QSFP transceivers and DAC cables.
+    requires: [generic-connectors]
+  generic-racks:
+    name: Generic racks
+    description: Rack kits and rack types (cabinets, open frames, wall cabinet), blanking panels, cable managers, shelves and 0U PDUs.
+    requires: [generic-connectors]
+  generic-connectors:
+    name: Generic connectors
+    description: The plugs drawn at cabled ports - RJ45, LC, MPO, IEC power - and generic SFP and QSFP bodies.
+
+rules:
+  - match: "device/Cisco/C9200*"
+    meta: {category: switch, family: Catalyst 9200}
+  - match: "device/Cisco/C9300*"
+    meta: {category: switch, family: Catalyst 9300}
+  - match: "device/Cisco/C9500*"
+    meta: {category: switch, family: Catalyst 9500}
+  - match: "device/Generic/PDU-*"
+    meta: {category: pdu}
+  - match: "device/Cisco/*"
+    why:
+      "power-ports/StackPower1/*": "StackPower receptacles on the rear panel, A top and B bottom (Cisco C9300 HIG; pack report v1.6.15); NetBox has no StackPower port type, so Danbyte adds them as cisco-stackpower power ports"
+      "interfaces/StackPort*": "typed by stack system so Danbyte picks the right stack cable head (export spec v1.12 section 8); upstream has the generic cisco-stackwise"
+  - match: "module/Cisco/C9200-*"
+    meta: {family: Catalyst 9200}
+  - match: "module/Cisco/PWR-C[56]-*"
+    meta: {family: Catalyst 9200}
+  - match: "module/Cisco/C9300-*"
+    meta: {family: Catalyst 9300}
+  - match: "module/Cisco/PWR-C1-*"
+    meta: {family: Catalyst 9300}
+  - match: "module/Cisco/C9500-*"
+    meta: {family: Catalyst 9500}
+  - match: "module/Cisco/C9K-*"
+    meta: {family: Catalyst 9500}
+  - match: "module/Cisco/PWR-C4-*"
+    meta: {family: Catalyst 9500}
+  - match: "module/Cisco/FAN-T4-R"
+    meta: {family: Catalyst 9500}
+  - match: "module/Cisco/PWR-C1-350WAC-P"
+    why:
+      "power-ports/PSU{module}": "the inlet is C16: the module shares the 715 W unit's inlet, which has the C16 key (pack report v1.6.8); upstream lists iec-60320-c14"
+  - match: "module/Cisco/PWR-C1-715WAC-P"
+    why:
+      "part_number": "the pack models PWR-C1-715WAC-P; upstream's file gives PWR-C1-715WAC"
+
+  # -- which pack each entry goes into (the last rule that fits wins) --------
+  - match: "device/Cisco/C9200*"
+    pack: cisco-catalyst-9200
+  - match: "device/Cisco/C9300*"
+    pack: cisco-catalyst-9300
+  - match: "device/Cisco/C9500*"
+    pack: cisco-catalyst-9500
+  - match: "device/Generic/PDU-*"
+    pack: generic-racks
+  - match: "module/Cisco/C9200-*"
+    pack: cisco-catalyst-9200
+  - match: "module/Cisco/PWR-C[56]-*"
+    pack: cisco-catalyst-9200
+  - match: "module/Cisco/C9300-*"
+    pack: cisco-catalyst-9300
+  - match: "module/Cisco/PWR-C1-*"
+    pack: cisco-catalyst-9300
+  - match: "module/Cisco/C9500-*"
+    pack: cisco-catalyst-9500
+  - match: "module/Cisco/C9K-*"
+    pack: cisco-catalyst-9500
+  - match: "module/Cisco/PWR-C4-*"
+    pack: cisco-catalyst-9500
+  - match: "module/Cisco/FAN-T4-R"
+    pack: cisco-catalyst-9500
+  # The one fan the 9200 and the 9300 share: both packs carry it.
+  - match: "module/Cisco/FAN-T2"
+    pack: [cisco-catalyst-9200, cisco-catalyst-9300]
+  - match: "pluggable/Cisco/*"
+    pack: cisco-optics
+  - match: "pluggable/Cisco/STACK-T4"
+    pack: cisco-catalyst-9200
+  - match: "pluggable/Cisco/STACK-T[13]*"
+    pack: cisco-catalyst-9300
+  - match: "pluggable/Cisco/CAB-SPWR"
+    pack: cisco-catalyst-9300
+  - match: "pluggable/Generic/*"
+    pack: generic-connectors
+  - match: "pluggable/Generic/BLANK-*"
+    pack: generic-racks
+  - match: "pluggable/Generic/CM-*"
+    pack: generic-racks
+  - match: "pluggable/Generic/SHELF-*"
+    pack: generic-racks
+  - match: "rack-kit/*"
+    pack: generic-racks
+  - match: "rack-type/*"
+    pack: generic-racks

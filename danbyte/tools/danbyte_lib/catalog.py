@@ -220,8 +220,8 @@ def build(repo: Repo, out: Path, *, today: dt.date | None = None, copy_assets: b
             except build_pack.PackBuildError as exc:
                 problems += [f"pack {path.parent.name}: {line}" for line in exc.problems]
                 continue
-            built.append({**{k: res[k] for k in ("id", "name", "version", "license", "author",
-                                                  "counts", "size", "sha256")},
+            built.append({**{k: res[k] for k in ("id", "name", "description", "version", "license",
+                                                  "author", "requires", "counts", "size", "sha256")},
                           "file": f"packs/{res['file']}"})
     (out / "packs.json").write_text(json.dumps({"format": FORMAT, "generated": today.isoformat(),
                                                 "packs": built}, indent=2, ensure_ascii=False) + "\n",

@@ -75,14 +75,23 @@ def test_racks_are_the_pack_racks(src):
 
 
 def test_pack_lists_every_converted_entry():
-    pack = m.load_file(REPO / "danbyte/packs/cisco-catalyst-9500/pack.yaml")
+    # The source folder is split into several library packs: together they
+    # list every entry of the source, each at least once.
     src = m.load_file(PACK_FIXTURE / "pack.yaml")
-    assert pack["version"] == src["version"]
-    assert len(pack["types"]["device"]) == len(src["types"]["device"])
-    assert len(pack["types"]["module"]) == len(src["types"]["module"])
-    assert len(pack["types"]["pluggable"]) == len(src["types"]["accessory"])
-    assert len(pack["types"]["rack-kit"]) == len(src["types"]["rack_kit"])
-    assert len(pack["types"]["rack-type"]) == len(src["types"]["rack"])
+    listed: dict[str, set] = {}
+    ids = set()
+    for path in sorted((REPO / "danbyte/packs").glob("*/pack.yaml")):
+        pack = m.load_file(path)
+        ids.add(pack["id"])
+        assert pack["version"] == src["version"], path
+        for need in pack.get("requires", []):
+            assert (REPO / "danbyte/packs" / need / "pack.yaml").is_file(), (path, need)
+        for kind, refs in pack["types"].items():
+            listed.setdefault(kind, set()).update(r.split("/", 1)[1] for r in refs)
+    assert len(ids) == 6
+    for kind, key in (("device", "device"), ("module", "module"), ("pluggable", "accessory"),
+                      ("rack-kit", "rack_kit"), ("rack-type", "rack")):
+        assert listed[kind] == set(src["types"][key]), kind
 
 
 def test_every_addition_says_why():

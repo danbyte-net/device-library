@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: cisco-optics
+name: Cisco optics
+version: 1.6.23
+license: CC-BY-4.0
+author: Christian Rose
+description: Cisco SFP, SFP+, SFP28 and QSFP transceivers and DAC cables.
+blender: 5.3
+spec: 1.15
+requires: [generic-connectors]
+types:
+  pluggable:
+    - Cisco/GLC-LH-SMD
+    - Cisco/GLC-SX-MMD
+    - Cisco/GLC-TE
+    - Cisco/QSFP-100G-CWDM4-S
+    - Cisco/QSFP-100G-DR-S
+    - Cisco/QSFP-100G-LR4-S
+    - Cisco/QSFP-100G-SR4-S
+    - Cisco/QSFP-40G-LR4
+    - Cisco/QSFP-40G-SR-BD
+    - Cisco/QSFP-40G-SR4
+    - Cisco/SFP-10G-ER
+    - Cisco/SFP-10G-LR
+    - Cisco/SFP-10G-LRM
+    - Cisco/SFP-10G-SR
+    - Cisco/SFP-10G-T-X
+    - Cisco/SFP-10G-ZR
+    - Cisco/SFP-25G-SR-S
+    - Cisco/SFP-H10GB-CU3M

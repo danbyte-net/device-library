@@ -9,7 +9,7 @@ from danbyte_lib.repo import Repo
 from helpers import PACK_FIXTURE, REPO
 
 repo = Repo(REPO)
-PACK = "cisco-catalyst-9500"
+PACK = "cisco-catalyst-9300"
 
 
 def _zip():
@@ -24,26 +24,36 @@ def test_the_zip_is_the_pack_folder_danbyte_reads():
     assert all(n.startswith(f"{name}/") for n in names)
     manifest = m.load_yaml(z.read(f"{name}/pack.yaml").decode())
     src = m.load_file(PACK_FIXTURE / "pack.yaml")
-    assert manifest["id"] == PACK
+    assert manifest["id"] == PACK and manifest["name"] == "Cisco Catalyst 9300"
     assert manifest["version"] == src["version"] == facts["version"]
+    assert manifest["requires"] == ["generic-connectors"]
     assert "format" not in manifest
-    # The same entries, under the pack's own keys.
-    for key in ("device", "module", "accessory", "rack_kit", "rack"):
-        assert sorted(manifest["types"][key]) == sorted(src["types"][key]), key
-    assert f"{name}/rack-kits/Generic/CABINET/kit.yaml" in names
-    assert f"{name}/rack-types/Generic/Generic-12U-wall.yaml" in names
+    # Its own entries only, under the pack's own keys, each with its file.
+    assert "C9300-48P" in manifest["types"]["device"]
+    assert "C9200-24P" not in manifest["types"]["device"]
+    assert "FAN-T2" in manifest["types"]["module"]
+    assert sorted(manifest["types"]["accessory"]) == ["CAB-SPWR", "STACK-T1", "STACK-T3", "STACK-T3A"]
+    assert f"{name}/device-types/Cisco/C9300-48P.yaml" in names
+    assert not any("/rack-kits/" in n for n in names)
+    # A rack kit keeps its folder.
+    files, _ = build_pack.pack_files(repo, "generic-racks")
+    assert "rack-kits/Generic/CABINET/kit.yaml" in files
+    assert "rack-types/Generic/Generic-12U-wall.yaml" in files
 
 
 def test_every_file_is_the_pack_authors_file():
-    name, z, _ = _zip()
-    for folder in ("device-types", "module-types", "accessory-types", "rack-types"):
-        for src in sorted((PACK_FIXTURE / folder).glob("*/*.yaml")):
-            got = m.load_yaml(z.read(f"{name}/{folder}/{src.parent.name}/{src.name}").decode())
-            want = m.load_file(src)
+    for pack in sorted(p.parent.name for p in (REPO / "danbyte/packs").glob("*/pack.yaml")):
+        files, _ = build_pack.pack_files(repo, pack)
+        for rel, blob in files.items():
+            if rel == "pack.yaml" or not rel.endswith(".yaml"):
+                continue
+            src = PACK_FIXTURE / rel
+            assert src.is_file(), rel
+            got, want = m.load_yaml(blob.decode()), m.load_file(src)
             # meta is the library's (category added on the split); the rest is the pack's.
             got.pop("meta", None)
             want.pop("meta", None)
-            assert got == want, src.name
+            assert got == want, rel
 
 
 def test_every_named_model_is_in_the_zip():
@@ -61,7 +71,7 @@ def test_the_build_is_deterministic(tmp_path):
     b = build_pack.build(repo, PACK, tmp_path / "b")
     assert a["sha256"] == b["sha256"]
     assert (tmp_path / "a" / a["file"]).stat().st_size == a["size"]
-    assert a["counts"]["device"] == len(list((PACK_FIXTURE / "device-types").glob("*/*.yaml")))
+    assert a["counts"]["device"] == len(list((PACK_FIXTURE / "device-types/Cisco").glob("C9300*.yaml")))
 
 
 def test_an_unknown_pack_is_refused():

@@ -65,6 +65,20 @@
       ],
       "description": "Export spec version the models follow."
     },
+    "requires": {
+      "description": "Other packs this one needs installed for everything in it to draw and connect, by id: a switch pack needs the connectors its cabled ports show. Danbyte warns when one is missing; it does not refuse the install.",
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      },
+      "examples": [
+        [
+          "generic-connectors"
+        ]
+      ]
+    },
     "types": {
       "type": "object",
       "additionalProperties": false,

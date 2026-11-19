@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: cisco-catalyst-9300
+name: Cisco Catalyst 9300
+version: 1.6.23
+license: CC-BY-4.0
+author: Christian Rose
+description: Catalyst 9300 and 9300L switches with their network modules, power supplies, fan, and StackWise and StackPower cables.
+blender: 5.3
+spec: 1.15
+requires: [generic-connectors]
+types:
+  device:
+    - Cisco/C9300-24P
+    - Cisco/C9300-24S
+    - Cisco/C9300-24T
+    - Cisco/C9300-48P
+    - Cisco/C9300-48T
+    - Cisco/C9300-48U
+    - Cisco/C9300L-24P-4G
+    - Cisco/C9300L-24P-4X
+    - Cisco/C9300L-48P-4X
+  module:
+    - Cisco/C9300-NM-2Q
+    - Cisco/C9300-NM-4G
+    - Cisco/C9300-NM-8X
+    - Cisco/FAN-T2
+    - Cisco/PWR-C1-350WAC-P
+    - Cisco/PWR-C1-715WAC-P
+  pluggable: [Cisco/CAB-SPWR, Cisco/STACK-T1, Cisco/STACK-T3, Cisco/STACK-T3A]

@@ -25,6 +25,7 @@ Files: `danbyte/packs/<id>/pack.yaml`. Start each with the editor line, so VS Co
 | `description` | string |  | One paragraph on what the pack holds. |
 | `blender` | string or number |  | Blender version the models were exported with. |
 | `spec` | string or number |  | Export spec version the models follow. |
+| `requires` | list of string (pattern) |  | Other packs this one needs installed for everything in it to draw and connect, by id: a switch pack needs the connectors its cabled ports show. Danbyte warns when one is missing; it does not refuse the install. |
 | `types` | mapping | yes | The entries, by kind. |
 
 ### types

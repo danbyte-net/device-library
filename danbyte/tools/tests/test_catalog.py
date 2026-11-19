@@ -36,7 +36,10 @@ def test_rows_carry_what_the_site_needs(built):
     assert r["ports"]["stack_ports"] == 2
     assert r["has_3d"] and r["has_far"] and r["has_photos"]
     assert r["thumbnail"] == "assets/Cisco/C9300-24P.iso.webp"
-    assert r["packs"][0]["id"] == "cisco-catalyst-9500"
+    assert [p["id"] for p in r["packs"]] == ["cisco-catalyst-9300"]
+    # The fan the 9200 and the 9300 share is in both packs.
+    assert sorted(p["id"] for p in rows["module/Cisco/FAN-T2"]["packs"]) == [
+        "cisco-catalyst-9200", "cisco-catalyst-9300"]
     assert r["lifecycle"]["state"] == "unknown"
     assert {"name": "PS-A", "position": "A",
             "modules": ["PWR-C1-350WAC-P", "PWR-C1-715WAC-P", "PWR-C1-1100WAC-P"]} in r["module_bays"]
