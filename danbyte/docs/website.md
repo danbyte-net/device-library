@@ -19,7 +19,7 @@ danbyte-lib build-catalog --out site-data
 | `vendors.json` | `{format, generated, vendors[]}`, per vendor: count, count per category, families, how many have 3D. |
 | `items/<vendor-slug>/<slug>.json` | One per entry: the row plus the full merged record (`record`) and the library's additions (`additions`). For the detail page. |
 | `items/<vendor-slug>/<slug>.yaml` | The same entry's **definition file** (the row's `definition`): the merged record as YAML, the file Danbyte's device type import reads. Offer it as the "definition" download. |
-| `packs.json` | `{format, generated, packs[]}`: every pack with its `description`, the packs it `requires`, its zip, size and checksum. |
+| `packs.json` | `{format, generated, packs[]}`: every pack and bundle (`kind`) with its `description`, the packs it `requires` or `includes`, its zip, size and checksum. |
 | `packs/<id>-<version>.zip` | **The file a user downloads to install a pack in Danbyte.** |
 | `assets/<Vendor>/…` | The models (`.glb`, `.far.glb`) and photos (`.front` / `.rear` / `.iso.webp`) the rows name. |
 
@@ -53,7 +53,12 @@ reads** and refuse a newer major.
 
 ## Installing in Danbyte: what to tell a visitor
 
-- **A whole pack** (the normal way): download `packs/<id>-<version>.zip` and, in Danbyte 0.21 or
+- **A bundle** (`kind: bundle`) is several packs in one zip: the one download most visitors want
+  ("Danbyte starter library", "Cisco Catalyst"). Offer bundles first and the single packs under
+  them. Danbyte installs each pack in a bundle and keeps them as separate packs, so one can be
+  updated later on its own. Bundle installs need a Danbyte version that reads bundles (0.21,
+  after the pack install itself).
+- **A whole pack** (one family): download `packs/<id>-<version>.zip` and, in Danbyte 0.21 or
   later, open **Settings → Device library → 3D model packs → Install pack…**, then upload the zip
   or paste its URL. Danbyte checks it, shows what it would create or update, and installs on
   confirm. Types arrive with their ports, bays, 3D models, photos, lifecycle dates and links.

@@ -220,9 +220,25 @@ def build(repo: Repo, out: Path, *, today: dt.date | None = None, copy_assets: b
             except build_pack.PackBuildError as exc:
                 problems += [f"pack {path.parent.name}: {line}" for line in exc.problems]
                 continue
-            built.append({**{k: res[k] for k in ("id", "name", "description", "version", "license",
-                                                  "author", "requires", "counts", "size", "sha256")},
-                          "file": f"packs/{res['file']}"})
+            built.append({"kind": "pack",
+                          **{k: res[k] for k in ("id", "name", "description", "version", "license",
+                                                 "author", "requires", "counts", "size", "sha256")},
+                          "includes": [], "file": f"packs/{res['file']}"})
+        info = {b["id"]: b for b in built}
+        for path, _data, _error in repo.bundles():
+            try:
+                res = build_pack.build_bundle(repo, path.parent.name, out / "packs")
+            except build_pack.PackBuildError as exc:
+                problems += [f"bundle {path.parent.name}: {line}" for line in exc.problems]
+                continue
+            inside = [info[i] for i in res["includes"] if i in info]
+            built.append({"kind": "bundle",
+                          **{k: res[k] for k in ("id", "name", "description", "version", "counts",
+                                                 "size", "sha256", "includes")},
+                          # A bundle's licences and authors are its packs'.
+                          "license": ", ".join(sorted({p["license"] for p in inside if p["license"]})),
+                          "author": ", ".join(sorted({p["author"] for p in inside if p["author"]})),
+                          "requires": [], "file": f"packs/{res['file']}"})
     (out / "packs.json").write_text(json.dumps({"format": FORMAT, "generated": today.isoformat(),
                                                 "packs": built}, indent=2, ensure_ascii=False) + "\n",
                                     encoding="utf-8")

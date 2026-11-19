@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../schema/bundle.schema.json
+format: danbyte-library/v1
+id: danbyte-starter
+name: Danbyte starter library
+description: Everything in the library - the Cisco Catalyst switches and optics, generic racks, PDUs and connectors.
+includes:
+  - generic-connectors
+  - generic-racks
+  - cisco-optics
+  - cisco-catalyst-9200
+  - cisco-catalyst-9300
+  - cisco-catalyst-9500

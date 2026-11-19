@@ -191,11 +191,15 @@ def cmd_build_pack(args) -> int:
     from . import build_pack
 
     repo = _repo(args)
-    ids = args.pack or [p.parent.name for p, _d, _e in repo.packs()]
+    bundle_ids = {p.parent.name for p, _d, _e in repo.bundles()}
+    ids = args.pack or ([p.parent.name for p, _d, _e in repo.packs()] + sorted(bundle_ids))
     bad = 0
     for pack_id in ids:
         try:
-            res = build_pack.build(repo, pack_id, Path(args.out))
+            if pack_id in bundle_ids:
+                res = build_pack.build_bundle(repo, pack_id, Path(args.out))
+            else:
+                res = build_pack.build(repo, pack_id, Path(args.out))
         except build_pack.PackBuildError as exc:
             bad += 1
             print(f"{pack_id}: not built", file=sys.stderr)
@@ -286,7 +290,7 @@ def main(argv: list[str] | None = None) -> int:
     s.set_defaults(func=cmd_build_catalog)
 
     s = sub.add_parser("build-pack", help="build the zip Danbyte installs from a pack")
-    s.add_argument("pack", nargs="*", help="pack id (danbyte/packs/<id>); every pack when left out")
+    s.add_argument("pack", nargs="*", help="pack or bundle id; every pack and bundle when left out")
     s.add_argument("--out", default="_packs")
     s.set_defaults(func=cmd_build_pack)
 

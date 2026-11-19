@@ -164,7 +164,7 @@ Also takes the keys of [rowFields](#rowfields).
 
 ### packs
 
-`packs.json`: every pack with the zip Danbyte installs (Settings, Device library, 3D model packs, Install pack: upload the zip or give its URL).
+`packs.json`: every pack and bundle with the zip Danbyte installs (Settings, Device library, 3D model packs, Install pack: upload the zip or give its URL).
 
 | Key | Type | Required | Description |
 |---|---|---|---|

@@ -14,6 +14,7 @@ upstream sync always merges cleanly.
 | `pluggables/` | Transceivers, plugs and cords: what they fit and how they look. |
 | `racks/kits/`, `racks/types/` | Rack kits (the parts a rack is built from) and rack types. |
 | `packs/<pack>/pack.yaml` | A pack: a named, versioned set of the entries above that Danbyte installs together. It may `requires:` other packs, and an entry may be in more than one pack. |
+| `bundles/<id>/bundle.yaml` | A bundle: several packs as one download. No entries of its own; it must include what its packs require. |
 | `split-rules/<source>.yaml` | For a pack made in the 3D workflow's working folder: which library packs its entries go into, and the reasons and meta its YAML doesn't carry. |
 | `assets/<Vendor>/` | The 3D models (`.glb`, `.far.glb`) and rendered photos the entries name. Plain git, no LFS. |
 | `schema/` | JSON Schema for every file kind, and for the website catalog. |

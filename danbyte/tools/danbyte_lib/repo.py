@@ -105,6 +105,8 @@ class Repo:
         rel = rel.replace(os.sep, "/")
         if rel.startswith("danbyte/packs/") and rel.endswith("/pack.yaml"):
             return "pack"
+        if rel.startswith("danbyte/bundles/") and rel.endswith("/bundle.yaml"):
+            return "bundle"
         if rel.startswith("danbyte/assets/"):
             return "asset"
         if rel.startswith(TYPES_NEW + "/"):
@@ -191,6 +193,22 @@ class Repo:
         if not base.is_dir():
             return out
         for path in sorted(base.glob("*/pack.yaml")):
+            try:
+                data = m.load_file(path)
+                out.append((path, data if isinstance(data, dict) else None,
+                            None if isinstance(data, dict) else "not a mapping"))
+            except Exception as exc:
+                out.append((path, None, f"not valid YAML: {exc}"))
+        return out
+
+
+    def bundles(self) -> list[tuple[Path, dict | None, str | None]]:
+        """Every ``danbyte/bundles/<id>/bundle.yaml`` as (path, data, error)."""
+        out = []
+        base = self.danbyte / "bundles"
+        if not base.is_dir():
+            return out
+        for path in sorted(base.glob("*/bundle.yaml")):
             try:
                 data = m.load_file(path)
                 out.append((path, data if isinstance(data, dict) else None,

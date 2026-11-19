@@ -12,6 +12,7 @@ One page per schema in `danbyte/schema/`, the public standard for what Danbyte a
 | [Rack type](rack-type.md) | A rack type with its Look, in `danbyte/racks/types/<Vendor>/<model>.yaml`. |
 | [Rack kit](rack-kit.md) | One style of rack as a kit of named parts, in `danbyte/racks/kits/<Vendor>/<NAME>/kit.yaml` (export spec §14). |
 | [Pack](pack.md) | A pack is a named, versioned selection of library entries, in `danbyte/packs/<id>/pack.yaml`. |
+| [Bundle](bundle.md) | A bundle is a named list of packs delivered as one download, in `danbyte/bundles/<id>/bundle.yaml`. |
 | [meta](meta.md) | What the public library website and Danbyte's catalog sort, filter and show for one entry: its category, family, a one-line summary, lifecycle dates and links to vendor documents. |
 | [Shared definitions](common.md) | Building blocks shared by the overlay, module overlay, pluggable, rack and pack schemas. |
 | [Catalog](catalog.md) | The generated files the public library website and Danbyte's library browser read, built by `danbyte-lib build-catalog`: `catalog.json` (this schema: one row per entry, everything a list, its filters and search need), `items/<vendor>/<slug>.json` (`#/$defs/item`: the row plus the fully merged record, for a detail page) and `vendors.json` (`#/$defs/vendors`). |

@@ -234,6 +234,32 @@ class Validator:
                     r.errors.append(f"types.{kind}: {ref} is not in danbyte/{KIND_DIRS[kind]}/")
         return r
 
+    def bundle(self, path: Path, data: dict | None, err: str | None) -> Result:
+        r = Result(self.repo.rel(path))
+        if err:
+            r.errors.append(err)
+            return r
+        v = schemas.validator(self.schema_dir, "bundle.schema.json")
+        r.errors += [f"schema: {x}" for x in schemas.messages(v, data)]
+        if data.get("id") not in (None, path.parent.name):
+            r.errors.append(f"id {data.get('id')!r} differs from its folder {path.parent.name!r}")
+        packs = {p.parent.name: (d or {}) for p, d, _e in self.repo.packs()}
+        if path.parent.name in packs:
+            r.errors.append(f"{path.parent.name} is also a pack: a bundle needs its own id")
+        includes = [str(x) for x in data.get("includes") or [] if isinstance(x, str)]
+        seen: list[str] = []
+        for pid in includes:
+            if pid not in packs:
+                r.errors.append(f"includes: {pid} is not in danbyte/packs/")
+                continue
+            for need in packs[pid].get("requires") or []:
+                if need not in includes:
+                    r.errors.append(f"includes: {pid} requires {need}, which the bundle lacks")
+                elif need not in seen:
+                    r.errors.append(f"includes: {need} must come before {pid}, which requires it")
+            seen.append(pid)
+        return r
+
     def base(self, path: Path) -> Result:
         """A Danbyte-only NetBox base under ``danbyte/types-new/``."""
         rel = self.repo.rel(path)
@@ -286,6 +312,9 @@ class Validator:
             elif kind == "pack":
                 if path.is_file():
                     packs.append(path)
+            elif kind == "bundle":
+                if path.is_file():
+                    self._bundles.append(path)
             elif kind in ("types-new", "upstream", "asset"):
                 if kind == "types-new" and path.is_file() and path.suffix in (".yaml", ".yml"):
                     bases.append(path)
@@ -301,6 +330,7 @@ class Validator:
     def run(self, paths: list[str] | None = None) -> list[Result]:
         everything = not paths
         entries, packs, bases = [], [], []
+        self._bundles: list[Path] = []
         if paths:
             entries, packs, bases, everything = self.select(paths)
         if everything:
@@ -310,6 +340,9 @@ class Validator:
         out = [self.entry(e) for e in entries]
         pk = {p: (d, err) for p, d, err in self.repo.packs()}
         out += [self.pack(p, *pk.get(p, (None, "missing"))) for p in packs]
+        bd = {p: (d, err) for p, d, err in self.repo.bundles()}
+        bundles = list(bd) if everything else self._bundles
+        out += [self.bundle(p, *bd.get(p, (None, "missing"))) for p in bundles]
         out += [self.base(b) for b in bases]
         return out
 

@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../schema/bundle.schema.json
+format: danbyte-library/v1
+id: cisco-catalyst
+name: Cisco Catalyst
+description: Catalyst 9200, 9300 and 9500 switches with their modules, Cisco optics and the connectors their ports show.
+includes:
+  - generic-connectors
+  - cisco-optics
+  - cisco-catalyst-9200
+  - cisco-catalyst-9300
+  - cisco-catalyst-9500

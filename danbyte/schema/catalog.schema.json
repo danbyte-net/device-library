@@ -567,7 +567,7 @@
       }
     },
     "packs": {
-      "description": "`packs.json`: every pack with the zip Danbyte installs (Settings, Device library, 3D model packs, Install pack: upload the zip or give its URL).",
+      "description": "`packs.json`: every pack and bundle with the zip Danbyte installs (Settings, Device library, 3D model packs, Install pack: upload the zip or give its URL).",
       "type": "object",
       "required": [
         "format",
@@ -598,7 +598,9 @@
               "size",
               "sha256",
               "description",
-              "requires"
+              "requires",
+              "kind",
+              "includes"
             ],
             "properties": {
               "id": {
@@ -646,6 +648,20 @@
                   "type": "string"
                 },
                 "description": "Ids of the packs this one needs installed too. Offer them with the download."
+              },
+              "kind": {
+                "enum": [
+                  "pack",
+                  "bundle"
+                ],
+                "description": "`pack`: a set of entries. `bundle`: several packs in one zip (`includes`); Danbyte installs each pack in it. Offer bundles first, as the one download."
+              },
+              "includes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "For a bundle: the ids of the packs in it, in install order. Empty for a pack."
               }
             }
           }

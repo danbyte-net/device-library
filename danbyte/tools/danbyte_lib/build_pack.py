@@ -11,6 +11,9 @@ pack import reads a folder of complete files::
     rack-types/<Vendor>/<NAME>.yaml
     models/<Vendor>/...            (every model and photo the files name)
 
+A bundle (``danbyte/bundles/<id>/bundle.yaml``) becomes one zip with a
+``bundle.yaml`` and each included pack as such a folder under ``packs/``.
+
 This builds that folder from the library: each device and module overlay
 merged over its upstream file, the other kinds as they are, ``assets/``
 paths written as ``models/``. The zip is deterministic - same library, same
@@ -149,6 +152,71 @@ def build(repo: Repo, pack_id: str, out: Path) -> dict:
     ``{id, name, version, license, author, counts, file, size, sha256, files}``."""
     files, facts = pack_files(repo, pack_id)
     name = f"{facts['id']}-{facts['version'] or '0'}"
+    blob = zip_bytes(files, name)
+    out = Path(out)
+    out.mkdir(parents=True, exist_ok=True)
+    path = out / f"{name}.zip"
+    path.write_bytes(blob)
+    return {**facts, "file": path.name, "size": len(blob),
+            "sha256": hashlib.sha256(blob).hexdigest(), "files": len(files)}
+
+
+# -- bundles ----------------------------------------------------------------
+
+
+def _version_key(v: str) -> tuple:
+    return tuple(int(x) if x.isdigit() else x for x in v.replace("-", ".").split("."))
+
+
+def bundle_doc(repo: Repo, bundle_id: str) -> dict:
+    for path, data, error in repo.bundles():
+        if path.parent.name == bundle_id:
+            if error or not data:
+                raise PackBuildError([f"{repo.rel(path)}: {error or 'empty'}"])
+            return data
+    raise PackBuildError([f"no bundle named {bundle_id} under danbyte/bundles/"])
+
+
+def bundle_files(repo: Repo, bundle_id: str) -> tuple[dict[str, bytes], dict]:
+    """A bundle's files - ``bundle.yaml`` and ``packs/<pack id>/...`` - and
+    its facts (``{id, name, description, version, includes, packs, counts}``).
+    Its version is its own, or the highest among its packs."""
+    data = bundle_doc(repo, bundle_id)
+    files: dict[str, bytes] = {}
+    problems: list[str] = []
+    packs: list[dict] = []
+    counts: dict[str, int] = {}
+    for pid in data.get("includes") or []:
+        try:
+            pfiles, facts = pack_files(repo, str(pid))
+        except PackBuildError as exc:
+            problems += [f"{pid}: {line}" for line in exc.problems]
+            continue
+        for rel, blob in pfiles.items():
+            files[f"packs/{pid}/{rel}"] = blob
+        packs.append({"id": facts["id"], "name": facts["name"], "version": facts["version"]})
+        for kind, n in facts["counts"].items():
+            counts[kind] = counts.get(kind, 0) + n
+    if problems:
+        raise PackBuildError(problems)
+    version = str(data.get("version") or "") or max(
+        (p["version"] for p in packs if p["version"]), key=_version_key, default="0")
+    manifest = {"id": bundle_id, "name": str(data.get("name") or bundle_id)}
+    if data.get("description"):
+        manifest["description"] = str(data["description"])
+    manifest["version"] = version
+    manifest["packs"] = packs
+    files["bundle.yaml"] = yamlio.dump(manifest).encode("utf-8")
+    facts = {"id": bundle_id, "name": manifest["name"], "description": str(data.get("description") or ""),
+             "version": version, "includes": [p["id"] for p in packs], "packs": packs, "counts": counts}
+    return files, facts
+
+
+def build_bundle(repo: Repo, bundle_id: str, out: Path) -> dict:
+    """Write ``<id>-<version>.zip`` into ``out``; answers the bundle's facts
+    with ``file``, ``size``, ``sha256`` and ``files``."""
+    files, facts = bundle_files(repo, bundle_id)
+    name = f"{bundle_id}-{facts['version']}"
     blob = zip_bytes(files, name)
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)

@@ -81,3 +81,43 @@ def test_an_unknown_pack_is_refused():
         assert "no pack named" in exc.problems[0]
     else:
         raise AssertionError("built a pack that doesn't exist")
+
+
+def test_a_bundle_is_its_packs_in_one_zip():
+    files, facts = build_pack.bundle_files(repo, "cisco-catalyst")
+    manifest = m.load_yaml(files["bundle.yaml"].decode())
+    assert manifest["id"] == "cisco-catalyst"
+    assert [p["id"] for p in manifest["packs"]] == facts["includes"]
+    # Connectors first: the packs after it require it.
+    assert facts["includes"][0] == "generic-connectors"
+    assert "generic-racks" not in facts["includes"]
+    # Each pack is its complete folder, byte for byte what its own zip holds.
+    for pid in facts["includes"]:
+        own, _ = build_pack.pack_files(repo, pid)
+        for rel, blob in own.items():
+            assert files[f"packs/{pid}/{rel}"] == blob, (pid, rel)
+    assert facts["version"] == m.load_file(PACK_FIXTURE / "pack.yaml")["version"]
+
+
+def test_bundles_build_deterministically_and_cover_the_library(tmp_path):
+    a = build_pack.build_bundle(repo, "danbyte-starter", tmp_path / "a")
+    b = build_pack.build_bundle(repo, "danbyte-starter", tmp_path / "b")
+    assert a["sha256"] == b["sha256"]
+    packs = sorted(p.parent.name for p in (REPO / "danbyte/packs").glob("*/pack.yaml"))
+    assert sorted(a["includes"]) == packs
+
+
+def test_every_bundle_is_valid():
+    from danbyte_lib.validate import Validator
+
+    v = Validator(repo)
+    for path, data, err in repo.bundles():
+        r = v.bundle(path, data, err)
+        assert r.errors == [], (path, r.errors)
+    # A bundle missing what a pack requires, or listing it too late, is refused.
+    path = REPO / "danbyte/bundles/cisco-catalyst/bundle.yaml"
+    bad = v.bundle(path, {"id": "cisco-catalyst", "name": "x", "includes": ["cisco-optics"]}, None)
+    assert any("requires generic-connectors" in e for e in bad.errors)
+    late = v.bundle(path, {"id": "cisco-catalyst", "name": "x",
+                           "includes": ["cisco-optics", "generic-connectors"]}, None)
+    assert any("must come before" in e for e in late.errors)
