@@ -63,7 +63,7 @@ model3d:
     front: assets/Cisco/C9500-32C.front.webp
     rear: assets/Cisco/C9500-32C.rear.webp
     iso: assets/Cisco/C9500-32C.iso.webp
-    model_sha256: a94b00e7d7915e5cbdd9e02048faf2a7ada85d9b78a2d55afef5bea5d75ad21a
+    model_sha256: 65cbb9ebbab1e26a7e778e12fec37108d1784c27370e5955ef95c35d7bdfe04f
     modules:
       PS-0: C9K-PWR-1600WAC-R
       PS-1: C9K-PWR-1600WAC-R
@@ -76,6 +76,6 @@ model3d:
 # rack mounting (spec 1.11 section 8) from Cisco's install guide; middle / rear positions exist but have no published offsets (see REPORT)
 rack_mount:
   ears: true
-  positions: {front: 0}
+  positions: {front: 0, reversed: 0}
   default: front
   rails: none

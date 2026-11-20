@@ -22,14 +22,24 @@ module-bays:
     modules: [PWR-C5-1KWAC, PWR-C5-715WDC]
   PS1:
     modules: [PWR-C5-1KWAC, PWR-C5-715WDC]
+  add:
+    - name: StackPort1/1
+      position: 1/1
+      modules: [C9200L-STACK-KIT]
+      why: 'stack-kit bay (REVIEW-17; Cisco: one stack adapter per stack port)'
+      before: PS0
+    - name: StackPort1/2
+      position: 1/2
+      modules: [C9200L-STACK-KIT]
+      why: 'stack-kit bay (REVIEW-17; Cisco: one stack adapter per stack port)'
+      after: StackPort1/1
 
 interfaces:
-  StackPort1/1:
-    type: cisco-stackwise-80
-    why: typed by stack system so Danbyte picks the right stack cable head (export spec v1.12 section 8); upstream has the generic cisco-stackwise
-  StackPort1/2:
-    type: cisco-stackwise-80
-    why: typed by stack system so Danbyte picks the right stack cable head (export spec v1.12 section 8); upstream has the generic cisco-stackwise
+  remove:
+    - name: StackPort1/1
+      why: 'StackPort1/1 and StackPort1/2 moved to stack-kit module bays (REVIEW-17: the stack ports belong to'
+    - name: StackPort1/2
+      why: 'StackPort1/1 and StackPort1/2 moved to stack-kit module bays (REVIEW-17: the stack ports belong to'
 
 model3d:
   file: assets/Cisco/C9200L-48P-4X.glb
@@ -44,7 +54,7 @@ model3d:
     front: assets/Cisco/C9200L-48P-4X.front.webp
     rear: assets/Cisco/C9200L-48P-4X.rear.webp
     iso: assets/Cisco/C9200L-48P-4X.iso.webp
-    model_sha256: 171d6a08c75f039f4263e55a5f49628f62af3c38a7bcbb861101f8a867ed7e53
+    model_sha256: f1846288e8b4870f579ba4e53d6814ed343329c8b79c28209d6e66379a90d7aa
     modules: {PS0: PWR-C5-1KWAC, PS1: PWR-C5-1KWAC}
 
 # rack mounting (spec 1.11 section 8) from Cisco's install guide; mid = Cisco's 'rear-mount' figure (bracket turned round on the front holes), ~98 mm from our bracket model

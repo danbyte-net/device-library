@@ -1,0 +1,9 @@
+---
+manufacturer: Cisco
+model: PWR-C4-950WDC-R
+part_number: PWR-C4-950WDC-R
+comments: 950W DC, -36 to -72 VDC / [Cisco Catalyst 9500 Series Switches Data Sheet](https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/nb-06-cat9500-ser-data-sheet-cte-en.html)
+power-ports:
+  - name: PSU{module}
+    type: dc-terminal
+    maximum_draw: 950

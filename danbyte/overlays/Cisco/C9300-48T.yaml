@@ -95,7 +95,7 @@ model3d:
     front: assets/Cisco/C9300-48T.front.webp
     rear: assets/Cisco/C9300-48T.rear.webp
     iso: assets/Cisco/C9300-48T.iso.webp
-    model_sha256: 8866dd18784a12d57bbfe966feccac18c1c34a99abf87f87cf58f795e92bfa17
+    model_sha256: fa31d890516f55fe85605d5108b03fc501e8dad8c7375815f3cad149e7a8c005
     modules:
       Network Module: C9300-NM-8X
       PS-A: PWR-C1-350WAC-P

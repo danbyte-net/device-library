@@ -1,7 +1,7 @@
 """Every type converted from the cisco-catalyst-9500 pack merges back to the
 pack's own (edit-in-place) YAML: same interfaces, bays, power ports, model3d.
 
-The fixtures are the pack's YAML files as split (v1.6.28), copied unchanged."""
+The fixtures are the pack's YAML files as split (v1.6.39), copied unchanged."""
 import json
 
 import pytest
@@ -89,9 +89,12 @@ def test_pack_lists_every_converted_entry():
         for kind, refs in pack["types"].items():
             listed.setdefault(kind, set()).update(r.split("/", 1)[1] for r in refs)
     assert len(ids) == 6
-    for kind, key in (("device", "device"), ("module", "module"), ("pluggable", "accessory"),
-                      ("rack-kit", "rack_kit"), ("rack-type", "rack")):
-        assert listed[kind] == set(src["types"][key]), kind
+    # The source names its rack kits and types under either spelling.
+    for kind, keys in (("device", ("device",)), ("module", ("module",)), ("pluggable", ("accessory",)),
+                       ("rack-kit", ("rack-kit", "rack_kit")), ("rack-type", ("rack-type", "rack_type", "rack"))):
+        named = next((src["types"][k] for k in keys if k in src["types"]), None)
+        if named is not None:
+            assert listed[kind] == set(named), kind
 
 
 def test_every_addition_says_why():

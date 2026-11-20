@@ -19,7 +19,7 @@ meta:
 
 module-bays:
   Network Module:
-    modules: [C9200-NM-4G, C9200-NM-4X, C9200-NM-BLANK]
+    modules: [C9200-NM-4G, C9200-NM-4X]
   StackPort1/1:
     modules: [C9200-STACK-KIT]
   StackPort1/2:
@@ -46,7 +46,7 @@ model3d:
     front: assets/Cisco/C9200-24P.front.webp
     rear: assets/Cisco/C9200-24P.rear.webp
     iso: assets/Cisco/C9200-24P.iso.webp
-    model_sha256: 86c590d2af8b6c4b14400ee227d5f1c75f67b12125795b951cfbba0066cdc66d
+    model_sha256: f5ae7423d853f8f1076f29983997c100f99960f12007c50c542b153b77a15842
     modules:
       Network Module: C9200-NM-4X
       PS-A: PWR-C6-600WAC

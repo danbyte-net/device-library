@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Cisco/C9300L-STACK-KIT2.yaml
+meta:
+  category: module
+  module_kind: stack-kit
+  roles: [stacking]
+  family: Catalyst 9300L
+  summary: 'Stacking kit 2 for Catalyst 9300L / 9300LM switches: two stack adapters and one 50 cm STACK-T3A cable (StackWise-320).'
+  links:
+    - kind: datasheet
+      title: Cisco Catalyst 9300 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9300-series-switches/nb-06-cat9300-ser-data-sheet-cte-en.html
+    - kind: white-paper
+      title: Cisco Catalyst 9300 Series StackWise white paper
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9300-series-switches/white-paper-c11-741468.html
+    - kind: install-guide
+      title: Cisco Catalyst 9300 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/hardware/install/b_c9300_hig.html
+
+model3d:
+  file: assets/Cisco/C9300L-STACK-KIT2.glb
+  far: assets/Cisco/C9300L-STACK-KIT2.far.glb
+  renders:
+    front: assets/Cisco/C9300L-STACK-KIT2.front.webp
+    rear: assets/Cisco/C9300L-STACK-KIT2.rear.webp
+    iso: assets/Cisco/C9300L-STACK-KIT2.iso.webp
+    model_sha256: 43b959807eeb4dcefc5e0d72b45858d841176bc7e84439b9d986694cae5e07a1

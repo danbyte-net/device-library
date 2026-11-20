@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+format: danbyte-library/v1
+upstream: module-types/Cisco/PWR-C5-715WDC.yaml
+meta:
+  category: module
+  module_kind: psu
+  roles: [power]
+  family: Catalyst 9200
+  summary: 715 W DC (-40 to -72 VDC) power supply for Catalyst 9200L and 9200 PoE models; 3-position terminal block (+, -, ground).
+  links:
+    - kind: datasheet
+      title: Cisco Catalyst 9200 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9200-series-switches/nb-06-cat9200-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9200 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9200/hardware/install/b-c9200-hig.html
+    - kind: product-page
+      title: Catalyst 9200 Switches Overview
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9200-series-switches/index.html
+    - kind: install-guide
+      title: Installing a Power Supply Unit (C9200 HIG)
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9200/hardware/install/b-c9200-hig/installing_the_power_supply_units.html
+
+comments: '715W DC, -40 to -72 VDC; spare only, IOS-XE 17.8.1 or later, PoE models only; data sheet 1.6 x 4.0 x 7.1 in (the AC supplies of this bay: 7.6 in); the model keeps the AC body length so it reaches the bay''s rear connector (REVIEW-19) / [Cisco Catalyst 9200 Series Switches Data Sheet](https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9200-series-switches/nb-06-cat9200-ser-data-sheet-cte-en.html)'
+weight: 1.59
+weight_unit: kg
+model3d:
+  file: assets/Cisco/PWR-C5-715WDC.glb
+  far: assets/Cisco/PWR-C5-715WDC.far.glb
+  renders:
+    front: assets/Cisco/PWR-C5-715WDC.front.webp
+    rear: assets/Cisco/PWR-C5-715WDC.rear.webp
+    iso: assets/Cisco/PWR-C5-715WDC.iso.webp
+    model_sha256: 21047908ff355a29742c3fcb23407e19b26f144e4c85d057dc6ec4bb59028138
+  leds:
+    DC_OK: {source: module.status}
+    PS_OK: {source: module.status}

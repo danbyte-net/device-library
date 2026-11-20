@@ -1,0 +1,8 @@
+---
+manufacturer: Cisco
+model: C9300L-STACK-KIT
+part_number: C9300L-STACK-KIT
+comments: 'C9300L stack adapter (C9300L-STACK-KIT: two stack adapters and one 50 cm STACK-T3 cable; StackWise-320, C9300L only). One adapter per rear stack port, seated into the chassis, held by captive thumbscrews. Model: the same adapter as C9200-STACK-KIT; Cisco publishes no drawing.'
+interfaces:
+  - name: StackPort{module}
+    type: cisco-stackwise-320

@@ -25,7 +25,7 @@ model3d:
     front: assets/Cisco/C9K-PWR-650WAC-R.front.webp
     rear: assets/Cisco/C9K-PWR-650WAC-R.rear.webp
     iso: assets/Cisco/C9K-PWR-650WAC-R.iso.webp
-    model_sha256: 74dee12f9fa8e8d29dec2e7b239e61937781f7ed2206d8b715e27866abb92197
+    model_sha256: aa5f5fb7fb237dc5de0b1bcf32263dcac7c588e2ac8b8dfe1763b42afb8ff463
   leds:
     PS_OK: {source: module.status}
     FAIL:

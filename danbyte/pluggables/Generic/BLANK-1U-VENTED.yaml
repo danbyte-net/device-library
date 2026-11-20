@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta:
+  category: pluggable
+  roles: [rack, blanking]
+  family: Generic rack accessories
+  summary: 1U 19-inch vented blanking panel (EIA-310), perforated like the vented doors.
+
+name: BLANK-1U-VENTED
+kind: blanking
+u_height: 1
+comments: 'Generic 1U 19-inch vented blanking panel (EIA-310), steel, black: perforated field (6.4 mm round holes on an 8 mm square pitch, the vented doors'' perforation) inside a solid border, 2 mm ear flanges, four pan-head screws, return flanges behind the face.'
+model3d:
+  file: assets/Generic/BLANK-1U-VENTED.glb
+  renders:
+    front: assets/Generic/BLANK-1U-VENTED.front.webp
+    rear: assets/Generic/BLANK-1U-VENTED.rear.webp
+    iso: assets/Generic/BLANK-1U-VENTED.iso.webp
+    model_sha256: cb5dc4c14a451d25559435107e19c29b14aa127341c9137bfff7d5507edf72f4

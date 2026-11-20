@@ -16,4 +16,4 @@ model3d:
     front: assets/Generic/CM-1U-BRUSH.front.webp
     rear: assets/Generic/CM-1U-BRUSH.rear.webp
     iso: assets/Generic/CM-1U-BRUSH.iso.webp
-    model_sha256: ce4ca7538edb69bb019b63e609787eb5d3a0a3649c8c5c03e034072fc49f426b
+    model_sha256: 6aeebae706368e4163fbe8bb3fac92227c976e8bab22d9b6c58e07d3c0fd6229

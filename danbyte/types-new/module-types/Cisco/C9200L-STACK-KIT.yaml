@@ -1,0 +1,8 @@
+---
+manufacturer: Cisco
+model: C9200L-STACK-KIT
+part_number: C9200L-STACK-KIT
+comments: 'C9200L stack adapter (C9200L-STACK-KIT holds two data stack adapters and one STACK-T4-50CM cable; StackWise-80, C9200L only). One adapter per rear stack port, held by captive thumbscrews. Model: the C9200-STACK-KIT adapter (face, screw, socket, dust plug cover); Cisco publishes no separate drawing.'
+interfaces:
+  - name: StackPort{module}
+    type: cisco-stackwise-80

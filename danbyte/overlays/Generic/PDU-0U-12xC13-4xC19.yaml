@@ -12,7 +12,5 @@ model3d:
   file: assets/Generic/PDU-0U-12xC13-4xC19.glb
   far: assets/Generic/PDU-0U-12xC13-4xC19.far.glb
   renders:
-    front: assets/Generic/PDU-0U-12xC13-4xC19.front.webp
-    rear: assets/Generic/PDU-0U-12xC13-4xC19.rear.webp
     iso: assets/Generic/PDU-0U-12xC13-4xC19.iso.webp
     model_sha256: 88acde1d07b3bda90109e48bf0e0620e7cd4433530ebc9f5e4b56d50286312c1
