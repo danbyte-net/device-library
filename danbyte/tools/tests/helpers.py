@@ -2,16 +2,33 @@
 the repository's pytest config runs with --noconftest)."""
 from __future__ import annotations
 
+import atexit
 import json
 import shutil
 import struct
+import tempfile
+import zipfile
 from pathlib import Path
 
 TESTS = Path(__file__).resolve().parent
 TOOLS = TESTS.parent
 REPO = TOOLS.parents[1]
 FIXTURES = TESTS / "fixtures"
-PACK_FIXTURE = FIXTURES / "cisco-catalyst-9500"
+
+
+def _unpacked(name: str) -> Path:
+    """A fixture pack, unpacked for this run. It is kept as a zip because the
+    upstream definition tests validate every changed file whose path holds
+    ``device-types``, ``module-types`` or ``rack-types`` against the upstream
+    schema, and a pack's files are Danbyte's, not upstream's."""
+    out = Path(tempfile.mkdtemp(prefix="danbyte-lib-fixture-")) / name
+    atexit.register(shutil.rmtree, out.parent, ignore_errors=True)
+    with zipfile.ZipFile(FIXTURES / f"{name}.zip") as z:
+        z.extractall(out)
+    return out
+
+
+PACK_FIXTURE = _unpacked("cisco-catalyst-9500")
 
 
 def write(path: Path, text: str) -> Path:
