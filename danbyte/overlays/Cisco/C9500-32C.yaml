@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Cisco/C9500-32C.yaml
+meta:
+  category: switch
+  roles: [core, aggregation, datacenter]
+  family: Catalyst 9500 High Performance
+  summary: 32-port 40/100G QSFP28 1RU core/aggregation switch.
+  links:
+    - kind: product-page
+      title: Cisco Catalyst 9500 Series Switches
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9500-series-switches/index.html
+    - kind: datasheet
+      title: Cisco Catalyst 9500 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/nb-06-cat9500-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9500 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9500/hardware/install/b_catalyst_9500_hig.html
+
+module-bays:
+  PS-0:
+    modules: [C9K-PWR-1600WAC-R]
+  PS-1:
+    modules: [C9K-PWR-1600WAC-R]
+  add:
+    - name: FAN 0
+      position: '0'
+      modules: [C9K-T2-FANTRAY]
+      why: fan bays added (Cisco 9500 HIG rear panel figure); the NetBox library has none.
+    - name: FAN 1
+      position: '1'
+      modules: [C9K-T2-FANTRAY]
+      why: fan bays added (Cisco 9500 HIG rear panel figure); the NetBox library has none.
+    - name: FAN 2
+      position: '2'
+      modules: [C9K-T2-FANTRAY]
+      why: fan bays added (Cisco 9500 HIG rear panel figure); the NetBox library has none.
+    - name: FAN 3
+      position: '3'
+      modules: [C9K-T2-FANTRAY]
+      why: fan bays added (Cisco 9500 HIG rear panel figure); the NetBox library has none.
+    - name: FAN 4
+      position: '4'
+      modules: [C9K-T2-FANTRAY]
+      why: fan bays added (Cisco 9500 HIG rear panel figure); the NetBox library has none.
+
+model3d:
+  file: assets/Cisco/C9500-32C.glb
+  far: assets/Cisco/C9500-32C.far.glb
+  empty: filler
+  leds:
+    SYS: {source: device.status}
+    BEACON: {source: device.locate}
+    PSU:
+      source: modules.status
+      bays: [PS-0, PS-1]
+    FAN:
+      source: modules.status
+      bays: [FAN 0, FAN 1, FAN 2, FAN 3, FAN 4]
+    MGMT_ACT: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Cisco/C9500-32C.front.webp
+    rear: assets/Cisco/C9500-32C.rear.webp
+    iso: assets/Cisco/C9500-32C.iso.webp
+    model_sha256: 109a5129500b8bd2cb9484f4c19be7cb485a608aee7dc193e89098943af28f70
+    modules:
+      PS-0: C9K-PWR-1600WAC-R
+      PS-1: C9K-PWR-1600WAC-R
+      FAN 0: C9K-T2-FANTRAY
+      FAN 1: C9K-T2-FANTRAY
+      FAN 2: C9K-T2-FANTRAY
+      FAN 3: C9K-T2-FANTRAY
+      FAN 4: C9K-T2-FANTRAY
+
+# rack mounting (spec 1.11 section 8) from Cisco's install guide; middle / rear positions exist but have no published offsets (see REPORT)
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: none

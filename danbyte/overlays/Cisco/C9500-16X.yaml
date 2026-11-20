@@ -1,0 +1,92 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Cisco/C9500-16X.yaml
+meta:
+  category: switch
+  roles: [core, aggregation, campus]
+  family: Catalyst 9500
+  summary: 16-port 1/10G SFP/SFP+ 1RU core/aggregation switch with one uplink network module slot.
+  lifecycle:
+    end_of_sale: '2026-04-30'
+    end_of_security_updates: '2031-04-30'
+    end_of_support: '2031-04-30'
+    source: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/c9500-16x-switch-nm-c9500-nm-8x-nm-2q-eol.html
+  links:
+    - kind: product-page
+      title: Cisco Catalyst 9500 Series Switches
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9500-series-switches/index.html
+    - kind: datasheet
+      title: Cisco Catalyst 9500 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/nb-06-cat9500-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9500 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9500/hardware/install/b_catalyst_9500_hig.html
+    - kind: eol-notice
+      title: End-of-Sale and End-of-Life Announcement for the Cisco C9500-16X Switch and Network Modules C9500-NM-8X and C9500-NM-2Q
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/c9500-16x-switch-nm-c9500-nm-8x-nm-2q-eol.html
+
+module-bays:
+  PS-0:
+    modules: [PWR-C4-950WAC-R, PWR-C4-950WDC-R]
+  PS-1:
+    modules: [PWR-C4-950WAC-R, PWR-C4-950WDC-R]
+  Network Module:
+    modules: [C9500-NM-8X, C9500-NM-2Q]
+  add:
+    - name: FAN 0
+      position: '0'
+      modules: [FAN-T4-R]
+      why: bay added (field-replaceable part missing in the library)
+    - name: FAN 1
+      position: '1'
+      modules: [FAN-T4-R]
+      why: bay added (field-replaceable part missing in the library)
+    - name: FAN 2
+      position: '2'
+      modules: [FAN-T4-R]
+      why: bay added (field-replaceable part missing in the library)
+    - name: FAN 3
+      position: '3'
+      modules: [FAN-T4-R]
+      why: bay added (field-replaceable part missing in the library)
+    - name: FAN 4
+      position: '4'
+      modules: [FAN-T4-R]
+      why: bay added (field-replaceable part missing in the library)
+
+model3d:
+  file: assets/Cisco/C9500-16X.glb
+  far: assets/Cisco/C9500-16X.far.glb
+  empty: filler
+  leds:
+    SYS: {source: device.status}
+    BEACON: {source: device.locate}
+    PSU:
+      source: modules.status
+      bays: [PS-0, PS-1]
+    FAN:
+      source: modules.status
+      bays: [FAN 0, FAN 1, FAN 2, FAN 3, FAN 4]
+    MGMT_ACT: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Cisco/C9500-16X.front.webp
+    rear: assets/Cisco/C9500-16X.rear.webp
+    iso: assets/Cisco/C9500-16X.iso.webp
+    model_sha256: cd89b0025c12c9f545f1f79a43ea7186b4c8c74e2cc251b1a90ec54ad5bd10f1
+    modules:
+      Network Module: C9500-NM-2Q
+      PS-0: PWR-C4-950WAC-R
+      PS-1: PWR-C4-950WAC-R
+      FAN 0: FAN-T4-R
+      FAN 1: FAN-T4-R
+      FAN 2: FAN-T4-R
+      FAN 3: FAN-T4-R
+      FAN 4: FAN-T4-R
+
+# rack mounting (spec 1.11 section 8) from Cisco's install guide; middle / rear positions exist but have no published offsets (see REPORT)
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: none

@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "meta.schema.json",
+  "$comment": "danbyte-library/v1",
+  "title": "meta",
+  "description": "What the public library website and Danbyte's catalog sort, filter and show for one entry: its category, family, a one-line summary, lifecycle dates and links to vendor documents. Allowed on every entry: device overlays, module overlays, pluggables, rack types and rack kits. Only write what a source says; leave a key out rather than guess a date or a URL. Danbyte fills a device type's lifecycle fields from `lifecycle` and creates link Documents from `links`.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "category": {
+      "description": "The entry's category, from a closed list so the website's filters stay small. Device types use one of the hardware categories; module types use `module` (plus `module_kind`); pluggables use `pluggable`; rack types `rack`; rack kits `rack-kit`.",
+      "enum": [
+        "switch", "router", "firewall", "server", "storage", "access-point",
+        "wireless-controller", "load-balancer", "optical", "console-server", "pdu", "ups",
+        "patch-panel", "kvm", "appliance", "other",
+        "module", "pluggable", "rack", "rack-kit"
+      ],
+      "examples": ["switch"]
+    },
+    "module_kind": {
+      "description": "Module types only: what kind of module it is.",
+      "enum": ["psu", "fan", "network-module", "supervisor", "line-card", "stack-kit", "other"],
+      "examples": ["psu"]
+    },
+    "roles": {
+      "description": "Free, short, lower-case words for what the hardware is used for. Suggested: access, distribution, core, campus, datacenter, edge, branch, industrial, poe, mgig, stackable, modular, spine, leaf, oob.",
+      "type": "array",
+      "uniqueItems": true,
+      "maxItems": 16,
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,31}$" },
+      "examples": [["access", "poe"]]
+    },
+    "family": {
+      "description": "The vendor's product family, as the vendor names it.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "examples": ["Catalyst 9300"]
+    },
+    "summary": {
+      "description": "One plain sentence describing the hardware, no marketing.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "examples": ["48-port PoE+ access switch with a modular uplink slot"]
+    },
+    "lifecycle": { "$ref": "#/$defs/lifecycle" },
+    "links": {
+      "description": "Vendor documents about the hardware. Danbyte creates one link Document per entry on the device type (its category from `kind`).",
+      "type": "array",
+      "maxItems": 32,
+      "items": { "$ref": "#/$defs/link" }
+    },
+    "sources": {
+      "description": "Anything else used for this entry: dimensions, ports, bays, LEDs, colours.",
+      "type": "array",
+      "uniqueItems": true,
+      "maxItems": 32,
+      "items": { "$ref": "#/$defs/url" }
+    }
+  },
+  "$defs": {
+    "url": {
+      "description": "An http(s) URL, as found, without tracking parameters.",
+      "type": "string",
+      "pattern": "^https?://[^\\s]+$",
+      "maxLength": 1000
+    },
+    "date": {
+      "description": "A date as YYYY-MM-DD, or YYYY-MM when only the month is published.",
+      "type": "string",
+      "pattern": "^[12][0-9]{3}-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?$",
+      "examples": ["2027-10-31", "2017-06"]
+    },
+    "lifecycle": {
+      "description": "Lifecycle dates from the vendor's own notices. `source` is required as soon as any date is given. The catalog derives a state from them: `current`, `end-of-sale` or `end-of-support`.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "release_date": { "$ref": "#/$defs/date", "description": "First shipped / announced as available." },
+        "end_of_sale": { "$ref": "#/$defs/date", "description": "Last day it can be ordered." },
+        "end_of_security_updates": { "$ref": "#/$defs/date", "description": "Last day of security fixes (vulnerability support)." },
+        "end_of_support": { "$ref": "#/$defs/date", "description": "Last day of support (last date of support / end of life)." },
+        "source": { "$ref": "#/$defs/url", "description": "The EoL / EoS notice or page the dates come from." }
+      },
+      "dependentRequired": {
+        "release_date": ["source"],
+        "end_of_sale": ["source"],
+        "end_of_security_updates": ["source"],
+        "end_of_support": ["source"]
+      },
+      "examples": [{
+        "release_date": "2017-06",
+        "end_of_sale": "2027-10-31",
+        "end_of_support": "2032-10-31",
+        "source": "https://www.cisco.com/c/en/us/products/eos-eol-notice.html"
+      }]
+    },
+    "link": {
+      "description": "One vendor document.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "url"],
+      "properties": {
+        "kind": {
+          "description": "What the document is.",
+          "enum": ["datasheet", "install-guide", "config-guide", "product-page", "eol-notice", "eol-listing", "support", "software", "other"]
+        },
+        "title": { "type": "string", "minLength": 1, "maxLength": 200, "description": "The document's title as the vendor gives it." },
+        "url": { "$ref": "#/$defs/url" }
+      },
+      "examples": [{ "kind": "datasheet", "title": "Cisco Catalyst 9300 Series Switches Data Sheet", "url": "https://www.cisco.com/..." }]
+    }
+  }
+}

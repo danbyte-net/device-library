@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Cisco/C9500-48Y4C.yaml
+meta:
+  category: switch
+  roles: [core, aggregation, campus]
+  family: Catalyst 9500 High Performance
+  summary: 48-port 1/10/25G SFP28 plus 4-port 40/100G QSFP 1RU core/aggregation switch.
+  links:
+    - kind: product-page
+      title: Cisco Catalyst 9500 Series Switches
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9500-series-switches/index.html
+    - kind: datasheet
+      title: Cisco Catalyst 9500 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/nb-06-cat9500-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9500 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9500/hardware/install/b_catalyst_9500_hig.html
+
+module-bays:
+  PS-0:
+    modules: [C9K-PWR-650WAC-R, C9K-PWR-650WACL-R, C9K-PWR-930WDC-R]
+  PS-1:
+    modules: [C9K-PWR-650WAC-R, C9K-PWR-650WACL-R, C9K-PWR-930WDC-R]
+  add:
+    - name: FAN 0
+      position: '0'
+      modules: [C9K-T1-FANTRAY]
+      why: fan bays added (Cisco 9500 HIG rear panel figure); the NetBox library has none.
+    - name: FAN 1
+      position: '1'
+      modules: [C9K-T1-FANTRAY]
+      why: fan bays added (Cisco 9500 HIG rear panel figure); the NetBox library has none.
+
+model3d:
+  file: assets/Cisco/C9500-48Y4C.glb
+  far: assets/Cisco/C9500-48Y4C.far.glb
+  empty: filler
+  leds:
+    SYS: {source: device.status}
+    BEACON: {source: device.locate}
+    PSU:
+      source: modules.status
+      bays: [PS-0, PS-1]
+    FAN:
+      source: modules.status
+      bays: [FAN 0, FAN 1]
+    MGMT_ACT: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Cisco/C9500-48Y4C.front.webp
+    rear: assets/Cisco/C9500-48Y4C.rear.webp
+    iso: assets/Cisco/C9500-48Y4C.iso.webp
+    model_sha256: 1824f1cc38051caf2ea0ddf138ba05b56a2c5a1d07e93ca8bc608cc11db73284
+    modules: {PS-0: C9K-PWR-650WAC-R, PS-1: C9K-PWR-650WAC-R, FAN 0: C9K-T1-FANTRAY, FAN 1: C9K-T1-FANTRAY}
+
+# rack mounting (spec 1.11 section 8) from Cisco's install guide; middle / rear positions exist but have no published offsets (see REPORT)
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: none

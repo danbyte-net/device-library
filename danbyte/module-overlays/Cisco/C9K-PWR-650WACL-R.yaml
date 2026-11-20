@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Cisco/C9K-PWR-650WACL-R.yaml
+meta:
+  category: module
+  module_kind: psu
+  family: Catalyst 9500 High Performance
+  summary: 650 W AC power supply variant for the C9500-24Y4C, C9500-48Y4C and C9500-32QC, differing from the 650WAC-R in surge immunity, hold-up time and over-power protection.
+  links:
+    - kind: product-page
+      title: Cisco Catalyst 9500 Series Switches
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9500-series-switches/index.html
+    - kind: datasheet
+      title: Cisco Catalyst 9500 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/nb-06-cat9500-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9500 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9500/hardware/install/b_catalyst_9500_hig.html
+
+model3d:
+  file: assets/Cisco/C9K-PWR-650WAC-R.glb
+  far: assets/Cisco/C9K-PWR-650WAC-R.far.glb
+  leds:
+    PS_OK: {source: module.status}
+    FAIL:
+      source: module.status
+      only: [red]

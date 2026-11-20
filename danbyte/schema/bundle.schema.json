@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bundle.schema.json",
+  "$comment": "danbyte-library/v1",
+  "title": "Bundle",
+  "description": "A bundle is a named list of packs delivered as one download, in `danbyte/bundles/<id>/bundle.yaml`. It has no entries of its own. `danbyte-lib build-pack` turns it into one zip holding each included pack as a complete pack folder; Danbyte installs the packs in it one by one and records each as its own pack. A bundle must include every pack its packs require.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "includes"
+  ],
+  "properties": {
+    "format": {
+      "const": "danbyte-library/v1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "description": "The bundle's id, the same as its folder. Never the id of a pack."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The name shown for the download."
+    },
+    "description": {
+      "type": "string",
+      "description": "One sentence on what the bundle holds."
+    },
+    "version": {
+      "type": "string",
+      "description": "Leave out to take the highest version among its packs."
+    },
+    "includes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "description": "The packs in the bundle, by id, in the order Danbyte installs them: a pack after the ones it requires.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    }
+  },
+  "examples": [
+    {
+      "format": "danbyte-library/v1",
+      "id": "cisco-catalyst",
+      "name": "Cisco Catalyst",
+      "includes": [
+        "generic-connectors",
+        "cisco-optics",
+        "cisco-catalyst-9300"
+      ]
+    }
+  ]
+}

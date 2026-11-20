@@ -1,0 +1,309 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pluggable.schema.json",
+  "$comment": "danbyte-library/v1",
+  "title": "Pluggable",
+  "description": "A part Danbyte seats in a port or a rack unit, in `danbyte/pluggables/<Vendor>/<NAME>.yaml` (a pack's `accessory-types/`): transceivers, plugs and cords (export spec §13), and rack parts: blanking panels, cable managers, shelves (§14). Danbyte draws the part at a port's `port:` anchor while the port is cabled or a transceiver is recorded in it, and picks one by `fits` (the port type), `parts` (the recorded part number) and `connector` (the cable's medium).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "kind",
+    "model3d"
+  ],
+  "properties": {
+    "format": {
+      "$ref": "common.schema.json#/$defs/format"
+    },
+    "name": {
+      "description": "The part's name: the vendor part number for a real part (`SFP-10G-SR`), the common name in capitals for a generic one (`RJ45-PLUG`). Equals the file name.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "kind": {
+      "description": "transceiver (a module in a cage, with a `port:<connector>` empty a cord seats in), plug or cord (a cable end; cord = one-piece parts such as DACs and stack cables), or a rack part: blanking, cable-manager, shelf.",
+      "enum": [
+        "transceiver",
+        "plug",
+        "cord",
+        "blanking",
+        "cable-manager",
+        "shelf"
+      ]
+    },
+    "connector": {
+      "description": "The connector it presents or is: `rj45`, `lc`, `sc`, `mpo`, `c13` / `c15` / `c19` (IEC cords), `dac` / `aoc` (one-piece cables), `stack` (stack cable heads, chosen by `fits`). Danbyte groups parts by medium from it: lc/sc/mpo… fibre, dac/twinax DAC, rj45 copper. A cord seats at a transceiver's `port:<connector>` empty when the connectors match.",
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._+-]{0,31}$",
+      "examples": [
+        "lc"
+      ]
+    },
+    "fits": {
+      "description": "The port types (NetBox interface, console or power port type slugs, or Danbyte extension types such as `cisco-stackpower`) it plugs into. Required for every kind but rack parts.",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 64,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9._+-]*$"
+      },
+      "examples": [
+        [
+          "10gbase-x-sfpp"
+        ]
+      ]
+    },
+    "parts": {
+      "description": "Every vendor part number this model stands for, as printed on the label and as switches report them (`SFP-10G-SR`, not `SFP-10G-SR=`; a trailing `=` is ignored). Empty for a generic fallback.",
+      "type": "array",
+      "maxItems": 64,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "common.schema.json#/$defs/partNumber"
+      }
+    },
+    "standard": {
+      "description": "The IEEE / MSA name (`10GBASE-SR`, `100GBASE-SR4`, `1000BASE-T`), or the stack system for stack cables.",
+      "type": "string",
+      "maxLength": 64
+    },
+    "wavelength_nm": {
+      "description": "Nominal wavelength in nm; leave it out for copper.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100000
+    },
+    "reach_m": {
+      "description": "Nominal reach in metres.",
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 200000
+    },
+    "u_height": {
+      "description": "Rack parts only: height in rack units, 0 for a vertical (0U) part such as a 2-post vertical cable manager. (Danbyte's importer in 0.21 takes 1-10 and refuses 0.)",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "cable": {
+      "$ref": "#/$defs/cable"
+    },
+    "comments": {
+      "description": "What the model shows and where its sizes come from.",
+      "type": "string"
+    },
+    "model3d": {
+      "description": "The part's model: origin where the plug meets the port, +Z out of the port, +Y up; a cord's run continues from its `cable` empty. Budgets: transceiver ≤ 1,500 triangles, plug or cord ≤ 2,000, rack part ≤ 5,000; ≤ 200 KB (rack parts ≤ 8 MB). No far copy.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "file"
+      ],
+      "properties": {
+        "file": {
+          "$ref": "common.schema.json#/$defs/glbPath"
+        }
+      }
+    },
+    "meta": {
+      "allOf": [
+        {
+          "$ref": "meta.schema.json"
+        },
+        {
+          "properties": {
+            "category": {
+              "const": "pluggable"
+            },
+            "module_kind": false
+          }
+        }
+      ],
+      "description": "Catalog facts (see meta); category `pluggable`."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "enum": [
+              "blanking",
+              "cable-manager",
+              "shelf"
+            ]
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "then": {
+        "required": [
+          "u_height"
+        ],
+        "properties": {
+          "fits": false,
+          "cable": false
+        }
+      },
+      "else": {
+        "required": [
+          "fits"
+        ],
+        "properties": {
+          "u_height": false
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "transceiver"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "cable": false
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "cable": {
+      "description": "How Danbyte draws a cord's run from its `cable` empty to the other end (export spec §13): one round jacket, a zip cord (two side by side) or a ribbon (several side by side, along the empty's local X), with corners no tighter than the minimum bend radius where there is room.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "jacket_mm"
+      ],
+      "properties": {
+        "profile": {
+          "enum": [
+            "round",
+            "zipcord",
+            "ribbon"
+          ],
+          "description": "round, zipcord (two jackets) or ribbon (count jackets)."
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 8,
+          "description": "Ribbon only: how many jackets."
+        },
+        "jacket_mm": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 50,
+          "description": "Jacket diameter, mm."
+        },
+        "pitch_mm": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 100,
+          "description": "Zip cord and ribbon: centre to centre, mm; no narrower than the jacket."
+        },
+        "min_bend_mm": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 2000,
+          "description": "Minimum bend radius, mm (the default for every length)."
+        },
+        "min_bend_by_part": {
+          "description": "Part number → minimum bend radius (mm), where one length needs more than `min_bend_mm`. Keys should be listed in `parts`.",
+          "type": "object",
+          "maxProperties": 64,
+          "propertyNames": {
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "additionalProperties": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 2000
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "profile": {
+                "const": "ribbon"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "count",
+              "pitch_mm"
+            ]
+          },
+          "else": {
+            "properties": {
+              "count": false
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "profile": {
+                "const": "round"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "pitch_mm": false
+            }
+          }
+        }
+      ],
+      "examples": [
+        {
+          "profile": "ribbon",
+          "count": 3,
+          "pitch_mm": 11.2,
+          "jacket_mm": 6.1,
+          "min_bend_mm": 41,
+          "min_bend_by_part": {
+            "STACK-T1-3M": 82
+          }
+        }
+      ]
+    }
+  },
+  "examples": [
+    {
+      "name": "SFP-10G-SR",
+      "kind": "transceiver",
+      "connector": "lc",
+      "fits": [
+        "10gbase-x-sfpp"
+      ],
+      "parts": [
+        "SFP-10G-SR",
+        "SFP-10G-SR-S"
+      ],
+      "standard": "10GBASE-SR",
+      "wavelength_nm": 850,
+      "model3d": {
+        "file": "assets/Cisco/SFP-10G-SR.glb"
+      },
+      "meta": {
+        "category": "pluggable"
+      }
+    }
+  ]
+}

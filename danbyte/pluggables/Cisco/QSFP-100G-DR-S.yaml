@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta:
+  category: pluggable
+  roles: [optic, singlemode]
+  family: Cisco 100GBASE QSFP-100G Modules
+  summary: 100GBASE-DR QSFP28 optic, single lambda at 1310 nm, single-mode, duplex LC, up to 500 m on G.652 SMF.
+  links:
+    - kind: other
+      title: Optics Compatibility Matrix (Cisco Transceiver Module Group, TMG)
+      url: https://tmgmatrix.cisco.com
+    - kind: product-page
+      title: Cisco Optics (transceiver modules)
+      url: https://www.cisco.com/c/en/us/products/interfaces-modules/transceiver-modules
+    - kind: other
+      title: Cisco transceiver modules End-of-Life and End-of-Sale notices
+      url: https://www.cisco.com/c/en/us/products/interfaces-modules/transceiver-modules/eos-eol-notice-listing.html
+    - kind: datasheet
+      title: Cisco 100GBASE QSFP-100G Modules Data Sheet
+      url: https://cisco.com/c/en/us/products/collateral/interfaces-modules/transceiver-modules/datasheet-c78-736282.html
+
+name: QSFP-100G-DR-S
+kind: transceiver
+connector: lc
+fits: [100gbase-x-qsfp28]
+parts: [QSFP-100G-DR-S]
+standard: 100GBASE-DR
+wavelength_nm: 1310
+comments: QSFP-family optical transceiver, pull tab (grip, orange), LC receptacle with the cord anchor port:lc.
+model3d: {file: assets/Cisco/QSFP-100G-DR-S.glb}

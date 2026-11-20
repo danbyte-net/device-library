@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "module-overlay.schema.json",
+  "$comment": "danbyte-library/v1",
+  "title": "Module overlay",
+  "description": "What Danbyte adds to one upstream NetBox module type, in `danbyte/module-overlays/<Vendor>/<model>.yaml`. It names its upstream file and adds or patches only what Danbyte needs: Danbyte keys (`model3d`, `meta`), NetBox top-level keys that need correcting, and component lists patched by name with `add:` / `remove:` entries that each say `why`. The merge (`danbyte-lib preview`) is what Danbyte imports; upstream fixes flow in untouched, and `sync-check` reports patched names that upstream no longer has.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "upstream"
+  ],
+  "properties": {
+    "format": {
+      "$ref": "common.schema.json#/$defs/format"
+    },
+    "upstream": {
+      "description": "The NetBox YAML this overlay adds to, relative to the repository root: an upstream file under `module-types/`, or a Danbyte-only base under `danbyte/types-new/module-types/` for hardware upstream doesn't have yet. Never edited by the overlay.",
+      "type": "string",
+      "pattern": "^(module-types|danbyte/types-new/module-types)/[^/]+/[^/]+\\.ya?ml$"
+    },
+    "meta": {
+      "allOf": [
+        {
+          "$ref": "meta.schema.json"
+        },
+        {
+          "properties": {
+            "category": {
+              "const": "module"
+            }
+          }
+        }
+      ],
+      "description": "Catalog facts (see meta)."
+    },
+    "model3d": {
+      "$ref": "common.schema.json#/$defs/model3d"
+    },
+    "part_number": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "NetBox key, overriding upstream: The vendor part number, when upstream's is wrong."
+    },
+    "airflow": {
+      "type": "string",
+      "description": "NetBox key, overriding upstream: NetBox airflow slug (front-to-rear, rear-to-front, …)."
+    },
+    "weight": {
+      "type": "number",
+      "minimum": 0,
+      "description": "NetBox key, overriding upstream: Weight, in weight_unit."
+    },
+    "weight_unit": {
+      "enum": [
+        "kg",
+        "g",
+        "lb",
+        "oz"
+      ],
+      "description": "NetBox key, overriding upstream: Unit of weight."
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "NetBox key, overriding upstream: Short description."
+    },
+    "comments": {
+      "type": "string",
+      "description": "NetBox key, overriding upstream: Free text (Markdown)."
+    },
+    "console-ports": {
+      "$ref": "common.schema.json#/$defs/consolePortSection"
+    },
+    "console-server-ports": {
+      "$ref": "common.schema.json#/$defs/consoleServerPortSection"
+    },
+    "power-ports": {
+      "$ref": "common.schema.json#/$defs/powerPortSection"
+    },
+    "power-outlets": {
+      "$ref": "common.schema.json#/$defs/powerOutletSection"
+    },
+    "interfaces": {
+      "$ref": "common.schema.json#/$defs/interfaceSection"
+    },
+    "front-ports": {
+      "$ref": "common.schema.json#/$defs/frontPortSection"
+    },
+    "rear-ports": {
+      "$ref": "common.schema.json#/$defs/rearPortSection"
+    },
+    "module-bays": {
+      "$ref": "common.schema.json#/$defs/moduleBaySection"
+    }
+  },
+  "examples": [
+    {
+      "upstream": "module-types/Cisco/FAN-T2.yaml",
+      "meta": {
+        "category": "module",
+        "module_kind": "fan"
+      },
+      "model3d": {
+        "file": "assets/Cisco/FAN-T2.glb",
+        "leds": {
+          "STATUS": {
+            "source": "module.status"
+          }
+        }
+      }
+    }
+  ]
+}

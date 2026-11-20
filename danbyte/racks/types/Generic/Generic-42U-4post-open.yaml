@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../../schema/rack-type.schema.json
+format: danbyte-library/v1
+meta: {category: rack, family: Generic racks, summary: 42U open 4-post 19-inch frame.}
+manufacturer: Generic
+model: Generic 42U 4-post open frame
+u_height: 42
+width: 19
+outer_width_mm: 600
+outer_depth_mm: 1000
+rail_depth_mm: 740
+look:
+  kit: OPEN-4POST
+  front_door: none
+  rear_door: none
+  side_panels: false
+  top: none
+  base: feet
+  colour: black

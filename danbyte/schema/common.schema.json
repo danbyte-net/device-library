@@ -1,0 +1,1169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "common.schema.json",
+  "$comment": "danbyte-library/v1",
+  "title": "Shared definitions",
+  "description": "Building blocks shared by the overlay, module overlay, pluggable, rack and pack schemas.",
+  "$defs": {
+    "format": {
+      "description": "The library format this file is written for. Optional; the tools write it, and a later format will change the value.",
+      "const": "danbyte-library/v1"
+    },
+    "why": {
+      "description": "Why Danbyte adds or changes this: required on every addition and removal, so a reviewer sees it was deliberate and can offer it upstream to NetBox. Name the source (install guide, data sheet, the hardware itself).",
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 500,
+      "examples": [
+        "StackPower receptacle on the rear panel (Cisco C9300 HIG); upstream has no StackPower ports"
+      ]
+    },
+    "name": {
+      "description": "A component name, exactly as in the NetBox YAML (`{module}` placeholders included).",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "partNumber": {
+      "description": "A vendor part number, exactly as the vendor prints it.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "assetPath": {
+      "description": "A file under `danbyte/`, relative to it (normally `assets/<Vendor>/<file>`). No `..`, no absolute paths.",
+      "type": "string",
+      "pattern": "^(?!/)(?!.*(^|/)\\.\\.(/|$))[^\\\\\\s][^\\\\]*$",
+      "maxLength": 300
+    },
+    "glbPath": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/assetPath"
+        },
+        {
+          "pattern": "\\.glb$"
+        }
+      ],
+      "description": "A binary glTF 2.0 file (`.glb`) under `danbyte/`, normally `assets/<Vendor>/<PART>.glb`. Stored with Git LFS."
+    },
+    "imagePath": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/assetPath"
+        },
+        {
+          "pattern": "\\.(webp|png)$"
+        }
+      ],
+      "description": "A WebP or PNG image under `danbyte/`, normally `assets/<Vendor>/<PART>.<face>.webp`. Stored with Git LFS."
+    },
+    "ledBinding": {
+      "description": "What lights one LED. `source` is where its state comes from; `modules.status` takes the worst status of the modules in matching bays (`bays:`, or inline as `\"modules.status: PS-*\"`); `only` lights it only in those colours (a failure LED: `[red]`).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source"
+      ],
+      "properties": {
+        "source": {
+          "anyOf": [
+            {
+              "enum": [
+                "device.status",
+                "device.locate",
+                "module.status",
+                "modules.status",
+                "interface.oper_status",
+                "none"
+              ]
+            },
+            {
+              "type": "string",
+              "pattern": "^modules\\.status:\\s*\\S"
+            }
+          ],
+          "description": "device.status, device.locate, module.status, modules.status, interface.oper_status, or none (a decorative LED that stays off)."
+        },
+        "bays": {
+          "description": "modules.status only: the bay names or globs it reads.",
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 16,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        },
+        "only": {
+          "description": "Light the LED only in these colours.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "green",
+              "amber",
+              "red",
+              "blue"
+            ]
+          }
+        }
+      }
+    },
+    "model3d": {
+      "description": "The 3D model of a device or module type (export spec §1-§8). Danbyte assembles a device from its chassis file plus one file per installed module, placed at the chassis' `bay:` empties, and lights `led:` meshes from live status.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "file"
+      ],
+      "properties": {
+        "file": {
+          "$ref": "#/$defs/glbPath",
+          "description": "The full-detail model. Budgets: chassis ≤ 150,000 triangles, module ≤ 30,000; ≤ 8 MB."
+        },
+        "far": {
+          "$ref": "#/$defs/glbPath",
+          "description": "The far-distance copy: same origin, outer size and `bay:` / `empty:` / `led:` names. Budgets: chassis ≤ 15,000 triangles, module ≤ 3,000; ≤ 1 MB."
+        },
+        "hq": {
+          "type": "string",
+          "pattern": "^(https://\\S+|assets/\\S+)\\.glb$",
+          "description": "Optional higher-detail model for close-up viewing on the library website (about 4× the triangles, 2K textures, same names and anchors). Published as a release asset of the pack version, not stored in git: an https URL, or an `assets/` path the catalog build fills from the release zip. Danbyte itself draws `file`."
+        },
+        "empty": {
+          "description": "What an empty bay shows: the model's `empty:` filler plate, a dark hole, or nothing.",
+          "enum": [
+            "filler",
+            "hole",
+            "nothing"
+          ]
+        },
+        "fit": {
+          "description": "`auto` fits the model to the type's size; `native` keeps the model's own size.",
+          "enum": [
+            "auto",
+            "native"
+          ]
+        },
+        "up": {
+          "description": "The model's up axis, when not glTF's Y.",
+          "enum": [
+            "y",
+            "z"
+          ]
+        },
+        "front": {
+          "description": "The axis the model's front faces, when not +Z.",
+          "enum": [
+            "+z",
+            "-z",
+            "+x",
+            "-x"
+          ]
+        },
+        "leds": {
+          "description": "LED id → binding. Keys are the `led:` mesh names without `led:`; `port:*` covers every `led:port:` LED. An LED without an entry stays off.",
+          "type": "object",
+          "maxProperties": 512,
+          "propertyNames": {
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/ledBinding"
+          }
+        },
+        "renders": {
+          "$ref": "#/$defs/renders"
+        }
+      },
+      "examples": [
+        {
+          "file": "assets/Cisco/C9300-24P.glb",
+          "far": "assets/Cisco/C9300-24P.far.glb",
+          "empty": "filler",
+          "leds": {
+            "SYS": {
+              "source": "device.status"
+            },
+            "port:*": {
+              "source": "interface.oper_status"
+            }
+          }
+        }
+      ]
+    },
+    "renders": {
+      "description": "Device types: face photos rendered in Blender from the model (export spec §12). Danbyte stores them as the type's photos and places its ports on them.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "front": {
+          "$ref": "#/$defs/imagePath"
+        },
+        "rear": {
+          "$ref": "#/$defs/imagePath"
+        },
+        "iso": {
+          "$ref": "#/$defs/imagePath",
+          "description": "Three-quarter view; the catalog's thumbnail."
+        },
+        "model_sha256": {
+          "description": "SHA-256 of the `file` glb the photos were rendered from; `validate` checks it matches.",
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "modules": {
+          "description": "Bay name → module part number installed in the render.",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/partNumber"
+          }
+        }
+      }
+    },
+    "rackMount": {
+      "description": "How the device sits on a rack's rails (export spec §3, §8 \"Rack mounting\"). Danbyte puts the ear plane on the rack's front rail and the faceplate at the chosen position's offset.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ears": {
+          "type": "boolean",
+          "description": "false: no rack ears (shelf, sliding rails, free-standing). Default true."
+        },
+        "positions": {
+          "description": "Ear positions the install guide offers: faceplate in front of the ear plane, in mm (+ toward the rack front; a recessed front fitting is negative).",
+          "type": "object",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "front": {
+              "type": "integer",
+              "minimum": -2000,
+              "maximum": 2000
+            },
+            "mid": {
+              "type": "integer",
+              "minimum": -2000,
+              "maximum": 2000
+            },
+            "rear": {
+              "type": "integer",
+              "minimum": -2000,
+              "maximum": 2000
+            },
+            "reversed": {
+              "description": "The box turned round, its rear panel toward the rack front: the rear face's offset from the ear plane, mm.",
+              "type": "integer",
+              "minimum": -2000,
+              "maximum": 2000
+            }
+          }
+        },
+        "ear_mm": {
+          "description": "The ear plate's thickness, mm (2 when not given). The model's origin is the front of its ears; their back sits on the rail.",
+          "type": "number",
+          "minimum": 0.5,
+          "maximum": 10
+        },
+        "default": {
+          "description": "The fitting the box ships with.",
+          "enum": [
+            "front",
+            "mid",
+            "rear",
+            "reversed"
+          ]
+        },
+        "rails": {
+          "description": "The rail kit it is meant for.",
+          "enum": [
+            "none",
+            "fixed",
+            "sliding"
+          ]
+        }
+      },
+      "if": {
+        "properties": {
+          "ears": {
+            "const": false
+          }
+        },
+        "required": [
+          "ears"
+        ]
+      },
+      "then": {
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "positions"
+              ]
+            },
+            {
+              "required": [
+                "default"
+              ]
+            }
+          ]
+        }
+      },
+      "examples": [
+        {
+          "ears": true,
+          "positions": {
+            "front": 0,
+            "rear": 430
+          },
+          "default": "front",
+          "rails": "none"
+        }
+      ]
+    },
+    "placement": {
+      "properties": {
+        "after": {
+          "$ref": "#/$defs/name",
+          "description": "Insert right after this existing component (default: at the end of the list)."
+        },
+        "before": {
+          "$ref": "#/$defs/name",
+          "description": "Insert right before this existing component."
+        }
+      },
+      "not": {
+        "required": [
+          "after",
+          "before"
+        ]
+      }
+    },
+    "remove": {
+      "description": "Components to drop from the upstream list, each with why. Use sparingly; a wrong upstream entry is better fixed upstream.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "why"
+        ],
+        "properties": {
+          "name": {
+            "$ref": "#/$defs/name"
+          },
+          "why": {
+            "$ref": "#/$defs/why"
+          }
+        }
+      }
+    },
+    "interfaceFields": {
+      "properties": {
+        "label": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "type": {
+          "type": "string",
+          "description": "A NetBox interface type slug (for example `1000base-t`, `cisco-stackwise-480`)."
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "mgmt_only": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "bridge": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "poe_mode": {
+          "type": "string"
+        },
+        "poe_type": {
+          "type": "string"
+        },
+        "rf_role": {
+          "type": "string"
+        },
+        "stack": {
+          "type": "boolean",
+          "description": "Danbyte: this data port carries the stack link (VSF, IRF, iStack…). Only where the vendor's stacking guide names it; ports typed with a stacking type are stack ports already."
+        }
+      }
+    },
+    "consolePortFields": {
+      "properties": {
+        "label": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "type": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 200
+        }
+      }
+    },
+    "powerPortFields": {
+      "properties": {
+        "label": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "type": {
+          "type": "string",
+          "description": "A NetBox power port type, or a Danbyte extension type (`cisco-stackpower`)."
+        },
+        "maximum_draw": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "allocated_draw": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 200
+        }
+      }
+    },
+    "powerOutletFields": {
+      "properties": {
+        "label": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "type": {
+          "type": "string"
+        },
+        "power_port": {
+          "type": "string"
+        },
+        "feed_leg": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 200
+        }
+      }
+    },
+    "frontPortFields": {
+      "properties": {
+        "label": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "type": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "rear_port": {
+          "type": "string"
+        },
+        "rear_port_position": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 200
+        }
+      }
+    },
+    "rearPortFields": {
+      "properties": {
+        "label": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "type": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "positions": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 200
+        }
+      }
+    },
+    "moduleBayFields": {
+      "properties": {
+        "label": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "position": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "modules": {
+          "description": "Danbyte: module types that fit this bay, by part number, from the data sheet (every supported part, not only those in a pack). Danbyte offers them first when someone installs a module. NetBox ignores the key.",
+          "type": "array",
+          "uniqueItems": true,
+          "maxItems": 64,
+          "items": {
+            "$ref": "#/$defs/partNumber"
+          }
+        }
+      }
+    },
+    "deviceBayFields": {
+      "properties": {
+        "label": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 200
+        }
+      }
+    },
+    "inventoryItemFields": {
+      "properties": {
+        "label": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "manufacturer": {
+          "type": "string"
+        },
+        "part_id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 200
+        }
+      }
+    },
+    "interfacePatch": {
+      "description": "Fields to change on an interface that upstream already has, found by its name. Only the fields given change; `why` is optional on a change.",
+      "type": "object",
+      "minProperties": 1,
+      "$ref": "#/$defs/interfaceFields",
+      "properties": {
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "interfaceAdd": {
+      "description": "An interface upstream lacks, in NetBox's own fields plus `why`. Added at the end of the list unless `after` / `before` say where.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/interfaceFields"
+        },
+        {
+          "$ref": "#/$defs/placement"
+        }
+      ],
+      "required": [
+        "name",
+        "why"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/name"
+        },
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "interfaceSection": {
+      "description": "`interfaces:` patched by name. Each key is the name of an interface upstream has, mapped to the fields to change; `add:` lists new ones (each with `why`), `remove:` drops upstream ones (each with `why`). The upstream list itself is never rewritten.",
+      "type": "object",
+      "properties": {
+        "add": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/interfaceAdd"
+          }
+        },
+        "remove": {
+          "$ref": "#/$defs/remove"
+        }
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "maxLength": 64
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/interfacePatch"
+      }
+    },
+    "consolePortPatch": {
+      "description": "Fields to change on a console port that upstream already has, found by its name. Only the fields given change; `why` is optional on a change.",
+      "type": "object",
+      "minProperties": 1,
+      "$ref": "#/$defs/consolePortFields",
+      "properties": {
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "consolePortAdd": {
+      "description": "A console port upstream lacks, in NetBox's own fields plus `why`. Added at the end of the list unless `after` / `before` say where.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/consolePortFields"
+        },
+        {
+          "$ref": "#/$defs/placement"
+        }
+      ],
+      "required": [
+        "name",
+        "why"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/name"
+        },
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "consolePortSection": {
+      "description": "`console-ports:` patched by name. Each key is the name of a console port upstream has, mapped to the fields to change; `add:` lists new ones (each with `why`), `remove:` drops upstream ones (each with `why`). The upstream list itself is never rewritten.",
+      "type": "object",
+      "properties": {
+        "add": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/consolePortAdd"
+          }
+        },
+        "remove": {
+          "$ref": "#/$defs/remove"
+        }
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "maxLength": 64
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/consolePortPatch"
+      }
+    },
+    "consoleServerPortPatch": {
+      "description": "Fields to change on a console server port that upstream already has, found by its name. Only the fields given change; `why` is optional on a change.",
+      "type": "object",
+      "minProperties": 1,
+      "$ref": "#/$defs/consolePortFields",
+      "properties": {
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "consoleServerPortAdd": {
+      "description": "A console server port upstream lacks, in NetBox's own fields plus `why`. Added at the end of the list unless `after` / `before` say where.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/consolePortFields"
+        },
+        {
+          "$ref": "#/$defs/placement"
+        }
+      ],
+      "required": [
+        "name",
+        "why"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/name"
+        },
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "consoleServerPortSection": {
+      "description": "`console-server-ports:` patched by name. Each key is the name of a console server port upstream has, mapped to the fields to change; `add:` lists new ones (each with `why`), `remove:` drops upstream ones (each with `why`). The upstream list itself is never rewritten.",
+      "type": "object",
+      "properties": {
+        "add": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/consoleServerPortAdd"
+          }
+        },
+        "remove": {
+          "$ref": "#/$defs/remove"
+        }
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "maxLength": 64
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/consoleServerPortPatch"
+      }
+    },
+    "powerPortPatch": {
+      "description": "Fields to change on a power port (inlet) that upstream already has, found by its name. Only the fields given change; `why` is optional on a change.",
+      "type": "object",
+      "minProperties": 1,
+      "$ref": "#/$defs/powerPortFields",
+      "properties": {
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "powerPortAdd": {
+      "description": "A power port (inlet) upstream lacks, in NetBox's own fields plus `why`. Added at the end of the list unless `after` / `before` say where.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/powerPortFields"
+        },
+        {
+          "$ref": "#/$defs/placement"
+        }
+      ],
+      "required": [
+        "name",
+        "why"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/name"
+        },
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "powerPortSection": {
+      "description": "`power-ports:` patched by name. Each key is the name of a power port (inlet) upstream has, mapped to the fields to change; `add:` lists new ones (each with `why`), `remove:` drops upstream ones (each with `why`). The upstream list itself is never rewritten.",
+      "type": "object",
+      "properties": {
+        "add": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/powerPortAdd"
+          }
+        },
+        "remove": {
+          "$ref": "#/$defs/remove"
+        }
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "maxLength": 64
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/powerPortPatch"
+      }
+    },
+    "powerOutletPatch": {
+      "description": "Fields to change on a power outlet that upstream already has, found by its name. Only the fields given change; `why` is optional on a change.",
+      "type": "object",
+      "minProperties": 1,
+      "$ref": "#/$defs/powerOutletFields",
+      "properties": {
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "powerOutletAdd": {
+      "description": "A power outlet upstream lacks, in NetBox's own fields plus `why`. Added at the end of the list unless `after` / `before` say where.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/powerOutletFields"
+        },
+        {
+          "$ref": "#/$defs/placement"
+        }
+      ],
+      "required": [
+        "name",
+        "why"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/name"
+        },
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "powerOutletSection": {
+      "description": "`power-outlets:` patched by name. Each key is the name of a power outlet upstream has, mapped to the fields to change; `add:` lists new ones (each with `why`), `remove:` drops upstream ones (each with `why`). The upstream list itself is never rewritten.",
+      "type": "object",
+      "properties": {
+        "add": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/powerOutletAdd"
+          }
+        },
+        "remove": {
+          "$ref": "#/$defs/remove"
+        }
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "maxLength": 64
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/powerOutletPatch"
+      }
+    },
+    "frontPortPatch": {
+      "description": "Fields to change on a front port that upstream already has, found by its name. Only the fields given change; `why` is optional on a change.",
+      "type": "object",
+      "minProperties": 1,
+      "$ref": "#/$defs/frontPortFields",
+      "properties": {
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "frontPortAdd": {
+      "description": "A front port upstream lacks, in NetBox's own fields plus `why`. Added at the end of the list unless `after` / `before` say where.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/frontPortFields"
+        },
+        {
+          "$ref": "#/$defs/placement"
+        }
+      ],
+      "required": [
+        "name",
+        "why"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/name"
+        },
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "frontPortSection": {
+      "description": "`front-ports:` patched by name. Each key is the name of a front port upstream has, mapped to the fields to change; `add:` lists new ones (each with `why`), `remove:` drops upstream ones (each with `why`). The upstream list itself is never rewritten.",
+      "type": "object",
+      "properties": {
+        "add": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/frontPortAdd"
+          }
+        },
+        "remove": {
+          "$ref": "#/$defs/remove"
+        }
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "maxLength": 64
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/frontPortPatch"
+      }
+    },
+    "rearPortPatch": {
+      "description": "Fields to change on a rear port that upstream already has, found by its name. Only the fields given change; `why` is optional on a change.",
+      "type": "object",
+      "minProperties": 1,
+      "$ref": "#/$defs/rearPortFields",
+      "properties": {
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "rearPortAdd": {
+      "description": "A rear port upstream lacks, in NetBox's own fields plus `why`. Added at the end of the list unless `after` / `before` say where.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/rearPortFields"
+        },
+        {
+          "$ref": "#/$defs/placement"
+        }
+      ],
+      "required": [
+        "name",
+        "why"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/name"
+        },
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "rearPortSection": {
+      "description": "`rear-ports:` patched by name. Each key is the name of a rear port upstream has, mapped to the fields to change; `add:` lists new ones (each with `why`), `remove:` drops upstream ones (each with `why`). The upstream list itself is never rewritten.",
+      "type": "object",
+      "properties": {
+        "add": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/rearPortAdd"
+          }
+        },
+        "remove": {
+          "$ref": "#/$defs/remove"
+        }
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "maxLength": 64
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/rearPortPatch"
+      }
+    },
+    "moduleBayPatch": {
+      "description": "Fields to change on a module bay that upstream already has, found by its name. Only the fields given change; `why` is optional on a change.",
+      "type": "object",
+      "minProperties": 1,
+      "$ref": "#/$defs/moduleBayFields",
+      "properties": {
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "moduleBayAdd": {
+      "description": "A module bay upstream lacks, in NetBox's own fields plus `why`. Added at the end of the list unless `after` / `before` say where.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/moduleBayFields"
+        },
+        {
+          "$ref": "#/$defs/placement"
+        }
+      ],
+      "required": [
+        "name",
+        "why"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/name"
+        },
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "moduleBaySection": {
+      "description": "`module-bays:` patched by name. Each key is the name of a module bay upstream has, mapped to the fields to change; `add:` lists new ones (each with `why`), `remove:` drops upstream ones (each with `why`). The upstream list itself is never rewritten.",
+      "type": "object",
+      "properties": {
+        "add": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/moduleBayAdd"
+          }
+        },
+        "remove": {
+          "$ref": "#/$defs/remove"
+        }
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "maxLength": 64
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/moduleBayPatch"
+      }
+    },
+    "deviceBayPatch": {
+      "description": "Fields to change on a device bay that upstream already has, found by its name. Only the fields given change; `why` is optional on a change.",
+      "type": "object",
+      "minProperties": 1,
+      "$ref": "#/$defs/deviceBayFields",
+      "properties": {
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "deviceBayAdd": {
+      "description": "A device bay upstream lacks, in NetBox's own fields plus `why`. Added at the end of the list unless `after` / `before` say where.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/deviceBayFields"
+        },
+        {
+          "$ref": "#/$defs/placement"
+        }
+      ],
+      "required": [
+        "name",
+        "why"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/name"
+        },
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "deviceBaySection": {
+      "description": "`device-bays:` patched by name. Each key is the name of a device bay upstream has, mapped to the fields to change; `add:` lists new ones (each with `why`), `remove:` drops upstream ones (each with `why`). The upstream list itself is never rewritten.",
+      "type": "object",
+      "properties": {
+        "add": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/deviceBayAdd"
+          }
+        },
+        "remove": {
+          "$ref": "#/$defs/remove"
+        }
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "maxLength": 64
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/deviceBayPatch"
+      }
+    },
+    "inventoryItemPatch": {
+      "description": "Fields to change on an inventory item that upstream already has, found by its name. Only the fields given change; `why` is optional on a change.",
+      "type": "object",
+      "minProperties": 1,
+      "$ref": "#/$defs/inventoryItemFields",
+      "properties": {
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "inventoryItemAdd": {
+      "description": "An inventory item upstream lacks, in NetBox's own fields plus `why`. Added at the end of the list unless `after` / `before` say where.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/inventoryItemFields"
+        },
+        {
+          "$ref": "#/$defs/placement"
+        }
+      ],
+      "required": [
+        "name",
+        "why"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/name"
+        },
+        "why": {
+          "$ref": "#/$defs/why"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "inventoryItemSection": {
+      "description": "`inventory-items:` patched by name. Each key is the name of an inventory item upstream has, mapped to the fields to change; `add:` lists new ones (each with `why`), `remove:` drops upstream ones (each with `why`). The upstream list itself is never rewritten.",
+      "type": "object",
+      "properties": {
+        "add": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/inventoryItemAdd"
+          }
+        },
+        "remove": {
+          "$ref": "#/$defs/remove"
+        }
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "maxLength": 64
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/inventoryItemPatch"
+      }
+    },
+    "extensionTypes": {
+      "description": "Port types Danbyte reads that NetBox doesn't list yet, by component class. A merged record may use them although NetBox's own schema would refuse them; `validate` accepts exactly these. Offer them upstream when NetBox would take them.",
+      "type": "object",
+      "properties": {
+        "power-port": {
+          "description": "`cisco-stackpower`: a Cisco StackPower receptacle (Catalyst 9300 / 9300X). It carries power between stack members, so it is a power port, not an interface.",
+          "enum": [
+            "cisco-stackpower"
+          ]
+        }
+      }
+    }
+  }
+}

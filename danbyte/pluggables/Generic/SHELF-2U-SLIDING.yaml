@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta:
+  category: pluggable
+  roles: [rack, shelf]
+  family: Generic rack accessories
+  summary: 2U sliding shelf, 600 mm deep.
+
+name: SHELF-2U-SLIDING
+kind: shelf
+u_height: 2
+comments: Generic 2U sliding shelf, 600 mm deep tray.
+model3d: {file: assets/Generic/SHELF-2U-SLIDING.glb}

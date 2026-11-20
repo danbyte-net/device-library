@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta:
+  category: pluggable
+  roles: [optic, singlemode]
+  family: Cisco 10GBASE SFP+ Modules
+  summary: 10GBASE-ER SFP+ optic, 1550 nm, single-mode, dual LC, up to 40 km on G.652 SMF.
+  links:
+    - kind: other
+      title: Optics Compatibility Matrix (Cisco Transceiver Module Group, TMG)
+      url: https://tmgmatrix.cisco.com
+    - kind: product-page
+      title: Cisco Optics (transceiver modules)
+      url: https://www.cisco.com/c/en/us/products/interfaces-modules/transceiver-modules
+    - kind: other
+      title: Cisco transceiver modules End-of-Life and End-of-Sale notices
+      url: https://www.cisco.com/c/en/us/products/interfaces-modules/transceiver-modules/eos-eol-notice-listing.html
+    - kind: datasheet
+      title: Cisco 10GBASE SFP+ Modules Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/interfaces-modules/transceiver-modules/data_sheet_c78-455693.html
+
+name: SFP-10G-ER
+kind: transceiver
+connector: lc
+fits: [10gbase-x-sfpp]
+parts: [SFP-10G-ER, SFP-10G-ER-S]
+standard: 10GBASE-ER
+wavelength_nm: 1550
+comments: SFP-family optical transceiver, bail closed (colour code red), LC duplex receptacle with the cord anchor port:lc (TX left, RX right, seen from the front).
+model3d: {file: assets/Cisco/SFP-10G-ER.glb}

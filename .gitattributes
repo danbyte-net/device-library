@@ -1,0 +1,4 @@
+# Danbyte library binaries are plain git (no LFS): keep them out of text diffs.
+danbyte/assets/**/*.glb binary
+danbyte/assets/**/*.webp binary
+danbyte/assets/**/*.png binary

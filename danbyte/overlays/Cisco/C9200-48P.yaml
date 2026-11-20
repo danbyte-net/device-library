@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Cisco/C9200-48P.yaml
+meta:
+  category: switch
+  roles: [access, poe, campus]
+  family: Catalyst 9200
+  summary: 48-port Gigabit PoE+ access switch with a modular uplink slot.
+  links:
+    - kind: datasheet
+      title: Cisco Catalyst 9200 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9200-series-switches/nb-06-cat9200-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9200 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9200/hardware/install/b-c9200-hig.html
+    - kind: product-page
+      title: Catalyst 9200 Switches Overview
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9200-series-switches/index.html
+
+module-bays:
+  Network Module:
+    modules: [C9200-NM-4G, C9200-NM-4X, C9200-NM-BLANK]
+  StackPort1/1:
+    modules: [C9200-STACK-KIT]
+  StackPort1/2:
+    modules: [C9200-STACK-KIT]
+  PS-0:
+    modules: [PWR-C6-1KWAC, PWR-C6-715WDC]
+  PS-1:
+    modules: [PWR-C6-1KWAC, PWR-C6-715WDC]
+  add:
+    - name: FAN 1
+      position: '1'
+      modules: [FAN-T2]
+      why: bay added (field-replaceable part missing in the library)
+    - name: FAN 2
+      position: '2'
+      modules: [FAN-T2]
+      why: bay added (field-replaceable part missing in the library)
+
+model3d:
+  file: assets/Cisco/C9200-48P.glb
+  far: assets/Cisco/C9200-48P.far.glb
+  empty: filler
+  leds:
+    SYS: {source: device.status}
+    BEACON: {source: device.locate}
+    STACK: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Cisco/C9200-48P.front.webp
+    rear: assets/Cisco/C9200-48P.rear.webp
+    iso: assets/Cisco/C9200-48P.iso.webp
+    model_sha256: 266f15392799cafa527635e272cf9e177b392ee45430c739900fc13bbf8d7808
+    modules: {Network Module: C9200-NM-4X, FAN 1: FAN-T2, FAN 2: FAN-T2, PS-0: PWR-C6-1KWAC, PS-1: PWR-C6-1KWAC}
+
+# rack mounting (spec 1.11 section 8) from Cisco's install guide; mid = Cisco's 'rear-mount' figure (bracket turned round on the front holes), ~98 mm from our bracket model
+rack_mount:
+  ears: true
+  positions: {front: 0, mid: 98}
+  default: front
+  rails: none

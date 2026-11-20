@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: cisco-catalyst-9200
+name: Cisco Catalyst 9200
+version: 1.6.23
+license: CC-BY-4.0
+author: Christian Rose
+description: Catalyst 9200 and 9200L switches with their network modules, stack kit, power supplies, fan and stack cable.
+blender: 5.3
+spec: 1.15
+requires: [generic-connectors]
+types:
+  device: [Cisco/C9200-24P, Cisco/C9200-24T, Cisco/C9200-48P, Cisco/C9200L-24P-4X, Cisco/C9200L-48P-4X]
+  module:
+    - Cisco/C9200-NM-4G
+    - Cisco/C9200-NM-4X
+    - Cisco/C9200-STACK-KIT
+    - Cisco/FAN-T2
+    - Cisco/PWR-C5-1KWAC
+    - Cisco/PWR-C5-600WAC
+    - Cisco/PWR-C6-125WAC
+    - Cisco/PWR-C6-1KWAC
+    - Cisco/PWR-C6-600WAC
+  pluggable: [Cisco/STACK-T4]

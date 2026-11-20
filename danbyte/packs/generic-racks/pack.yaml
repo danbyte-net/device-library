@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: generic-racks
+name: Generic racks
+version: 1.6.23
+license: CC-BY-4.0
+author: Christian Rose
+description: Rack kits and rack types (cabinets, open frames, wall cabinet), blanking panels, cable managers, shelves and 0U PDUs.
+blender: 5.3
+spec: 1.15
+requires: [generic-connectors]
+types:
+  device: [Generic/PDU-0U-12xC13-4xC19, Generic/PDU-0U-24xC13-6xC19]
+  pluggable:
+    - Generic/BLANK-1U
+    - Generic/BLANK-2U
+    - Generic/CM-1U-BRUSH
+    - Generic/CM-1U-DRING
+    - Generic/CM-2U-FINGER
+    - Generic/CM-VERT-2POST
+    - Generic/SHELF-1U-FIXED
+    - Generic/SHELF-2U-SLIDING
+  rack-kit: [Generic/CABINET, Generic/OPEN-4POST, Generic/TELCO-2POST, Generic/WALL-CABINET]
+  rack-type:
+    - Generic/Generic-12U-wall
+    - Generic/Generic-42U-4post-open
+    - Generic/Generic-42U-600x1000
+    - Generic/Generic-42U-800x1200
+    - Generic/Generic-45U-2post

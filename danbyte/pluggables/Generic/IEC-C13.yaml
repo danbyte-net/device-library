@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta:
+  category: pluggable
+  roles: [power, cord]
+  family: IEC 60320 connectors
+  summary: IEC 60320 C13 cord connector (10 A), mates with C14 inlets.
+
+name: IEC-C13
+kind: plug
+connector: c13
+fits: [iec-60320-c14]
+comments: IEC C13 cord connector (10 A, cold) - moulded body with grip ribs, nose with the three contact sockets, strain relief, 7.0 mm cord ending at the cable empty. Origin is the PSU inlet port anchor; the earth side is +Y (every PSU anchor's +Y points at the inlet's earth / chamfer side). CABLE is recoloured by Danbyte.
+cable: {profile: round, jacket_mm: 7.0, min_bend_mm: 40}
+model3d: {file: assets/Generic/IEC-C13.glb}

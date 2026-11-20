@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta:
+  category: pluggable
+  roles: [optic]
+  family: Generic transceivers
+  summary: Generic QSFP-family optical transceiver with an MPO receptacle.
+
+name: QSFP-GENERIC
+kind: transceiver
+connector: mpo
+fits: [40gbase-x-qsfpp, 100gbase-x-qsfp28]
+parts: []
+comments: QSFP-family optical transceiver, pull tab (loop, grey), MPO receptacle with the cord anchor port:mpo.
+model3d: {file: assets/Generic/QSFP-GENERIC.glb}

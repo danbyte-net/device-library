@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+format: danbyte-library/v1
+upstream: module-types/Cisco/C9K-PWR-1600WAC-R.yaml
+meta:
+  category: module
+  module_kind: psu
+  family: Catalyst 9500 High Performance
+  summary: 1600 W AC hot-swappable power supply for the Catalyst 9500-32C.
+  links:
+    - kind: product-page
+      title: Cisco Catalyst 9500 Series Switches
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9500-series-switches/index.html
+    - kind: datasheet
+      title: Cisco Catalyst 9500 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/nb-06-cat9500-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9500 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9500/hardware/install/b_catalyst_9500_hig.html
+
+model3d:
+  file: assets/Cisco/C9K-PWR-1600WAC-R.glb
+  far: assets/Cisco/C9K-PWR-1600WAC-R.far.glb
+  leds:
+    STATUS: {source: module.status}

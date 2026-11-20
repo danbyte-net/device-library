@@ -1,0 +1,672 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "catalog.schema.json",
+  "$comment": "danbyte-library/catalog/v1",
+  "title": "Catalog",
+  "description": "The generated files the public library website and Danbyte's library browser read, built by `danbyte-lib build-catalog`: `catalog.json` (this schema: one row per entry, everything a list, its filters and search need), `items/<vendor>/<slug>.json` (`#/$defs/item`: the row plus the fully merged record, for a detail page) and `vendors.json` (`#/$defs/vendors`). Asset URLs are relative to the folder holding `catalog.json`. The site never parses YAML; it builds against this versioned schema, so the repository and the site can change separately.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "generated",
+    "count",
+    "entries"
+  ],
+  "properties": {
+    "format": {
+      "const": "danbyte-library/catalog/v1"
+    },
+    "generated": {
+      "$ref": "#/$defs/date",
+      "description": "The build date."
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/row"
+      }
+    }
+  },
+  "$defs": {
+    "date": {
+      "type": "string",
+      "pattern": "^[12][0-9]{3}-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?$"
+    },
+    "nullableString": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rowFields": {
+      "description": "The fields of one catalog entry.",
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "slug",
+        "vendor",
+        "vendor_slug",
+        "model",
+        "category",
+        "item",
+        "has_3d",
+        "has_far",
+        "has_photos",
+        "packs",
+        "links",
+        "lifecycle",
+        "ports",
+        "module_bays"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "`<kind>/<Vendor>/<NAME>`, stable across builds.",
+          "examples": [
+            "device/Cisco/C9300-24P"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "device",
+            "module",
+            "pluggable",
+            "rack-type",
+            "rack-kit"
+          ]
+        },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$",
+          "description": "URL slug, unique within the vendor (NetBox's for device types)."
+        },
+        "vendor": {
+          "type": "string"
+        },
+        "vendor_slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "model": {
+          "type": "string",
+          "description": "The model name (NetBox `model`, or the part's name)."
+        },
+        "part_number": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "family": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "category": {
+          "type": "string",
+          "description": "meta.category, or the kind's own (module, pluggable, rack, rack-kit) when not given; `other` for a device without one."
+        },
+        "module_kind": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "pluggable_kind": {
+          "$ref": "#/$defs/nullableString",
+          "description": "Pluggables: transceiver, plug, cord, blanking, cable-manager or shelf."
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "summary": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "u_height": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "airflow": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "weight": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit"
+          ],
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string"
+            }
+          }
+        },
+        "max_power_w": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Sum of the power ports' maximum draw, watts, when given."
+        },
+        "ports": {
+          "$ref": "#/$defs/ports"
+        },
+        "module_bays": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "modules"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "position": {
+                "$ref": "#/$defs/nullableString"
+              },
+              "modules": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Suggested module part numbers."
+              }
+            }
+          }
+        },
+        "pluggable": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "description": "Pluggables: what they fit and stand for.",
+          "additionalProperties": false,
+          "properties": {
+            "connector": {
+              "$ref": "#/$defs/nullableString"
+            },
+            "fits": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "parts": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "standard": {
+              "$ref": "#/$defs/nullableString"
+            },
+            "wavelength_nm": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "cable_profile": {
+              "$ref": "#/$defs/nullableString"
+            }
+          }
+        },
+        "lifecycle": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state"
+          ],
+          "properties": {
+            "release_date": {
+              "$ref": "#/$defs/date"
+            },
+            "end_of_sale": {
+              "$ref": "#/$defs/date"
+            },
+            "end_of_security_updates": {
+              "$ref": "#/$defs/date"
+            },
+            "end_of_support": {
+              "$ref": "#/$defs/date"
+            },
+            "source": {
+              "type": "string"
+            },
+            "state": {
+              "enum": [
+                "current",
+                "end-of-sale",
+                "end-of-support",
+                "unknown"
+              ],
+              "description": "Derived on the build date: end-of-support once that date has passed, end-of-sale once that one has, current when dates are known but neither has passed, unknown without dates. A month-only date counts from its first day."
+            }
+          }
+        },
+        "has_3d": {
+          "type": "boolean"
+        },
+        "has_far": {
+          "type": "boolean"
+        },
+        "has_photos": {
+          "type": "boolean"
+        },
+        "thumbnail": {
+          "$ref": "#/$defs/nullableString",
+          "description": "The iso render, relative URL."
+        },
+        "model_url": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "far_url": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "models": {
+          "description": "The 3D model by quality, as paths relative to the catalog root (or absolute URLs for files served from the CDN). `far`: the far level of detail; `standard`: the model Danbyte draws; `hq`: a higher-detail model for close-up viewing, null where none was made (fall back to `standard`).",
+          "type": "object",
+          "properties": {
+            "far": {
+              "$ref": "#/$defs/nullableString"
+            },
+            "standard": {
+              "$ref": "#/$defs/nullableString"
+            },
+            "hq": {
+              "$ref": "#/$defs/nullableString"
+            }
+          },
+          "required": [
+            "far",
+            "standard",
+            "hq"
+          ],
+          "additionalProperties": false
+        },
+        "photos": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "front": {
+              "type": "string"
+            },
+            "rear": {
+              "type": "string"
+            },
+            "iso": {
+              "type": "string"
+            }
+          }
+        },
+        "packs": {
+          "type": "array",
+          "description": "The packs this entry ships in.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "name",
+              "version",
+              "license",
+              "author"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              },
+              "license": {
+                "type": "string"
+              },
+              "author": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "url"
+            ],
+            "properties": {
+              "kind": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "upstream": {
+          "$ref": "#/$defs/nullableString",
+          "description": "The upstream NetBox file, when the entry overlays one; null for Danbyte-only hardware."
+        },
+        "source": {
+          "type": "string",
+          "description": "The entry's file in the repository."
+        },
+        "updated": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Date the entry (or its upstream file) last changed in git; null when not committed."
+        },
+        "item": {
+          "type": "string",
+          "description": "Relative URL of the item file."
+        },
+        "definition": {
+          "type": "string",
+          "description": "Relative URL of the entry's definition as YAML: the merged record (upstream + overlay), the file Danbyte's device type and pack imports read. Its model and photo paths are relative to the catalog root."
+        }
+      }
+    },
+    "row": {
+      "description": "One catalog entry.",
+      "$ref": "#/$defs/rowFields",
+      "unevaluatedProperties": false
+    },
+    "ports": {
+      "description": "A port summary derived from the merged record.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "summary",
+        "groups",
+        "interfaces",
+        "stack_ports"
+      ],
+      "properties": {
+        "summary": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "One line per group, for example `24 × 1G RJ45 PoE+`, `2 × StackWise-480 stack`, `1 × Network Module bay`."
+        },
+        "interfaces": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Interfaces in all."
+        },
+        "stack_ports": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "class",
+              "type",
+              "count",
+              "label"
+            ],
+            "properties": {
+              "class": {
+                "enum": [
+                  "interface",
+                  "console",
+                  "power-port",
+                  "power-outlet",
+                  "front-port",
+                  "rear-port",
+                  "module-bay",
+                  "device-bay"
+                ]
+              },
+              "type": {
+                "type": "string"
+              },
+              "count": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "label": {
+                "type": "string"
+              },
+              "speed_mbps": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "connector": {
+                "$ref": "#/$defs/nullableString"
+              },
+              "poe": {
+                "$ref": "#/$defs/nullableString"
+              },
+              "mgmt": {
+                "type": "boolean"
+              },
+              "stack": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    },
+    "item": {
+      "description": "`items/<vendor>/<slug>.json`: the catalog row plus the merged record (upstream + overlay, as Danbyte imports it) and the overlay's own additions.",
+      "type": "object",
+      "properties": {
+        "format": {
+          "const": "danbyte-library/catalog/v1"
+        },
+        "record": {
+          "type": "object",
+          "description": "The merged YAML as JSON."
+        },
+        "additions": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "description": "What the overlay added or removed, with `why`."
+        }
+      },
+      "required": [
+        "format",
+        "record"
+      ],
+      "$ref": "#/$defs/rowFields",
+      "unevaluatedProperties": false
+    },
+    "vendors": {
+      "description": "`vendors.json`: counts per vendor.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "format",
+        "generated",
+        "vendors"
+      ],
+      "properties": {
+        "format": {
+          "const": "danbyte-library/catalog/v1"
+        },
+        "generated": {
+          "$ref": "#/$defs/date"
+        },
+        "vendors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "vendor",
+              "slug",
+              "count",
+              "categories",
+              "families",
+              "with_3d"
+            ],
+            "properties": {
+              "vendor": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "categories": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "integer"
+                }
+              },
+              "families": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "with_3d": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "packs": {
+      "description": "`packs.json`: every pack and bundle with the zip Danbyte installs (Settings, Device library, 3D model packs, Install pack: upload the zip or give its URL).",
+      "type": "object",
+      "required": [
+        "format",
+        "generated",
+        "packs"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "format": {
+          "const": "danbyte-library/catalog/v1"
+        },
+        "generated": {
+          "type": "string"
+        },
+        "packs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "name",
+              "version",
+              "license",
+              "author",
+              "counts",
+              "file",
+              "size",
+              "sha256",
+              "description",
+              "requires",
+              "kind",
+              "includes"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              },
+              "license": {
+                "type": "string",
+                "description": "The licence of the pack's models and photos."
+              },
+              "author": {
+                "type": "string"
+              },
+              "counts": {
+                "type": "object",
+                "description": "Entries per kind (device, module, pluggable, rack-kit, rack-type).",
+                "additionalProperties": {
+                  "type": "integer"
+                }
+              },
+              "file": {
+                "type": "string",
+                "description": "Relative URL of the zip, `packs/<id>-<version>.zip`."
+              },
+              "size": {
+                "type": "integer",
+                "description": "Bytes."
+              },
+              "sha256": {
+                "type": "string",
+                "description": "The zip's checksum; the build is deterministic."
+              },
+              "description": {
+                "type": "string",
+                "description": "One sentence on what the pack holds; may be empty."
+              },
+              "requires": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Ids of the packs this one needs installed too. Offer them with the download."
+              },
+              "kind": {
+                "enum": [
+                  "pack",
+                  "bundle"
+                ],
+                "description": "`pack`: a set of entries. `bundle`: several packs in one zip (`includes`); Danbyte installs each pack in it. Offer bundles first, as the one download."
+              },
+              "includes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "For a bundle: the ids of the packs in it, in install order. Empty for a pack."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: cisco-catalyst-9500
+name: Cisco Catalyst 9500
+version: 1.6.23
+license: CC-BY-4.0
+author: Christian Rose
+description: Catalyst 9500 switches with their network modules, power supplies and fans.
+blender: 5.3
+spec: 1.15
+requires: [generic-connectors]
+types:
+  device: [Cisco/C9500-16X, Cisco/C9500-24Y4C, Cisco/C9500-32C, Cisco/C9500-40X, Cisco/C9500-48Y4C]
+  module:
+    - Cisco/C9500-NM-2Q
+    - Cisco/C9K-PWR-1600WAC-R
+    - Cisco/C9K-PWR-650WAC-R
+    - Cisco/C9K-PWR-650WACL-R
+    - Cisco/C9K-T1-FANTRAY
+    - Cisco/C9K-T2-FANTRAY
+    - Cisco/FAN-T4-R
+    - Cisco/PWR-C4-950WAC-R

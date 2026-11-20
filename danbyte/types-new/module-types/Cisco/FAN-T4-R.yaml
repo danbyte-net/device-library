@@ -1,0 +1,6 @@
+---
+manufacturer: Cisco
+model: FAN-T4-R
+part_number: FAN-T4-R
+description: Type 4 front-to-back fan module (C9500-40X, C9500-16X, C9500-12Q, C9500-24Q)
+comments: '[Cisco Catalyst 9500 Hardware Installation Guide: Installing Field Replaceable Units](https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9500/hardware/install/b_catalyst_9500_hig/9500_installing-fru.html)'

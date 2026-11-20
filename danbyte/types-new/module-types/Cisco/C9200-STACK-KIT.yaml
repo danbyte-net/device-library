@@ -1,0 +1,8 @@
+---
+manufacturer: Cisco
+model: C9200-STACK-KIT
+part_number: C9200-STACK-KIT
+comments: 'C9200 stack adapter (C9200-STACK-KIT holds two adapters and one STACK-T4-50CM cable). Cisco C9200 HIG: a StackWise adapter must be installed in the stacking port to enable stacking; blanks are fitted by default; the adapter is held by a Torx T15 captive screw. Model: face plate with the T15 screw above the socket, cage body in the slot pocket, black dust plug (cover:port:), sizes from Cisco''s HIG figures 13 / 14 and product photos, +-2 mm.'
+interfaces:
+  - name: StackPort{module}
+    type: cisco-stackwise-160

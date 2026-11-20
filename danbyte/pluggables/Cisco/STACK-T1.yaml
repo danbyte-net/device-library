@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta:
+  category: pluggable
+  roles: [stacking, cable]
+  family: Catalyst 9300
+  summary: StackWise-480 data stacking cable, 0.5 m, 1 m or 3 m (STACK-T1-50CM / -1M / -3M).
+  links:
+    - kind: product-page
+      title: Cisco Catalyst 9300 Series Switches
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/index.html
+    - kind: datasheet
+      title: Cisco Catalyst 9300 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9300-series-switches/nb-06-cat9300-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9300 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/hardware/install/b_c9300_hig.html
+    - kind: support
+      title: Cisco Catalyst 9300 Series Switches - Support
+      url: https://www.cisco.com/c/en/us/support/switches/catalyst-9300-series-switches/series.html
+    - kind: eol-listing
+      title: Cisco Catalyst 9300 Series Switches - End-of-Life and End-of-Sale Notices
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/eos-eol-notice-listing.html
+
+name: STACK-T1
+kind: cord
+connector: stack
+fits: [cisco-stackwise-480, cisco-stackwise-1t]
+parts: [STACK-T1-50CM, STACK-T1-1M, STACK-T1-3M]
+standard: StackWise-480
+comments: 'Cisco StackWise-480 / StackWise-1T stack cable end (Catalyst 9300 / 9300X): one connector head, three plug tongues in the rear StackWise socket, two thumbscrews (top and bottom), three 6.1 mm cables stacked vertically 11.2 mm apart, 40 mm stub to the cable empty (middle cable; its X is vertical, along the ribbon). Minimum bend radius 41 mm, the 3 m cable 82 mm (Cisco C9300 HIG table 4). Head size from Cisco''s white paper figure and product photos (no published drawing), +-2 mm. Origin is the StackWise port anchor. CABLE is recoloured by Danbyte.'
+cable:
+  profile: ribbon
+  count: 3
+  pitch_mm: 11.2
+  jacket_mm: 6.1
+  min_bend_mm: 41
+  min_bend_by_part: {STACK-T1-3M: 82}
+
+model3d: {file: assets/Cisco/STACK-T1.glb}

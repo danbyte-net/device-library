@@ -1,0 +1,308 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rack-type.schema.json",
+  "$comment": "danbyte-library/v1",
+  "title": "Rack type",
+  "description": "A rack type with its Look, in `danbyte/racks/types/<Vendor>/<model>.yaml`. Either an overlay of an upstream `rack-types/` file (`upstream:` plus Danbyte keys) or a complete Danbyte rack type (NetBox rack-type keys plus Danbyte keys) for generic racks upstream doesn't have. Danbyte draws the rack from its own data and the kit its `look.kit` names (export spec §14).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "$ref": "common.schema.json#/$defs/format"
+    },
+    "upstream": {
+      "description": "The NetBox rack-type YAML this overlays, relative to the repository root. Leave it out for a complete Danbyte rack type.",
+      "type": "string",
+      "pattern": "^rack-types/[^/]+/[^/]+\\.ya?ml$"
+    },
+    "manufacturer": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "NetBox: the manufacturer (complete rack types)."
+    },
+    "model": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "NetBox: the model name."
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[-a-z0-9_]+$",
+      "description": "NetBox: URL slug."
+    },
+    "description": {
+      "type": "string",
+      "description": "NetBox: short description."
+    },
+    "form_factor": {
+      "enum": [
+        "wall-cabinet",
+        "4-post-frame",
+        "2-post-frame",
+        "4-post-cabinet",
+        "wall-frame",
+        "wall-frame-vertical",
+        "wall-cabinet-vertical"
+      ],
+      "description": "NetBox: frame form factor; Danbyte derives the frame from it when `look.frame` is not given."
+    },
+    "width": {
+      "enum": [
+        10,
+        19,
+        21,
+        23
+      ],
+      "description": "Rail width in inches."
+    },
+    "u_height": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "description": "NetBox: height in rack units."
+    },
+    "outer_width": {
+      "type": "number",
+      "minimum": 0,
+      "description": "NetBox: outer width in outer_unit."
+    },
+    "outer_height": {
+      "type": "number",
+      "minimum": 0,
+      "description": "NetBox: outer height in outer_unit."
+    },
+    "outer_depth": {
+      "type": "number",
+      "minimum": 0,
+      "description": "NetBox: outer depth in outer_unit."
+    },
+    "outer_unit": {
+      "enum": [
+        "mm",
+        "in"
+      ],
+      "description": "NetBox: unit of the outer sizes."
+    },
+    "weight": {
+      "type": "number",
+      "minimum": 0,
+      "description": "NetBox: weight in weight_unit."
+    },
+    "max_weight": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "NetBox: maximum load in weight_unit."
+    },
+    "weight_unit": {
+      "enum": [
+        "kg",
+        "g",
+        "lb",
+        "oz"
+      ],
+      "description": "NetBox: unit of weight."
+    },
+    "mounting_depth": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "NetBox: mounting depth, mm (Danbyte's rail depth when rail_depth_mm is missing)."
+    },
+    "starting_unit": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "NetBox: number of the bottom unit."
+    },
+    "desc_units": {
+      "type": "boolean",
+      "description": "NetBox: units numbered top to bottom."
+    },
+    "comments": {
+      "type": "string",
+      "description": "NetBox: free text (Markdown)."
+    },
+    "outer_width_mm": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 3000,
+      "description": "Danbyte: outer width, mm."
+    },
+    "outer_depth_mm": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 3000,
+      "description": "Danbyte: outer depth, mm."
+    },
+    "rail_depth_mm": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2000,
+      "description": "Danbyte: front rail to rear rail, mm; 0 for a 2-post frame (one rail plane). NetBox `mounting_depth` is read when this is missing. (Danbyte's importer in 0.21 reads 100-2000 and drops other values with a note.)"
+    },
+    "look": {
+      "$ref": "#/$defs/look"
+    },
+    "meta": {
+      "allOf": [
+        {
+          "$ref": "meta.schema.json"
+        },
+        {
+          "properties": {
+            "category": {
+              "const": "rack"
+            },
+            "module_kind": false
+          }
+        }
+      ],
+      "description": "Catalog facts (see meta); category `rack`."
+    }
+  },
+  "if": {
+    "required": [
+      "upstream"
+    ]
+  },
+  "then": {
+    "not": {
+      "anyOf": [
+        {
+          "required": [
+            "manufacturer"
+          ]
+        },
+        {
+          "required": [
+            "model"
+          ]
+        },
+        {
+          "required": [
+            "slug"
+          ]
+        }
+      ]
+    }
+  },
+  "else": {
+    "required": [
+      "manufacturer",
+      "model",
+      "u_height"
+    ]
+  },
+  "$defs": {
+    "look": {
+      "description": "How the rack is drawn: its kit, doors, panels, roof, base and colour.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kit": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "description": "The rack kit's name (matched by name, the same vendor's first)."
+        },
+        "frame": {
+          "enum": [
+            "cabinet",
+            "4-post",
+            "2-post",
+            "wall-cabinet"
+          ],
+          "description": "Overrides the frame taken from `form_factor`."
+        },
+        "front_door": {
+          "enum": [
+            "none",
+            "perforated",
+            "glass",
+            "solid",
+            "split-perforated",
+            "split-solid"
+          ]
+        },
+        "rear_door": {
+          "enum": [
+            "none",
+            "perforated",
+            "glass",
+            "solid",
+            "split-perforated",
+            "split-solid"
+          ]
+        },
+        "hinge": {
+          "enum": [
+            "left",
+            "right"
+          ]
+        },
+        "side_panels": {
+          "type": "boolean"
+        },
+        "top": {
+          "enum": [
+            "vented",
+            "solid",
+            "fans",
+            "brush",
+            "none"
+          ],
+          "description": "Roof variant; `none` for open frames (Danbyte's importer in 0.21 doesn't read `none` yet and drops it with a note)."
+        },
+        "base": {
+          "enum": [
+            "plinth",
+            "casters",
+            "feet",
+            "plate",
+            "none"
+          ],
+          "description": "Base variant; `plate` is a 2-post frame's base plate, `none` a wall cabinet's (Danbyte's importer in 0.21 reads plinth, casters and feet only)."
+        },
+        "colour": {
+          "description": "A named colour (black, grey, white) or #rrggbb.",
+          "anyOf": [
+            {
+              "enum": [
+                "black",
+                "grey",
+                "white"
+              ]
+            },
+            {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          ]
+        },
+        "blanking_fill": {
+          "type": "boolean",
+          "description": "Draw blanking panels in empty units."
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "manufacturer": "Generic",
+      "model": "Generic 42U 600x1000 cabinet",
+      "u_height": 42,
+      "width": 19,
+      "outer_width_mm": 600,
+      "outer_depth_mm": 1000,
+      "rail_depth_mm": 740,
+      "look": {
+        "kit": "CABINET",
+        "front_door": "perforated",
+        "rear_door": "split-perforated",
+        "hinge": "left",
+        "side_panels": true,
+        "top": "vented",
+        "base": "plinth",
+        "colour": "black"
+      }
+    }
+  ]
+}

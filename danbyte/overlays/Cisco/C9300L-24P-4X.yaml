@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Cisco/C9300L-24P-4X.yaml
+meta:
+  category: switch
+  roles: [access, poe, campus, stacking]
+  family: Catalyst 9300L
+  summary: 24-port PoE+ access switch with four fixed 10G SFP+ uplinks and StackWise-320.
+  links:
+    - kind: product-page
+      title: Cisco Catalyst 9300 Series Switches
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/index.html
+    - kind: datasheet
+      title: Cisco Catalyst 9300 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9300-series-switches/nb-06-cat9300-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9300 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/hardware/install/b_c9300_hig.html
+    - kind: support
+      title: Cisco Catalyst 9300 Series Switches - Support
+      url: https://www.cisco.com/c/en/us/support/switches/catalyst-9300-series-switches/series.html
+    - kind: eol-listing
+      title: Cisco Catalyst 9300 Series Switches - End-of-Life and End-of-Sale Notices
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/eos-eol-notice-listing.html
+
+interfaces:
+  StackPort1/1:
+    type: cisco-stackwise-320
+    why: typed by stack system so Danbyte picks the right stack cable head (export spec v1.12 section 8); upstream has the generic cisco-stackwise
+  StackPort1/2:
+    type: cisco-stackwise-320
+    why: typed by stack system so Danbyte picks the right stack cable head (export spec v1.12 section 8); upstream has the generic cisco-stackwise
+
+module-bays:
+  PS-A:
+    modules: [PWR-C1-350WAC-P, PWR-C1-715WAC-P, PWR-C1-1100WAC-P]
+  PS-B:
+    modules: [PWR-C1-350WAC-P, PWR-C1-715WAC-P, PWR-C1-1100WAC-P]
+  FAN 1:
+    modules: [FAN-T2]
+  FAN 2:
+    modules: [FAN-T2]
+  FAN 3:
+    modules: [FAN-T2]
+
+model3d:
+  file: assets/Cisco/C9300L-24P-4X.glb
+  far: assets/Cisco/C9300L-24P-4X.far.glb
+  empty: filler
+  leds:
+    SYS: {source: device.status}
+    BEACON: {source: device.locate}
+    STACK: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Cisco/C9300L-24P-4X.front.webp
+    rear: assets/Cisco/C9300L-24P-4X.rear.webp
+    iso: assets/Cisco/C9300L-24P-4X.iso.webp
+    model_sha256: bd29f5a7e75ff2bd9337931ade31cb4bbc0b80d276f4cc977fb2048439fdceb0
+    modules: {PS-A: PWR-C1-350WAC-P, PS-B: PWR-C1-350WAC-P, FAN 1: FAN-T2, FAN 2: FAN-T2, FAN 3: FAN-T2}
+
+# rack mounting (spec 1.11 section 8) from Cisco's install guide; mid = Cisco's mid-mount figure (bracket turned round on the front holes), ~98 mm from our bracket model; Cisco's rear mount turns the switch round (see REPORT)
+rack_mount:
+  ears: true
+  positions: {front: 0, mid: 98, reversed: 0}
+  default: front
+  rails: none
