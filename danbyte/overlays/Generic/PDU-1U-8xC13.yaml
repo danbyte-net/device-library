@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/device-types/Generic/PDU-1U-8xC13.yaml
+meta:
+  category: pdu
+  roles: [power, 1u]
+  family: Generic PDUs
+  summary: Horizontal 1U 19-inch PDU with 8 x C13 outlets and a C14 inlet.
+
+model3d:
+  file: assets/Generic/PDU-1U-8xC13.glb
+  far: assets/Generic/PDU-1U-8xC13.far.glb
+  renders:
+    front: assets/Generic/PDU-1U-8xC13.front.webp
+    rear: assets/Generic/PDU-1U-8xC13.rear.webp
+    iso: assets/Generic/PDU-1U-8xC13.iso.webp
+    model_sha256: 49880a4f59cf5846369eab270faef382baa6acb203e5f35ae993563a7a047150
+
+# rack_mount (spec 1.11): ears flush with the front panel
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: none

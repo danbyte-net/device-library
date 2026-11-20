@@ -33,6 +33,6 @@ model3d:
     front: assets/Cisco/FAN-T4-R.front.webp
     rear: assets/Cisco/FAN-T4-R.rear.webp
     iso: assets/Cisco/FAN-T4-R.iso.webp
-    model_sha256: 07a80255440912048e6efad25b7ab099fad652dc3aa1461a1e6a375c7d348130
+    model_sha256: 6eb74aae2fca9b10d570f5d773a487576abf252650abf8b5d2a5e13a70353749
   leds:
     STATUS: {source: module.status}

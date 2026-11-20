@@ -25,6 +25,6 @@ model3d:
     front: assets/Cisco/C9K-T2-FANTRAY.front.webp
     rear: assets/Cisco/C9K-T2-FANTRAY.rear.webp
     iso: assets/Cisco/C9K-T2-FANTRAY.iso.webp
-    model_sha256: 274d417dc6d7a4bfb0ab1a9b13983689b0a2efeefbd1f047dd70f36bd7e813bc
+    model_sha256: 1d2eeae755bf14ded72ff0d1bdaaf5caa9f409bc38bbcf031333bd51d38b9f87
   leds:
     STATUS: {source: module.status}

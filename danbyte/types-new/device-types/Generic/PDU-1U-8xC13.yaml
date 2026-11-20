@@ -1,0 +1,37 @@
+---
+manufacturer: Generic
+model: PDU-1U-8xC13
+slug: generic-pdu-1u-8xc13
+part_number: PDU-1U-8xC13
+u_height: 1
+is_full_depth: false
+comments: 'Generic horizontal 1U 19-inch PDU (for wall cabinets): 8 x C13 outlets on the front, an on / off rocker switch, a C14 inlet on the rear (10 A). Body 440 x 43.6 x 100 mm, typical of 1U PDUs.'
+power-ports:
+  - name: Input
+    type: iec-60320-c14
+    maximum_draw: 2300
+power-outlets:
+  - name: C13-1
+    type: iec-60320-c13
+    power_port: Input
+  - name: C13-2
+    type: iec-60320-c13
+    power_port: Input
+  - name: C13-3
+    type: iec-60320-c13
+    power_port: Input
+  - name: C13-4
+    type: iec-60320-c13
+    power_port: Input
+  - name: C13-5
+    type: iec-60320-c13
+    power_port: Input
+  - name: C13-6
+    type: iec-60320-c13
+    power_port: Input
+  - name: C13-7
+    type: iec-60320-c13
+    power_port: Input
+  - name: C13-8
+    type: iec-60320-c13
+    power_port: Input
