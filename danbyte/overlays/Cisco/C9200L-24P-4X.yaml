@@ -18,6 +18,11 @@ meta:
       url: https://www.cisco.com/c/en/us/products/switches/catalyst-9200-series-switches/index.html
 
 module-bays:
+  remove:
+    - name: FAN 1
+      why: the C9200L's fans are fixed, not field-replaceable units (Cisco C9200L hardware installation guide; pack report v1.6.29); upstream lists two fan bays
+    - name: FAN 2
+      why: the C9200L's fans are fixed, not field-replaceable units (Cisco C9200L hardware installation guide; pack report v1.6.29); upstream lists two fan bays
   PS-1:
     modules: [PWR-C5-600WAC, PWR-C5-715WDC]
   PS-2:
@@ -44,7 +49,7 @@ model3d:
     front: assets/Cisco/C9200L-24P-4X.front.webp
     rear: assets/Cisco/C9200L-24P-4X.rear.webp
     iso: assets/Cisco/C9200L-24P-4X.iso.webp
-    model_sha256: b926cdebd3df07bc0dfe6c1bcb3078cc1f5141b0313d8b7f37d2fd6b1c8eafa3
+    model_sha256: 479bfdf3440bbfab19ff96938fe2ca45ba6acfaeaea07f88e40a99938ab87cd4
     modules: {PS-1: PWR-C5-600WAC, PS-2: PWR-C5-600WAC}
 
 # rack mounting (spec 1.11 section 8) from Cisco's install guide; mid = Cisco's 'rear-mount' figure (bracket turned round on the front holes), ~98 mm from our bracket model

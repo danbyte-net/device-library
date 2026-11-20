@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+format: danbyte-library/v1
+upstream: module-types/Cisco/PWR-C1-1100WAC-P.yaml
+meta:
+  category: module
+  module_kind: psu
+  roles: [power, poe]
+  family: Catalyst 9300
+  summary: 1100 W AC field-replaceable power supply; default on the C9300-48U, upgrade for PoE+ C9300/C9300L models.
+  links:
+    - kind: product-page
+      title: Cisco Catalyst 9300 Series Switches
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/index.html
+    - kind: datasheet
+      title: Cisco Catalyst 9300 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9300-series-switches/nb-06-cat9300-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9300 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/hardware/install/b_c9300_hig.html
+    - kind: support
+      title: Cisco Catalyst 9300 Series Switches - Support
+      url: https://www.cisco.com/c/en/us/support/switches/catalyst-9300-series-switches/series.html
+    - kind: eol-listing
+      title: Cisco Catalyst 9300 Series Switches - End-of-Life and End-of-Sale Notices
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/eos-eol-notice-listing.html
+
+comments: 1100W AC 80+ platinum Config 1 Power Supply. 348.2 mm long; it stands 1.5 in (38 mm) proud of the switch rear panel (Cisco Catalyst 9300 HIG, technical specifications and installing a power supply) / [Cisco Catalyst 9300 Series Switches Hardware Installation Guide](https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/hardware/install/b_c9300_hig.html) / [Cisco Catalyst 9300 Series Switches Data Sheet](https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9300-series-switches/nb-06-cat9300-ser-data-sheet-cte-en.html)
+model3d:
+  file: assets/Cisco/PWR-C1-1100WAC-P.glb
+  far: assets/Cisco/PWR-C1-1100WAC-P.far.glb
+  renders:
+    front: assets/Cisco/PWR-C1-1100WAC-P.front.webp
+    rear: assets/Cisco/PWR-C1-1100WAC-P.rear.webp
+    iso: assets/Cisco/PWR-C1-1100WAC-P.iso.webp
+    model_sha256: c7da4177cf09da06d48443c82b147acbddf743b96841328c02bab80514557a7c
+  leds:
+    AC_OK: {source: module.status}
+    PS_OK: {source: module.status}

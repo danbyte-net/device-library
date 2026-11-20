@@ -19,7 +19,7 @@ meta:
 
 module-bays:
   Network Module:
-    modules: [C9200-NM-4G, C9200-NM-4X, C9200-NM-BLANK]
+    modules: [C9200-NM-4G, C9200-NM-4X]
   StackPort1/1:
     modules: [C9200-STACK-KIT]
   StackPort1/2:
@@ -51,7 +51,7 @@ model3d:
     front: assets/Cisco/C9200-48P.front.webp
     rear: assets/Cisco/C9200-48P.rear.webp
     iso: assets/Cisco/C9200-48P.iso.webp
-    model_sha256: 266f15392799cafa527635e272cf9e177b392ee45430c739900fc13bbf8d7808
+    model_sha256: 99161b693b614562daaa86b8018e6484e5edc8be1d7433523d42951b304a40bd
     modules: {Network Module: C9200-NM-4X, FAN 1: FAN-T2, FAN 2: FAN-T2, PS-0: PWR-C6-1KWAC, PS-1: PWR-C6-1KWAC}
 
 # rack mounting (spec 1.11 section 8) from Cisco's install guide; mid = Cisco's 'rear-mount' figure (bracket turned round on the front holes), ~98 mm from our bracket model
