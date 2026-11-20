@@ -18,4 +18,4 @@ model3d:
     front: assets/Generic/IEC-C13.front.webp
     rear: assets/Generic/IEC-C13.rear.webp
     iso: assets/Generic/IEC-C13.iso.webp
-    model_sha256: 822a6511d200048a68e5e778967eca71333933d7e6ef495a310c8ba88152775c
+    model_sha256: d3ec5d855360a6e691ac295946d6541c2088512f6db197594dab8509210dcff0

@@ -18,4 +18,4 @@ model3d:
     front: assets/Generic/SFP-GENERIC.front.webp
     rear: assets/Generic/SFP-GENERIC.rear.webp
     iso: assets/Generic/SFP-GENERIC.iso.webp
-    model_sha256: 73a82bb3c413d504658b6aaa988457c949c9bd68163154e84d84045c72c2cdf3
+    model_sha256: 25f2a0ca2ac2205612a6992bcc5b831ec98119d523750f97ae3df9c462037506

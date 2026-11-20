@@ -33,4 +33,4 @@ model3d:
     front: assets/Cisco/QSFP-40G-LR4.front.webp
     rear: assets/Cisco/QSFP-40G-LR4.rear.webp
     iso: assets/Cisco/QSFP-40G-LR4.iso.webp
-    model_sha256: 7dcdae153267374789cac6bdb250c67d64395f261edf7b265b0470f8428aa55f
+    model_sha256: 546d214d147456180cbc8ea3a9a92a24a63fb47e5c8e0deff5f1b44e1d5b9f06

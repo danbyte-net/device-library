@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: cisco-catalyst-9500
 name: Cisco Catalyst 9500
-version: 1.6.27
+version: 1.6.28
 license: CC-BY-4.0
 author: Christian Rose
 description: Catalyst 9500 switches with their network modules, power supplies and fans.

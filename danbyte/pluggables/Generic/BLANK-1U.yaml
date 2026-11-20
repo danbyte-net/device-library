@@ -16,4 +16,4 @@ model3d:
     front: assets/Generic/BLANK-1U.front.webp
     rear: assets/Generic/BLANK-1U.rear.webp
     iso: assets/Generic/BLANK-1U.iso.webp
-    model_sha256: ce126884a657cecfe49efa3020c6410edd3647799ab8c3dbe27d7f8caecf50b1
+    model_sha256: f8d9845e25595f7bb8f93db7ec370b8e8983d69038e8375d6e75cbc6f5e98395

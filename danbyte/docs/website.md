@@ -45,7 +45,7 @@ reads** and refuse a newer major.
 | `pluggable` | For pluggables: `connector`, `fits` (port types it plugs into), `parts` (orderable part numbers), `standard`, `wavelength_nm`, `cable_profile`. |
 | `lifecycle` | `state` (`current`, `end-of-sale`, `end-of-support`, `unknown`) and the dates with their `source` when known. Only dates from a vendor notice; never guessed. |
 | `has_3d`, `has_far`, `has_photos`, `thumbnail` | `thumbnail` is the iso photo, for grids. |
-| `models` | `{far, standard, hq}`. `standard` is the model for a viewer; `far` a small copy for many at once; `hq` a close-up copy or null (fall back to `standard`). `model_url` / `far_url` are the same as `standard` / `far` (kept for old readers). |
+| `models` | `{far, standard, hq}`. `standard` is the model for a viewer; `far` a small copy for many at once; `hq` a close-up copy under `assets-hq/` or null (fall back to `standard`); the same node names and anchors as `standard`. `model_url` / `far_url` are the same as `standard` / `far` (kept for old readers). |
 | `photos` | `{front, rear, iso}` webp renders. |
 | `links` | `{kind, title, url}`: `datasheet`, `install-guide`, `config-guide`, `product-page`, `eol-notice`, `eol-listing`, `support`, `software`, `other`. |
 | `packs` | The pack(s) it ships in: `id`, `name`, `version`, `license`, `author`. **Show the credit**: models are under their pack's licence (e.g. CC-BY-4.0, which requires attribution). |

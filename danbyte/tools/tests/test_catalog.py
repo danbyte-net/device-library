@@ -45,6 +45,9 @@ def test_rows_carry_what_the_site_needs(built):
     assert ps_a["position"] == "A"
     assert ps_a["modules"][:3] == ["PWR-C1-350WAC-P", "PWR-C1-715WAC-P", "PWR-C1-1100WAC-P"]
     assert r["upstream"] == "device-types/Cisco/C9300-24P.yaml"
+    # a close-up copy made for the website is named by convention
+    assert rows["device/Cisco/C9300-48P"]["models"]["hq"] == "assets-hq/Cisco/C9300-48P.hq.glb"
+    assert r["models"]["hq"] in (None, "assets-hq/Cisco/C9300-24P.hq.glb")
     fan = rows["module/Cisco/FAN-T4-R"]
     assert fan["upstream"] is None and fan["module_kind"] == "fan"
     sfp = rows["pluggable/Cisco/SFP-10G-SR"]

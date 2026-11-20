@@ -33,4 +33,4 @@ model3d:
     front: assets/Cisco/GLC-LH-SMD.front.webp
     rear: assets/Cisco/GLC-LH-SMD.rear.webp
     iso: assets/Cisco/GLC-LH-SMD.iso.webp
-    model_sha256: 41f725ab64e92f2f13c99dcff85917e1f8a529a5d4cdc6068b6a57b3276f7fed
+    model_sha256: e4620a2eb7d93cab9f90fb72959a612ca24dbe10446653d0978e0247cab9cb56

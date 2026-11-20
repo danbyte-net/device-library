@@ -33,4 +33,4 @@ model3d:
     front: assets/Cisco/QSFP-100G-SR4-S.front.webp
     rear: assets/Cisco/QSFP-100G-SR4-S.rear.webp
     iso: assets/Cisco/QSFP-100G-SR4-S.iso.webp
-    model_sha256: b5d139f345863478ef8d8e99163b58e81875d3a847afc444261cc1d9f7104152
+    model_sha256: 7696745efcf55460e2f7c03e6a49772c390045a104fb1de9e4741fee13e19b07

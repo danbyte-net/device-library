@@ -16,4 +16,4 @@ model3d:
     front: assets/Generic/CM-VERT-2POST.front.webp
     rear: assets/Generic/CM-VERT-2POST.rear.webp
     iso: assets/Generic/CM-VERT-2POST.iso.webp
-    model_sha256: 978889f7c09b305a26a7d7ad77fc10a0b3a106745ca70be5661fd0980f927f73
+    model_sha256: 18d026ba720980fddb83b6b12268cc02e29c98d794bf0aba534b869c9fe940a6

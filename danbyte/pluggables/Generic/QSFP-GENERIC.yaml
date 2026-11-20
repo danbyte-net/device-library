@@ -18,4 +18,4 @@ model3d:
     front: assets/Generic/QSFP-GENERIC.front.webp
     rear: assets/Generic/QSFP-GENERIC.rear.webp
     iso: assets/Generic/QSFP-GENERIC.iso.webp
-    model_sha256: a76504674210a4101de06c7aae09861dc44716c0c4875380d7588d37c677439a
+    model_sha256: 42133a62bdc5edefbf0a485a9e04dd6ccf8782fc4ed317c2b794c5a1b73ccde7

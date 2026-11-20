@@ -35,4 +35,4 @@ model3d:
     front: assets/Cisco/STACK-T4.front.webp
     rear: assets/Cisco/STACK-T4.rear.webp
     iso: assets/Cisco/STACK-T4.iso.webp
-    model_sha256: 020a9ea3e3fd42c6440c2228af52d9b6f5f62c0b48970fd46de81a50d4933b5f
+    model_sha256: a511779be14d1d449256c0ff3edd5aacdf437cfbe4b75c08b6d51c3bf5bad266

@@ -33,4 +33,4 @@ model3d:
     front: assets/Cisco/SFP-10G-ER.front.webp
     rear: assets/Cisco/SFP-10G-ER.rear.webp
     iso: assets/Cisco/SFP-10G-ER.iso.webp
-    model_sha256: 3fdc01c5a905f02373aae411728d17ebe198e4ed32780c112894db8e5c2b9cde
+    model_sha256: a7515744f0ad41f24b72cd91730352d9f285aa451f7cb9900b62ab0570fa1408

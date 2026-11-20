@@ -16,4 +16,4 @@ model3d:
     front: assets/Generic/SHELF-1U-FIXED.front.webp
     rear: assets/Generic/SHELF-1U-FIXED.rear.webp
     iso: assets/Generic/SHELF-1U-FIXED.iso.webp
-    model_sha256: c6cbbd7f6dee62d8cb9b12f4dd7aac967f934af413f278f2b06c8119d70bc57f
+    model_sha256: 462e1af1d58e955c00b0b59ab7bcc9dcc81f65a7ce9b18fd5a048fbc3c5ab865

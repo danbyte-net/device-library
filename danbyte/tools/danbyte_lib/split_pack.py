@@ -453,6 +453,19 @@ def split_pack(repo: Repo, folder: Path, *, rules_path: Path | None = None,
         dst.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(src, dst)
 
+    # close-up copies for the website (release/models/<Vendor>/<PART>.hq.glb)
+    for src in sorted((folder / "release" / "models").rglob("*.hq.glb")):
+        rel = src.relative_to(folder / "release" / "models").as_posix()
+        dst = dan / "assets-hq" / rel
+        report.assets.append(f"danbyte/assets-hq/{rel}")
+        if dry_run:
+            continue
+        if dst.exists() and dst.read_bytes() != src.read_bytes() and not force:
+            report.problems.append(f"danbyte/assets-hq/{rel} exists and differs; --force to overwrite")
+            continue
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dst)
+
     # pack.yaml
     listed = manifest.get("types") or {}
     types: dict[str, list[str]] = {}
@@ -512,5 +525,6 @@ def split_pack(repo: Repo, folder: Path, *, rules_path: Path | None = None,
     for extra in sorted(p.name for p in folder.iterdir()
                         if p.name not in ("pack.yaml", "device-types", "module-types", "accessory-types",
                                           "rack-kits", "rack-types", "models")):
-        report.notes.append(f"{extra}: not part of the library layout; not copied")
+        report.notes.append(f"{extra}: only its models/*.hq.glb are copied" if extra == "release"
+                            else f"{extra}: not part of the library layout; not copied")
     return report

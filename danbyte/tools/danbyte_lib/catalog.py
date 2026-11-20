@@ -120,7 +120,7 @@ def row_of(repo: Repo, e: Entry, packs: dict[str, list[dict]], today: dt.date) -
         "models": {
             "far": block.get("far"),
             "standard": block.get("file"),
-            "hq": block.get("hq") if isinstance(block.get("hq"), str) else None,
+            "hq": block.get("hq") if isinstance(block.get("hq"), str) else _hq_beside(repo, block),
         },
         "photos": photos,
         "packs": packs.get(e.id, []),
@@ -144,6 +144,16 @@ def _packs(repo: Repo) -> dict[str, list[dict]]:
             for ref in refs or []:
                 out.setdefault(f"{kind}/{ref}", []).append(info)
     return out
+
+
+def _hq_beside(repo: Repo, block: dict) -> str | None:
+    """The close-up copy of a model, by convention: ``assets/V/P.glb`` has
+    its ``assets-hq/V/P.hq.glb`` when one was made."""
+    file = block.get("file")
+    if not isinstance(file, str) or not file.startswith("assets/") or not file.endswith(".glb"):
+        return None
+    rel = "assets-hq/" + file[len("assets/"):-len(".glb")] + ".hq.glb"
+    return rel if repo.asset(rel).is_file() else None
 
 
 def build(repo: Repo, out: Path, *, today: dt.date | None = None, copy_assets: bool = True,
@@ -181,6 +191,8 @@ def build(repo: Repo, out: Path, *, today: dt.date | None = None, copy_assets: b
         for key in ("model_url", "far_url"):
             if row[key]:
                 assets.add(row[key])
+        if row["models"]["hq"]:
+            assets.add(row["models"]["hq"])
         assets.update(row["photos"].values())
     rows.sort(key=lambda r: (r["vendor"].lower(), r["kind"], r["model"].lower()))
     catalog = {"format": FORMAT, "generated": today.isoformat(), "count": len(rows), "entries": rows}

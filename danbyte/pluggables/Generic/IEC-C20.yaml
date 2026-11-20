@@ -18,4 +18,4 @@ model3d:
     front: assets/Generic/IEC-C20.front.webp
     rear: assets/Generic/IEC-C20.rear.webp
     iso: assets/Generic/IEC-C20.iso.webp
-    model_sha256: c615df117c8f9b547e08bbd50e302f1fe0d70dd850d37a075256aa218fb5a27f
+    model_sha256: 5ef98c8358ca7226dc8cd08ac3fe2f50fcee7b0e60699df0dbd04e1b0b0b922f
