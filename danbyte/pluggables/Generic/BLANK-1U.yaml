@@ -9,5 +9,11 @@ meta:
 name: BLANK-1U
 kind: blanking
 u_height: 1
-comments: Generic 1U 19-inch blanking panel (EIA-310), steel, black.
-model3d: {file: assets/Generic/BLANK-1U.glb}
+comments: 'Generic 1U 19-inch blanking panel (EIA-310), steel, black: 2 mm ear flanges, four pan-head screws, chamfered front edges, return flanges behind the face.'
+model3d:
+  file: assets/Generic/BLANK-1U.glb
+  renders:
+    front: assets/Generic/BLANK-1U.front.webp
+    rear: assets/Generic/BLANK-1U.rear.webp
+    iso: assets/Generic/BLANK-1U.iso.webp
+    model_sha256: ce126884a657cecfe49efa3020c6410edd3647799ab8c3dbe27d7f8caecf50b1

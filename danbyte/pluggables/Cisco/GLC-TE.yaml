@@ -26,4 +26,10 @@ fits: [1000base-x-sfp]
 parts: [GLC-TE]
 standard: 1000BASE-T
 comments: RJ45 copper SFP - SFP body with a tall nose carrying an RJ45 jack (latch notch up), bail with black colour-code paint; an RJ45-PLUG seats at port:rj45.
-model3d: {file: assets/Cisco/GLC-TE.glb}
+model3d:
+  file: assets/Cisco/GLC-TE.glb
+  renders:
+    front: assets/Cisco/GLC-TE.front.webp
+    rear: assets/Cisco/GLC-TE.rear.webp
+    iso: assets/Cisco/GLC-TE.iso.webp
+    model_sha256: 9acc851b9b86cac24e62f6e8a4f7e4360de5e6bda5755fbf098741e5630ef930

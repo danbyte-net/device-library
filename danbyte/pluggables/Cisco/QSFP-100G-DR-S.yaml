@@ -27,4 +27,10 @@ parts: [QSFP-100G-DR-S]
 standard: 100GBASE-DR
 wavelength_nm: 1310
 comments: QSFP-family optical transceiver, pull tab (grip, orange), LC receptacle with the cord anchor port:lc.
-model3d: {file: assets/Cisco/QSFP-100G-DR-S.glb}
+model3d:
+  file: assets/Cisco/QSFP-100G-DR-S.glb
+  renders:
+    front: assets/Cisco/QSFP-100G-DR-S.front.webp
+    rear: assets/Cisco/QSFP-100G-DR-S.rear.webp
+    iso: assets/Cisco/QSFP-100G-DR-S.iso.webp
+    model_sha256: 9bb46e78ec11865eb009471581af5408ff696d05c796927dea7bd68cb3a2edfd

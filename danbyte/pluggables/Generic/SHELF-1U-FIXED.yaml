@@ -10,4 +10,10 @@ name: SHELF-1U-FIXED
 kind: shelf
 u_height: 1
 comments: Generic 1U fixed shelf, 400 mm deep tray.
-model3d: {file: assets/Generic/SHELF-1U-FIXED.glb}
+model3d:
+  file: assets/Generic/SHELF-1U-FIXED.glb
+  renders:
+    front: assets/Generic/SHELF-1U-FIXED.front.webp
+    rear: assets/Generic/SHELF-1U-FIXED.rear.webp
+    iso: assets/Generic/SHELF-1U-FIXED.iso.webp
+    model_sha256: c6cbbd7f6dee62d8cb9b12f4dd7aac967f934af413f278f2b06c8119d70bc57f

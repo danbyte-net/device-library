@@ -10,4 +10,10 @@ name: SHELF-2U-SLIDING
 kind: shelf
 u_height: 2
 comments: Generic 2U sliding shelf, 600 mm deep tray.
-model3d: {file: assets/Generic/SHELF-2U-SLIDING.glb}
+model3d:
+  file: assets/Generic/SHELF-2U-SLIDING.glb
+  renders:
+    front: assets/Generic/SHELF-2U-SLIDING.front.webp
+    rear: assets/Generic/SHELF-2U-SLIDING.rear.webp
+    iso: assets/Generic/SHELF-2U-SLIDING.iso.webp
+    model_sha256: 9defe148bbe263e469305b152ab7dad6176467a6fd95b836e6ce88c458c389dd

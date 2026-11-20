@@ -27,6 +27,11 @@ meta:
 model3d:
   file: assets/Cisco/PWR-C1-715WAC-P.glb
   far: assets/Cisco/PWR-C1-715WAC-P.far.glb
+  renders:
+    front: assets/Cisco/PWR-C1-715WAC-P.front.webp
+    rear: assets/Cisco/PWR-C1-715WAC-P.rear.webp
+    iso: assets/Cisco/PWR-C1-715WAC-P.iso.webp
+    model_sha256: 01c388ea32cb762eb96b0170a55f4227d12fd9c0330dace680122b96bf806707
   leds:
     AC_OK: {source: module.status}
     PS_OK: {source: module.status}

@@ -27,4 +27,10 @@ parts: [QSFP-100G-CWDM4-S]
 standard: 100GBASE-CWDM4
 wavelength_nm: 1310
 comments: QSFP-family optical transceiver, pull tab (grip, green), LC receptacle with the cord anchor port:lc.
-model3d: {file: assets/Cisco/QSFP-100G-CWDM4-S.glb}
+model3d:
+  file: assets/Cisco/QSFP-100G-CWDM4-S.glb
+  renders:
+    front: assets/Cisco/QSFP-100G-CWDM4-S.front.webp
+    rear: assets/Cisco/QSFP-100G-CWDM4-S.rear.webp
+    iso: assets/Cisco/QSFP-100G-CWDM4-S.iso.webp
+    model_sha256: cb50dcc4394da7d05e260c2d8c293c0a994e36b00ef42b221e3bb8ede13202b1

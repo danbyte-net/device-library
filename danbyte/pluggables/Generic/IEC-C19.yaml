@@ -12,4 +12,10 @@ connector: c19
 fits: [iec-60320-c20]
 comments: IEC C19 cord connector (16 A) - moulded body with grip ribs, nose with the three contact sockets, strain relief, 9.0 mm cord ending at the cable empty. Origin is the PSU inlet port anchor; the earth side is +Y (every PSU anchor's +Y points at the inlet's earth / chamfer side). CABLE is recoloured by Danbyte.
 cable: {profile: round, jacket_mm: 9.0, min_bend_mm: 50}
-model3d: {file: assets/Generic/IEC-C19.glb}
+model3d:
+  file: assets/Generic/IEC-C19.glb
+  renders:
+    front: assets/Generic/IEC-C19.front.webp
+    rear: assets/Generic/IEC-C19.rear.webp
+    iso: assets/Generic/IEC-C19.iso.webp
+    model_sha256: e022ffbba4d2666963b4fe5b3639669f95fcaec17388b1a5aea0bb0de6c5f388

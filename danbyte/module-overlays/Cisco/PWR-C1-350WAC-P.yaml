@@ -30,6 +30,11 @@ power-ports:
 model3d:
   file: assets/Cisco/PWR-C1-350WAC-P.glb
   far: assets/Cisco/PWR-C1-350WAC-P.far.glb
+  renders:
+    front: assets/Cisco/PWR-C1-350WAC-P.front.webp
+    rear: assets/Cisco/PWR-C1-350WAC-P.rear.webp
+    iso: assets/Cisco/PWR-C1-350WAC-P.iso.webp
+    model_sha256: fa40844da28e1a109e49adab39fd2d6e83a478544a0e59da7d5052eef27f615e
   leds:
     AC_OK: {source: module.status}
     PS_OK: {source: module.status}

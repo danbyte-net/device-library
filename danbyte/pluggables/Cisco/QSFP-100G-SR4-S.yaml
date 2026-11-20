@@ -27,4 +27,10 @@ parts: [QSFP-100G-SR4-S]
 standard: 100GBASE-SR4
 wavelength_nm: 850
 comments: QSFP-family optical transceiver, pull tab (grip, beige), MPO receptacle with the cord anchor port:mpo.
-model3d: {file: assets/Cisco/QSFP-100G-SR4-S.glb}
+model3d:
+  file: assets/Cisco/QSFP-100G-SR4-S.glb
+  renders:
+    front: assets/Cisco/QSFP-100G-SR4-S.front.webp
+    rear: assets/Cisco/QSFP-100G-SR4-S.rear.webp
+    iso: assets/Cisco/QSFP-100G-SR4-S.iso.webp
+    model_sha256: b5d139f345863478ef8d8e99163b58e81875d3a847afc444261cc1d9f7104152

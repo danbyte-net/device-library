@@ -29,5 +29,10 @@ meta:
 model3d:
   file: assets/Cisco/FAN-T4-R.glb
   far: assets/Cisco/FAN-T4-R.far.glb
+  renders:
+    front: assets/Cisco/FAN-T4-R.front.webp
+    rear: assets/Cisco/FAN-T4-R.rear.webp
+    iso: assets/Cisco/FAN-T4-R.iso.webp
+    model_sha256: 657d7844c4acbfd1119f9a7bbab3631d0a1916c4669ee42dfd2f5349a40e50c5
   leds:
     STATUS: {source: module.status}

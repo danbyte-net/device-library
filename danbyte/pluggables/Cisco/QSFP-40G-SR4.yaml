@@ -27,4 +27,10 @@ parts: [QSFP-40G-SR4, QSFP-40G-SR4-S]
 standard: 40GBASE-SR4
 wavelength_nm: 850
 comments: QSFP-family optical transceiver, pull tab (loop, beige), MPO receptacle with the cord anchor port:mpo.
-model3d: {file: assets/Cisco/QSFP-40G-SR4.glb}
+model3d:
+  file: assets/Cisco/QSFP-40G-SR4.glb
+  renders:
+    front: assets/Cisco/QSFP-40G-SR4.front.webp
+    rear: assets/Cisco/QSFP-40G-SR4.rear.webp
+    iso: assets/Cisco/QSFP-40G-SR4.iso.webp
+    model_sha256: 512819399c0f68c2c16a7602bafefdd67c6b3930ca92629a23410d56070ec33f

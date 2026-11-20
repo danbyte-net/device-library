@@ -10,4 +10,10 @@ name: CM-1U-BRUSH
 kind: cable-manager
 u_height: 1
 comments: 'Generic 1U brush cable manager: 420 x 22 mm brush slot, 60 mm channel behind.'
-model3d: {file: assets/Generic/CM-1U-BRUSH.glb}
+model3d:
+  file: assets/Generic/CM-1U-BRUSH.glb
+  renders:
+    front: assets/Generic/CM-1U-BRUSH.front.webp
+    rear: assets/Generic/CM-1U-BRUSH.rear.webp
+    iso: assets/Generic/CM-1U-BRUSH.iso.webp
+    model_sha256: 03b7918cc470a0791ed86ee17855f1da5727917f24e99a5dd51f1bb995e43f9b

@@ -28,9 +28,9 @@ module-bays:
   Network Module:
     modules: [C9200-NM-4G, C9200-NM-4X, C9200-NM-BLANK]
   PS-0:
-    modules: [PWR-C6-125WAC, PWR-C6-600WAC, PWR-C6-1KWAC]
+    modules: [PWR-C6-125WAC, PWR-C5-125WAC]
   PS-1:
-    modules: [PWR-C6-125WAC, PWR-C6-600WAC, PWR-C6-1KWAC]
+    modules: [PWR-C6-125WAC, PWR-C5-125WAC]
   add:
     - name: StackPort1/1
       position: 1/1

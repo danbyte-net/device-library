@@ -26,4 +26,10 @@ fits: [10gbase-x-sfpp]
 parts: [SFP-10G-T-X]
 standard: 10GBASE-T
 comments: RJ45 copper SFP - SFP body with a tall nose carrying an RJ45 jack (latch notch up), bail with golden colour-code paint; an RJ45-PLUG seats at port:rj45.
-model3d: {file: assets/Cisco/SFP-10G-T-X.glb}
+model3d:
+  file: assets/Cisco/SFP-10G-T-X.glb
+  renders:
+    front: assets/Cisco/SFP-10G-T-X.front.webp
+    rear: assets/Cisco/SFP-10G-T-X.rear.webp
+    iso: assets/Cisco/SFP-10G-T-X.iso.webp
+    model_sha256: a01b8ef9ea579bb65ffb06a1992fbf6e5d93caa1f522d5d9edffbbd25f7eff07

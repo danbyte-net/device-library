@@ -12,4 +12,10 @@ connector: c13
 fits: [iec-60320-c14]
 comments: IEC C13 cord connector (10 A, cold) - moulded body with grip ribs, nose with the three contact sockets, strain relief, 7.0 mm cord ending at the cable empty. Origin is the PSU inlet port anchor; the earth side is +Y (every PSU anchor's +Y points at the inlet's earth / chamfer side). CABLE is recoloured by Danbyte.
 cable: {profile: round, jacket_mm: 7.0, min_bend_mm: 40}
-model3d: {file: assets/Generic/IEC-C13.glb}
+model3d:
+  file: assets/Generic/IEC-C13.glb
+  renders:
+    front: assets/Generic/IEC-C13.front.webp
+    rear: assets/Generic/IEC-C13.rear.webp
+    iso: assets/Generic/IEC-C13.iso.webp
+    model_sha256: 822a6511d200048a68e5e778967eca71333933d7e6ef495a310c8ba88152775c

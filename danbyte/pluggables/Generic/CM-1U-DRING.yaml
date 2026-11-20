@@ -10,4 +10,10 @@ name: CM-1U-DRING
 kind: cable-manager
 u_height: 1
 comments: 'Generic 1U D-ring cable manager: five D-rings, 66 mm deep opening in front of the panel.'
-model3d: {file: assets/Generic/CM-1U-DRING.glb}
+model3d:
+  file: assets/Generic/CM-1U-DRING.glb
+  renders:
+    front: assets/Generic/CM-1U-DRING.front.webp
+    rear: assets/Generic/CM-1U-DRING.rear.webp
+    iso: assets/Generic/CM-1U-DRING.iso.webp
+    model_sha256: 11b913d1608c4c0b8a6761d2b25f579e93e1e92eee8abfa24d7bdf9f43e98118

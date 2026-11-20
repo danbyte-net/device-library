@@ -26,4 +26,10 @@ cable:
   min_bend_mm: 41
   min_bend_by_part: {STACK-T3-3M: 82}
 
-model3d: {file: assets/Cisco/STACK-T3.glb}
+model3d:
+  file: assets/Cisco/STACK-T3.glb
+  renders:
+    front: assets/Cisco/STACK-T3.front.webp
+    rear: assets/Cisco/STACK-T3.rear.webp
+    iso: assets/Cisco/STACK-T3.iso.webp
+    model_sha256: a25718bfc905cfb70e0ded6a5999cf253c09033f8f0f71bd8423c91995e26ad8

@@ -24,6 +24,11 @@ meta:
 model3d:
   file: assets/Cisco/PWR-C6-600WAC.glb
   far: assets/Cisco/PWR-C6-600WAC.far.glb
+  renders:
+    front: assets/Cisco/PWR-C6-600WAC.front.webp
+    rear: assets/Cisco/PWR-C6-600WAC.rear.webp
+    iso: assets/Cisco/PWR-C6-600WAC.iso.webp
+    model_sha256: c55dda64f3db79acd50c8a31ea0a7998eb39dbfb7c476fbfe1780dc321462a06
   leds:
     AC_OK: {source: module.status}
     PS_OK: {source: module.status}

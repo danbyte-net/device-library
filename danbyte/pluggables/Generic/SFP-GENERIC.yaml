@@ -12,4 +12,10 @@ connector: lc
 fits: [1000base-x-sfp, 10gbase-x-sfpp, 25gbase-x-sfp28]
 parts: []
 comments: SFP-family optical transceiver, bail closed (colour code grey), LC duplex receptacle with the cord anchor port:lc (TX left, RX right, seen from the front).
-model3d: {file: assets/Generic/SFP-GENERIC.glb}
+model3d:
+  file: assets/Generic/SFP-GENERIC.glb
+  renders:
+    front: assets/Generic/SFP-GENERIC.front.webp
+    rear: assets/Generic/SFP-GENERIC.rear.webp
+    iso: assets/Generic/SFP-GENERIC.iso.webp
+    model_sha256: 73a82bb3c413d504658b6aaa988457c949c9bd68163154e84d84045c72c2cdf3

@@ -12,4 +12,10 @@ connector: mpo
 fits: [40gbase-x-qsfpp, 100gbase-x-qsfp28]
 parts: []
 comments: QSFP-family optical transceiver, pull tab (loop, grey), MPO receptacle with the cord anchor port:mpo.
-model3d: {file: assets/Generic/QSFP-GENERIC.glb}
+model3d:
+  file: assets/Generic/QSFP-GENERIC.glb
+  renders:
+    front: assets/Generic/QSFP-GENERIC.front.webp
+    rear: assets/Generic/QSFP-GENERIC.rear.webp
+    iso: assets/Generic/QSFP-GENERIC.iso.webp
+    model_sha256: a76504674210a4101de06c7aae09861dc44716c0c4875380d7588d37c677439a

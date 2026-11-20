@@ -24,5 +24,10 @@ meta:
 model3d:
   file: assets/Cisco/C9200-NM-4X.glb
   far: assets/Cisco/C9200-NM-4X.far.glb
+  renders:
+    front: assets/Cisco/C9200-NM-4X.front.webp
+    rear: assets/Cisco/C9200-NM-4X.rear.webp
+    iso: assets/Cisco/C9200-NM-4X.iso.webp
+    model_sha256: 001a8e1472a17403acd6cf17942e6103e42c5382cc15abde5c145cc4d76132ee
   leds:
     port:*: {source: interface.oper_status}

@@ -29,5 +29,10 @@ meta:
 model3d:
   file: assets/Cisco/PWR-C4-950WAC-R.glb
   far: assets/Cisco/PWR-C4-950WAC-R.far.glb
+  renders:
+    front: assets/Cisco/PWR-C4-950WAC-R.front.webp
+    rear: assets/Cisco/PWR-C4-950WAC-R.rear.webp
+    iso: assets/Cisco/PWR-C4-950WAC-R.iso.webp
+    model_sha256: 8ed4ee266ff0262aa5951f38237031425d8739b2dc48d06e4db3b61864d23540
   leds:
     STATUS: {source: module.status}
