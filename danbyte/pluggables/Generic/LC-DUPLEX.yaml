@@ -12,4 +12,10 @@ connector: lc
 fits: [lc-duplex, lc-apc-duplex]
 comments: LC duplex patch-cord end - two LC plugs each with its own latch, duplex clip with a curved shared trigger, white boots printed A (TX, left) and B (RX, right), the two jackets fusing into a zip cord that ends at the cable empty (+Z along the cable, +Y up, jackets along X). Origin is the mating (receptacle) face. FIBRE and LC_BODY are recoloured by Danbyte.
 cable: {profile: zipcord, jacket_mm: 1.8, pitch_mm: 1.84, min_bend_mm: 30}
-model3d: {file: assets/Generic/LC-DUPLEX.glb}
+model3d:
+  file: assets/Generic/LC-DUPLEX.glb
+  renders:
+    front: assets/Generic/LC-DUPLEX.front.webp
+    rear: assets/Generic/LC-DUPLEX.rear.webp
+    iso: assets/Generic/LC-DUPLEX.iso.webp
+    model_sha256: f21cf258148d349af4de2ac2e20181dacd32039eb7b6b41c7bfb2db0d647e362

@@ -29,4 +29,10 @@ cable:
   min_bend_mm: 66
   min_bend_by_part: {STACK-T4-3M: 91}
 
-model3d: {file: assets/Cisco/STACK-T4.glb}
+model3d:
+  file: assets/Cisco/STACK-T4.glb
+  renders:
+    front: assets/Cisco/STACK-T4.front.webp
+    rear: assets/Cisco/STACK-T4.rear.webp
+    iso: assets/Cisco/STACK-T4.iso.webp
+    model_sha256: 020a9ea3e3fd42c6440c2228af52d9b6f5f62c0b48970fd46de81a50d4933b5f

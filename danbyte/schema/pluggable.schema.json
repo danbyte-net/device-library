@@ -105,6 +105,10 @@
       "properties": {
         "file": {
           "$ref": "common.schema.json#/$defs/glbPath"
+        },
+        "renders": {
+          "$ref": "common.schema.json#/$defs/renders",
+          "description": "Photos of the part, for the catalog. Danbyte doesn't import them."
         }
       }
     },

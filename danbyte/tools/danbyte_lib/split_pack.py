@@ -299,14 +299,9 @@ def _ordered(overlay: dict) -> dict:
 
 
 def _rewrite_pluggable(doc: dict) -> dict:
-    out = dict(doc)
-    block = out.get("model3d")
-    if isinstance(block, dict) and isinstance(block.get("file"), str) \
-            and block["file"].startswith(PACK_MODELS):
-        out["model3d"] = {**block, "file": ASSETS + block["file"][len(PACK_MODELS):]}
-        if isinstance(block.get("far"), str) and block["far"].startswith(PACK_MODELS):
-            out["model3d"]["far"] = ASSETS + block["far"][len(PACK_MODELS):]
-    return out
+    """``models/`` read as ``assets/``: the model and, where it has them,
+    the part's photos."""
+    return m.rewrite_paths(dict(doc), PACK_MODELS, ASSETS)
 
 
 def _write_if(path: Path, text: str, force: bool, report: Report, repo: Repo) -> bool:

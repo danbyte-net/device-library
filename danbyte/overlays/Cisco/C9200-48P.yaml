@@ -25,9 +25,9 @@ module-bays:
   StackPort1/2:
     modules: [C9200-STACK-KIT]
   PS-0:
-    modules: [PWR-C6-1KWAC, PWR-C6-715WDC]
+    modules: [PWR-C6-1KWAC, PWR-C5-1KWAC, PWR-C6-715WDC]
   PS-1:
-    modules: [PWR-C6-1KWAC, PWR-C6-715WDC]
+    modules: [PWR-C6-1KWAC, PWR-C5-1KWAC, PWR-C6-715WDC]
   add:
     - name: FAN 1
       position: '1'

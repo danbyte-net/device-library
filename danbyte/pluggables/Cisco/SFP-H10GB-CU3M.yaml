@@ -27,4 +27,10 @@ parts: [SFP-H10GB-CU3M]
 standard: 10GBASE-CU
 comments: 'SFP+ passive direct-attach twinax copper cable head (30 AWG, 3m), one piece: SFP+ body in the cage, metal backshell with a neck where it leaves the cage, overmoulded strain relief, orange pull tab (Cisco colour code) lying back over the boot, label with the part number on both sides, 4.5 mm cable ending at the cable empty. Origin is the host port anchor. CABLE (boot and jacket) is recoloured by Danbyte.'
 cable: {profile: round, jacket_mm: 4.5, min_bend_mm: 35}
-model3d: {file: assets/Cisco/SFP-H10GB-CU3M.glb}
+model3d:
+  file: assets/Cisco/SFP-H10GB-CU3M.glb
+  renders:
+    front: assets/Cisco/SFP-H10GB-CU3M.front.webp
+    rear: assets/Cisco/SFP-H10GB-CU3M.rear.webp
+    iso: assets/Cisco/SFP-H10GB-CU3M.iso.webp
+    model_sha256: 88dca34e7e70665ae286a25941c2dcf90375379b7a66570a94d0b3adfd5d4f5f

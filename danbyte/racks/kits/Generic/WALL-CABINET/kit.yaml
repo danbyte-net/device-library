@@ -1,6 +1,10 @@
 # yaml-language-server: $schema=../../../../schema/rack-kit.schema.json
 format: danbyte-library/v1
-meta: {category: rack-kit}
+meta:
+  category: rack-kit
+  family: Generic racks
+  summary: Parts kit for a 6-18U 19-inch wall cabinet with a hinged door.
+
 name: WALL-CABINET
 frame: wall-cabinet
 model3d: {file: assets/Generic/WALL-CABINET.kit.glb, far: assets/Generic/WALL-CABINET.far.glb}

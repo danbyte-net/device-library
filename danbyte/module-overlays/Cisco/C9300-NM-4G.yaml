@@ -27,5 +27,10 @@ meta:
 model3d:
   file: assets/Cisco/C9300-NM-4G.glb
   far: assets/Cisco/C9300-NM-4G.far.glb
+  renders:
+    front: assets/Cisco/C9300-NM-4G.front.webp
+    rear: assets/Cisco/C9300-NM-4G.rear.webp
+    iso: assets/Cisco/C9300-NM-4G.iso.webp
+    model_sha256: d80da1f5ff2d15dbe1ce1c6131a5f7ac87926478ea39902f0e954441eb0b9a58
   leds:
     port:*: {source: interface.oper_status}

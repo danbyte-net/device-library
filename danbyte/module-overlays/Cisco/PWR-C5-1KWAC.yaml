@@ -24,6 +24,11 @@ meta:
 model3d:
   file: assets/Cisco/PWR-C5-1KWAC.glb
   far: assets/Cisco/PWR-C5-1KWAC.far.glb
+  renders:
+    front: assets/Cisco/PWR-C5-1KWAC.front.webp
+    rear: assets/Cisco/PWR-C5-1KWAC.rear.webp
+    iso: assets/Cisco/PWR-C5-1KWAC.iso.webp
+    model_sha256: ea0540e5ab99ff181374f00200150acacca276dc2d43edc3fac2b3d75f4f7d5d
   leds:
     AC_OK: {source: module.status}
     PS_OK: {source: module.status}

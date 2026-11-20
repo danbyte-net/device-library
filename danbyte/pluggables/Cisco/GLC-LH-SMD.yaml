@@ -27,4 +27,10 @@ parts: [GLC-LH-SMD]
 standard: 1000BASE-LX/LH
 wavelength_nm: 1310
 comments: SFP-family optical transceiver, bail closed (colour code blue), LC duplex receptacle with the cord anchor port:lc (TX left, RX right, seen from the front).
-model3d: {file: assets/Cisco/GLC-LH-SMD.glb}
+model3d:
+  file: assets/Cisco/GLC-LH-SMD.glb
+  renders:
+    front: assets/Cisco/GLC-LH-SMD.front.webp
+    rear: assets/Cisco/GLC-LH-SMD.rear.webp
+    iso: assets/Cisco/GLC-LH-SMD.iso.webp
+    model_sha256: 41f725ab64e92f2f13c99dcff85917e1f8a529a5d4cdc6068b6a57b3276f7fed

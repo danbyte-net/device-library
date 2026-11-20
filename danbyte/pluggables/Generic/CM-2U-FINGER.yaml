@@ -10,4 +10,10 @@ name: CM-2U-FINGER
 kind: cable-manager
 u_height: 2
 comments: 'Generic 2U finger cable manager: 13 fingers per row, 80 mm deep channel in front of the panel.'
-model3d: {file: assets/Generic/CM-2U-FINGER.glb}
+model3d:
+  file: assets/Generic/CM-2U-FINGER.glb
+  renders:
+    front: assets/Generic/CM-2U-FINGER.front.webp
+    rear: assets/Generic/CM-2U-FINGER.rear.webp
+    iso: assets/Generic/CM-2U-FINGER.iso.webp
+    model_sha256: ecb81c0881a2e074b6e571804fa3583187a413a48a3c95d86dbabc4c8f1e4ccd

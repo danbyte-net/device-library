@@ -51,7 +51,7 @@ model3d:
     front: assets/Cisco/C9500-48Y4C.front.webp
     rear: assets/Cisco/C9500-48Y4C.rear.webp
     iso: assets/Cisco/C9500-48Y4C.iso.webp
-    model_sha256: 1824f1cc38051caf2ea0ddf138ba05b56a2c5a1d07e93ca8bc608cc11db73284
+    model_sha256: 377dc4accdc1354ea32ba69625bc4fc9c490d01b9cd315432d9dae702cd3d2d9
     modules: {PS-0: C9K-PWR-650WAC-R, PS-1: C9K-PWR-650WAC-R, FAN 0: C9K-T1-FANTRAY, FAN 1: C9K-T1-FANTRAY}
 
 # rack mounting (spec 1.11 section 8) from Cisco's install guide; middle / rear positions exist but have no published offsets (see REPORT)

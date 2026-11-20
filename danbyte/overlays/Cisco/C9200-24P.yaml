@@ -25,9 +25,9 @@ module-bays:
   StackPort1/2:
     modules: [C9200-STACK-KIT]
   PS-A:
-    modules: [PWR-C6-600WAC, PWR-C6-715WDC]
+    modules: [PWR-C6-600WAC, PWR-C5-600WAC, PWR-C6-715WDC]
   PS-B:
-    modules: [PWR-C6-600WAC, PWR-C6-715WDC]
+    modules: [PWR-C6-600WAC, PWR-C5-600WAC, PWR-C6-715WDC]
   FAN 1:
     modules: [FAN-T2]
   FAN 2:

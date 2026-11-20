@@ -27,4 +27,10 @@ parts: [SFP-10G-LRM]
 standard: 10GBASE-LRM
 wavelength_nm: 1310
 comments: SFP-family optical transceiver, bail closed (colour code orange), LC duplex receptacle with the cord anchor port:lc (TX left, RX right, seen from the front).
-model3d: {file: assets/Cisco/SFP-10G-LRM.glb}
+model3d:
+  file: assets/Cisco/SFP-10G-LRM.glb
+  renders:
+    front: assets/Cisco/SFP-10G-LRM.front.webp
+    rear: assets/Cisco/SFP-10G-LRM.rear.webp
+    iso: assets/Cisco/SFP-10G-LRM.iso.webp
+    model_sha256: da63b8203d5bc1c1666b1cbe8acaa20f6c2a00633f91ef9f756108a60aa08f48

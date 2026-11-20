@@ -27,4 +27,10 @@ parts: [SFP-25G-SR-S]
 standard: 25GBASE-SR
 wavelength_nm: 850
 comments: SFP-family optical transceiver, bail closed (colour code beige), LC duplex receptacle with the cord anchor port:lc (TX left, RX right, seen from the front).
-model3d: {file: assets/Cisco/SFP-25G-SR-S.glb}
+model3d:
+  file: assets/Cisco/SFP-25G-SR-S.glb
+  renders:
+    front: assets/Cisco/SFP-25G-SR-S.front.webp
+    rear: assets/Cisco/SFP-25G-SR-S.rear.webp
+    iso: assets/Cisco/SFP-25G-SR-S.iso.webp
+    model_sha256: 94a75d00bed101faaf26039e435aed4999ed3d3da556152180ba2083203112c9

@@ -38,6 +38,7 @@ The part's model: origin where the plug meets the port, +Z out of the port, +Y u
 | Key | Type | Required | Description |
 |---|---|---|---|
 | `file` | [glbPath](common.md#glbpath) | yes | A binary glTF 2.0 file (`.glb`) under `danbyte/`, normally `assets/<Vendor>/<PART>.glb`. Stored with Git LFS. |
+| `renders` | [renders](common.md#renders) |  | Photos of the part, for the catalog. Danbyte doesn't import them. |
 
 Example:
 

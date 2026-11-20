@@ -27,4 +27,10 @@ parts: [QSFP-40G-SR-BD]
 standard: 40GBASE-SR-BiDi
 wavelength_nm: 850
 comments: QSFP-family optical transceiver, pull tab (loop, grey), LC receptacle with the cord anchor port:lc.
-model3d: {file: assets/Cisco/QSFP-40G-SR-BD.glb}
+model3d:
+  file: assets/Cisco/QSFP-40G-SR-BD.glb
+  renders:
+    front: assets/Cisco/QSFP-40G-SR-BD.front.webp
+    rear: assets/Cisco/QSFP-40G-SR-BD.rear.webp
+    iso: assets/Cisco/QSFP-40G-SR-BD.iso.webp
+    model_sha256: 7daf74c2d361379c086e28e8c75f11b3214c9b68dae652bb2888e906f076ee5b

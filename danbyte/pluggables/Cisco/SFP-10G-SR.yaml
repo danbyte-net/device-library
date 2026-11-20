@@ -27,4 +27,10 @@ parts: [SFP-10G-SR, SFP-10G-SR-S, SFP-10G-SR-X]
 standard: 10GBASE-SR
 wavelength_nm: 850
 comments: SFP-family optical transceiver, bail closed (colour code beige), LC duplex receptacle with the cord anchor port:lc (TX left, RX right, seen from the front).
-model3d: {file: assets/Cisco/SFP-10G-SR.glb}
+model3d:
+  file: assets/Cisco/SFP-10G-SR.glb
+  renders:
+    front: assets/Cisco/SFP-10G-SR.front.webp
+    rear: assets/Cisco/SFP-10G-SR.rear.webp
+    iso: assets/Cisco/SFP-10G-SR.iso.webp
+    model_sha256: e3c0be6526e9883419a4b066a1af1fc2e63fc0845abc23091293e086c0085a80

@@ -12,4 +12,10 @@ connector: rj45
 fits: [1000base-t, 2.5gbase-t, 5gbase-t, 10gbase-t, 100base-tx, rj-45]
 comments: 8P8C plug - clear body with latch arm and eight gold blades, snagless boot with a hood over the latch, 6.1 mm Cat6 cable ending at the cable empty. The latch is on the part's +Y, so it lands in the jack's notch at every port anchor (bottom-row and other latch-down jacks have their anchor rolled 180 degrees). CABLE (boot and jacket) is recoloured by Danbyte.
 cable: {profile: round, jacket_mm: 6.1, min_bend_mm: 25}
-model3d: {file: assets/Generic/RJ45-PLUG.glb}
+model3d:
+  file: assets/Generic/RJ45-PLUG.glb
+  renders:
+    front: assets/Generic/RJ45-PLUG.front.webp
+    rear: assets/Generic/RJ45-PLUG.rear.webp
+    iso: assets/Generic/RJ45-PLUG.iso.webp
+    model_sha256: be95ab78f7e978d6d7f83364dc87d2ea7cfb9f741667ae56a637a351d25fc51e

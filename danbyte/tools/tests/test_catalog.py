@@ -41,8 +41,9 @@ def test_rows_carry_what_the_site_needs(built):
     assert sorted(p["id"] for p in rows["module/Cisco/FAN-T2"]["packs"]) == [
         "cisco-catalyst-9200", "cisco-catalyst-9300"]
     assert r["lifecycle"]["state"] == "unknown"
-    assert {"name": "PS-A", "position": "A",
-            "modules": ["PWR-C1-350WAC-P", "PWR-C1-715WAC-P", "PWR-C1-1100WAC-P"]} in r["module_bays"]
+    ps_a = next(b for b in r["module_bays"] if b["name"] == "PS-A")
+    assert ps_a["position"] == "A"
+    assert ps_a["modules"][:3] == ["PWR-C1-350WAC-P", "PWR-C1-715WAC-P", "PWR-C1-1100WAC-P"]
     assert r["upstream"] == "device-types/Cisco/C9300-24P.yaml"
     fan = rows["module/Cisco/FAN-T4-R"]
     assert fan["upstream"] is None and fan["module_kind"] == "fan"

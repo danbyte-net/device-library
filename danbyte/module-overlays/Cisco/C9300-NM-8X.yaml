@@ -27,5 +27,10 @@ meta:
 model3d:
   file: assets/Cisco/C9300-NM-8X.glb
   far: assets/Cisco/C9300-NM-8X.far.glb
+  renders:
+    front: assets/Cisco/C9300-NM-8X.front.webp
+    rear: assets/Cisco/C9300-NM-8X.rear.webp
+    iso: assets/Cisco/C9300-NM-8X.iso.webp
+    model_sha256: 00f685afd7ecb623a9ed203d675ebcda5a18ff5cec066a200afe77f64c9ff318
   leds:
     port:*: {source: interface.oper_status}

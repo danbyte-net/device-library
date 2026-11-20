@@ -27,5 +27,10 @@ meta:
 model3d:
   file: assets/Cisco/FAN-T2.glb
   far: assets/Cisco/FAN-T2.far.glb
+  renders:
+    front: assets/Cisco/FAN-T2.front.webp
+    rear: assets/Cisco/FAN-T2.rear.webp
+    iso: assets/Cisco/FAN-T2.iso.webp
+    model_sha256: 2da6ac9ce96357f0c5c375c988e1702d0671443a464f99cc366ccc2db371e599
   leds:
     STATUS: {source: module.status}

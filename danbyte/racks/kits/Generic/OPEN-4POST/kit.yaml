@@ -7,4 +7,4 @@ model3d: {file: assets/Generic/OPEN-4POST.kit.glb, far: assets/Generic/OPEN-4POS
 widths_mm: [600, 800]
 depths_mm: [1000, 600, 800, 1200]
 colours: {black: '#1b1c1e', grey: '#c9ccce'}
-comments: Generic open 4-post 19-inch frame, unbranded. Reference 42U 600 x 1000 (rail depth 740 mm, ear plane y 100 mm, U1 at z 130 mm), same rails as CABINET. No doors, panels or pathways by default.
+comments: Generic open 4-post 19-inch frame, unbranded. Reference 42U 600 x 1000 (rail depth 740 mm, ear plane y 100 mm, U1 at z 130 mm), same rails as CABINET. No doors or panels. Add-on front finger managers path:vertical:left/right:front outside the front posts (inner 150 x 255 mm, open front, pitch 44.45, :cover parts). 0U channels channel:0u:left/right:rear on the outer side of the rear posts (PDU outlets to the rear).

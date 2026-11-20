@@ -21,5 +21,10 @@ meta:
 model3d:
   file: assets/Cisco/C9K-T2-FANTRAY.glb
   far: assets/Cisco/C9K-T2-FANTRAY.far.glb
+  renders:
+    front: assets/Cisco/C9K-T2-FANTRAY.front.webp
+    rear: assets/Cisco/C9K-T2-FANTRAY.rear.webp
+    iso: assets/Cisco/C9K-T2-FANTRAY.iso.webp
+    model_sha256: b86a6e18982a0b400fb8d5a1c1c19701b3bb083c7e7b7750945a289c88a6d30f
   leds:
     STATUS: {source: module.status}

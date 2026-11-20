@@ -27,4 +27,10 @@ parts: [GLC-SX-MMD]
 standard: 1000BASE-SX
 wavelength_nm: 850
 comments: SFP-family optical transceiver, bail closed (colour code black), LC duplex receptacle with the cord anchor port:lc (TX left, RX right, seen from the front).
-model3d: {file: assets/Cisco/GLC-SX-MMD.glb}
+model3d:
+  file: assets/Cisco/GLC-SX-MMD.glb
+  renders:
+    front: assets/Cisco/GLC-SX-MMD.front.webp
+    rear: assets/Cisco/GLC-SX-MMD.rear.webp
+    iso: assets/Cisco/GLC-SX-MMD.iso.webp
+    model_sha256: 464d99eacf6763af851671edaf1851fe85262c8d0aa8edeb41699859e2886291
