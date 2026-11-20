@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+format: danbyte-library/v1
+upstream: module-types/Cisco/C9K-PWR-930WDC-R.yaml
+meta:
+  category: module
+  module_kind: psu
+  family: Catalyst 9500 High Performance
+  summary: 930 W DC (-40 to -72 VDC) hot-swappable power supply for the C9500-24Y4C, C9500-48Y4C and C9500-32QC.
+  links:
+    - kind: product-page
+      title: Cisco Catalyst 9500 Series Switches
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9500-series-switches/index.html
+    - kind: datasheet
+      title: Cisco Catalyst 9500 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/nb-06-cat9500-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9500 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9500/hardware/install/b_catalyst_9500_hig.html
+
+comments: 930W DC, -40 to -72 VDC / [Cisco Catalyst 9500 Series Switches Data Sheet](https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9500-series-switches/nb-06-cat9500-ser-data-sheet-cte-en.html)
+model3d:
+  file: assets/Cisco/C9K-PWR-930WDC-R.glb
+  far: assets/Cisco/C9K-PWR-930WDC-R.far.glb
+  renders:
+    front: assets/Cisco/C9K-PWR-930WDC-R.front.webp
+    rear: assets/Cisco/C9K-PWR-930WDC-R.rear.webp
+    iso: assets/Cisco/C9K-PWR-930WDC-R.iso.webp
+    model_sha256: 91aab0f9bba2314df6ced5e43e1f074a918700e7c797372e773a7b33600c4222
+  leds:
+    PS_OK: {source: module.status}
+    FAIL:
+      source: module.status
+      only: [red]

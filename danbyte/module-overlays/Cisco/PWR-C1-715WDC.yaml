@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+format: danbyte-library/v1
+upstream: module-types/Cisco/PWR-C1-715WDC.yaml
+meta:
+  category: module
+  module_kind: psu
+  roles: [power, poe]
+  family: Catalyst 9300
+  summary: 715 W DC (-36 to -72 VDC) field-replaceable power supply for PoE C9300/C9300L models; 3-position terminal block (+, -, ground).
+  links:
+    - kind: product-page
+      title: Cisco Catalyst 9300 Series Switches
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/index.html
+    - kind: datasheet
+      title: Cisco Catalyst 9300 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9300-series-switches/nb-06-cat9300-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9300 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/hardware/install/b_c9300_hig.html
+    - kind: support
+      title: Cisco Catalyst 9300 Series Switches - Support
+      url: https://www.cisco.com/c/en/us/support/switches/catalyst-9300-series-switches/series.html
+    - kind: eol-listing
+      title: Cisco Catalyst 9300 Series Switches - End-of-Life and End-of-Sale Notices
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/eos-eol-notice-listing.html
+
+comments: 715W DC Config 1 Power Supply, -36 to -72 VDC / [Cisco Catalyst 9300 Series Switches Data Sheet](https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9300-series-switches/nb-06-cat9300-ser-data-sheet-cte-en.html)
+weight: 1.0
+model3d:
+  file: assets/Cisco/PWR-C1-715WDC.glb
+  far: assets/Cisco/PWR-C1-715WDC.far.glb
+  renders:
+    front: assets/Cisco/PWR-C1-715WDC.front.webp
+    rear: assets/Cisco/PWR-C1-715WDC.rear.webp
+    iso: assets/Cisco/PWR-C1-715WDC.iso.webp
+    model_sha256: 6bb7f7a3dc598eb52f9e411881509cef8a0d6b302cc152800148e9ee174b9fa4
+  leds:
+    DC_OK: {source: module.status}
+    PS_OK: {source: module.status}

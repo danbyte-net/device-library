@@ -28,7 +28,7 @@ model3d:
     front: assets/Cisco/PWR-C5-125WAC.front.webp
     rear: assets/Cisco/PWR-C5-125WAC.rear.webp
     iso: assets/Cisco/PWR-C5-125WAC.iso.webp
-    model_sha256: 096da3e8bf58105c73da6580887c66c202313d7e3c34891aaeae32ef48f4b45a
+    model_sha256: ed1f01920c10cb19a73ffdd1ac303edc72c9145c90c89bc6d2d31ce3fee30209
   leds:
     AC_OK: {source: module.status}
     PS_OK: {source: module.status}

@@ -43,6 +43,9 @@ rules:
   - match: "device/Cisco/C9200L-24P-4X"
     why:
       "module-bays/FAN *": "the C9200L's fans are fixed, not field-replaceable units (Cisco C9200L hardware installation guide; pack report v1.6.29); upstream lists two fan bays"
+  - match: "module/Cisco/PWR-C5-715WDC"
+    why:
+      "power-ports/*": "the pack names the input as PWR-C5-600WAC does (pack report v1.6.34); upstream has PSU{module}. The 3D workflow has been asked to return to upstream's name"
   - match: "module/Cisco/C9200-*"
     meta: {family: Catalyst 9200}
   - match: "module/Cisco/PWR-C[56]-*"

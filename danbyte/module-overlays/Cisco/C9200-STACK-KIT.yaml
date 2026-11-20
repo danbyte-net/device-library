@@ -26,4 +26,4 @@ model3d:
     front: assets/Cisco/C9200-STACK-KIT.front.webp
     rear: assets/Cisco/C9200-STACK-KIT.rear.webp
     iso: assets/Cisco/C9200-STACK-KIT.iso.webp
-    model_sha256: 6508b0dd14310cfc2069c5b7fc0ff90f421009386263fded00f19a65fc2c8cef
+    model_sha256: 534448fe79edff90c1a3309d5698721acaa6365fe6cb9220969a6e62b6ad5978

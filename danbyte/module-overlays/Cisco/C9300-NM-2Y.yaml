@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+format: danbyte-library/v1
+upstream: module-types/Cisco/C9300-NM-2Y.yaml
+meta:
+  category: module
+  module_kind: network-module
+  roles: [uplink]
+  family: Catalyst 9300
+  summary: Uplink network module with two 1/10/25G SFP28 ports for modular C9300 switches.
+  links:
+    - kind: product-page
+      title: Cisco Catalyst 9300 Series Switches
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/index.html
+    - kind: datasheet
+      title: Cisco Catalyst 9300 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9300-series-switches/nb-06-cat9300-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9300 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/hardware/install/b_c9300_hig.html
+    - kind: support
+      title: Cisco Catalyst 9300 Series Switches - Support
+      url: https://www.cisco.com/c/en/us/support/switches/catalyst-9300-series-switches/series.html
+    - kind: eol-listing
+      title: Cisco Catalyst 9300 Series Switches - End-of-Life and End-of-Sale Notices
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/eos-eol-notice-listing.html
+
+model3d:
+  file: assets/Cisco/C9300-NM-2Y.glb
+  far: assets/Cisco/C9300-NM-2Y.far.glb
+  renders:
+    front: assets/Cisco/C9300-NM-2Y.front.webp
+    rear: assets/Cisco/C9300-NM-2Y.rear.webp
+    iso: assets/Cisco/C9300-NM-2Y.iso.webp
+    model_sha256: 1cd195a4e858d8f23122c48737c9b98b5fb875d4596117f058d519e03737ebe2
+  leds:
+    port:*: {source: interface.oper_status}

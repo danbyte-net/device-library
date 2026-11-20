@@ -73,7 +73,7 @@ model3d:
     front: assets/Cisco/C9500-16X.front.webp
     rear: assets/Cisco/C9500-16X.rear.webp
     iso: assets/Cisco/C9500-16X.iso.webp
-    model_sha256: 7edfef3f702ae982763cb3317a6cc63bbf1f53242373bb5da8898933652de231
+    model_sha256: fa6933d24d387f6c694b017033dbe6ee59164b366e7dc97ba443bf2bdfc35b5a
     modules:
       Network Module: C9500-NM-2Q
       PS-0: PWR-C4-950WAC-R
