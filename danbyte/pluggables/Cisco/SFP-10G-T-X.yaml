@@ -32,4 +32,4 @@ model3d:
     front: assets/Cisco/SFP-10G-T-X.front.webp
     rear: assets/Cisco/SFP-10G-T-X.rear.webp
     iso: assets/Cisco/SFP-10G-T-X.iso.webp
-    model_sha256: a01b8ef9ea579bb65ffb06a1992fbf6e5d93caa1f522d5d9edffbbd25f7eff07
+    model_sha256: 70522f531cfd5619defe80ef9cf21660599f97dcf7c2f75e177b54ac920d745d

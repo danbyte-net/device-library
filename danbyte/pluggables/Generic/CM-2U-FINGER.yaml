@@ -16,4 +16,4 @@ model3d:
     front: assets/Generic/CM-2U-FINGER.front.webp
     rear: assets/Generic/CM-2U-FINGER.rear.webp
     iso: assets/Generic/CM-2U-FINGER.iso.webp
-    model_sha256: ecb81c0881a2e074b6e571804fa3583187a413a48a3c95d86dbabc4c8f1e4ccd
+    model_sha256: 6e2c00279aa7c85f91331a2b60b66c273a22a73a761ca98d2a23f027f43ffc53

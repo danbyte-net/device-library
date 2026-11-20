@@ -33,4 +33,4 @@ model3d:
     front: assets/Cisco/SFP-H10GB-CU3M.front.webp
     rear: assets/Cisco/SFP-H10GB-CU3M.rear.webp
     iso: assets/Cisco/SFP-H10GB-CU3M.iso.webp
-    model_sha256: 88dca34e7e70665ae286a25941c2dcf90375379b7a66570a94d0b3adfd5d4f5f
+    model_sha256: 3b52712a2e662cb938efdefb299fa117996b3ae59bc99c4253cec579eceb82d1

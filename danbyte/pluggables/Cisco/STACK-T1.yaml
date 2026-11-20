@@ -43,4 +43,4 @@ model3d:
     front: assets/Cisco/STACK-T1.front.webp
     rear: assets/Cisco/STACK-T1.rear.webp
     iso: assets/Cisco/STACK-T1.iso.webp
-    model_sha256: adf2e1c7ad09d683e93907b6223a18f82717e1e1ba3a3ca55180c23120490b67
+    model_sha256: bc476d49d97206b5131c712b97b476caac508f86755754fc248abb225c9c1b70

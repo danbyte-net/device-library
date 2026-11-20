@@ -18,4 +18,4 @@ model3d:
     front: assets/Generic/LC-DUPLEX.front.webp
     rear: assets/Generic/LC-DUPLEX.rear.webp
     iso: assets/Generic/LC-DUPLEX.iso.webp
-    model_sha256: f21cf258148d349af4de2ac2e20181dacd32039eb7b6b41c7bfb2db0d647e362
+    model_sha256: 81020dd864d506bd30ee511ce302abb4eddb716c1b3adbc77e5b4b648d03be50

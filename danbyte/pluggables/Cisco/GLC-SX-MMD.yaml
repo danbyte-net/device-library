@@ -33,4 +33,4 @@ model3d:
     front: assets/Cisco/GLC-SX-MMD.front.webp
     rear: assets/Cisco/GLC-SX-MMD.rear.webp
     iso: assets/Cisco/GLC-SX-MMD.iso.webp
-    model_sha256: 464d99eacf6763af851671edaf1851fe85262c8d0aa8edeb41699859e2886291
+    model_sha256: ff80eba8e696b4c2380ce88af33c0d4eb4c187ec9fdc9c6efa62e9299c6999b7

@@ -18,4 +18,4 @@ model3d:
     front: assets/Generic/IEC-C14.front.webp
     rear: assets/Generic/IEC-C14.rear.webp
     iso: assets/Generic/IEC-C14.iso.webp
-    model_sha256: 597ee32115cd4e64b35ba7f9e312b89cab80f62cc209a46572ed11b08ac05bb4
+    model_sha256: e203a81dab1ab3908a294915eb9c28a6cc4489099e0f09dc5a1b5d93faff35bf

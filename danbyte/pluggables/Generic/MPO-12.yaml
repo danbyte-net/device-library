@@ -18,4 +18,4 @@ model3d:
     front: assets/Generic/MPO-12.front.webp
     rear: assets/Generic/MPO-12.rear.webp
     iso: assets/Generic/MPO-12.iso.webp
-    model_sha256: c4b4dda5cdd2afcba9cee3fd6160e2bd30f9613957d1f9fe33514c6c00730295
+    model_sha256: 29ffd36391ae29f313e04442ecb72630e88160de9d94aea38d832dbfde86c699

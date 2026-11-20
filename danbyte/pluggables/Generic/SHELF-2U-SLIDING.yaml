@@ -16,4 +16,4 @@ model3d:
     front: assets/Generic/SHELF-2U-SLIDING.front.webp
     rear: assets/Generic/SHELF-2U-SLIDING.rear.webp
     iso: assets/Generic/SHELF-2U-SLIDING.iso.webp
-    model_sha256: 9defe148bbe263e469305b152ab7dad6176467a6fd95b836e6ce88c458c389dd
+    model_sha256: 186b405557d9c37d6f7b061abcfd6d79b5441088ce627c52f59e2c1fa109ba5d

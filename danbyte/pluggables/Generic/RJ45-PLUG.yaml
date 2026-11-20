@@ -18,4 +18,4 @@ model3d:
     front: assets/Generic/RJ45-PLUG.front.webp
     rear: assets/Generic/RJ45-PLUG.rear.webp
     iso: assets/Generic/RJ45-PLUG.iso.webp
-    model_sha256: be95ab78f7e978d6d7f83364dc87d2ea7cfb9f741667ae56a637a351d25fc51e
+    model_sha256: 11fe67ae730ba2f35572d859c232814a16e949fa762628acc6b020633c2eb0af

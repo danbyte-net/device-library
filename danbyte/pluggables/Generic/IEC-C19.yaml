@@ -18,4 +18,4 @@ model3d:
     front: assets/Generic/IEC-C19.front.webp
     rear: assets/Generic/IEC-C19.rear.webp
     iso: assets/Generic/IEC-C19.iso.webp
-    model_sha256: e022ffbba4d2666963b4fe5b3639669f95fcaec17388b1a5aea0bb0de6c5f388
+    model_sha256: b694286062dc44727e591925acb0f3afdb2c8340b7c57266e78425ef7a62aed3

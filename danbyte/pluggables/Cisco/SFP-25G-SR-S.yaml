@@ -33,4 +33,4 @@ model3d:
     front: assets/Cisco/SFP-25G-SR-S.front.webp
     rear: assets/Cisco/SFP-25G-SR-S.rear.webp
     iso: assets/Cisco/SFP-25G-SR-S.iso.webp
-    model_sha256: 94a75d00bed101faaf26039e435aed4999ed3d3da556152180ba2083203112c9
+    model_sha256: 0e76cc48f90af626f273ead2104381641503f219ed4e73a1efdd7e98431c1216

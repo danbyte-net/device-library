@@ -16,4 +16,4 @@ model3d:
     front: assets/Generic/CM-1U-DRING.front.webp
     rear: assets/Generic/CM-1U-DRING.rear.webp
     iso: assets/Generic/CM-1U-DRING.iso.webp
-    model_sha256: 11b913d1608c4c0b8a6761d2b25f579e93e1e92eee8abfa24d7bdf9f43e98118
+    model_sha256: f21ec3e99ca423a73322be2f94a793d4a48a58ce4d99d42cc2e195a4a87fa6df
