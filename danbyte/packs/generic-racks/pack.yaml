@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: generic-racks
 name: Generic racks
-version: 1.6.39
+version: 1.6.42
 license: CC-BY-4.0
 author: Christian Rose
 description: Rack kits and rack types (cabinets, open frames, wall cabinet), blanking panels, cable managers, shelves and 0U PDUs.
@@ -10,7 +10,7 @@ blender: 5.3
 spec: 1.15
 requires: [generic-connectors]
 types:
-  device: [Generic/PDU-0U-12xC13-4xC19, Generic/PDU-0U-24xC13-6xC19]
+  device: [Generic/PDU-0U-12xC13-4xC19, Generic/PDU-0U-24xC13-6xC19, Generic/PDU-1U-8xC13]
   pluggable:
     - Generic/BLANK-1U
     - Generic/BLANK-1U-VENTED
