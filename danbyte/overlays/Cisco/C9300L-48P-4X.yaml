@@ -24,12 +24,11 @@ meta:
       url: https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/eos-eol-notice-listing.html
 
 interfaces:
-  StackPort1/1:
-    type: cisco-stackwise-320
-    why: typed by stack system so Danbyte picks the right stack cable head (export spec v1.12 section 8); upstream has the generic cisco-stackwise
-  StackPort1/2:
-    type: cisco-stackwise-320
-    why: typed by stack system so Danbyte picks the right stack cable head (export spec v1.12 section 8); upstream has the generic cisco-stackwise
+  remove:
+    - name: StackPort1/1
+      why: 'StackPort1/1 and StackPort1/2 moved to stack-kit module bays (REVIEW-17: the stack ports belong to'
+    - name: StackPort1/2
+      why: 'StackPort1/1 and StackPort1/2 moved to stack-kit module bays (REVIEW-17: the stack ports belong to'
 
 module-bays:
   PS-A:
@@ -56,6 +55,17 @@ module-bays:
     modules: [FAN-T2]
   FAN 3:
     modules: [FAN-T2]
+  add:
+    - name: StackPort1/1
+      position: 1/1
+      modules: [C9300L-STACK-KIT, C9300L-STACK-KIT2]
+      why: 'stack-kit bay (REVIEW-17; Cisco: one stack adapter per stack port)'
+      before: PS-A
+    - name: StackPort1/2
+      position: 1/2
+      modules: [C9300L-STACK-KIT, C9300L-STACK-KIT2]
+      why: 'stack-kit bay (REVIEW-17; Cisco: one stack adapter per stack port)'
+      after: StackPort1/1
 
 model3d:
   file: assets/Cisco/C9300L-48P-4X.glb
@@ -70,7 +80,7 @@ model3d:
     front: assets/Cisco/C9300L-48P-4X.front.webp
     rear: assets/Cisco/C9300L-48P-4X.rear.webp
     iso: assets/Cisco/C9300L-48P-4X.iso.webp
-    model_sha256: c81a9896860fe8d14e8560b9a1463354a2b586164f1d0f31acd1a12cc93e82f0
+    model_sha256: 5bf64dc8cbf4832b0036163ff7e2a073bc3e23199a85af1628325a1620ecb5b5
     modules: {PS-A: PWR-C1-350WAC-P, PS-B: PWR-C1-350WAC-P, FAN 1: FAN-T2, FAN 2: FAN-T2, FAN 3: FAN-T2}
 
 # rack mounting (spec 1.11 section 8) from Cisco's install guide; mid = Cisco's mid-mount figure (bracket turned round on the front holes), ~98 mm from our bracket model; Cisco's rear mount turns the switch round (see REPORT)

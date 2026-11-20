@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Cisco/C9200L-STACK-KIT.yaml
+meta:
+  category: module
+  module_kind: stack-kit
+  roles: [stacking]
+  family: Catalyst 9200L
+  summary: 'Stacking kit for Catalyst 9200L switches: two data stack adapters and one 50 cm data stack cable (StackWise-80).'
+  links:
+    - kind: datasheet
+      title: Cisco Catalyst 9200 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9200-series-switches/nb-06-cat9200-ser-data-sheet-cte-en.html
+    - kind: white-paper
+      title: Cisco Catalyst 9200 Series StackWise white paper
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9200-series-switches/white-paper-c11-742546.html
+    - kind: install-guide
+      title: Cisco Catalyst 9200 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9200/hardware/install/b-c9200-hig.html
+
+model3d:
+  file: assets/Cisco/C9200L-STACK-KIT.glb
+  far: assets/Cisco/C9200L-STACK-KIT.far.glb
+  renders:
+    front: assets/Cisco/C9200L-STACK-KIT.front.webp
+    rear: assets/Cisco/C9200L-STACK-KIT.rear.webp
+    iso: assets/Cisco/C9200L-STACK-KIT.iso.webp
+    model_sha256: 3546c1a71b285cff4e5aead495ab4263fe0b28dac09772fec4ac096b309731e9

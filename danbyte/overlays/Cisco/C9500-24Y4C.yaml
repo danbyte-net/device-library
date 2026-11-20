@@ -57,6 +57,6 @@ model3d:
 # rack mounting (spec 1.11 section 8) from Cisco's install guide; middle / rear positions exist but have no published offsets (see REPORT)
 rack_mount:
   ears: true
-  positions: {front: 0}
+  positions: {front: 0, reversed: 0}
   default: front
   rails: none

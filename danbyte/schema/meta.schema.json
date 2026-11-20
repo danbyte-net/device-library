@@ -104,7 +104,7 @@
       "properties": {
         "kind": {
           "description": "What the document is.",
-          "enum": ["datasheet", "install-guide", "config-guide", "product-page", "eol-notice", "eol-listing", "support", "software", "other"]
+          "enum": ["datasheet", "install-guide", "config-guide", "product-page", "eol-notice", "eol-listing", "support", "software", "white-paper", "other"]
         },
         "title": { "type": "string", "minLength": 1, "maxLength": 200, "description": "The document's title as the vendor gives it." },
         "url": { "$ref": "#/$defs/url" }

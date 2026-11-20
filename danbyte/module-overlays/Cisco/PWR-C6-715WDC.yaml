@@ -21,7 +21,7 @@ meta:
       title: Installing a Power Supply Unit (C9200 HIG)
       url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9200/hardware/install/b-c9200-hig/installing_the_power_supply_units.html
 
-comments: 715W DC, -40 to -72 VDC; spare only, IOS-XE 17.8.1 or later, PoE models only / [Cisco Catalyst 9200 Series Switches Data Sheet](https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9200-series-switches/nb-06-cat9200-ser-data-sheet-cte-en.html)
+comments: '715W DC, -40 to -72 VDC; spare only, IOS-XE 17.8.1 or later, PoE models only; data sheet 1.6 x 4.0 x 7.1 in (the AC supplies of this bay: 7.6 in); the model keeps the AC body length so it reaches the bay''s rear connector (REVIEW-19) / [Cisco Catalyst 9200 Series Switches Data Sheet](https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9200-series-switches/nb-06-cat9200-ser-data-sheet-cte-en.html)'
 weight: 1.59
 weight_unit: kg
 model3d:

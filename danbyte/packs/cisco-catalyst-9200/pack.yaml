@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: cisco-catalyst-9200
 name: Cisco Catalyst 9200
-version: 1.6.37
+version: 1.6.39
 license: CC-BY-4.0
 author: Christian Rose
 description: Catalyst 9200 and 9200L switches with their network modules, stack kit, power supplies, fan and stack cable.
@@ -15,6 +15,7 @@ types:
     - Cisco/C9200-NM-4G
     - Cisco/C9200-NM-4X
     - Cisco/C9200-STACK-KIT
+    - Cisco/C9200L-STACK-KIT
     - Cisco/FAN-T2
     - Cisco/PWR-C5-125WAC
     - Cisco/PWR-C5-1KWAC

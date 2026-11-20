@@ -250,7 +250,9 @@ def diff_section(section: str, up: list, doc: list, *, why_of) -> dict:
             if i > 0:
                 entry["after"] = docn[i - 1]
             else:
-                entry["before"] = docn[i + 1]
+                # The first one upstream has: the one right below may be
+                # an addition too, and is not there yet when this is placed.
+                entry["before"] = next(n for n in docn[1:] if n in upn)
         adds.append(entry)
     if adds:
         out["add"] = adds

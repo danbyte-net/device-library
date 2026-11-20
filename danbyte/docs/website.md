@@ -47,7 +47,7 @@ reads** and refuse a newer major.
 | `has_3d`, `has_far`, `has_photos`, `thumbnail` | `thumbnail` is the iso photo, for grids. |
 | `models` | `{far, standard, hq}`. `standard` is the model for a viewer; `far` a small copy for many at once; `hq` a close-up copy under `assets-hq/` or null (fall back to `standard`); the same node names and anchors as `standard`. `model_url` / `far_url` are the same as `standard` / `far` (kept for old readers). |
 | `photos` | `{front, rear, iso}` webp renders. |
-| `links` | `{kind, title, url}`: `datasheet`, `install-guide`, `config-guide`, `product-page`, `eol-notice`, `eol-listing`, `support`, `software`, `other`. |
+| `links` | `{kind, title, url}`: `datasheet`, `install-guide`, `config-guide`, `product-page`, `eol-notice`, `eol-listing`, `white-paper`, `support`, `software`, `other`. |
 | `packs` | The pack(s) it ships in: `id`, `name`, `version`, `license`, `author`. **Show the credit**: models are under their pack's licence (e.g. CC-BY-4.0, which requires attribution). |
 | `upstream`, `source`, `updated`, `item` | The upstream file it extends (if any), its library file, the date it last changed, and its item JSON. |
 
