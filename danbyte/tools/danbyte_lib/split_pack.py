@@ -309,10 +309,22 @@ def port_mappings(doc: dict) -> dict:
     return out
 
 
+def unpowered(doc: dict) -> dict:
+    """A passive device (front or rear ports, nothing that takes or gives
+    power) marked ``is_powered: false``, as the upstream library requires of
+    every device type without a power source."""
+    if "is_powered" in doc or doc.get("power-ports") or doc.get("power-outlets"):
+        return doc
+    if not (doc.get("front-ports") or doc.get("rear-ports")):
+        return doc
+    return {**doc, "is_powered": False}
+
+
 def normalise(doc: dict) -> dict:
     """A pack type as the merge should reproduce it: ``models/`` read as
-    ``assets/``, front ports in the upstream library's current form."""
-    return port_mappings(m.rewrite_paths(doc, PACK_MODELS, ASSETS))
+    ``assets/``, front ports in the upstream library's current form, a
+    passive device marked unpowered."""
+    return unpowered(port_mappings(m.rewrite_paths(doc, PACK_MODELS, ASSETS)))
 
 
 def comparable(doc: dict) -> dict:
@@ -380,7 +392,7 @@ def split_pack(repo: Repo, folder: Path, *, rules_path: Path | None = None,
             comments = []
             if not (repo.root / up_rel).is_file():
                 base_rel = f"danbyte/types-new/{sub}/{vendor}/{src.name}"
-                base = port_mappings(m.strip_danbyte(doc))
+                base = unpowered(port_mappings(m.strip_danbyte(doc)))
                 base_text = "---\n" + yamlio.dump(base, flow=False, spacing=False)
                 if not dry_run:
                     _write_if(repo.root / base_rel, base_text, force, report, repo)

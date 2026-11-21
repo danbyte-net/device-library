@@ -2,7 +2,7 @@
 import io
 import zipfile
 
-from danbyte_lib.split_pack import port_mappings
+from danbyte_lib.split_pack import port_mappings, unpowered
 from danbyte_lib import build_pack
 from danbyte_lib import merge as m
 from danbyte_lib.repo import Repo
@@ -52,7 +52,7 @@ def test_every_file_is_the_pack_authors_file():
             assert src.is_file(), rel
             # The library writes front ports in the upstream form
             # (port-mappings); the pack may still use the older one.
-            got, want = m.load_yaml(blob.decode()), port_mappings(m.load_file(src))
+            got, want = m.load_yaml(blob.decode()), unpowered(port_mappings(m.load_file(src)))
             # meta is the library's (category added on the split); the rest is the pack's.
             got.pop("meta", None)
             want.pop("meta", None)
