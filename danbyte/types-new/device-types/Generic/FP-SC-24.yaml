@@ -249,3 +249,4 @@ port-mappings:
     front_port_position: 1
     rear_port: Rear 24
     rear_port_position: 1
+is_powered: false

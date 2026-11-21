@@ -35,7 +35,7 @@ model3d:
     front: assets/Cisco/C9200CX-12P-2X2G.front.webp
     rear: assets/Cisco/C9200CX-12P-2X2G.rear.webp
     iso: assets/Cisco/C9200CX-12P-2X2G.iso.webp
-    model_sha256: 26353cc287cbe2080398f19c57a6f87804b5b8d0545df4f5d3d7cbe599063fca
+    model_sha256: 13c550fb0a2654dbf295ad4e86e8975a2ab8443a053fedfcca83e9713b42c3dd
   leds:
     SYST: {source: device.status}
     STAT: {source: none}
