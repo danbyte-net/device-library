@@ -43,6 +43,11 @@ Files: `danbyte/overlays/<Vendor>/<model>.yaml`. Start each with the editor line
 | `module-bays` | [moduleBaySection](common.md#modulebaysection) |  | `module-bays:` patched by name. Each key is the name of a module bay upstream has, mapped to the fields to change; `add:` lists new ones (each with `why`), `remove:` drops upstream ones (each with `why`). The upstream list itself is never rewritten. |
 | `device-bays` | [deviceBaySection](common.md#devicebaysection) |  | `device-bays:` patched by name. Each key is the name of a device bay upstream has, mapped to the fields to change; `add:` lists new ones (each with `why`), `remove:` drops upstream ones (each with `why`). The upstream list itself is never rewritten. |
 | `inventory-items` | [inventoryItemSection](common.md#inventoryitemsection) |  | `inventory-items:` patched by name. Each key is the name of an inventory item upstream has, mapped to the fields to change; `add:` lists new ones (each with `why`), `remove:` drops upstream ones (each with `why`). The upstream list itself is never rewritten. |
+| `drop` | list of mapping |  | Upstream top-level keys this overlay removes, each with why (for example `subdevice_role` on a unit Danbyte models alone). Component lists are never dropped; patch them with `remove:`. |
+| `width_mm` | number (…–3000) |  | The unit's own width in mm, for a unit narrower than the 19-inch frame (half-width, compact, desktop); Danbyte frames its photos and places it on a shelf by it. |
+| `height_mm` | number (…–3000) |  | The unit's own height in mm, when it is not a whole number of rack units. |
+| `depth_mm` | number (…–3000) |  | The unit's own depth in mm. |
+| `rack_width` | one of `full`, `half` |  | `half` for a half-width unit (at most 241 mm wide); left out for a full-width one. |
 
 Example:
 

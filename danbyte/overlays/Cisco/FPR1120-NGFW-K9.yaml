@@ -1,0 +1,51 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Cisco/FPR1120-NGFW-K9.yaml
+meta:
+  category: firewall
+  roles: [security, edge]
+  family: Firepower 1000
+  summary: 1RU firewall with 8 x 1G RJ45, 4 x 1G SFP, a 1G management port, RJ45 and USB mini-B consoles, one SSD bay.
+  links:
+    - kind: datasheet
+      title: Cisco Firepower 1000 Series Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/security/firepower-1000-series/datasheet-c78-742469.html
+    - kind: install-guide
+      title: Cisco Firepower 1100 Getting Started Guide / Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/security/firepower/1100/hw/guide/hw-install-1100.html
+    - kind: support
+      title: Cisco Firepower 1000 Series - Support
+      url: https://www.cisco.com/c/en/us/support/security/firepower-1000-series/series.html
+
+# airflow (guide, Overview: "I/O side to non-I/O side"); the I/O side is the front in our frame
+airflow: front-to-rear
+model3d:
+  file: assets/Cisco/FPR1120-NGFW-K9.glb
+  far: assets/Cisco/FPR1120-NGFW-K9.far.glb
+  renders:
+    front: assets/Cisco/FPR1120-NGFW-K9.front.webp
+    rear: assets/Cisco/FPR1120-NGFW-K9.rear.webp
+    iso: assets/Cisco/FPR1120-NGFW-K9.iso.webp
+    model_sha256: 782db2f5153b63911d3607a6bdbf9df219bee9925e38c8722a5870ceb71ccba6
+  leds:
+    STATUS: {source: device.status}
+    POWER: {source: device.status}
+    ACTIVE: {source: none}
+    SSD: {source: none}
+    port:*: {source: interface.oper_status}
+    SPEED_M1/1: {source: none}
+    SPEED_1/1: {source: none}
+    SPEED_1/2: {source: none}
+    SPEED_1/3: {source: none}
+    SPEED_1/4: {source: none}
+    SPEED_1/5: {source: none}
+    SPEED_1/6: {source: none}
+    SPEED_1/7: {source: none}
+    SPEED_1/8: {source: none}
+
+# rack_mount (spec 1.11): guide 'Mount': two brackets and four M4 x 8 screws ship in the box, fitted "on the
+rack_mount:
+  ears: true
+  positions: {front: 0, rear: 268.7}
+  default: front
+  rails: none

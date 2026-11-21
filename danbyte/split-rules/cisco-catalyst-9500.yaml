@@ -23,6 +23,22 @@ packs:
     name: Generic racks
     description: Rack kits and rack types (cabinets, open frames, wall cabinet), blanking panels, cable managers, shelves and 0U PDUs.
     requires: [generic-connectors]
+  cisco-8200:
+    name: Cisco Catalyst 8200
+    description: Catalyst 8200 and 8200 uCPE edge routers.
+    requires: [generic-connectors]
+  cisco-catalyst-9800:
+    name: Cisco Catalyst 9800
+    description: Catalyst 9800 wireless controllers.
+    requires: [generic-connectors]
+  cisco-firepower-1000:
+    name: Cisco Firepower 1000
+    description: Firepower 1000 series firewalls.
+    requires: [generic-connectors]
+  generic-panels:
+    name: Generic panels
+    description: RJ45 patch panels and LC, SC and ST fibre panels.
+    requires: [generic-connectors]
   generic-connectors:
     name: Generic connectors
     description: The plugs drawn at cabled ports - RJ45, LC, MPO, IEC power - and generic SFP and QSFP bodies.
@@ -66,6 +82,31 @@ rules:
     why:
       "part_number": "the pack models PWR-C1-715WAC-P; upstream's file gives PWR-C1-715WAC"
 
+  - match: "device/Cisco/C82*"
+    meta: {category: router, family: Catalyst 8200}
+  - match: "device/Cisco/C8200-1N-4T"
+    why:
+      "drop/front_image": "the pack ships its own rendered photos (model3d.renders)"
+      "drop/rear_image": "the pack ships its own rendered photos (model3d.renders)"
+  - match: "device/Cisco/C9200CX-*"
+    meta: {family: Catalyst 9200CX}
+    why:
+      "drop/front_image": "the pack ships its own rendered photos (model3d.renders)"
+      "drop/rear_image": "the pack ships its own rendered photos (model3d.renders)"
+      "console-ports/Console": "the console is a USB micro-B port only; there is no RJ45 console (C9200CX hardware installation guide, Product Overview)"
+  - match: "device/Cisco/C9800-*"
+    meta: {category: wireless-controller, family: Catalyst 9800}
+    why:
+      "drop/subdevice_role": "modelled as the unit alone with its own rack units, not as a child of a tray (REVIEW-22 answer 2)"
+  - match: "device/Cisco/FPR1*"
+    meta: {category: firewall, family: Firepower 1000}
+  - match: "device/Generic/PP-*"
+    meta: {category: patch-panel, family: Generic patch panels}
+  - match: "device/Generic/FP-*"
+    meta: {category: patch-panel, family: Generic fibre panels}
+  - match: "module/Cisco/C3850-NM-*"
+    meta: {family: Catalyst 9300}
+
   # -- which pack each entry goes into (the last rule that fits wins) --------
   - match: "device/Cisco/C9200*"
     pack: cisco-catalyst-9200
@@ -94,6 +135,18 @@ rules:
   # The one fan the 9200 and the 9300 share: both packs carry it.
   - match: "module/Cisco/FAN-T2"
     pack: [cisco-catalyst-9200, cisco-catalyst-9300]
+  - match: "device/Cisco/C8*"
+    pack: cisco-8200
+  - match: "device/Cisco/C9800-*"
+    pack: cisco-catalyst-9800
+  - match: "device/Cisco/FPR1*"
+    pack: cisco-firepower-1000
+  - match: "device/Generic/PP-*"
+    pack: generic-panels
+  - match: "device/Generic/FP-*"
+    pack: generic-panels
+  - match: "module/Cisco/C3850-NM-*"
+    pack: cisco-catalyst-9300
   - match: "pluggable/Cisco/*"
     pack: cisco-optics
   - match: "pluggable/Cisco/STACK-T4"

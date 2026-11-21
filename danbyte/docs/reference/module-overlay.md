@@ -34,6 +34,7 @@ Files: `danbyte/module-overlays/<Vendor>/<model>.yaml`. Start each with the edit
 | `front-ports` | [frontPortSection](common.md#frontportsection) |  | `front-ports:` patched by name. Each key is the name of a front port upstream has, mapped to the fields to change; `add:` lists new ones (each with `why`), `remove:` drops upstream ones (each with `why`). The upstream list itself is never rewritten. |
 | `rear-ports` | [rearPortSection](common.md#rearportsection) |  | `rear-ports:` patched by name. Each key is the name of a rear port upstream has, mapped to the fields to change; `add:` lists new ones (each with `why`), `remove:` drops upstream ones (each with `why`). The upstream list itself is never rewritten. |
 | `module-bays` | [moduleBaySection](common.md#modulebaysection) |  | `module-bays:` patched by name. Each key is the name of a module bay upstream has, mapped to the fields to change; `add:` lists new ones (each with `why`), `remove:` drops upstream ones (each with `why`). The upstream list itself is never rewritten. |
+| `drop` | list of mapping |  | Upstream top-level keys this overlay removes, each with why (for example `subdevice_role` on a unit Danbyte models alone). Component lists are never dropped; patch them with `remove:`. |
 
 Example:
 

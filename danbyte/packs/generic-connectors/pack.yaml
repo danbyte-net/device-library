@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: generic-connectors
 name: Generic connectors
-version: 1.6.42
+version: 1.6.47
 license: CC-BY-4.0
 author: Christian Rose
 description: The plugs drawn at cabled ports - RJ45, LC, MPO, IEC power - and generic SFP and QSFP bodies.
@@ -19,4 +19,6 @@ types:
     - Generic/MPO-12
     - Generic/QSFP-GENERIC
     - Generic/RJ45-PLUG
+    - Generic/SC-DUPLEX
     - Generic/SFP-GENERIC
+    - Generic/ST-SIMPLEX

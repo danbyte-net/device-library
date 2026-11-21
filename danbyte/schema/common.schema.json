@@ -241,23 +241,23 @@
           "minProperties": 1,
           "properties": {
             "front": {
-              "type": "integer",
+              "type": "number",
               "minimum": -2000,
               "maximum": 2000
             },
             "mid": {
-              "type": "integer",
+              "type": "number",
               "minimum": -2000,
               "maximum": 2000
             },
             "rear": {
-              "type": "integer",
+              "type": "number",
               "minimum": -2000,
               "maximum": 2000
             },
             "reversed": {
               "description": "The box turned round, its rear panel toward the rack front: the rear face's offset from the ear plane, mm.",
-              "type": "integer",
+              "type": "number",
               "minimum": -2000,
               "maximum": 2000
             }

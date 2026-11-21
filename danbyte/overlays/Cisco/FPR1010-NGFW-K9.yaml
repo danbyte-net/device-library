@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Cisco/FPR1010-NGFW-K9.yaml
+meta:
+  category: firewall
+  roles: [security, edge]
+  family: Firepower 1000
+  summary: Desktop firewall with 8 x 1G RJ45 (ports 7 and 8 PoE+), a 1G management port, RJ45 and USB mini-B consoles; fanless.
+  links:
+    - kind: install-guide
+      title: Cisco Firepower 1010 Series Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/security/firepower/1010/hw/guide/hw-install-1010.html
+    - kind: datasheet
+      title: Cisco Firepower 1000 Series Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/security/firepower-1000-series/datasheet-c78-742469.html
+
+# u_height (REVIEW-22 answer 2): the rack units the unit itself needs (46.2 mm -> 2); upstream had 0
+u_height: 2
+
+# airflow (guide, Table 1: "Side-to-side", "No fan")
+airflow: passive
+
+# comments: the external supply
+comments: '[Cisco Firepower 1000 Series Data Sheet](https://www.cisco.com/c/en/us/products/collateral/security/firepower-1000-series/datasheet-c78-742469.html). Powered by an external 150 W supply (PWR-DT-150W-AC) into a 4-pin DC input.'
+
+# real size (REVIEW-22 answer 2): guide, Table 2, 1.82 x 7.85 x 8.07 in (incl. the rubber feet)
+width_mm: 199.4
+height_mm: 46.2
+depth_mm: 205.0
+rack_width: half
+console-ports:
+  usb: {type: usb-mini-b, why: 'usb is the USB Mini B console port (guide, Overview); upstream had usb-a'}
+
+power-ports:
+  PSU:
+    type: dc-terminal
+    maximum_draw: 150
+    why: the chassis input is the external supply's 4-pin DC connector (guide, figure 7, callout 4); the C14 is
+
+interfaces:
+  Ethernet1/7: {poe_mode: pse, poe_type: type2-ieee802.3at}
+  Ethernet1/8: {poe_mode: pse, poe_type: type2-ieee802.3at}
+
+model3d:
+  file: assets/Cisco/FPR1010-NGFW-K9.glb
+  far: assets/Cisco/FPR1010-NGFW-K9.far.glb
+  renders:
+    front: assets/Cisco/FPR1010-NGFW-K9.front.webp
+    rear: assets/Cisco/FPR1010-NGFW-K9.rear.webp
+    iso: assets/Cisco/FPR1010-NGFW-K9.iso.webp
+    model_sha256: c1d7533c0624fc04488a322bf9f9afad844d0107c5c33c5b9bc99ec37dc47145
+  leds:
+    STATUS: {source: device.status}
+    POWER: {source: device.status}
+    ACTIVE: {source: none}
+    port:*: {source: interface.oper_status}
+    SPEED_M1/1: {source: none}
+    SPEED_1/1: {source: none}
+    SPEED_1/2: {source: none}
+    SPEED_1/3: {source: none}
+    SPEED_1/4: {source: none}
+    SPEED_1/5: {source: none}
+    SPEED_1/6: {source: none}
+    SPEED_1/7: {source: none}
+    SPEED_1/8: {source: none}
+
+# rack_mount (REVIEW-22 answer 2): a desktop unit, no ears (Cisco's rack-mount shelf is a separate part)
+rack_mount: {ears: false}

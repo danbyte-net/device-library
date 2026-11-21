@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta:
+  category: pluggable
+  roles: [fibre, cord]
+  family: Fibre connectors
+  summary: SC duplex fibre patch-cord end.
+
+name: SC-DUPLEX
+kind: plug
+connector: sc
+fits: [sc, sc-upc, sc-apc]
+comments: 'SC duplex patch-cord end - two SC plugs (9.0 x 7.4 mm grip housings, key on top) at the 12.7 mm duplex pitch joined by a duplex clip, white boots, the two 2.0 mm jackets fusing into a zip cord that ends at the cable empty (+Z along the cable, +Y up, jackets along X). Origin is the mating (coupler) face. FIBRE and LC_BODY are recoloured by Danbyte (LC_BODY: the SC housings and clip, same colour rule as the LC bodies).'
+cable: {profile: zipcord, jacket_mm: 2.0, pitch_mm: 2.0, min_bend_mm: 30}
+model3d:
+  file: assets/Generic/SC-DUPLEX.glb
+  renders:
+    front: assets/Generic/SC-DUPLEX.front.webp
+    rear: assets/Generic/SC-DUPLEX.rear.webp
+    iso: assets/Generic/SC-DUPLEX.iso.webp
+    model_sha256: 39217082fcaca91109acfdcbbe5ef29a97471445495d728219f650b77b014ca2

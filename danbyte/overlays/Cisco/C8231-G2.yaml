@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/device-types/Cisco/C8231-G2.yaml
+meta:
+  category: router
+  roles: [edge, wan, sdwan]
+  family: Cisco 8200 Secure Routers
+  summary: 'Desktop secure router: 4 x 1G and 4 x 2.5G RJ45, 2 x 1/10G SFP+, RJ45 management and console, USB-C storage.'
+  links:
+    - kind: datasheet
+      title: Cisco 8200 Series Secure Routers Data Sheet
+      url: https://www.cisco.com/site/us/en/products/collateral/networking/sdwan-routers/8000-secure-routers/8200-series-secure-routers-ds.html
+    - kind: install-guide
+      title: Hardware Installation Guide for the Cisco 8200 Series Secure Routers
+      url: https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/hardware-installation-guide/secure-8200-series-hig/overview.html
+
+# real size (REVIEW-22 answer 2): data sheet Table 11, 1.14 x 8.1 x 12.23 in (H x D x W)
+width_mm: 310.6
+height_mm: 28.9
+depth_mm: 205.7
+model3d:
+  file: assets/Cisco/C8231-G2.glb
+  far: assets/Cisco/C8231-G2.far.glb
+  renders:
+    front: assets/Cisco/C8231-G2.front.webp
+    rear: assets/Cisco/C8231-G2.rear.webp
+    iso: assets/Cisco/C8231-G2.iso.webp
+    model_sha256: fb47753e2ff6c760deeff18a9b5c3afd9794e1db649b419bb367819dc904f233
+  leds:
+    STATUS: {source: device.status}
+    POE: {source: none}
+    BEACON: {source: none}
+    port:*: {source: interface.oper_status}
+    ACT_0/0/0: {source: none}
+    ACT_0/0/1: {source: none}
+    ACT_0/0/2: {source: none}
+    ACT_0/0/3: {source: none}
+    ACT_0/0/4: {source: none}
+    ACT_0/0/5: {source: none}
+    ACT_0/0/6: {source: none}
+    ACT_0/0/7: {source: none}
+
+# rack_mount (REVIEW-22 answer 2): a desktop unit, no ears (Cisco's rack-mount tray is a separate part)
+rack_mount: {ears: false}

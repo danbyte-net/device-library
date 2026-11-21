@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: cisco-catalyst-9300
 name: Cisco Catalyst 9300
-version: 1.6.42
+version: 1.6.47
 license: CC-BY-4.0
 author: Christian Rose
 description: Catalyst 9300 and 9300L switches with their network modules, power supplies, fan, and StackWise and StackPower cables.
@@ -21,6 +21,11 @@ types:
     - Cisco/C9300L-24P-4X
     - Cisco/C9300L-48P-4X
   module:
+    - Cisco/C3850-NM-2-10G
+    - Cisco/C3850-NM-2-40G
+    - Cisco/C3850-NM-4-10G
+    - Cisco/C3850-NM-4-1G
+    - Cisco/C3850-NM-8-10G
     - Cisco/C9300-NM-2Q
     - Cisco/C9300-NM-2Y
     - Cisco/C9300-NM-4G
@@ -29,8 +34,11 @@ types:
     - Cisco/C9300L-STACK-KIT
     - Cisco/C9300L-STACK-KIT2
     - Cisco/FAN-T2
+    - Cisco/PWR-C1-1100WAC
     - Cisco/PWR-C1-1100WAC-P
+    - Cisco/PWR-C1-350WAC
     - Cisco/PWR-C1-350WAC-P
+    - Cisco/PWR-C1-715WAC
     - Cisco/PWR-C1-715WAC-P
     - Cisco/PWR-C1-715WDC
   pluggable: [Cisco/CAB-SPWR, Cisco/STACK-T1, Cisco/STACK-T3, Cisco/STACK-T3A]

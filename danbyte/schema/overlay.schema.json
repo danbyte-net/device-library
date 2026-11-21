@@ -137,6 +137,54 @@
     },
     "inventory-items": {
       "$ref": "common.schema.json#/$defs/inventoryItemSection"
+    },
+    "drop": {
+      "description": "Upstream top-level keys this overlay removes, each with why (for example `subdevice_role` on a unit Danbyte models alone). Component lists are never dropped; patch them with `remove:`.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "why"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "why": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "width_mm": {
+      "description": "The unit's own width in mm, for a unit narrower than the 19-inch frame (half-width, compact, desktop); Danbyte frames its photos and places it on a shelf by it.",
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 3000
+    },
+    "height_mm": {
+      "description": "The unit's own height in mm, when it is not a whole number of rack units.",
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 3000
+    },
+    "depth_mm": {
+      "description": "The unit's own depth in mm.",
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 3000
+    },
+    "rack_width": {
+      "description": "`half` for a half-width unit (at most 241 mm wide); left out for a full-width one.",
+      "enum": [
+        "full",
+        "half"
+      ]
     }
   },
   "examples": [

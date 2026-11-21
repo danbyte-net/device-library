@@ -263,8 +263,11 @@ def diff(up: dict, doc: dict, *, why_of) -> dict:
     """The overlay body (without ``upstream``) that turns ``up`` into ``doc``."""
     out: dict = {}
     gone = [k for k in up if k not in doc]
+    if any(k in m.COMPONENT_KEYS for k in gone):
+        raise Unconvertible("the pack drops upstream component lists: "
+                            + ", ".join(k for k in gone if k in m.COMPONENT_KEYS))
     if gone:
-        raise Unconvertible(f"the pack drops upstream keys: {', '.join(gone)}")
+        out["drop"] = [{"key": k, "why": why_of("drop", k, "remove", None, None)} for k in gone]
     for key, value in doc.items():
         if key in m.COMPONENT_KEYS:
             if not isinstance(value, list):
@@ -277,10 +280,39 @@ def diff(up: dict, doc: dict, *, why_of) -> dict:
     return out
 
 
+def port_mappings(doc: dict) -> dict:
+    """Front ports in the upstream library's current form: a front port
+    carries ``positions``, and its link to a rear port is a ``port-mappings``
+    row, not ``rear_port`` / ``rear_port_position`` on the port itself (the
+    older form a pack may still write). A document already in the current
+    form comes back unchanged."""
+    fronts = doc.get("front-ports")
+    if not isinstance(fronts, list) or not any(
+            isinstance(f, dict) and "rear_port" in f for f in fronts):
+        return doc
+    out = dict(doc)
+    maps = list(doc.get("port-mappings") or [])
+    new_fronts = []
+    for f in fronts:
+        if not isinstance(f, dict) or "rear_port" not in f:
+            new_fronts.append(f)
+            continue
+        f = dict(f)
+        rear = str(f.pop("rear_port"))
+        rear_pos = int(f.pop("rear_port_position", 1) or 1)
+        f.setdefault("positions", 1)
+        maps.append({"front_port": str(f["name"]), "front_port_position": 1,
+                     "rear_port": rear, "rear_port_position": rear_pos})
+        new_fronts.append(f)
+    out["front-ports"] = new_fronts
+    out["port-mappings"] = maps
+    return out
+
+
 def normalise(doc: dict) -> dict:
     """A pack type as the merge should reproduce it: ``models/`` read as
-    ``assets/``."""
-    return m.rewrite_paths(doc, PACK_MODELS, ASSETS)
+    ``assets/``, front ports in the upstream library's current form."""
+    return port_mappings(m.rewrite_paths(doc, PACK_MODELS, ASSETS))
 
 
 def comparable(doc: dict) -> dict:
@@ -289,7 +321,7 @@ def comparable(doc: dict) -> dict:
 
 # -- the run ----------------------------------------------------------------
 
-ORDER = ("format", "upstream", "meta")
+ORDER = ("format", "upstream", "meta", "drop")
 
 
 def _ordered(overlay: dict) -> dict:
@@ -348,7 +380,7 @@ def split_pack(repo: Repo, folder: Path, *, rules_path: Path | None = None,
             comments = []
             if not (repo.root / up_rel).is_file():
                 base_rel = f"danbyte/types-new/{sub}/{vendor}/{src.name}"
-                base = m.strip_danbyte(doc)
+                base = port_mappings(m.strip_danbyte(doc))
                 base_text = "---\n" + yamlio.dump(base, flow=False, spacing=False)
                 if not dry_run:
                     _write_if(repo.root / base_rel, base_text, force, report, repo)

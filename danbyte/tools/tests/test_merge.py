@@ -116,3 +116,20 @@ def test_additions_lists_every_change_with_why():
                                        "add": [{"name": "n", "why": "a"}],
                                        "remove": [{"name": "eth2", "why": "r"}]}})
     assert {(r["action"], r["name"]) for r in rows} == {("change", "eth1"), ("add", "n"), ("remove", "eth2")}
+
+
+def test_drop_removes_an_upstream_key():
+    up = {"model": "X", "u_height": 0, "subdevice_role": "child"}
+    ov = {"upstream": "device-types/A/X.yaml", "u_height": 1,
+          "drop": [{"key": "subdevice_role", "why": "modelled alone"}]}
+    out = m.merge(up, ov)
+    assert out == {"model": "X", "u_height": 1}
+    assert {"section": "drop", "action": "remove", "name": "subdevice_role",
+            "why": "modelled alone"} in m.additions(ov)
+
+
+def test_drop_of_a_missing_key_or_a_component_list_is_a_problem():
+    up = {"model": "X", "interfaces": []}
+    for key in ("nope", "interfaces"):
+        with pytest.raises(m.MergeError):
+            m.merge(up, {"upstream": "device-types/A/X.yaml", "drop": [{"key": key, "why": "x"}]})

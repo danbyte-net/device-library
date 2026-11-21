@@ -15,7 +15,7 @@ model3d:
     front: assets/Generic/PDU-1U-8xC13.front.webp
     rear: assets/Generic/PDU-1U-8xC13.rear.webp
     iso: assets/Generic/PDU-1U-8xC13.iso.webp
-    model_sha256: 49880a4f59cf5846369eab270faef382baa6acb203e5f35ae993563a7a047150
+    model_sha256: 66535c899a9b4e8239df2562c30f0853a975ae1ed6223d8817a14a556c518949
 
 # rack_mount (spec 1.11): ears flush with the front panel
 rack_mount:

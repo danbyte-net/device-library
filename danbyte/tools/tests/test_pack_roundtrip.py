@@ -1,7 +1,7 @@
 """Every type converted from the cisco-catalyst-9500 pack merges back to the
 pack's own (edit-in-place) YAML: same interfaces, bays, power ports, model3d.
 
-The fixtures are the pack's YAML files as split (v1.6.42), copied unchanged."""
+The fixtures are the pack's YAML files as split (v1.6.47), copied unchanged."""
 import json
 
 import pytest
@@ -88,7 +88,7 @@ def test_pack_lists_every_converted_entry():
             assert (REPO / "danbyte/packs" / need / "pack.yaml").is_file(), (path, need)
         for kind, refs in pack["types"].items():
             listed.setdefault(kind, set()).update(r.split("/", 1)[1] for r in refs)
-    assert len(ids) == 6
+    assert len(ids) == len(list((REPO / "danbyte/packs").glob("*/pack.yaml")))
     # The source names its rack kits and types under either spelling.
     for kind, keys in (("device", ("device",)), ("module", ("module",)), ("pluggable", ("accessory",)),
                        ("rack-kit", ("rack-kit", "rack_kit")), ("rack-type", ("rack-type", "rack_type", "rack"))):

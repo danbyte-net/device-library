@@ -59,7 +59,7 @@ model3d:
     front: assets/Cisco/C9200L-24P-4X.front.webp
     rear: assets/Cisco/C9200L-24P-4X.rear.webp
     iso: assets/Cisco/C9200L-24P-4X.iso.webp
-    model_sha256: 845ca63a9ce43e5394bc1ad815f8fa6282eddd6199ea30b95d18634be82b60d2
+    model_sha256: 914d32a2e0da418ccd49139fe300d8c25d2fbcc8d90f6f336c05b6f241c2783b
     modules: {PS-1: PWR-C5-600WAC, PS-2: PWR-C5-600WAC}
 
 # rack mounting (spec 1.11 section 8) from Cisco's install guide; mid = Cisco's 'rear-mount' figure (bracket turned round on the front holes), ~98 mm from our bracket model

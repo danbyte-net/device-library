@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: danbyte-starter
 name: Danbyte starter library
-description: Everything in the library - the Cisco Catalyst switches and optics, generic racks, PDUs and connectors.
+description: Everything in the library - Cisco Catalyst switches, 8200 routers, 9800 controllers, Firepower firewalls and optics, generic racks, PDUs, panels and connectors.
 includes:
   - generic-connectors
   - generic-racks
@@ -10,3 +10,7 @@ includes:
   - cisco-catalyst-9200
   - cisco-catalyst-9300
   - cisco-catalyst-9500
+  - cisco-8200
+  - cisco-catalyst-9800
+  - cisco-firepower-1000
+  - generic-panels
