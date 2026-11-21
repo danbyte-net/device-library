@@ -26,7 +26,7 @@ model3d:
     front: assets/Cisco/C8231-G2.front.webp
     rear: assets/Cisco/C8231-G2.rear.webp
     iso: assets/Cisco/C8231-G2.iso.webp
-    model_sha256: fb47753e2ff6c760deeff18a9b5c3afd9794e1db649b419bb367819dc904f233
+    model_sha256: 3795062ead51da768e5946a36ed12c4a52d65653867a60845f04075482ec2099
   leds:
     STATUS: {source: device.status}
     POE: {source: none}

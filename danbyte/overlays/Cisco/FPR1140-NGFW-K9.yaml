@@ -31,7 +31,7 @@ model3d:
     front: assets/Cisco/FPR1140-NGFW-K9.front.webp
     rear: assets/Cisco/FPR1140-NGFW-K9.rear.webp
     iso: assets/Cisco/FPR1140-NGFW-K9.iso.webp
-    model_sha256: 3eb072d64863410f5317370e44ad59affc1b93ca147f724f796304f799907445
+    model_sha256: e119cdd590b82f29cdf300c27acd5f9566c35d9069f441cf90861d2e4d53fc3b
   leds:
     STATUS: {source: device.status}
     POWER: {source: device.status}

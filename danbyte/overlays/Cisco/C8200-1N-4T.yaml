@@ -31,7 +31,7 @@ model3d:
     front: assets/Cisco/C8200-1N-4T.front.webp
     rear: assets/Cisco/C8200-1N-4T.rear.webp
     iso: assets/Cisco/C8200-1N-4T.iso.webp
-    model_sha256: e405709f2c4205946ab3a25d2f07ad4ac48562fc31df859e86bbf063bdfbabbc
+    model_sha256: d0aed702733fbc942df979c2d27215f1ee8ab1b7d96f75150037f8628348eae8
   leds:
     STATUS: {source: device.status}
     PSU: {source: device.status}
