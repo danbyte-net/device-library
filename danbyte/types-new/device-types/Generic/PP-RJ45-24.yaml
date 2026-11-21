@@ -1,0 +1,251 @@
+---
+manufacturer: Generic
+model: PP-RJ45-24
+slug: generic-pp-rj45-24
+part_number: PP-RJ45-24
+u_height: 1
+is_full_depth: false
+comments: Generic 24-port Cat6 RJ45 patch panel, 1U, ports in groups of six, 110 punch-down on the rear, rear cable support bar.
+front-ports:
+  - name: '1'
+    type: 8p8c
+    positions: 1
+  - name: '2'
+    type: 8p8c
+    positions: 1
+  - name: '3'
+    type: 8p8c
+    positions: 1
+  - name: '4'
+    type: 8p8c
+    positions: 1
+  - name: '5'
+    type: 8p8c
+    positions: 1
+  - name: '6'
+    type: 8p8c
+    positions: 1
+  - name: '7'
+    type: 8p8c
+    positions: 1
+  - name: '8'
+    type: 8p8c
+    positions: 1
+  - name: '9'
+    type: 8p8c
+    positions: 1
+  - name: '10'
+    type: 8p8c
+    positions: 1
+  - name: '11'
+    type: 8p8c
+    positions: 1
+  - name: '12'
+    type: 8p8c
+    positions: 1
+  - name: '13'
+    type: 8p8c
+    positions: 1
+  - name: '14'
+    type: 8p8c
+    positions: 1
+  - name: '15'
+    type: 8p8c
+    positions: 1
+  - name: '16'
+    type: 8p8c
+    positions: 1
+  - name: '17'
+    type: 8p8c
+    positions: 1
+  - name: '18'
+    type: 8p8c
+    positions: 1
+  - name: '19'
+    type: 8p8c
+    positions: 1
+  - name: '20'
+    type: 8p8c
+    positions: 1
+  - name: '21'
+    type: 8p8c
+    positions: 1
+  - name: '22'
+    type: 8p8c
+    positions: 1
+  - name: '23'
+    type: 8p8c
+    positions: 1
+  - name: '24'
+    type: 8p8c
+    positions: 1
+rear-ports:
+  - name: Rear 1
+    type: 110-punch
+    positions: 1
+  - name: Rear 2
+    type: 110-punch
+    positions: 1
+  - name: Rear 3
+    type: 110-punch
+    positions: 1
+  - name: Rear 4
+    type: 110-punch
+    positions: 1
+  - name: Rear 5
+    type: 110-punch
+    positions: 1
+  - name: Rear 6
+    type: 110-punch
+    positions: 1
+  - name: Rear 7
+    type: 110-punch
+    positions: 1
+  - name: Rear 8
+    type: 110-punch
+    positions: 1
+  - name: Rear 9
+    type: 110-punch
+    positions: 1
+  - name: Rear 10
+    type: 110-punch
+    positions: 1
+  - name: Rear 11
+    type: 110-punch
+    positions: 1
+  - name: Rear 12
+    type: 110-punch
+    positions: 1
+  - name: Rear 13
+    type: 110-punch
+    positions: 1
+  - name: Rear 14
+    type: 110-punch
+    positions: 1
+  - name: Rear 15
+    type: 110-punch
+    positions: 1
+  - name: Rear 16
+    type: 110-punch
+    positions: 1
+  - name: Rear 17
+    type: 110-punch
+    positions: 1
+  - name: Rear 18
+    type: 110-punch
+    positions: 1
+  - name: Rear 19
+    type: 110-punch
+    positions: 1
+  - name: Rear 20
+    type: 110-punch
+    positions: 1
+  - name: Rear 21
+    type: 110-punch
+    positions: 1
+  - name: Rear 22
+    type: 110-punch
+    positions: 1
+  - name: Rear 23
+    type: 110-punch
+    positions: 1
+  - name: Rear 24
+    type: 110-punch
+    positions: 1
+port-mappings:
+  - front_port: '1'
+    front_port_position: 1
+    rear_port: Rear 1
+    rear_port_position: 1
+  - front_port: '2'
+    front_port_position: 1
+    rear_port: Rear 2
+    rear_port_position: 1
+  - front_port: '3'
+    front_port_position: 1
+    rear_port: Rear 3
+    rear_port_position: 1
+  - front_port: '4'
+    front_port_position: 1
+    rear_port: Rear 4
+    rear_port_position: 1
+  - front_port: '5'
+    front_port_position: 1
+    rear_port: Rear 5
+    rear_port_position: 1
+  - front_port: '6'
+    front_port_position: 1
+    rear_port: Rear 6
+    rear_port_position: 1
+  - front_port: '7'
+    front_port_position: 1
+    rear_port: Rear 7
+    rear_port_position: 1
+  - front_port: '8'
+    front_port_position: 1
+    rear_port: Rear 8
+    rear_port_position: 1
+  - front_port: '9'
+    front_port_position: 1
+    rear_port: Rear 9
+    rear_port_position: 1
+  - front_port: '10'
+    front_port_position: 1
+    rear_port: Rear 10
+    rear_port_position: 1
+  - front_port: '11'
+    front_port_position: 1
+    rear_port: Rear 11
+    rear_port_position: 1
+  - front_port: '12'
+    front_port_position: 1
+    rear_port: Rear 12
+    rear_port_position: 1
+  - front_port: '13'
+    front_port_position: 1
+    rear_port: Rear 13
+    rear_port_position: 1
+  - front_port: '14'
+    front_port_position: 1
+    rear_port: Rear 14
+    rear_port_position: 1
+  - front_port: '15'
+    front_port_position: 1
+    rear_port: Rear 15
+    rear_port_position: 1
+  - front_port: '16'
+    front_port_position: 1
+    rear_port: Rear 16
+    rear_port_position: 1
+  - front_port: '17'
+    front_port_position: 1
+    rear_port: Rear 17
+    rear_port_position: 1
+  - front_port: '18'
+    front_port_position: 1
+    rear_port: Rear 18
+    rear_port_position: 1
+  - front_port: '19'
+    front_port_position: 1
+    rear_port: Rear 19
+    rear_port_position: 1
+  - front_port: '20'
+    front_port_position: 1
+    rear_port: Rear 20
+    rear_port_position: 1
+  - front_port: '21'
+    front_port_position: 1
+    rear_port: Rear 21
+    rear_port_position: 1
+  - front_port: '22'
+    front_port_position: 1
+    rear_port: Rear 22
+    rear_port_position: 1
+  - front_port: '23'
+    front_port_position: 1
+    rear_port: Rear 23
+    rear_port_position: 1
+  - front_port: '24'
+    front_port_position: 1
+    rear_port: Rear 24
+    rear_port_position: 1

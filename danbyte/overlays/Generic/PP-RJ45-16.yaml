@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/device-types/Generic/PP-RJ45-16.yaml
+meta:
+  category: patch-panel
+  roles: [copper, cabling]
+  family: Generic panels
+  summary: 16-port Cat6 RJ45 patch panel.
+
+model3d:
+  file: assets/Generic/PP-RJ45-16.glb
+  far: assets/Generic/PP-RJ45-16.far.glb
+  renders:
+    front: assets/Generic/PP-RJ45-16.front.webp
+    rear: assets/Generic/PP-RJ45-16.rear.webp
+    iso: assets/Generic/PP-RJ45-16.iso.webp
+    model_sha256: aa54c4fcaad66b6e14dba663eee9a47b31d9022d6cb7367c420beba73c5a961a
+
+# rack_mount (spec 1.11): ears flush with the front plate (REVIEW-22: front position only)
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: none

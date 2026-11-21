@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Cisco/C9200CX-12P-2X2G.yaml
+meta:
+  category: switch
+  roles: [access]
+  family: Catalyst 9200
+  summary: Compact fanless access switch with 12 x 1G PoE+ RJ45, 2 x 1G RJ45 and 2 x 10G SFP+ uplinks, internal 315 W PSU.
+  links:
+    - kind: datasheet
+      title: Cisco Catalyst 9200 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9200-series-switches/nb-06-cat9200-ser-data-sheet-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 9200CX Compact Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9200/hardware/install/b-c9200cx-hig.html
+
+drop:
+  - {key: front_image, why: the pack ships its own rendered photos (model3d.renders)}
+  - {key: rear_image, why: the pack ships its own rendered photos (model3d.renders)}
+
+# real size (REVIEW-22 answer 2): data sheet Table 10, 1.73 x 10.6 x 9.6 in
+width_mm: 269.2
+height_mm: 43.9
+depth_mm: 243.8
+console-ports:
+  remove:
+    - name: Console
+      why: the console is a USB micro-B port only; there is no RJ45 console (C9200CX hardware installation guide, Product Overview)
+  usb: {type: usb-micro-b}
+
+model3d:
+  file: assets/Cisco/C9200CX-12P-2X2G.glb
+  far: assets/Cisco/C9200CX-12P-2X2G.far.glb
+  renders:
+    front: assets/Cisco/C9200CX-12P-2X2G.front.webp
+    rear: assets/Cisco/C9200CX-12P-2X2G.rear.webp
+    iso: assets/Cisco/C9200CX-12P-2X2G.iso.webp
+    model_sha256: 26353cc287cbe2080398f19c57a6f87804b5b8d0545df4f5d3d7cbe599063fca
+  leds:
+    SYST: {source: device.status}
+    STAT: {source: none}
+    SPEED: {source: none}
+    POE: {source: none}
+    BEACON: {source: none}
+    port:*: {source: interface.oper_status}
+
+# rack_mount (REVIEW-22 answer 2): a compact unit, no ears (Cisco's bracket kit is a separate part); on a
+rack_mount: {ears: false}

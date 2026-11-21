@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/device-types/Generic/FP-LC-48.yaml
+meta:
+  category: patch-panel
+  roles: [fibre, cabling]
+  family: Generic panels
+  summary: 1U fibre panel with 48 LC duplex couplers (96 fibres) in two rows of 24.
+
+model3d:
+  file: assets/Generic/FP-LC-48.glb
+  far: assets/Generic/FP-LC-48.far.glb
+  renders:
+    front: assets/Generic/FP-LC-48.front.webp
+    rear: assets/Generic/FP-LC-48.rear.webp
+    iso: assets/Generic/FP-LC-48.iso.webp
+    model_sha256: e52edb7cdbe9e318b540dd640201c208161c1cd45ab1b47bd3879373dc6a4f63
+
+# rack_mount (spec 1.11): ears flush with the front plate (REVIEW-22: front position only)
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: none

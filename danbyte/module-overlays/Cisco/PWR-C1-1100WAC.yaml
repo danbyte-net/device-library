@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+format: danbyte-library/v1
+upstream: module-types/Cisco/PWR-C1-1100WAC.yaml
+meta:
+  category: module
+  module_kind: psu
+  roles: [power]
+  family: Catalyst 9300
+  summary: 1100 W AC field-replaceable power supply for C9300; end of sale, replaced by PWR-C1-1100WAC-P.
+  lifecycle:
+    end_of_sale: '2022-04-30'
+    end_of_security_updates: '2027-04-30'
+    end_of_support: '2027-04-30'
+    source: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-3850-series-switches/eos-eol-notice-c51-2438804.html
+  links:
+    - kind: product-page
+      title: Cisco Catalyst 9300 Series Switches
+      url: https://www.cisco.com/c/en/us/products/switches/catalyst-9300-series-switches/index.html
+    - kind: install-guide
+      title: Cisco Catalyst 9300 Series Switches Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/hardware/install/b_c9300_hig.html
+    - kind: support
+      title: Cisco Catalyst 9300 Series Switches - Support
+      url: https://www.cisco.com/c/en/us/support/switches/catalyst-9300-series-switches/series.html
+    - kind: eol-notice
+      title: End-of-Sale and End-of-Life Announcement for the Cisco C3850 Fiber SKUs (EOL13873)
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-3850-series-switches/eos-eol-notice-c51-2438804.html
+  sources:
+    - https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/hardware/install/b_c9300_hig/technical-specs.html
+    - https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/hardware/install/b_c9300_hig/Installing-a-power-supply.html
+
+comments: 1100W AC Config 1 Power Supply. 348.2 mm long; it stands 1.5 in (38 mm) proud of the switch rear panel; the same size, cords and face as PWR-C1-1100WAC-P (Cisco Catalyst 9300 HIG, technical specifications and installing a power supply) / [Cisco Catalyst 9300 Series Switches Hardware Installation Guide](https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/hardware/install/b_c9300_hig.html) / [End-of-Sale and End-of-Life Announcement for the Cisco C3850 Fiber SKUs (EOL13873)](https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-3850-series-switches/eos-eol-notice-c51-2438804.html)
+model3d:
+  file: assets/Cisco/PWR-C1-1100WAC.glb
+  far: assets/Cisco/PWR-C1-1100WAC.far.glb
+  renders:
+    front: assets/Cisco/PWR-C1-1100WAC.front.webp
+    rear: assets/Cisco/PWR-C1-1100WAC.rear.webp
+    iso: assets/Cisco/PWR-C1-1100WAC.iso.webp
+    model_sha256: 966a24890b91e24b89c2515c7b232fe30071ffa5ecf5b6de3d40c9584ae2df81
+  leds:
+    AC_OK: {source: module.status}
+    PS_OK: {source: module.status}

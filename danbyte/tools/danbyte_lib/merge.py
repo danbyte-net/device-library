@@ -69,13 +69,13 @@ COMPONENT_KEYS = (
     "inventory-items",
 )
 #: Keys of the overlay itself; never copied into the result.
-OVERLAY_KEYS = ("upstream", "format")
+OVERLAY_KEYS = ("upstream", "format", "drop")
 #: Reserved keys inside a component mapping (everything else is a name).
 RESERVED = ("add", "remove")
 #: Fields of an ``add:`` / patch entry that steer the merge, not the result.
 STEERING = ("why", "after", "before")
 #: Top-level keys Danbyte adds; NetBox ignores them.
-DANBYTE_KEYS = ("model3d", "rack_mount", "meta")
+DANBYTE_KEYS = ("model3d", "rack_mount", "meta", "width_mm", "height_mm", "depth_mm", "rack_width")
 #: Component fields Danbyte adds (component list -> fields).
 DANBYTE_COMPONENT_FIELDS = {"module-bays": ("modules",), "interfaces": ("stack",)}
 
@@ -206,6 +206,14 @@ def merge(upstream: dict, overlay: dict, *, strict: bool = True) -> dict:
             out[key] = merge_section(key, upstream.get(key), value, problems)
         else:
             out[key] = copy.deepcopy(value)
+    for entry in overlay.get("drop") or []:
+        name = str(entry.get("key") if isinstance(entry, dict) else entry)
+        if name in COMPONENT_KEYS or name in OVERLAY_KEYS:
+            problems.append(("drop", name, f"drop: {name!r} is not a top-level key to drop"))
+        elif name not in out:
+            problems.append(("drop", name, f"drop: {name!r} is not upstream"))
+        else:
+            out.pop(name)
     if strict and problems:
         raise MergeError(problems)
     return out
@@ -223,7 +231,8 @@ def check(upstream: dict, overlay: dict) -> list[tuple[str, str, str]]:
 def additions(overlay: dict) -> list[dict]:
     """Every add / remove / patch in an overlay, for review and the catalog:
     ``{section, action, name, why}``."""
-    out = []
+    out = [{"section": "drop", "action": "remove", "name": e.get("key"), "why": e.get("why")}
+           for e in overlay.get("drop") or [] if isinstance(e, dict)]
     for key in COMPONENT_KEYS:
         patch = overlay.get(key)
         if not isinstance(patch, dict):

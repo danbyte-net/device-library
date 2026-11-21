@@ -125,10 +125,10 @@ Ear positions the install guide offers: faceplate in front of the ear plane, in 
 
 | Key | Type | Required | Description |
 |---|---|---|---|
-| `front` | integer (-2000–2000) |  |  |
-| `mid` | integer (-2000–2000) |  |  |
-| `rear` | integer (-2000–2000) |  |  |
-| `reversed` | integer (-2000–2000) |  | The box turned round, its rear panel toward the rack front: the rear face's offset from the ear plane, mm. |
+| `front` | number (-2000–2000) |  |  |
+| `mid` | number (-2000–2000) |  |  |
+| `rear` | number (-2000–2000) |  |  |
+| `reversed` | number (-2000–2000) |  | The box turned round, its rear panel toward the rack front: the rear face's offset from the ear plane, mm. |
 
 Example:
 

@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: cisco-catalyst-9800
+name: Cisco Catalyst 9800
+version: 1.6.47
+license: CC-BY-4.0
+author: Christian Rose
+description: Catalyst 9800 wireless controllers.
+blender: 5.3
+spec: 1.15
+requires: [generic-connectors]
+types:
+  device: [Cisco/C9800-L-C]

@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta:
+  category: pluggable
+  roles: [fibre, cord]
+  family: Fibre connectors
+  summary: ST simplex fibre patch-cord end.
+
+name: ST-SIMPLEX
+kind: plug
+connector: st
+fits: [st]
+comments: ST (BFOC/2.5, IEC 61754-2) simplex patch-cord end - ribbed nickel bayonet coupling nut 9.5 mm x 12.7 mm (slots for the coupler lugs), keyed body, 2.5 mm ceramic ferrule standing 7.9 mm out of the nut, tapered boot, 2.8 mm round jacket ending at the cable empty (+Z along the cable, +Y up). Sizes from the Amphenol Socapex 953 series ST data sheet. Origin is the mating face (the coupler barrel's end). LC_BODY (the boot) and FIBRE are recoloured by Danbyte.
+cable: {profile: round, jacket_mm: 2.8, min_bend_mm: 30}
+model3d:
+  file: assets/Generic/ST-SIMPLEX.glb
+  renders:
+    front: assets/Generic/ST-SIMPLEX.front.webp
+    rear: assets/Generic/ST-SIMPLEX.rear.webp
+    iso: assets/Generic/ST-SIMPLEX.iso.webp
+    model_sha256: 14b774a3f735739a91ba566308b41c8ea01be9d8fee2237662cfb4c0f7ff10f7

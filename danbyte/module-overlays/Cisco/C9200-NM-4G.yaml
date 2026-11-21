@@ -28,6 +28,6 @@ model3d:
     front: assets/Cisco/C9200-NM-4G.front.webp
     rear: assets/Cisco/C9200-NM-4G.rear.webp
     iso: assets/Cisco/C9200-NM-4G.iso.webp
-    model_sha256: 054c93d2907b487fa211de624fb61ab62aca93c7910ee5de77afe0472cb9fd48
+    model_sha256: 00bbb700b2303fc9c94bd945d8615bd0eb3f523fd1f4030cbe66d9f513d5baf0
   leds:
     port:*: {source: interface.oper_status}

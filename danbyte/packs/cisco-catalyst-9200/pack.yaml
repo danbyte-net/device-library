@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: cisco-catalyst-9200
 name: Cisco Catalyst 9200
-version: 1.6.42
+version: 1.6.47
 license: CC-BY-4.0
 author: Christian Rose
 description: Catalyst 9200 and 9200L switches with their network modules, stack kit, power supplies, fan and stack cable.
@@ -10,7 +10,14 @@ blender: 5.3
 spec: 1.15
 requires: [generic-connectors]
 types:
-  device: [Cisco/C9200-24P, Cisco/C9200-24T, Cisco/C9200-48P, Cisco/C9200L-24P-4X, Cisco/C9200L-48P-4X]
+  device:
+    - Cisco/C9200-24P
+    - Cisco/C9200-24T
+    - Cisco/C9200-48P
+    - Cisco/C9200CX-12P-2X2G
+    - Cisco/C9200CX-8P-2X2G
+    - Cisco/C9200L-24P-4X
+    - Cisco/C9200L-48P-4X
   module:
     - Cisco/C9200-NM-4G
     - Cisco/C9200-NM-4X

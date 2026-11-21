@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/device-types/Generic/FP-LC-12.yaml
+meta:
+  category: patch-panel
+  roles: [fibre, cabling]
+  family: Generic panels
+  summary: 1U fibre panel with 12 LC duplex couplers (24 fibres).
+
+model3d:
+  file: assets/Generic/FP-LC-12.glb
+  far: assets/Generic/FP-LC-12.far.glb
+  renders:
+    front: assets/Generic/FP-LC-12.front.webp
+    rear: assets/Generic/FP-LC-12.rear.webp
+    iso: assets/Generic/FP-LC-12.iso.webp
+    model_sha256: 049d36cb23ce3ae648184bb1b43a914f2c25a3a957fe68e37dcfc9dd91700d06
+
+# rack_mount (spec 1.11): ears flush with the front plate (REVIEW-22: front position only)
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: none

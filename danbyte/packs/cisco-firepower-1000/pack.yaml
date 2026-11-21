@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: cisco-firepower-1000
+name: Cisco Firepower 1000
+version: 1.6.47
+license: CC-BY-4.0
+author: Christian Rose
+description: Firepower 1000 series firewalls.
+blender: 5.3
+spec: 1.15
+requires: [generic-connectors]
+types:
+  device: [Cisco/FPR1010-NGFW-K9, Cisco/FPR1120-NGFW-K9, Cisco/FPR1140-NGFW-K9]

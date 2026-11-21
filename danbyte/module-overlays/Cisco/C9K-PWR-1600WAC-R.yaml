@@ -24,6 +24,6 @@ model3d:
     front: assets/Cisco/C9K-PWR-1600WAC-R.front.webp
     rear: assets/Cisco/C9K-PWR-1600WAC-R.rear.webp
     iso: assets/Cisco/C9K-PWR-1600WAC-R.iso.webp
-    model_sha256: 18bf3d0dee45df34c9ea62779290c3efb78ff7303e9915c3b64999f6f104c548
+    model_sha256: 1470de2563af2b5ed8b1e4ab73c2967d9ec40ac0ed1eaebf3bdd9f069c651b1e
   leds:
     STATUS: {source: module.status}

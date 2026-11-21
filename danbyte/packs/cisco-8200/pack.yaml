@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: cisco-8200
+name: Cisco Catalyst 8200
+version: 1.6.47
+license: CC-BY-4.0
+author: Christian Rose
+description: Catalyst 8200 and 8200 uCPE edge routers.
+blender: 5.3
+spec: 1.15
+requires: [generic-connectors]
+types:
+  device: [Cisco/C8200-1N-4T, Cisco/C8231-G2]

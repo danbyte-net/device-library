@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/device-types/Generic/FP-ST-24.yaml
+meta:
+  category: patch-panel
+  roles: [fibre, cabling]
+  family: Generic panels
+  summary: 1U fibre panel with 24 ST simplex couplers.
+
+model3d:
+  file: assets/Generic/FP-ST-24.glb
+  far: assets/Generic/FP-ST-24.far.glb
+  renders:
+    front: assets/Generic/FP-ST-24.front.webp
+    rear: assets/Generic/FP-ST-24.rear.webp
+    iso: assets/Generic/FP-ST-24.iso.webp
+    model_sha256: 3c1d41ad61c8f318af0b86e9db32eecb1518dcc9c1dca2444beb5b9f4fa47fb3
+
+# rack_mount (spec 1.11): ears flush with the front plate (REVIEW-22: front position only)
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: none

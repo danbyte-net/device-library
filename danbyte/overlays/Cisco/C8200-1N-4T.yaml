@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Cisco/C8200-1N-4T.yaml
+meta:
+  category: router
+  roles: [edge, wan]
+  family: Catalyst 8200
+  summary: 1RU edge router with 2 x 1G RJ45 and 2 x 1G SFP ports, one NIM slot and one PIM slot.
+  links:
+    - kind: datasheet
+      title: Cisco Catalyst 8200 Series Edge Platforms Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/routers/catalyst-8200-series-edge-platforms/nb-06-cat8200-series-edge-plat-ds-cte-en.html
+    - kind: install-guide
+      title: Cisco Catalyst 8200 Series Edge Platforms Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/routers/cloud_edge/c8200/hardware_install/b-cat-8200-series-edge-platforms-hig.html
+    - kind: other
+      title: Cisco Catalyst 8200 Series Edge Platforms - Install and Upgrade Guides
+      url: https://www.cisco.com/c/en/us/support/routers/catalyst-8200-series-edge-platforms/products-installation-guides-list.html
+
+drop:
+  - {key: front_image, why: the pack ships its own rendered photos (model3d.renders)}
+  - {key: rear_image, why: the pack ships its own rendered photos (model3d.renders)}
+
+# comments (REVIEW-25 answer 1): the bracket kit is a separate order
+comments: '[Cisco Catalyst 8200 Series Edge Platforms Data Sheet](https://www.cisco.com/c/en/us/products/collateral/routers/catalyst-8200-series-edge-platforms/nb-06-cat8200-series-edge-plat-ds-cte-en.html). Rack-mount brackets C8200-RM-19 are ordered separately (shown fitted).'
+model3d:
+  file: assets/Cisco/C8200-1N-4T.glb
+  far: assets/Cisco/C8200-1N-4T.far.glb
+  empty: filler
+  renders:
+    front: assets/Cisco/C8200-1N-4T.front.webp
+    rear: assets/Cisco/C8200-1N-4T.rear.webp
+    iso: assets/Cisco/C8200-1N-4T.iso.webp
+    model_sha256: e405709f2c4205946ab3a25d2f07ad4ac48562fc31df859e86bbf063bdfbabbc
+  leds:
+    STATUS: {source: device.status}
+    PSU: {source: device.status}
+    ENV: {source: none}
+    port:*: {source: interface.oper_status}
+    SPEED_0/0/0: {source: none}
+    SPEED_0/0/1: {source: none}
+    SFP_EN_0/0/2: {source: none}
+    SFP_EN_0/0/3: {source: none}
+
+# rack_mount (REVIEW-25 answer 1): the C8200-RM-19 brackets (ordered separately) are modelled on the
+rack_mount:
+  ears: true
+  positions: {front: -4, reversed: 0}
+  default: front
+  rails: none
