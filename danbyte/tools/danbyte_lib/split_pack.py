@@ -280,6 +280,26 @@ def diff(up: dict, doc: dict, *, why_of) -> dict:
     return out
 
 
+_SLUGS: dict = {}
+
+
+def _upstream_by_slug(repo: Repo, sub: str, doc: dict) -> str | None:
+    """The upstream file of a type whose slug this one has, else None."""
+    slug = str(doc.get("slug") or "").strip() if isinstance(doc, dict) else ""
+    if not slug:
+        return None
+    key = (str(repo.root), sub)
+    if key not in _SLUGS:
+        index = {}
+        for f in sorted((repo.root / sub).glob("*/*.y*ml")):
+            for line in f.read_text(encoding="utf-8", errors="replace").splitlines():
+                if line.startswith("slug:"):
+                    index.setdefault(line.split(":", 1)[1].strip().strip("'\""), f.relative_to(repo.root).as_posix())
+                    break
+        _SLUGS[key] = index
+    return _SLUGS[key].get(slug)
+
+
 def port_mappings(doc: dict) -> dict:
     """Front ports in the upstream library's current form: a front port
     carries ``positions``, and its link to a rear port is a ``port-mappings``
@@ -389,6 +409,10 @@ def split_pack(repo: Repo, folder: Path, *, rules_path: Path | None = None,
             whys, key_whys, header = comment_whys(text)
             meta, rule_whys = rules_for(rules, key)
             up_rel = f"{sub}/{vendor}/{src.name}"
+            if not (repo.root / up_rel).is_file():
+                # Upstream may file the same type under another name
+                # (`HPE/5406R-zl2.yaml` for J9850A): the slug decides.
+                up_rel = _upstream_by_slug(repo, sub, doc) or up_rel
             comments = []
             if not (repo.root / up_rel).is_file():
                 base_rel = f"danbyte/types-new/{sub}/{vendor}/{src.name}"

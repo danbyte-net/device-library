@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Fortinet/FG-121G.yaml
+meta:
+  category: firewall
+  roles: [security, edge]
+  family: FortiGate 120G Series
+  summary: 1RU firewall with 16 x GE RJ45, HA and MGMT RJ45, 8 x GE SFP, 4 x 10GE SFP+ FortiLink, 480 GB SSD, dual internal AC PSUs.
+  links:
+    - kind: datasheet
+      title: FortiGate 120G Series Data Sheet
+      url: https://www.fortinet.com/content/dam/fortinet/assets/data-sheets/fortigate-120g-series.pdf
+    - kind: install-guide
+      title: FortiGate 120G Series QuickStart Guide
+      url: https://docs.fortinet.com/document/fortigate/hardware/fortigate-120g-series-qsg
+
+drop:
+  - {key: front_image, why: the pack ships its own rendered photos (model3d.renders)}
+  - {key: rear_image, why: the pack ships its own rendered photos (model3d.renders)}
+
+# airflow from the data sheet FG-120G-DAT-R19 ("Air Flow: Front to Back"); upstream had side-to-rear
+airflow: front-to-rear
+
+# model3d (spec section 8)
+model3d:
+  file: assets/Fortinet/FG-121G.glb
+  far: assets/Fortinet/FG-121G.far.glb
+  renders:
+    front: assets/Fortinet/FG-121G.front.webp
+    rear: assets/Fortinet/FG-121G.rear.webp
+    iso: assets/Fortinet/FG-121G.iso.webp
+    model_sha256: a297293aae9675a6d8723e8238684c76ed9b4b363839efeb1abfe8dace01c61f
+  leds:
+    STATUS: {source: device.status}
+    ALARM: {source: none}
+    HA: {source: none}
+    POWER: {source: device.status}
+    BLE: {source: none}
+    SPEED_ha: {source: none}
+    SPEED_mgmt: {source: none}
+    SPEED_port1: {source: none}
+    SPEED_port2: {source: none}
+    SPEED_port3: {source: none}
+    SPEED_port4: {source: none}
+    SPEED_port5: {source: none}
+    SPEED_port6: {source: none}
+    SPEED_port7: {source: none}
+    SPEED_port8: {source: none}
+    SPEED_port9: {source: none}
+    SPEED_port10: {source: none}
+    SPEED_port11: {source: none}
+    SPEED_port12: {source: none}
+    SPEED_port13: {source: none}
+    SPEED_port14: {source: none}
+    SPEED_port15: {source: none}
+    SPEED_port16: {source: none}
+    port:*: {source: interface.oper_status}
+
+# rack_mount (spec 1.11 / 1.15): two rack-mount brackets and 8 screws ship in the box (QuickStart Guide,
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: none

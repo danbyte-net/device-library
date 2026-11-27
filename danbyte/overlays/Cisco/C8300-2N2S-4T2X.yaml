@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Cisco/C8300-2N2S-4T2X.yaml
+meta:
+  category: router
+  roles: [edge, wan]
+  family: Catalyst 8300
+  summary: 2RU edge router with 4 x 1G RJ45 and 2 x 10G SFP+ ports, two NIM, two SM and one PIM slot, two PSU bays and a fan tray.
+  lifecycle:
+    end_of_sale: '2027-07-31'
+    end_of_support: '2032-07-31'
+    source: https://www.cisco.com/c/en/us/products/collateral/networking/sdwan-routers/catalyst-8000-edge-platforms/catalyst-c8300-2n2s-4t2x-6t-1n-4t-c8200l-eol.html
+  links:
+    - kind: datasheet
+      title: Cisco Catalyst 8300 Series Edge Platforms Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/routers/catalyst-8300-series-edge-platforms/datasheet-c78-744088.html
+    - kind: install-guide
+      title: Hardware Installation Guide for Cisco Catalyst 8300 Series Edge Platforms
+      url: https://www.cisco.com/c/en/us/td/docs/routers/cloud_edge/c8300/hardware_installation/b-catalyst-8300-series-edge-platforms-hig/m-overview.html
+    - kind: eol-notice
+      title: End-of-Sale and End-of-Life Announcement for the Cisco Catalyst C8300-2N2S-4T2X, C8300-2N2S-6T, C8200-1N-4T, C8200L-1N-4T
+      url: https://www.cisco.com/c/en/us/products/collateral/networking/sdwan-routers/catalyst-8000-edge-platforms/catalyst-c8300-2n2s-4t2x-6t-1n-4t-c8200l-eol.html
+
+# comments: the bracket kit sentence added (REVIEW-25: separate kit, modelled fitted)
+comments: '[Cisco 8000 Series Routers Data Sheet](https://www.cisco.com/c/en/us/products/collateral/routers/catalyst-8300-series-edge-platforms/datasheet-c78-744088.html). Rack-mount brackets C8300-RM-19-2R (19 in; also -23-2R, -4PT-2R) are a separate kit (shown fitted, flush with the I/O side).'
+
+# weight from the data sheet, 40 lb "with 2X AC power supplies and fan tray" (upstream: 18.0 kg)
+weight: 40
+weight_unit: lb
+module-bays:
+  PSU0:
+    modules: [PWR-CC1-650WAC, PWR-CC1-1000WAC, PWR-CC1-650WDC, PWR-CC1-650WDCR]
+  PSU1:
+    modules: [PWR-CC1-650WAC, PWR-CC1-1000WAC, PWR-CC1-650WDC, PWR-CC1-650WDCR]
+  add:
+    - name: Fan Tray
+      position: '0'
+      modules: [C8300-FAN-2R, C8300-FAN-2R-R]
+      why: 'the fan tray bay (HIG fig. 4 callout 2 "FRU Fan tray"; data sheet: C8300-FAN-2R, -2R-R reverse airflow)'
+
+console-ports:
+  add:
+    - name: usb
+      type: usb-micro-b
+      why: the micro-USB console (HIG fig. 3 callout 18 "Micro-USB Console")
+
+model3d:
+  file: assets/Cisco/C8300-2N2S-4T2X.glb
+  far: assets/Cisco/C8300-2N2S-4T2X.far.glb
+  empty: filler
+  renders:
+    front: assets/Cisco/C8300-2N2S-4T2X.front.webp
+    rear: assets/Cisco/C8300-2N2S-4T2X.rear.webp
+    iso: assets/Cisco/C8300-2N2S-4T2X.iso.webp
+    model_sha256: 5c6bfdea01134ac605c264eda8edb48d7d8f533209ed4ce7a76d11f661bcf75a
+  leds:
+    STATUS: {source: device.status}
+    PWR: {source: device.status}
+    ENV: {source: none}
+    port:*: {source: interface.oper_status}
+    SFP_EN_0/0/4: {source: none}
+    SFP_EN_0/0/5: {source: none}
+
+# rack_mount (spec 1.11 / 1.15): HIG 'Install and Connect' figs 5-7: brackets flush with the I/O side (front),
+rack_mount:
+  ears: true
+  positions: {front: 0, reversed: 0}
+  default: front
+  rails: none

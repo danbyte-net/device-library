@@ -5,6 +5,7 @@ slug: generic-pp-rj45-48
 part_number: PP-RJ45-48
 u_height: 2
 is_full_depth: false
+is_powered: false
 comments: Generic 48-port Cat6 RJ45 patch panel, 2U (two rows of 24), ports in groups of six, 110 punch-down on the rear, rear cable support bar.
 front-ports:
   - name: '1'
@@ -489,4 +490,3 @@ port-mappings:
     front_port_position: 1
     rear_port: Rear 48
     rear_port_position: 1
-is_powered: false

@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/HPE/J9831A.yaml
+meta:
+  category: module
+  module_kind: fan
+  family: Aruba 5400R zl2
+  summary: Fan tray for the 5406R zl2 chassis.
+  links:
+    - kind: install-guide
+      title: HP 5400R zl2 Switches Installation and Getting Started Guide (5998-7652)
+      url: https://support.hpe.com/hpesc/public/api/document/emr_na-c04655001?docLocale=en_US
+    - kind: datasheet
+      title: QuickSpecs HPE Aruba Networking 5400R zl2 Switch Series (c04293383)
+      url: https://support.hpe.com/hpesc/public/api/document/c04293383
+
+model3d:
+  file: assets/HPE/J9831A.glb
+  far: assets/HPE/J9831A.far.glb
+  renders:
+    front: assets/HPE/J9831A.front.webp
+    rear: assets/HPE/J9831A.rear.webp
+    iso: assets/HPE/J9831A.iso.webp
+    model_sha256: 7b6170ecef6be177d029c1912ec0826e6d2b4954438460d3ea57820207640485
+  leds:
+    POWER: {source: module.status}
+    FAULT:
+      source: module.status
+      only: [amber, red]
+    LOCATOR: {source: none}

@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/device-types/SonicWall/NSA3600.yaml
+meta:
+  category: firewall
+  roles: [security, edge]
+  family: NSA Series
+  summary: 1RU firewall with 12 x 1G RJ45, 4 x 1G SFP, 2 x 10G SFP+, a 1G management port, RJ45 console and a fixed power supply.
+  lifecycle:
+    end_of_sale: '2022-04-15'
+    end_of_support: '2026-08-01'
+    source: https://www.sonicwall.com/support/product-notification/sonicwall-last-order-day-of-support-announcement-tz-400-tz400w-tz600-tz-600p-nsa-3600-nsa-3650/kA1VN0000000R1u0AE
+  links:
+    - kind: datasheet
+      title: Dell SonicWALL Network Security Appliance (NSA) Series data sheet
+      url: https://i.dell.com/sites/doccontent/shared-content/data-sheets/en/Documents/sonicwall-network-security-appliance-series-datasheet-68229.pdf
+    - kind: install-guide
+      title: NSA 2600/3600/4600/5600/6600 Getting Started Guide
+      url: https://www.sonicwall.com/techdocs/pdf/guide-getting-started-nsa-2600-3600-4600-560.pdf
+    - kind: eol-notice
+      title: 'Last Order Day of Support Announcement: TZ 400, TZ400W, TZ600, TZ 600P, NSA 3600, NSa 3650'
+      url: https://www.sonicwall.com/support/product-notification/sonicwall-last-order-day-of-support-announcement-tz-400-tz400w-tz600-tz-600p-nsa-3600-nsa-3650/kA1VN0000000R1u0AE
+  sources:
+    - https://assets-cms.sonicwall.com/technical-documentation/pdf/guide-getting-started-nsa-2600-3600-4600-560/guide-getting-started-nsa-2600-3600-4600-560.pdf
+
+model3d:
+  file: assets/SonicWall/NSA3600.glb
+  far: assets/SonicWall/NSA3600.far.glb
+  renders:
+    front: assets/SonicWall/NSA3600.front.webp
+    rear: assets/SonicWall/NSA3600.rear.webp
+    iso: assets/SonicWall/NSA3600.iso.webp
+    model_sha256: cd970a9ca473c88f0bbcb08a306c9f7f5310d7200b012b0f2360e9b820c70b4f
+  leds:
+    PWR: {source: device.status}
+    TEST: {source: none}
+    ALARM: {source: none}
+    M0: {source: none}
+    port:*: {source: interface.oper_status}
+    LED2_X0: {source: none}
+    LED2_X1: {source: none}
+    LED2_X2: {source: none}
+    LED2_X3: {source: none}
+    LED2_X4: {source: none}
+    LED2_X5: {source: none}
+    LED2_X6: {source: none}
+    LED2_X7: {source: none}
+    LED2_X8: {source: none}
+    LED2_X9: {source: none}
+    LED2_X10: {source: none}
+    LED2_X11: {source: none}
+    LED2_MGMT: {source: none}
+
+# rack_mount (spec 1.11): ears with handles on the chassis front (guide rail figures, data sheet photo),
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: sliding

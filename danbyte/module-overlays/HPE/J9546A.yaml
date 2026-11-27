@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/HPE/J9546A.yaml
+meta:
+  category: module
+  module_kind: line-card
+  family: Aruba 5400R zl2
+  summary: 8-port 10GBASE-T v2 zl line module (no PoE) for 5400R zl2 switches.
+  links:
+    - kind: datasheet
+      title: QuickSpecs HPE Aruba Networking 5400R zl2 Switch Series (c04293383)
+      url: https://support.hpe.com/hpesc/public/api/document/c04293383
+    - kind: install-guide
+      title: HP Switch zl2 Modules Installation Guide (5998-5076a)
+      url: https://support.hpe.com/hpesc/public/api/document/emr_na-c04344577?docLocale=en_US
+    - kind: other
+      title: 'Aruba 5400R zl2 - Product Information Reference (modules): HPE 8-port 10GBASE-T v2 zl module'
+      url: https://support.hpe.com/hpesc/public/docDisplay?docId=c04334041&page=GUID-11226C8F-22DD-49A6-9C18-64BC9842ED6D.html&docLocale=en_US
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/module-types/HPE/Aruba-J9546A.yaml
+
+# no HPE drawing of the J9546A face was found: port layout from its SFP+ sibling J9538A (ESTIMATE, cisco_refs/aruba5400/MEASURED.md)
+model3d:
+  file: assets/HPE/J9546A.glb
+  far: assets/HPE/J9546A.far.glb
+  renders:
+    front: assets/HPE/J9546A.front.webp
+    rear: assets/HPE/J9546A.rear.webp
+    iso: assets/HPE/J9546A.iso.webp
+    model_sha256: 6795be9d5bae0d85bbc0aa131276717f51e2be4fc8533eaeb817f148d6951ad5
+  leds:
+    port:*: {source: interface.oper_status}
+    MODE_1: {source: none}
+    MODE_2: {source: none}
+    MODE_3: {source: none}
+    MODE_4: {source: none}
+    MODE_5: {source: none}
+    MODE_6: {source: none}
+    MODE_7: {source: none}
+    MODE_8: {source: none}

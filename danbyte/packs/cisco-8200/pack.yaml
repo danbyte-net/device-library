@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: cisco-8200
 name: Cisco Catalyst 8200
-version: 1.6.48
+version: 1.6.51
 license: CC-BY-4.0
 author: Christian Rose
 description: Catalyst 8200 and 8200 uCPE edge routers.

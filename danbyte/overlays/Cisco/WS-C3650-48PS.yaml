@@ -1,0 +1,93 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Cisco/WS-C3650-48PS.yaml
+meta:
+  category: switch
+  roles: [access, poe, stacking]
+  family: Catalyst 3650
+  summary: 48-port PoE+ access switch with 4 x 1G SFP uplinks, StackWise-160 and two PSU bays.
+  lifecycle:
+    end_of_sale: '2021-10-31'
+    end_of_support: '2026-10-31'
+    source: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-3650-series-switches/eos-eol-notice-c51-744426-b.html
+  links:
+    - kind: datasheet
+      title: Cisco Catalyst 3650 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-3650-series-switches/data_sheet-c78-729449.html
+    - kind: install-guide
+      title: Catalyst 3650 Switch Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst3650/hardware/installation/guide/Cat3650hig_book/HIGOVERV.html
+    - kind: eol-notice
+      title: End-of-Sale and End-of-Life Announcement for the Cisco Catalyst 3650 Series Switches
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-3650-series-switches/eos-eol-notice-c51-744426-b.html
+
+is_full_depth: true
+
+# weight and size from the HIG technical specifications (24-port 7.26 kg, 48-port 7.6 kg as shipped)
+weight: 7.6
+weight_unit: kg
+
+# airflow (HIG fig. 1-16: in at the front vents and both sides near the front, out at the rear)
+airflow: front-to-rear
+comments: '[Cisco Catalyst 3650 Series Switches Data Sheet](https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-3650-series-switches/data_sheet-c78-729449.html). Part numbers WS-C3650-48PS-L / -S / -E (LAN Base / IP Base / IP Services) are the same hardware. 19-inch brackets ship with the switch (model: the pack''s C9300 bracket, same 1RU style).'
+console-ports:
+  add:
+    - name: usb
+      type: usb-mini-b
+      why: the front USB mini-B console (HIG ch. 1, front panel callout 3)
+
+module-bays:
+  PSU1:
+    modules: [PWR-C2-250WAC, PWR-C2-640WAC, PWR-C2-1025WAC, PWR-C2-640WDC]
+    why: 'PSU bays (HIG: two bays; ships with PWR-C2-640WAC in PSU1 and a PWR-C2-BLANK in PSU2)'
+  PSU2:
+    modules: [PWR-C2-250WAC, PWR-C2-640WAC, PWR-C2-1025WAC, PWR-C2-640WDC]
+  add:
+    - name: FAN 1
+      position: '1'
+      modules: [FAN-T1]
+      why: 'fan bays (HIG: three FAN-T1 field-replaceable fans, all three required)'
+    - name: FAN 2
+      position: '2'
+      modules: [FAN-T1]
+      why: 'fan bays (HIG: three FAN-T1 field-replaceable fans, all three required)'
+    - name: FAN 3
+      position: '3'
+      modules: [FAN-T1]
+      why: 'fan bays (HIG: three FAN-T1 field-replaceable fans, all three required)'
+    - name: StackPort1/1
+      position: 1/1
+      modules: [C3650-STACK-KIT]
+      why: 'stack adapter bays (HIG: StackWise-160 adapters C3650-STACK-KIT; blanks are fitted by default)'
+    - name: StackPort1/2
+      position: 1/2
+      modules: [C3650-STACK-KIT]
+      why: 'stack adapter bays (HIG: StackWise-160 adapters C3650-STACK-KIT; blanks are fitted by default)'
+
+model3d:
+  file: assets/Cisco/WS-C3650-48PS.glb
+  far: assets/Cisco/WS-C3650-48PS.far.glb
+  empty: filler
+  leds:
+    SYST: {source: device.status}
+    STAT: {source: none}
+    DUPLX: {source: none}
+    SPEED: {source: none}
+    STACK: {source: none}
+    POE: {source: none}
+    ACTV: {source: none}
+    CONSOLE: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Cisco/WS-C3650-48PS.front.webp
+    rear: assets/Cisco/WS-C3650-48PS.rear.webp
+    iso: assets/Cisco/WS-C3650-48PS.iso.webp
+    model_sha256: 519e7bc2740420f1647e8aeead99813e576fa69aa007fd93b6169bb68c974b8e
+    modules: {PSU1: PWR-C2-640WAC, FAN 1: FAN-T1, FAN 2: FAN-T1, FAN 3: FAN-T1}
+
+# rack_mount (spec 1.11 / 1.15): HIG fig. 2-8 front-mounting, and rear-mounting with the switch turned round
+rack_mount:
+  ears: true
+  positions: {front: 0, reversed: 0}
+  default: front
+  rails: none

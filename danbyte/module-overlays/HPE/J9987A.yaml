@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/HPE/J9987A.yaml
+meta:
+  category: module
+  module_kind: line-card
+  family: Aruba 5400R zl2
+  summary: 24-port 10/100/1000BASE-T v3 zl2 line module (no PoE) for 5400R zl2 switches.
+  links:
+    - kind: datasheet
+      title: QuickSpecs HPE Aruba Networking 5400R zl2 Switch Series (c04293383)
+      url: https://support.hpe.com/hpesc/public/api/document/c04293383
+    - kind: install-guide
+      title: HP 5400R zl2 Switches Installation and Getting Started Guide (5998-7652)
+      url: https://support.hpe.com/hpesc/public/api/document/emr_na-c04655001?docLocale=en_US
+    - kind: other
+      title: 'Aruba 5400R zl2 - Product Information Reference (modules): Aruba 24-port 10/100/1000BASE-T MACsec v3 zl2 module'
+      url: https://support.hpe.com/hpesc/public/docDisplay?docId=c04334041&page=GUID-11226C8F-22DD-49A6-9C18-64BC9842ED6D.html&docLocale=en_US
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/module-types/HPE/Aruba-J9987A.yaml
+
+model3d:
+  file: assets/HPE/J9987A.glb
+  far: assets/HPE/J9987A.far.glb
+  renders:
+    front: assets/HPE/J9987A.front.webp
+    rear: assets/HPE/J9987A.rear.webp
+    iso: assets/HPE/J9987A.iso.webp
+    model_sha256: a05196ff36c26fa0e37de5422aa1c24c9c66561dc5eda369a729911206d5fde9
+  leds:
+    port:*: {source: interface.oper_status}
+    MODE_1: {source: none}
+    MODE_2: {source: none}
+    MODE_3: {source: none}
+    MODE_4: {source: none}
+    MODE_5: {source: none}
+    MODE_6: {source: none}
+    MODE_7: {source: none}
+    MODE_8: {source: none}
+    MODE_9: {source: none}
+    MODE_10: {source: none}
+    MODE_11: {source: none}
+    MODE_12: {source: none}
+    MODE_13: {source: none}
+    MODE_14: {source: none}
+    MODE_15: {source: none}
+    MODE_16: {source: none}
+    MODE_17: {source: none}
+    MODE_18: {source: none}
+    MODE_19: {source: none}
+    MODE_20: {source: none}
+    MODE_21: {source: none}
+    MODE_22: {source: none}
+    MODE_23: {source: none}
+    MODE_24: {source: none}

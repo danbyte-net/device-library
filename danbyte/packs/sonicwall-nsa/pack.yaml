@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: sonicwall-nsa
+name: SonicWall NSA
+version: 1.6.51
+license: CC-BY-4.0
+author: Christian Rose
+description: SonicWall NSA firewalls.
+blender: 5.3
+spec: 1.15
+requires: [generic-connectors]
+types:
+  device: [SonicWall/NSA220, SonicWall/NSA3600]

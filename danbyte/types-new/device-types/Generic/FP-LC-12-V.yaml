@@ -5,6 +5,7 @@ slug: generic-fp-lc-12-v
 part_number: FP-LC-12-V
 u_height: 1
 is_full_depth: false
+is_powered: false
 comments: Generic 1U fibre panel with 12 vertical LC duplex couplers (24 fibres), aqua, open tray behind.
 front-ports:
   - name: '1'
@@ -129,4 +130,3 @@ port-mappings:
     front_port_position: 1
     rear_port: Rear 12
     rear_port_position: 1
-is_powered: false

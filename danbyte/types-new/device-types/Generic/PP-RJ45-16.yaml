@@ -5,6 +5,7 @@ slug: generic-pp-rj45-16
 part_number: PP-RJ45-16
 u_height: 1
 is_full_depth: false
+is_powered: false
 comments: Generic 16-port Cat6 RJ45 patch panel, 1U, ports in groups of eight, 110 punch-down on the rear, rear cable support bar.
 front-ports:
   - name: '1'
@@ -169,4 +170,3 @@ port-mappings:
     front_port_position: 1
     rear_port: Rear 16
     rear_port_position: 1
-is_powered: false

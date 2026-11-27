@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/device-types/Netgear/GS728TPv2.yaml
+meta:
+  category: switch
+  roles: [access, poe]
+  family: Smart Managed Pro Switches
+  summary: 24-port Gigabit PoE+ smart managed switch (190 W budget) with 4 dedicated 1G SFP ports, internal PSU, 1U.
+  links:
+    - kind: datasheet
+      title: NETGEAR GS728TPv2 / GS728TPPv2 / GS752TPv2 / GS752TPP Data Sheet
+      url: https://www.downloads.netgear.com/files/GDC/GS728TPv2/GS728TPv2_GS728TPPv2_GS752TPv2_GS752TPP_DS.pdf
+    - kind: install-guide
+      title: GS728TPv2 / GS728TPPv2 / GS752TPv2 / GS752TPP Hardware Installation Guide
+      url: https://www.downloads.netgear.com/files/GDC/GS728TPv2/GS728TPv2_GS728TPPv2_GS752TPv2_GS752TPP_HIG_EN.pdf
+    - kind: config-guide
+      title: GS728TPv2 / GS728TPPv2 / GS752TPv2 / GS752TPP User Manual
+      url: https://www.downloads.netgear.com/files/GDC/GS728TPv2/GS728TPv2_GS728TPPv2_GS752TPv2_GS752TPP_UM_EN.pdf
+    - kind: support
+      title: NETGEAR GS728TPv2 support
+      url: https://www.netgear.com/support/product/gs728tpv2/
+
+model3d:
+  file: assets/Netgear/GS728TPv2.glb
+  far: assets/Netgear/GS728TPv2.far.glb
+  leds:
+    POWER: {source: device.status}
+    FAN: {source: none}
+    POE_MAX: {source: none}
+    LED_MODE: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Netgear/GS728TPv2.front.webp
+    rear: assets/Netgear/GS728TPv2.rear.webp
+    iso: assets/Netgear/GS728TPv2.iso.webp
+    model_sha256: 1a5791c541fcf977ea89234b3fb8a0b112004844d92b95b77b6a2cda900ec143
+
+# rack_mount (spec 1.11): HIG Step 4, the supplied L brackets on the sides, ears flush with the front
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: none

@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: cisco-catalyst-8300
+name: Cisco Catalyst 8300
+version: 1.6.51
+license: CC-BY-4.0
+author: Christian Rose
+description: Catalyst 8300 edge routers.
+blender: 5.3
+spec: 1.15
+requires: [generic-connectors]
+types:
+  device: [Cisco/C8300-2N2S-4T2X]
