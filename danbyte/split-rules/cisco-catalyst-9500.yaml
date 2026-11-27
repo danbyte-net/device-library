@@ -35,6 +35,30 @@ packs:
     name: Cisco Firepower 1000
     description: Firepower 1000 series firewalls.
     requires: [generic-connectors]
+  cisco-catalyst-8300:
+    name: Cisco Catalyst 8300
+    description: Catalyst 8300 edge routers.
+    requires: [generic-connectors]
+  cisco-catalyst-3650:
+    name: Cisco Catalyst 3650
+    description: Catalyst 3650 switches with their power supplies, fan and stack kit.
+    requires: [generic-connectors]
+  fortinet-fortigate:
+    name: Fortinet FortiGate
+    description: FortiGate firewalls.
+    requires: [generic-connectors]
+  sonicwall-nsa:
+    name: SonicWall NSA
+    description: SonicWall NSA firewalls.
+    requires: [generic-connectors]
+  netgear-switches:
+    name: Netgear switches
+    description: Netgear smart managed switches.
+    requires: [generic-connectors]
+  hpe-aruba-5400:
+    name: HPE Aruba 5400R zl2
+    description: Aruba 5400R zl2 chassis switches with their line cards and fan tray.
+    requires: [generic-connectors]
   generic-panels:
     name: Generic panels
     description: RJ45 patch panels and LC, SC and ST fibre panels.
@@ -107,6 +131,33 @@ rules:
   - match: "module/Cisco/C3850-NM-*"
     meta: {family: Catalyst 9300}
 
+  - match: "device/Cisco/C83*"
+    meta: {category: router, family: Catalyst 8300}
+  - match: "device/Cisco/WS-C3650-*"
+    meta: {category: switch, family: Catalyst 3650}
+  - match: "module/Cisco/PWR-C2-*"
+    meta: {family: Catalyst 3650}
+  - match: "module/Cisco/FAN-T1"
+    meta: {family: Catalyst 3650}
+  - match: "module/Cisco/C3650-*"
+    meta: {family: Catalyst 3650}
+  - match: "device/Fortinet/*"
+    meta: {category: firewall, family: FortiGate}
+    why:
+      "drop/front_image": "the pack ships its own rendered photos (model3d.renders)"
+      "drop/rear_image": "the pack ships its own rendered photos (model3d.renders)"
+  - match: "device/SonicWall/*"
+    meta: {category: firewall, family: SonicWall NSA}
+  - match: "device/Netgear/*"
+    meta: {category: switch, family: Netgear smart managed}
+  - match: "device/HPE/J98*"
+    meta: {category: switch, family: Aruba 5400R zl2}
+  - match: "module/HPE/*"
+    meta: {family: Aruba 5400R zl2}
+  - match: "device/Cisco/WS-C3650-48PD"
+    why:
+      "interfaces/GigabitEthernet0/0": "the management port; upstream's file for this model doesn't list it"
+
   # -- which pack each entry goes into (the last rule that fits wins) --------
   - match: "device/Cisco/C9200*"
     pack: cisco-catalyst-9200
@@ -147,6 +198,26 @@ rules:
     pack: generic-panels
   - match: "module/Cisco/C3850-NM-*"
     pack: cisco-catalyst-9300
+  - match: "device/Cisco/C83*"
+    pack: cisco-catalyst-8300
+  - match: "device/Cisco/WS-C3650-*"
+    pack: cisco-catalyst-3650
+  - match: "module/Cisco/PWR-C2-*"
+    pack: cisco-catalyst-3650
+  - match: "module/Cisco/FAN-T1"
+    pack: cisco-catalyst-3650
+  - match: "module/Cisco/C3650-*"
+    pack: cisco-catalyst-3650
+  - match: "device/Fortinet/*"
+    pack: fortinet-fortigate
+  - match: "device/SonicWall/*"
+    pack: sonicwall-nsa
+  - match: "device/Netgear/*"
+    pack: netgear-switches
+  - match: "device/HPE/*"
+    pack: hpe-aruba-5400
+  - match: "module/HPE/*"
+    pack: hpe-aruba-5400
   - match: "pluggable/Cisco/*"
     pack: cisco-optics
   - match: "pluggable/Cisco/STACK-T4"

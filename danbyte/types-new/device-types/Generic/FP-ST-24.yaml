@@ -5,6 +5,7 @@ slug: generic-fp-st-24
 part_number: FP-ST-24
 u_height: 1
 is_full_depth: false
+is_powered: false
 comments: Generic 1U fibre panel with 24 ST simplex couplers, metal (bayonet barrels both sides, knurled stop ring in front, hex nut behind), open tray behind.
 front-ports:
   - name: '1'
@@ -249,4 +250,3 @@ port-mappings:
     front_port_position: 1
     rear_port: Rear 24
     rear_port_position: 1
-is_powered: false

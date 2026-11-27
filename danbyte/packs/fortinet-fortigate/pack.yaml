@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: fortinet-fortigate
+name: Fortinet FortiGate
+version: 1.6.51
+license: CC-BY-4.0
+author: Christian Rose
+description: FortiGate firewalls.
+blender: 5.3
+spec: 1.15
+requires: [generic-connectors]
+types:
+  device: [Fortinet/FG-100F, Fortinet/FG-121G, Fortinet/FG-200F]

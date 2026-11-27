@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../schema/pluggable.schema.json
+format: danbyte-library/v1
+meta:
+  category: pluggable
+  roles: [stacking, cable]
+  family: Catalyst 3650
+  summary: StackWise-160 data stack cable for Catalyst 3650 switches, in 50 cm, 1 m and 3 m lengths.
+  links:
+    - kind: datasheet
+      title: Cisco Catalyst 3650 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-3650-series-switches/data_sheet-c78-729449.html
+    - kind: install-guide
+      title: Catalyst 3650 Switch Hardware Installation Guide - Switch Installation
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst3650/hardware/installation/guide/Cat3650hig_book/HIGINSTL.html
+
+name: STACK-T2
+kind: cord
+connector: stack
+fits: [cisco-stackwise-160]
+parts: [STACK-T2-50CM, STACK-T2-1M, STACK-T2-3M]
+standard: StackWise-160
+comments: 'Cisco StackWise-160 stack cable end for the Catalyst 3650 (with C3650-STACK-KIT): one connector head, a metal shell with a flat plug into the adapter''s socket, knurled thumbscrews, a round cable out of the rear, 40 mm stub to the cable empty. Model: the pack''s STACK-T4 head (same design in Cisco''s HIG figure 2-14 and the product photos), +-2 mm. Bend radii: the C9200 HIG values of STACK-T4 (66 mm, 3 m: 91 mm); Cisco''s C3650 value was not found. Origin is the stack port anchor. CABLE is recoloured by Danbyte.'
+cable:
+  profile: round
+  jacket_mm: 6.5
+  min_bend_mm: 66
+  min_bend_by_part: {STACK-T2-3M: 91}
+
+model3d:
+  file: assets/Cisco/STACK-T2.glb
+  renders:
+    front: assets/Cisco/STACK-T2.front.webp
+    rear: assets/Cisco/STACK-T2.rear.webp
+    iso: assets/Cisco/STACK-T2.iso.webp
+    model_sha256: ca9c4f0817ae64edb874e3f7c16f44d0526e8b2ab9217ad4fb5d5768afb85417

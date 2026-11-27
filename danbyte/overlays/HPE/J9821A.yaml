@@ -1,0 +1,210 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/device-types/HPE/J9821A.yaml
+meta:
+  category: switch
+  roles: [modular]
+  family: Aruba 5400R zl2
+  summary: '4U modular switch chassis: six slots A-F for v2 zl / v3 zl2 modules, two management module slots, two rear PSU slots, rear fan tray.'
+  links:
+    - kind: datasheet
+      title: QuickSpecs HPE Aruba Networking 5400R zl2 Switch Series (c04293383)
+      url: https://support.hpe.com/hpesc/public/api/document/c04293383
+    - kind: install-guide
+      title: HP 5400R zl2 Switches Installation and Getting Started Guide (5998-7652)
+      url: https://support.hpe.com/hpesc/public/api/document/emr_na-c04655001?docLocale=en_US
+    - kind: install-guide
+      title: HP Switch zl2 Modules Installation Guide (5998-5076a)
+      url: https://support.hpe.com/hpesc/public/api/document/emr_na-c04344577?docLocale=en_US
+    - kind: other
+      title: Aruba 5400R zl2 - Product Information Reference (modules)
+      url: https://support.hpe.com/hpesc/public/docDisplay?docId=c04334041&page=GUID-11226C8F-22DD-49A6-9C18-64BC9842ED6D.html&docLocale=en_US
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/device-types/HPE/Aruba-5406R-zl2.yaml
+
+module-bays:
+  A:
+    modules:
+      - J9534A
+      - J9535A
+      - J9536A
+      - J9537A
+      - J9538A
+      - J9546A
+      - J9547A
+      - J9548A
+      - J9549A
+      - J9550A
+      - J9637A
+      - J9986A
+      - J9987A
+      - J9988A
+      - J9989A
+      - J9990A
+      - J9991A
+      - J9992A
+      - J9993A
+      - J9995A
+      - J9996A
+      - J9857A
+      - J9858A
+  B:
+    modules:
+      - J9534A
+      - J9535A
+      - J9536A
+      - J9537A
+      - J9538A
+      - J9546A
+      - J9547A
+      - J9548A
+      - J9549A
+      - J9550A
+      - J9637A
+      - J9986A
+      - J9987A
+      - J9988A
+      - J9989A
+      - J9990A
+      - J9991A
+      - J9992A
+      - J9993A
+      - J9995A
+      - J9996A
+      - J9857A
+      - J9858A
+  C:
+    modules:
+      - J9534A
+      - J9535A
+      - J9536A
+      - J9537A
+      - J9538A
+      - J9546A
+      - J9547A
+      - J9548A
+      - J9549A
+      - J9550A
+      - J9637A
+      - J9986A
+      - J9987A
+      - J9988A
+      - J9989A
+      - J9990A
+      - J9991A
+      - J9992A
+      - J9993A
+      - J9995A
+      - J9996A
+      - J9857A
+      - J9858A
+  D:
+    modules:
+      - J9534A
+      - J9535A
+      - J9536A
+      - J9537A
+      - J9538A
+      - J9546A
+      - J9547A
+      - J9548A
+      - J9549A
+      - J9550A
+      - J9637A
+      - J9986A
+      - J9987A
+      - J9988A
+      - J9989A
+      - J9990A
+      - J9991A
+      - J9992A
+      - J9993A
+      - J9995A
+      - J9996A
+      - J9857A
+      - J9858A
+  E:
+    modules:
+      - J9534A
+      - J9535A
+      - J9536A
+      - J9537A
+      - J9538A
+      - J9546A
+      - J9547A
+      - J9548A
+      - J9549A
+      - J9550A
+      - J9637A
+      - J9986A
+      - J9987A
+      - J9988A
+      - J9989A
+      - J9990A
+      - J9991A
+      - J9992A
+      - J9993A
+      - J9995A
+      - J9996A
+      - J9857A
+      - J9858A
+  F:
+    modules:
+      - J9534A
+      - J9535A
+      - J9536A
+      - J9537A
+      - J9538A
+      - J9546A
+      - J9547A
+      - J9548A
+      - J9549A
+      - J9550A
+      - J9637A
+      - J9986A
+      - J9987A
+      - J9988A
+      - J9989A
+      - J9990A
+      - J9991A
+      - J9992A
+      - J9993A
+      - J9995A
+      - J9996A
+      - J9857A
+      - J9858A
+  MM1:
+    modules: [J9827A]
+  MM2:
+    modules: [J9827A]
+  PS1:
+    modules: [J9828A, J9829A, J9830A, J9830B]
+  PS2:
+    modules: [J9828A, J9829A, J9830A, J9830B]
+  Fan1:
+    modules: [J9831A]
+
+model3d:
+  file: assets/HPE/J9821A.glb
+  far: assets/HPE/J9821A.far.glb
+  empty: filler
+  leds:
+    POWER: {source: device.status}
+    FAULT:
+      source: device.status
+      only: [amber, red]
+    LOCATOR: {source: device.locate}
+  renders:
+    front: assets/HPE/J9821A.front.webp
+    rear: assets/HPE/J9821A.rear.webp
+    iso: assets/HPE/J9821A.iso.webp
+    model_sha256: fea98958f1db84cfc1b70a36835064e9968b589212eb30a49f3a917fef489f9b
+    modules: {A: J9993A, B: J9987A, C: J9546A, Fan1: J9831A}
+
+# rack_mount (spec 1.11): IGSG 2-17..2-20, the two brackets of rack kit 5066-3042 (in the box) on the chassis
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: none

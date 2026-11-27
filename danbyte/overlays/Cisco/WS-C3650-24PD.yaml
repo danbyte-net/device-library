@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/device-types/Cisco/WS-C3650-24PD.yaml
+meta:
+  category: switch
+  roles: [access, poe, stacking]
+  family: Catalyst 3650
+  summary: 24-port PoE+ access switch with 2 x 1G SFP + 2 x 10G SFP+ uplinks, StackWise-160 and two PSU bays.
+  lifecycle:
+    end_of_sale: '2021-10-31'
+    end_of_support: '2026-10-31'
+    source: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-3650-series-switches/eos-eol-notice-c51-744426-b.html
+  links:
+    - kind: datasheet
+      title: Cisco Catalyst 3650 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-3650-series-switches/data_sheet-c78-729449.html
+    - kind: install-guide
+      title: Catalyst 3650 Switch Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst3650/hardware/installation/guide/Cat3650hig_book/HIGOVERV.html
+    - kind: eol-notice
+      title: End-of-Sale and End-of-Life Announcement for the Cisco Catalyst 3650 Series Switches
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-3650-series-switches/eos-eol-notice-c51-744426-b.html
+
+module-bays:
+  PSU1:
+    modules: [PWR-C2-250WAC, PWR-C2-640WAC, PWR-C2-1025WAC, PWR-C2-640WDC]
+    why: 'PSU bays (HIG: two bays; ships with PWR-C2-640WAC in PSU1 and a PWR-C2-BLANK in PSU2)'
+  PSU2:
+    modules: [PWR-C2-250WAC, PWR-C2-640WAC, PWR-C2-1025WAC, PWR-C2-640WDC]
+  FAN 1:
+    modules: [FAN-T1]
+    why: 'fan bays (HIG: three FAN-T1 field-replaceable fans, all three required)'
+  FAN 2:
+    modules: [FAN-T1]
+  FAN 3:
+    modules: [FAN-T1]
+  StackPort1/1:
+    modules: [C3650-STACK-KIT]
+    why: 'stack adapter bays (HIG: StackWise-160 adapters C3650-STACK-KIT; blanks are fitted by default)'
+  StackPort1/2:
+    modules: [C3650-STACK-KIT]
+
+model3d:
+  file: assets/Cisco/WS-C3650-24PD.glb
+  far: assets/Cisco/WS-C3650-24PD.far.glb
+  empty: filler
+  leds:
+    SYST: {source: device.status}
+    STAT: {source: none}
+    DUPLX: {source: none}
+    SPEED: {source: none}
+    STACK: {source: none}
+    POE: {source: none}
+    ACTV: {source: none}
+    CONSOLE: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Cisco/WS-C3650-24PD.front.webp
+    rear: assets/Cisco/WS-C3650-24PD.rear.webp
+    iso: assets/Cisco/WS-C3650-24PD.iso.webp
+    model_sha256: 11cab5fe727f306c6f4941ac9099dadacd57603ce06efd18361fa85d58367c77
+    modules: {PSU1: PWR-C2-640WAC, FAN 1: FAN-T1, FAN 2: FAN-T1, FAN 3: FAN-T1}
+
+# rack_mount (spec 1.11 / 1.15): HIG fig. 2-8 front-mounting, and rear-mounting with the switch turned round
+rack_mount:
+  ears: true
+  positions: {front: 0, reversed: 0}
+  default: front
+  rails: none

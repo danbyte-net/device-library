@@ -1,0 +1,33 @@
+---
+manufacturer: SonicWall
+model: NSa 220
+slug: sonicwall-nsa-220
+part_number: NSA220
+u_height: 1
+is_full_depth: false
+airflow: passive
+weight: 1.95
+weight_unit: lb
+comments: '[Dell SonicWALL Network Security Appliance (NSA) Series data sheet](https://i.dell.com/sites/doccontent/shared-content/data-sheets/en/Documents/sonicwall-network-security-appliance-series-datasheet-68229.pdf). SKU 01-SSC-9750 (firewall only). Desktop unit, no fan, 36 W external adapter (rear label 12V 3A, 36W); a 1U rack mount kit is sold separately.'
+console-ports:
+  - name: Console
+    type: rj-45
+power-ports:
+  - name: DC
+    type: dc-terminal
+    maximum_draw: 11
+interfaces:
+  - name: X0
+    type: 1000base-t
+  - name: X1
+    type: 1000base-t
+  - name: X2
+    type: 1000base-t
+  - name: X3
+    type: 1000base-t
+  - name: X4
+    type: 1000base-t
+  - name: X5
+    type: 1000base-t
+  - name: X6
+    type: 1000base-t

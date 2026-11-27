@@ -5,6 +5,7 @@ slug: generic-fp-lc-48-v
 part_number: FP-LC-48-V
 u_height: 1
 is_full_depth: false
+is_powered: false
 comments: Generic 1U fibre panel with 48 vertical LC duplex couplers (96 fibres) in two rows of 24, aqua, open tray behind.
 front-ports:
   - name: '1'
@@ -489,4 +490,3 @@ port-mappings:
     front_port_position: 1
     rear_port: Rear 48
     rear_port_position: 1
-is_powered: false

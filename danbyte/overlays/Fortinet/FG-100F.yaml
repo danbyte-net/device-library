@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Fortinet/FG-100F.yaml
+meta:
+  category: firewall
+  roles: [security, edge]
+  family: FortiGate 100F Series
+  summary: 1RU firewall with 22 x GE RJ45 (WAN, DMZ, MGMT, HA, 12 switch ports, 4 shared with SFP), 4 + 4 GE SFP, 2 x 10GE SFP+ FortiLink, dual internal AC PSUs.
+  links:
+    - kind: install-guide
+      title: FortiGate 100F Series QuickStart Guide
+      url: https://docs.fortinet.com/document/fortigate/hardware/fortigate-100f-series-qsg
+
+drop:
+  - {key: front_image, why: the pack ships its own rendered photos (model3d.renders)}
+  - {key: rear_image, why: the pack ships its own rendered photos (model3d.renders)}
+
+# weight (data sheet FG-100F-DAT-R37: 7.25 lbs / 3.29 kg)
+weight: 3.29
+weight_unit: kg
+
+# airflow (data sheet: "Forced Airflow: Side to Back")
+airflow: side-to-rear
+power-ports:
+  PS1:
+    maximum_draw: 30
+    allocated_draw: 27
+    why: 'draw from the data sheet (FG-100F-DAT-R37: 29.5 W max, 26.5 W avg); upstream had the FG-101F values 39 / 35'
+  PS2: {maximum_draw: 30, allocated_draw: 27}
+
+# model3d (spec section 8)
+model3d:
+  file: assets/Fortinet/FG-100F.glb
+  far: assets/Fortinet/FG-100F.far.glb
+  renders:
+    front: assets/Fortinet/FG-100F.front.webp
+    rear: assets/Fortinet/FG-100F.rear.webp
+    iso: assets/Fortinet/FG-100F.iso.webp
+    model_sha256: 776a7a7788448b5179cbb2ba11d89d6e332839e7193aedd26235637029b35a22
+  leds:
+    STATUS: {source: device.status}
+    ALARM: {source: none}
+    HA: {source: none}
+    POWER: {source: device.status}
+    SPEED_dmz: {source: none}
+    SPEED_mgmt: {source: none}
+    SPEED_wan1: {source: none}
+    SPEED_wan2: {source: none}
+    SPEED_ha1: {source: none}
+    SPEED_ha2: {source: none}
+    SPEED_port1: {source: none}
+    SPEED_port2: {source: none}
+    SPEED_port3: {source: none}
+    SPEED_port4: {source: none}
+    SPEED_port5: {source: none}
+    SPEED_port6: {source: none}
+    SPEED_port7: {source: none}
+    SPEED_port8: {source: none}
+    SPEED_port9: {source: none}
+    SPEED_port10: {source: none}
+    SPEED_port11: {source: none}
+    SPEED_port12: {source: none}
+    RJ45_port17: {source: none}
+    SPEED_RJ45_port17: {source: none}
+    RJ45_port18: {source: none}
+    SPEED_RJ45_port18: {source: none}
+    RJ45_port19: {source: none}
+    SPEED_RJ45_port19: {source: none}
+    RJ45_port20: {source: none}
+    SPEED_RJ45_port20: {source: none}
+    port:*: {source: interface.oper_status}
+
+# rack_mount (spec 1.11 / 1.15): two rack-mount brackets and 8 screws ship in the box (QuickStart Guide,
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: none

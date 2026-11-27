@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Fortinet/FG-200F.yaml
+meta:
+  category: firewall
+  roles: [security, edge]
+  family: FortiGate 200F Series
+  summary: 1RU firewall with 16 x GE RJ45, HA and MGMT RJ45, 8 x GE SFP, 2 x 10GE SFP+ and 2 x 10GE SFP+ FortiLink, dual internal AC PSUs.
+  links:
+    - kind: install-guide
+      title: FortiGate 200F Series QuickStart Guide
+      url: https://docs.fortinet.com/document/fortigate/hardware/fortigate-200f-series-quickstart-guide
+
+# model3d (spec section 8)
+model3d:
+  file: assets/Fortinet/FG-200F.glb
+  far: assets/Fortinet/FG-200F.far.glb
+  renders:
+    front: assets/Fortinet/FG-200F.front.webp
+    rear: assets/Fortinet/FG-200F.rear.webp
+    iso: assets/Fortinet/FG-200F.iso.webp
+    model_sha256: 64de605833b07c45353a8d185d251535ad64f2e450c97cb9bc47b70539e14935
+  leds:
+    STATUS: {source: device.status}
+    ALARM: {source: none}
+    HA: {source: none}
+    POWER: {source: device.status}
+    SPEED_ha: {source: none}
+    SPEED_mgmt: {source: none}
+    SPEED_port1: {source: none}
+    SPEED_port2: {source: none}
+    SPEED_port3: {source: none}
+    SPEED_port4: {source: none}
+    SPEED_port5: {source: none}
+    SPEED_port6: {source: none}
+    SPEED_port7: {source: none}
+    SPEED_port8: {source: none}
+    SPEED_port9: {source: none}
+    SPEED_port10: {source: none}
+    SPEED_port11: {source: none}
+    SPEED_port12: {source: none}
+    SPEED_port13: {source: none}
+    SPEED_port14: {source: none}
+    SPEED_port15: {source: none}
+    SPEED_port16: {source: none}
+    port:*: {source: interface.oper_status}
+
+# rack_mount (spec 1.11 / 1.15): two rack-mount brackets and 8 screws ship in the box (QuickStart Guide,
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: none

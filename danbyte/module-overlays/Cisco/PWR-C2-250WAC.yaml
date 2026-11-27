@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+format: danbyte-library/v1
+upstream: module-types/Cisco/PWR-C2-250WAC.yaml
+meta:
+  category: module
+  module_kind: psu
+  roles: [power]
+  family: Catalyst 3650
+  summary: 250 W AC power supply for Catalyst 3650 switches.
+  lifecycle:
+    end_of_sale: '2021-10-31'
+    end_of_support: '2026-10-31'
+    source: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-3650-series-switches/eos-eol-notice-c51-744426-b.html
+  links:
+    - kind: datasheet
+      title: Cisco Catalyst 3650 Series Switches Data Sheet
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-3650-series-switches/data_sheet-c78-729449.html
+    - kind: install-guide
+      title: Catalyst 3650 Switch Hardware Installation Guide
+      url: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst3650/hardware/installation/guide/Cat3650hig_book/HIGOVERV.html
+
+comments: 'Catalyst 3650 power supply, 250 W AC, C14 inlet. Face from a product photo (owner, 2026-11-26): hex grille, AC OK / PS OK LEDs, inlet with the release latch beside it, flat pull handle along the bottom; size 1.58 x 3.75 x 11.75 in (HIG appendix A). / [Cisco Catalyst 3650 Series Switches Data Sheet](https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-3650-series-switches/data_sheet-c78-729449.html)'
+model3d:
+  file: assets/Cisco/PWR-C2-250WAC.glb
+  far: assets/Cisco/PWR-C2-250WAC.far.glb
+  renders:
+    front: assets/Cisco/PWR-C2-250WAC.front.webp
+    rear: assets/Cisco/PWR-C2-250WAC.rear.webp
+    iso: assets/Cisco/PWR-C2-250WAC.iso.webp
+    model_sha256: d573446c031e9d47c3897ca4ffd2c21a5aa510d95f171cf47c1040072ff363a9
+  leds:
+    AC_OK: {source: module.status}
+    PS_OK: {source: module.status}

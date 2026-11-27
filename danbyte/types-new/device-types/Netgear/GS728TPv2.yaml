@@ -1,0 +1,120 @@
+---
+manufacturer: Netgear
+model: GS728TPv2
+part_number: GS728TPv2
+slug: netgear-gs728tpv2
+u_height: 1
+is_full_depth: false
+airflow: left-to-right
+weight: 3.78
+weight_unit: kg
+comments: '[NETGEAR GS728TPv2 / GS728TPPv2 / GS752TPv2 / GS752TPP Data Sheet](https://www.downloads.netgear.com/files/GDC/GS728TPv2/GS728TPv2_GS728TPPv2_GS752TPv2_GS752TPP_DS.pdf). Ordering codes GS728TP-200AJS (Asia Pacific, Australia), GS728TP-200EUS (Europe), GS728TP-200INS (India), GS728TP-200NAS (North America, Latin America): same hardware. 190 W PoE+ budget. Two 19-inch L brackets and screws ship with the switch (modelled; ear and flange hole positions estimated).'
+power-ports:
+  - name: PS1
+    type: iec-60320-c14
+    maximum_draw: 226
+interfaces:
+  - name: g1
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g2
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g3
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g4
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g5
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g6
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g7
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g8
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g9
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g10
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g11
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g12
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g13
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g14
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g15
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g16
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g17
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g18
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g19
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g20
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g21
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g22
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g23
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g24
+    type: 1000base-t
+    poe_mode: pse
+    poe_type: type2-ieee802.3at
+  - name: g25
+    type: 1000base-x-sfp
+  - name: g26
+    type: 1000base-x-sfp
+  - name: g27
+    type: 1000base-x-sfp
+  - name: g28
+    type: 1000base-x-sfp

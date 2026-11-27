@@ -1,0 +1,51 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/device-types/SonicWall/NSA220.yaml
+meta:
+  category: firewall
+  roles: [security, edge]
+  family: NSA Series
+  summary: Desktop firewall with 7 x 1G RJ45 (X0-X6), RJ45 console, two USB ports and an external 36 W adapter.
+  lifecycle:
+    end_of_sale: '2015-08-15'
+    end_of_support: '2020-08-16'
+    source: https://www.sonicwall.com/support/product-notification/sonicwall-active-retirement-mode-for-sonicwall-nsa-220-series/170608603255133/
+  links:
+    - kind: datasheet
+      title: Dell SonicWALL Network Security Appliance (NSA) Series data sheet
+      url: https://i.dell.com/sites/doccontent/shared-content/data-sheets/en/Documents/sonicwall-network-security-appliance-series-datasheet-68229.pdf
+    - kind: eol-notice
+      title: SonicWall - Active Retirement Mode for SonicWall NSA 220 Series
+      url: https://www.sonicwall.com/support/product-notification/sonicwall-active-retirement-mode-for-sonicwall-nsa-220-series/170608603255133/
+
+# real size (REVIEW-22 answer 2): data sheet 7.125 x 1.5 x 10.5 in; 10.5 in is the width (product photo)
+width_mm: 266.7
+
+# height without feet (the data sheet's 1.5 in)
+height_mm: 38.1
+
+# depth
+depth_mm: 181.0
+model3d:
+  file: assets/SonicWall/NSA220.glb
+  far: assets/SonicWall/NSA220.far.glb
+  renders:
+    front: assets/SonicWall/NSA220.front.webp
+    rear: assets/SonicWall/NSA220.rear.webp
+    iso: assets/SonicWall/NSA220.iso.webp
+    model_sha256: 716b2b6bddc942a8646b30d0bbb7e5ff3beee20f40498f4a18c325765c69c6e9
+  leds:
+    PWR: {source: device.status}
+    TEST: {source: none}
+    port:*: {source: interface.oper_status}
+    X0_100: {source: none}
+    X1_100: {source: none}
+    X2_100: {source: none}
+    X3_100: {source: none}
+    X4_100: {source: none}
+    X5_100: {source: none}
+    X6_100: {source: none}
+
+# rack_mount (REVIEW-22 answer 2): a desktop unit, no ears (the 1U rack mount kit is a separate part);
+rack_mount: {ears: false}

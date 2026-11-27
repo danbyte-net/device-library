@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: danbyte-starter
 name: Danbyte starter library
-description: Everything in the library - Cisco Catalyst switches, 8200 routers, 9800 controllers, Firepower firewalls and optics, generic racks, PDUs, panels and connectors.
+description: Everything in the library - Cisco Catalyst switches and routers, 9800 controllers, Firepower, FortiGate and SonicWall firewalls, Netgear and Aruba switches, Cisco optics, generic racks, PDUs, panels and connectors.
 includes:
   - generic-connectors
   - generic-racks
@@ -14,3 +14,9 @@ includes:
   - cisco-catalyst-9800
   - cisco-firepower-1000
   - generic-panels
+  - cisco-catalyst-8300
+  - cisco-catalyst-3650
+  - fortinet-fortigate
+  - sonicwall-nsa
+  - netgear-switches
+  - hpe-aruba-5400

@@ -1,0 +1,8 @@
+---
+manufacturer: Cisco
+model: C3650-STACK-KIT
+part_number: C3650-STACK-KIT
+comments: 'Catalyst 3650 StackWise-160 stack adapter (C3650-STACK-KIT: two stack adapters and one 50 cm STACK-T2 cable, 0.11 kg). HIG: the adapters replace the two StackWise adapter blanks fitted by default and are held by a Torx T15 screw. Model: the pack''s C9200 StackWise-160 adapter (same design in Cisco''s HIG figures 2-12 / 2-13 and the product photos), +-2 mm.'
+interfaces:
+  - name: StackPort{module}
+    type: cisco-stackwise-160

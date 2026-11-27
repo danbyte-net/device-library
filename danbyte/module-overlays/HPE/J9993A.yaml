@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/HPE/J9993A.yaml
+meta:
+  category: module
+  module_kind: line-card
+  family: Aruba 5400R zl2
+  summary: 8-port 1G/10GbE SFP+ v3 zl2 line module for 5400R zl2 switches.
+  links:
+    - kind: datasheet
+      title: QuickSpecs HPE Aruba Networking 5400R zl2 Switch Series (c04293383)
+      url: https://support.hpe.com/hpesc/public/api/document/c04293383
+    - kind: install-guide
+      title: HP 5400R zl2 Switches Installation and Getting Started Guide (5998-7652)
+      url: https://support.hpe.com/hpesc/public/api/document/emr_na-c04655001?docLocale=en_US
+    - kind: other
+      title: 'Aruba 5400R zl2 - Product Information Reference (modules): Aruba 8-port 1G/10 GbE SFP+ MACsec v3 zl2 module'
+      url: https://support.hpe.com/hpesc/public/docDisplay?docId=c04334041&page=GUID-11226C8F-22DD-49A6-9C18-64BC9842ED6D.html&docLocale=en_US
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/module-types/HPE/Aruba-J9993A.yaml
+
+model3d:
+  file: assets/HPE/J9993A.glb
+  far: assets/HPE/J9993A.far.glb
+  renders:
+    front: assets/HPE/J9993A.front.webp
+    rear: assets/HPE/J9993A.rear.webp
+    iso: assets/HPE/J9993A.iso.webp
+    model_sha256: 95b6d6e14b8d12222b524aede955694f3a2eb794f170d80db123e70607776f6c
+  leds:
+    port:*: {source: interface.oper_status}
+    MODE_1: {source: none}
+    MODE_2: {source: none}
+    MODE_3: {source: none}
+    MODE_4: {source: none}
+    MODE_5: {source: none}
+    MODE_6: {source: none}
+    MODE_7: {source: none}
+    MODE_8: {source: none}
