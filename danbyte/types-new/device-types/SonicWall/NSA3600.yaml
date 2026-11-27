@@ -7,7 +7,7 @@ u_height: 1
 is_full_depth: true
 weight: 6.15
 weight_unit: kg
-comments: '[Dell SonicWALL Network Security Appliance (NSA) Series data sheet](https://i.dell.com/sites/doccontent/shared-content/data-sheets/en/Documents/sonicwall-network-security-appliance-series-datasheet-68229.pdf). SKU 01-SSC-3850 (firewall only). Fixed power supply and two fixed fans; the rear expansion slot is for future use (data sheet). Ships with a rack mounting rail kit (Getting Started Guide, package contents).'
+comments: '[Dell SonicWALL Network Security Appliance (NSA) Series data sheet](https://i.dell.com/sites/doccontent/shared-content/data-sheets/en/Documents/sonicwall-network-security-appliance-series-datasheet-68229.pdf). SKU 01-SSC-3850 (firewall only). Fixed power supply and two fixed fans; the rear expansion slot is for future use (data sheet). Ships with a rack mounting rail kit (Getting Started Guide, package contents); rail kit part number not published.'
 console-ports:
   - name: Console
     type: rj-45

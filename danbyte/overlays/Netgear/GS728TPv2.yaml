@@ -34,7 +34,7 @@ model3d:
     front: assets/Netgear/GS728TPv2.front.webp
     rear: assets/Netgear/GS728TPv2.rear.webp
     iso: assets/Netgear/GS728TPv2.iso.webp
-    model_sha256: 1a5791c541fcf977ea89234b3fb8a0b112004844d92b95b77b6a2cda900ec143
+    model_sha256: 79ed3de911253322ef844e52e6f735e181bfb5e98a1d3c37c5b360e6ff9f16a6
 
 # rack_mount (spec 1.11): HIG Step 4, the supplied L brackets on the sides, ears flush with the front
 rack_mount:

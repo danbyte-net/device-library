@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: cisco-catalyst-3650
 name: Cisco Catalyst 3650
-version: 1.6.51
+version: 1.6.52
 license: CC-BY-4.0
 author: Christian Rose
 description: Catalyst 3650 switches with their power supplies, fan and stack kit.

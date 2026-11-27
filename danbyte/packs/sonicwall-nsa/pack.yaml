@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: sonicwall-nsa
 name: SonicWall NSA
-version: 1.6.51
+version: 1.6.52
 license: CC-BY-4.0
 author: Christian Rose
 description: SonicWall NSA firewalls.
