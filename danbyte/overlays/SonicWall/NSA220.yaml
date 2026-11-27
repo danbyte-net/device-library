@@ -1,7 +1,6 @@
 # yaml-language-server: $schema=../../schema/overlay.schema.json
-# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
 format: danbyte-library/v1
-upstream: danbyte/types-new/device-types/SonicWall/NSA220.yaml
+upstream: device-types/SonicWall/NSa220.yaml
 meta:
   category: firewall
   roles: [security, edge]
@@ -19,6 +18,9 @@ meta:
       title: SonicWall - Active Retirement Mode for SonicWall NSA 220 Series
       url: https://www.sonicwall.com/support/product-notification/sonicwall-active-retirement-mode-for-sonicwall-nsa-220-series/170608603255133/
 
+# comments with the data sheet link and SKU
+comments: '[Dell SonicWALL Network Security Appliance (NSA) Series data sheet](https://i.dell.com/sites/doccontent/shared-content/data-sheets/en/Documents/sonicwall-network-security-appliance-series-datasheet-68229.pdf). SKU 01-SSC-9750 (firewall only). Desktop unit, no fan, 36 W external adapter (rear label 12V 3A, 36W); a 1U rack mount kit is sold separately.'
+
 # real size (REVIEW-22 answer 2): data sheet 7.125 x 1.5 x 10.5 in; 10.5 in is the width (product photo)
 width_mm: 266.7
 
@@ -27,6 +29,9 @@ height_mm: 38.1
 
 # depth
 depth_mm: 181.0
+power-ports:
+  DC: {maximum_draw: 11}
+
 model3d:
   file: assets/SonicWall/NSA220.glb
   far: assets/SonicWall/NSA220.far.glb
