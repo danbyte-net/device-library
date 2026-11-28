@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=../../schema/module-overlay.schema.json
 # Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
 format: danbyte-library/v1
-upstream: danbyte/types-new/module-types/Dell/ME5-CTRL-ISCSI-SFP28.yaml
+upstream: danbyte/types-new/module-types/Dell/403-BCQU.yaml
 meta:
   category: module
   module_kind: other

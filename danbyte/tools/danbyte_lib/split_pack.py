@@ -30,7 +30,7 @@ from pathlib import Path
 
 from . import merge as m
 from . import yamlio
-from .repo import Repo
+from .repo import Repo, slugify
 
 COMMENT = re.compile(r"^\s*#\s*danbyte(?:\s+overlay)?\s*:\s*(.+?)\s*$", re.I)
 TOP_KEY = re.compile(r"^([A-Za-z0-9_-]+)\s*:")
@@ -464,7 +464,14 @@ def split_pack(repo: Repo, folder: Path, *, rules_path: Path | None = None,
                 up_rel = _upstream_by_slug(repo, sub, doc) or up_rel
             comments = []
             if not (repo.root / up_rel).is_file():
-                base_rel = f"danbyte/types-new/{sub}/{vendor}/{src.name}"
+                # Named as the upstream library names a module type's file:
+                # its part number, else its model as a slug.
+                base_name = src.name
+                if kind == "module":
+                    pn = str(doc.get("part_number") or "").strip()
+                    base_name = (pn if pn and "/" not in pn
+                                 else slugify(str(doc.get("model") or src.stem))) + src.suffix
+                base_rel = f"danbyte/types-new/{sub}/{vendor}/{base_name}"
                 base = unpowered(port_mappings(m.strip_danbyte(doc)))
                 base_text = "---\n" + yamlio.dump(base, flow=False, spacing=False)
                 if not dry_run:

@@ -1,0 +1,12 @@
+---
+manufacturer: Intel
+model: E810-XXVDA2-FH
+part_number: E810XXVDA2
+comments: 'Intel Ethernet Network Adapter E810-XXVDA2 with the full-height bracket (retail box: both brackets)'
+interfaces:
+  - name: Ethernet/{module}/1
+    type: 25gbase-x-sfp28
+    mgmt_only: false
+  - name: Ethernet/{module}/2
+    type: 25gbase-x-sfp28
+    mgmt_only: false

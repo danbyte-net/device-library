@@ -1,0 +1,12 @@
+---
+manufacturer: Intel
+model: X550-T2-FH
+part_number: X550T2
+comments: 'Intel Ethernet Converged Network Adapter X550-T2 with the full-height bracket (Intel PCN 816910: X550T2G1P5 ships with the low-profile bracket installed and the full-height bracket loose)'
+interfaces:
+  - name: Ethernet/{module}/1
+    type: 10gbase-t
+    mgmt_only: false
+  - name: Ethernet/{module}/2
+    type: 10gbase-t
+    mgmt_only: false

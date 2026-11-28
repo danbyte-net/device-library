@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=../../schema/module-overlay.schema.json
 # Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
 format: danbyte-library/v1
-upstream: danbyte/types-new/module-types/Intel/E810-XXVDA2-FH.yaml
+upstream: danbyte/types-new/module-types/Intel/E810XXVDA2.yaml
 meta:
   category: module
   module_kind: network-module

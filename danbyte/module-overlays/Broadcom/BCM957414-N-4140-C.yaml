@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=../../schema/module-overlay.schema.json
 # Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
 format: danbyte-library/v1
-upstream: danbyte/types-new/module-types/Broadcom/BCM957414-N-4140-C.yaml
+upstream: danbyte/types-new/module-types/Broadcom/BCM957414N4140C.yaml
 meta:
   category: module
   module_kind: network-module
