@@ -22,12 +22,12 @@ meta:
 console-ports:
   remove:
     - name: Rear Serial
-      why: 'upstream console-port ''Rear Serial'' (de-9) left out: Dell''s ISM rear view (figure + callout table) shows no serial port on this model; add it back with its anchor once a photo shows one'
+      why: 'upstream console-ports list left out (its one item ''Rear Serial'', de-9): Dell''s ISM rear view (figure + callout table) shows no serial port on this model; add it back with its anchor once a photo shows one'
 
 module-bays:
   remove:
     - name: NUMA 1 - PCIe slot 7 - FH
-      why: 'upstream bays ''NUMA 1 - PCIe slot 7 - FH'' / ''... slot 8 - FH'' left out: Dell''s R750xs rear figure (ISM fig. 8, table 5) and TS slot table show six PCIe slots (the R750''s eight were copied upstream) front drive configuration modelled: 16 x 2.5-inch SAS/SATA + 8 x 2.5-inch NVMe (ISM front view figure 1; the R750''s 24 x 2.5-inch drawing); drive carriers modelled in place (filled), no drive bays the optional front bezel is not modelled (Dell chassis dimensions: Za 22.00 mm without bezel)…'
+      why: 'upstream bay ''NUMA 1 - PCIe slot 7 - FH'' left out: Dell''s R750xs rear figure (ISM fig. 8, table 5) and TS slot table show six PCIe slots (the R750''s eight were copied upstream) upstream bay ''NUMA 1 - PCIe slot 8 - FH'' left out: six PCIe slots, as slot 7 above front drive configuration modelled: 16 x 2.5-inch SAS/SATA + 8 x 2.5-inch NVMe (ISM front view figure 1; the R750''s 24 x 2.5-inch drawing); drive carriers modelled in place (filled), no drive bays the optional front bezel is not modelled…'
     - name: NUMA 1 - PCIe slot 8 - FH
       why: Dell's R750xs rear figure (ISM fig. 8, table 5) and slot table show six PCIe slots; upstream copied the R750's eight
   PSU-1:
@@ -124,7 +124,7 @@ model3d:
     front: assets/Dell/R750xs.front.webp
     rear: assets/Dell/R750xs.rear.webp
     iso: assets/Dell/R750xs.iso.webp
-    model_sha256: fbe2285f8ea3a65921ca5ab7dc316cf6c4e992af1995d1f9699376adb5a301e0
+    model_sha256: ad1ebdd2aab392ce7f350e04ad07864ce1070adb3c3f7ce9afda6112f2d8801c
     modules: {PSU-1: DELL-PSU-60MM-1400W, PSU-2: DELL-PSU-60MM-1400W, NUMA 0 - OCP slot 1: BCM957414N4140C}
 
 # rack_mount (spec 1.11; owner rule for servers): the control-panel flanks are the ears, front of the flanks at

@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Palo Alto Networks/pa-3200-650w-dc-power-supply.yaml
+meta:
+  category: module
+  module_kind: psu
+  family: PA-3200 Series
+  summary: 650 W DC (-48 to -60 V) hot-swap power supply for PA-3200 Series firewalls.
+  links:
+    - kind: install-guide
+      title: PA-3200 Series Next-Gen Firewall Hardware Reference
+      url: https://docs.paloaltonetworks.com/hardware/pa-3200-hardware-reference
+  sources:
+    - https://docs.paloaltonetworks.com/content/dam/techdocs/en_US/pdf/hardware/pa-3200-series/pa-3200-hardware-reference.pdf
+
+model3d:
+  file: assets/PaloAlto/PA-3200-PSU-650W-DC.glb
+  far: assets/PaloAlto/PA-3200-PSU-650W-DC.far.glb
+  leds:
+    DC_OK: {source: module.status}
+    PS_OK: {source: module.status}
+  renders:
+    front: assets/PaloAlto/PA-3200-PSU-650W-DC.front.webp
+    rear: assets/PaloAlto/PA-3200-PSU-650W-DC.rear.webp
+    iso: assets/PaloAlto/PA-3200-PSU-650W-DC.iso.webp

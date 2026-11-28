@@ -1,7 +1,7 @@
 """Every type converted from the cisco-catalyst-9500 pack merges back to the
 pack's own (edit-in-place) YAML: same interfaces, bays, power ports, model3d.
 
-The fixtures are the pack's YAML files as split (v1.6.54), copied unchanged."""
+The fixtures are the pack's YAML files as split (v1.6.55), copied unchanged."""
 import json
 
 import pytest

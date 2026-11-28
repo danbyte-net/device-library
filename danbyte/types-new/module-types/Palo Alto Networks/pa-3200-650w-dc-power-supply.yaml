@@ -1,0 +1,9 @@
+---
+manufacturer: Palo Alto Networks
+model: PA-3200 650W DC power supply
+comments: '650 W DC hot-swap power supply for the PA-3220 / PA-3250 / PA-3260 (HWR p.28-29, 39-41, 47): -48 to -60 VDC, two-terminal block (ring lugs) under a clear plastic cover, ground screw, handle, release lever, input and output LEDs. Face from the straight-on DC back-panel figure HWR p.29; depth 220 mm ESTIMATE.'
+power-ports:
+  - name: PS{module}
+    type: dc-terminal
+    maximum_draw: 228
+    allocated_draw: 195

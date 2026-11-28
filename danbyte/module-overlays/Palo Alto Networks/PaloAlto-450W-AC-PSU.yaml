@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Palo Alto Networks/450w-ac-power-supply-(pa-3400---pa-1400-series).yaml
+meta:
+  category: module
+  module_kind: psu
+  roles: [power]
+  family: PA-3400 Series / PA-1400 Series
+  summary: 450 W AC hot-replaceable power supply with C14 inlet, input and output LEDs, pull handle and release lever.
+  links:
+    - kind: install-guide
+      title: PA-3400 Series Next-Gen Firewall Hardware Reference
+      url: https://docs.paloaltonetworks.com/content/dam/techdocs/en_US/pdf/hardware/pa-3400-series/pa-3400-hardware-reference.pdf
+    - kind: install-guide
+      title: PA-1400 Series Next-Gen Firewall Hardware Reference
+      url: https://docs.paloaltonetworks.com/content/dam/techdocs/en_US/pdf/hardware/pa-1400-series/pa-1400-hardware-reference.pdf
+
+model3d:
+  file: assets/PaloAlto/PaloAlto-450W-AC-PSU.glb
+  far: assets/PaloAlto/PaloAlto-450W-AC-PSU.far.glb
+  renders:
+    front: assets/PaloAlto/PaloAlto-450W-AC-PSU.front.webp
+    rear: assets/PaloAlto/PaloAlto-450W-AC-PSU.rear.webp
+    iso: assets/PaloAlto/PaloAlto-450W-AC-PSU.iso.webp
+    model_sha256: e1b5fbd421edec8264d69d6746546e73eb489c7121fd5797091383ec3e1f6169
+  leds:
+    AC_OK: {source: module.status}
+    PS_OK: {source: module.status}

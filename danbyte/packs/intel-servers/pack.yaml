@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: intel-servers
 name: Intel server systems
-version: 1.6.54
+version: 1.6.55
 license: CC-BY-4.0
 author: Christian Rose
 description: Intel server systems with their power supplies.

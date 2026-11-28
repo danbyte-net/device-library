@@ -27,7 +27,7 @@ model3d:
     front: assets/HPE/J9993A.front.webp
     rear: assets/HPE/J9993A.rear.webp
     iso: assets/HPE/J9993A.iso.webp
-    model_sha256: 95b6d6e14b8d12222b524aede955694f3a2eb794f170d80db123e70607776f6c
+    model_sha256: 5a2c154738a914bf98c064b05d53371093f0eec485597a8ea14d9777c94a2547
   leds:
     port:*: {source: interface.oper_status}
     MODE_1: {source: none}

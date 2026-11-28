@@ -23,13 +23,13 @@ meta:
 
 module-bays:
   PSU-1:
-    modules: [ME5-PCM-580W]
+    modules: [PowerVault ME5 2U Power Cooling Module 580W]
   PSU-2:
-    modules: [ME5-PCM-580W]
+    modules: [PowerVault ME5 2U Power Cooling Module 580W]
   Controller 1:
-    modules: [ME5-CTRL-ISCSI-SFP28, ME5-CTRL-FC32-SFP, ME5-CTRL-ISCSI-10GBT, ME5-CTRL-SAS-MSHD]
+    modules: [403-BCQU, 403-BCQV, 403-BCQT, 403-BCQP]
   Controller 2:
-    modules: [ME5-CTRL-ISCSI-SFP28, ME5-CTRL-FC32-SFP, ME5-CTRL-ISCSI-10GBT, ME5-CTRL-SAS-MSHD]
+    modules: [403-BCQU, 403-BCQV, 403-BCQT, 403-BCQP]
 
 model3d:
   file: assets/Dell/ME5024.glb

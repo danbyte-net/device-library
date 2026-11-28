@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: fortinet-fortigate
 name: Fortinet FortiGate
-version: 1.6.54
+version: 1.6.55
 license: CC-BY-4.0
 author: Christian Rose
 description: FortiGate firewalls.

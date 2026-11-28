@@ -51,7 +51,7 @@ model3d:
     front: assets/Dell/R350.front.webp
     rear: assets/Dell/R350.rear.webp
     iso: assets/Dell/R350.iso.webp
-    model_sha256: ab748b7a87a8a9ba79d57b167366a7c5e44d0b86c814c2b3adad6f1c6179b178
+    model_sha256: d1c360bbacfe5edb047a4267c34b6e384041780f4c80203ea15136cfe35c5df0
     modules: {PSU-1: DELL-PSU-R350-600W, PSU-2: DELL-PSU-R350-600W}
 
 # rack_mount (spec 1.11; owner rule for servers): the ear blocks / control-panel flanks are the ears, front

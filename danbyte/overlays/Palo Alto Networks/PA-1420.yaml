@@ -1,0 +1,88 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Palo Alto Networks/PA-1420.yaml
+meta:
+  category: firewall
+  roles: [security]
+  family: PA-1400 Series
+  summary: 1RU next-generation firewall with 4 x 1G, 4 x 5G and 4 x 5G PoE RJ45, 2 x 1G SFP and 8 x 10G SFP+, HSCI, HA1-A/B, MGT and two 450 W PSU slots.
+  links:
+    - kind: datasheet
+      title: Palo Alto Networks PA-1400 Series Data Sheet
+      url: https://www.paloaltonetworks.com/apps/pan/public/downloadResource?pagePath=/content/pan/en_US/resources/datasheets/pa-1400-series
+    - kind: install-guide
+      title: PA-1400 Series Next-Gen Firewall Hardware Reference
+      url: https://docs.paloaltonetworks.com/content/dam/techdocs/en_US/pdf/hardware/pa-1400-series/pa-1400-hardware-reference.pdf
+    - kind: install-guide
+      title: PA-1400 Series Quick Start Guide
+      url: https://docs.paloaltonetworks.com/content/dam/techdocs/en_US/pdf/hardware/pa-1400-series/pa-1400-quick-start.pdf
+  sources:
+    - https://www.paloaltonetworks.com/services/support/end-of-life-announcements/hardware-end-of-life-dates
+    - https://raw.githubusercontent.com/netbox-community/devicetype-library/master/device-types/Palo%20Alto%20Networks/PA-1420.yaml
+
+# weight (HW ref Physical Specifications: firewall weight 14 lbs (6.35 kg); data sheet 15.5 lb); upstream had 7
+weight: 6.35
+console-ports:
+  add:
+    - name: console-micro-usb
+      type: usb-micro-b
+      why: the front micro-USB console (HW ref front panel, "CONSOLE port (Micro USB)")
+
+module-bays:
+  PS1:
+    modules: [450W AC Power Supply (PA-3400 / PA-1400 Series)]
+    why: 'PSU bays (HW ref back panel: PS1 right, PS2 left seen from the rear; ships with one 450 W AC supply in PS2 and a blank in PS1); AC module by model, no'
+  PS2:
+    modules: [450W AC Power Supply (PA-3400 / PA-1400 Series)]
+
+# model3d (spec section 8)
+model3d:
+  file: assets/PaloAlto/PA-1420.glb
+  far: assets/PaloAlto/PA-1420.far.glb
+  empty: filler
+  renders:
+    front: assets/PaloAlto/PA-1420.front.webp
+    rear: assets/PaloAlto/PA-1420.rear.webp
+    iso: assets/PaloAlto/PA-1420.iso.webp
+    model_sha256: b0ea7714f1c9f471fa55114c3c73aebd58bf386b5b816007ba20b3cc5ebaf5d4
+    modules: {PS2: 450W AC Power Supply (PA-3400 / PA-1400 Series)}
+  leds:
+    SERVICE: {source: device.locate}
+    POWER: {source: device.status}
+    STATUS: {source: device.status}
+    HA: {source: none}
+    TEMP: {source: none}
+    ALARM:
+      source: device.status
+      only: [red]
+    FANS: {source: none}
+    PS1:
+      source: modules.status
+      bays: [PS1]
+    PS2:
+      source: modules.status
+      bays: [PS2]
+    SPEED_ethernet1/13: {source: none}
+    SPEED_ethernet1/14: {source: none}
+    SPEED_ethernet1/15: {source: none}
+    SPEED_ethernet1/16: {source: none}
+    SPEED_ethernet1/17: {source: none}
+    SPEED_ethernet1/18: {source: none}
+    SPEED_ethernet1/19: {source: none}
+    SPEED_ethernet1/20: {source: none}
+    SPEED_ethernet1/21: {source: none}
+    SPEED_ethernet1/22: {source: none}
+    SPEED_hsci: {source: none}
+    SPEED_ha1-a: {source: none}
+    SPEED_ha1-b: {source: none}
+    SPEED_management: {source: none}
+    CON_L: {source: none}
+    CON_R: {source: none}
+    port:*: {source: interface.oper_status}
+
+# rack_mount (spec 1.11): the four-post kit (PAN-1RU-RACK-KIT-4POST, HW ref) ships in the box (QSG); ears in the
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: fixed

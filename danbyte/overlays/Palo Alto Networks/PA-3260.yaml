@@ -1,0 +1,115 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+# Pack note: upstream NetBox devicetype-library PA-3260.yaml as the base (REVIEW-31 4a); additions marked
+format: danbyte-library/v1
+upstream: device-types/Palo Alto Networks/PA-3260.yaml
+meta:
+  category: firewall
+  roles: [security]
+  family: PA-3200 Series
+  summary: 2U next-generation firewall with 12 x 1G RJ45, 8 x 1G/10G SFP+, 4 x 40G QSFP+, HA1 / HSCI / MGT ports, two hot-swap 650 W PSUs and a rear fan tray.
+  lifecycle:
+    end_of_sale: '2023-08-31'
+    end_of_support: '2028-08-31'
+    source: https://www.paloaltonetworks.com/services/support/end-of-life-announcements/hardware-end-of-life-dates
+  links:
+    - kind: datasheet
+      title: PA-3200 Series data sheet
+      url: https://www.paloaltonetworks.com/resources/datasheets/pa-3200-series
+    - kind: install-guide
+      title: PA-3200 Series Next-Gen Firewall Hardware Reference
+      url: https://docs.paloaltonetworks.com/hardware/pa-3200-hardware-reference
+    - kind: eol-notice
+      title: Hardware End-of-Life Dates
+      url: https://www.paloaltonetworks.com/services/support/end-of-life-announcements/hardware-end-of-life-dates
+    - kind: eol-notice
+      title: End-of-Sale announcements (End-of-Sale for PA-3200 Series)
+      url: https://www.paloaltonetworks.com/services/support/end-of-life-announcements/end-of-sale
+  sources:
+    - https://docs.paloaltonetworks.com/content/dam/techdocs/en_US/pdf/hardware/pa-3200-series/pa-3200-hardware-reference.pdf
+    - https://github.com/netbox-community/devicetype-library/blob/master/device-types/Palo%20Alto%20Networks/PA-3260.yaml
+
+# weight (HWR p.46: 29 lb / 13.15 kg) and airflow (HWR p.48: front-to-back)
+weight: 13.15
+weight_unit: kg
+airflow: front-to-rear
+power-ports:
+  remove:
+    - name: PS1
+      why: the PA-3200's inlets are on its two hot-swap PSUs (Palo Alto hardware reference p.17), so they come with the PSU modules in bays PS1 and PS2
+    - name: PS2
+      why: the PA-3200's inlets are on its two hot-swap PSUs (Palo Alto hardware reference p.17), so they come with the PSU modules in bays PS1 and PS2
+
+console-ports:
+  add:
+    - name: console-usb
+      type: usb-micro-b
+      why: the front micro-USB console (HWR p.14-16 callout 9; DS p.6 "micro USB (1)")
+
+module-bays:
+  add:
+    - name: PS1
+      position: '1'
+      modules: [PA-3200 650W AC power supply, PA-3200 650W DC power supply]
+      why: the left hot-swap PSU slot seen from the rear (Palo Alto hardware reference p.17)
+    - name: PS2
+      position: '2'
+      modules: [PA-3200 650W AC power supply, PA-3200 650W DC power supply]
+      why: the left hot-swap PSU slot seen from the rear (Palo Alto hardware reference p.17)
+    - name: Fan Tray
+      position: '1'
+      modules: [PA-3200 fan tray]
+      why: the left hot-swap PSU slot seen from the rear (Palo Alto hardware reference p.17)
+
+# model3d (spec section 8)
+model3d:
+  file: assets/PaloAlto/PA-3260.glb
+  far: assets/PaloAlto/PA-3260.far.glb
+  empty: hole
+  leds:
+    PWR: {source: device.status}
+    STS: {source: device.status}
+    HA: {source: none}
+    TMP: {source: none}
+    ALM:
+      source: device.status
+      only: [red]
+    FANS:
+      source: modules.status
+      bays: [Fan Tray]
+    PWR1:
+      source: modules.status
+      bays: [PS1]
+    PWR2:
+      source: modules.status
+      bays: [PS2]
+    SSD_A: {source: none}
+    SSD_B: {source: none}
+    ACT_ethernet1/1: {source: none}
+    ACT_ethernet1/2: {source: none}
+    ACT_ethernet1/3: {source: none}
+    ACT_ethernet1/4: {source: none}
+    ACT_ethernet1/5: {source: none}
+    ACT_ethernet1/6: {source: none}
+    ACT_ethernet1/7: {source: none}
+    ACT_ethernet1/8: {source: none}
+    ACT_ethernet1/9: {source: none}
+    ACT_ethernet1/10: {source: none}
+    ACT_ethernet1/11: {source: none}
+    ACT_ethernet1/12: {source: none}
+    ACT_ha1-a: {source: none}
+    ACT_ha1-b: {source: none}
+    ACT_management: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/PaloAlto/PA-3260.front.webp
+    rear: assets/PaloAlto/PA-3260.rear.webp
+    iso: assets/PaloAlto/PA-3260.iso.webp
+    model_sha256: 2dcb64b98e8d7141a2bd778b37ee7d2f0bd3a93aae4ca58c20f7fb14382450b2
+    modules: {PS1: PA-3200 650W AC power supply, PS2: PA-3200 650W AC power supply, Fan Tray: PA-3200 fan tray}
+
+# rack_mount (spec 1.11): two brackets ship in the box, fitted in the front-mount or mid-mount position
+rack_mount:
+  ears: true
+  positions: {front: 0, mid: 178}
+  default: front
+  rails: none

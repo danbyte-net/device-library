@@ -19,7 +19,7 @@ meta:
 console-ports:
   remove:
     - name: Rear Serial
-      why: 'upstream console-port ''Rear Serial'' (de-9) left out: Dell''s ISM rear view shows no serial port on this model (an optional part at most); add it back with its anchor once a photo shows it'
+      why: 'upstream console-ports list left out (its one item ''Rear Serial'', de-9): Dell''s ISM rear view shows no serial port on this model (an optional part at most); add it back with its anchor once a photo shows it'
 
 module-bays:
   PSU-1:
@@ -109,7 +109,7 @@ model3d:
     front: assets/Dell/R760.front.webp
     rear: assets/Dell/R760.rear.webp
     iso: assets/Dell/R760.iso.webp
-    model_sha256: 8313b7ae9049c319bb41e7982eb9acd70da7e42b6ad708fa514aeda52461b79a
+    model_sha256: bae9b2197ec2142758fbba36fc567962b1ee604183c3fef9275c253e4144b1d9
     modules:
       PSU-1: DELL-PSU-86MM-2400W
       PSU-2: DELL-PSU-86MM-2400W

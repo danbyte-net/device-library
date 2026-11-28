@@ -19,13 +19,13 @@ meta:
 interfaces:
   remove:
     - name: EMM1 SAS Port 1
-      why: 'the upstream chassis interfaces "EMM1 SAS Port 1", "EMM1 SAS Port 2", "EMM2 SAS Port 1", "EMM2 SAS Port 2" (type other) moved to the EMM module type MD2412-EMM as "EMM{module} SAS Port 1/2": bays EMM1 / EMM2 (position 1 / 2) give the same four names once both EMMs are installed (owner: EMMs are hot-swap modules)'
+      why: 'upstream interfaces list left out (its four items "EMM1 SAS Port 1", "EMM1 SAS Port 2", "EMM2 SAS Port 1", "EMM2 SAS Port 2", type other): they belong to the EMMs, so the EMM module type (''PowerVault MD2412 EMM'') has them as "EMM{module} SAS Port 1/2"; bays EMM1 / EMM2 (position 1 / 2) give the same four names once both EMMs are installed (owner: EMMs are hot-swap modules)'
     - name: EMM1 SAS Port 2
-      why: 'the upstream chassis interfaces "EMM1 SAS Port 1", "EMM1 SAS Port 2", "EMM2 SAS Port 1", "EMM2 SAS Port 2" (type other) moved to the EMM module type MD2412-EMM as "EMM{module} SAS Port 1/2": bays EMM1 / EMM2 (position 1 / 2) give the same four names once both EMMs are installed (owner: EMMs are hot-swap modules)'
+      why: 'upstream interfaces list left out (its four items "EMM1 SAS Port 1", "EMM1 SAS Port 2", "EMM2 SAS Port 1", "EMM2 SAS Port 2", type other): they belong to the EMMs, so the EMM module type (''PowerVault MD2412 EMM'') has them as "EMM{module} SAS Port 1/2"; bays EMM1 / EMM2 (position 1 / 2) give the same four names once both EMMs are installed (owner: EMMs are hot-swap modules)'
     - name: EMM2 SAS Port 1
-      why: 'the upstream chassis interfaces "EMM1 SAS Port 1", "EMM1 SAS Port 2", "EMM2 SAS Port 1", "EMM2 SAS Port 2" (type other) moved to the EMM module type MD2412-EMM as "EMM{module} SAS Port 1/2": bays EMM1 / EMM2 (position 1 / 2) give the same four names once both EMMs are installed (owner: EMMs are hot-swap modules)'
+      why: 'upstream interfaces list left out (its four items "EMM1 SAS Port 1", "EMM1 SAS Port 2", "EMM2 SAS Port 1", "EMM2 SAS Port 2", type other): they belong to the EMMs, so the EMM module type (''PowerVault MD2412 EMM'') has them as "EMM{module} SAS Port 1/2"; bays EMM1 / EMM2 (position 1 / 2) give the same four names once both EMMs are installed (owner: EMMs are hot-swap modules)'
     - name: EMM2 SAS Port 2
-      why: 'the upstream chassis interfaces "EMM1 SAS Port 1", "EMM1 SAS Port 2", "EMM2 SAS Port 1", "EMM2 SAS Port 2" (type other) moved to the EMM module type MD2412-EMM as "EMM{module} SAS Port 1/2": bays EMM1 / EMM2 (position 1 / 2) give the same four names once both EMMs are installed (owner: EMMs are hot-swap modules)'
+      why: 'upstream interfaces list left out (its four items "EMM1 SAS Port 1", "EMM1 SAS Port 2", "EMM2 SAS Port 1", "EMM2 SAS Port 2", type other): they belong to the EMMs, so the EMM module type (''PowerVault MD2412 EMM'') has them as "EMM{module} SAS Port 1/2"; bays EMM1 / EMM2 (position 1 / 2) give the same four names once both EMMs are installed (owner: EMMs are hot-swap modules)'
 
 module-bays:
   PSU A:
@@ -37,13 +37,13 @@ module-bays:
       position: '1'
       label: EMM 1
       description: EMM-A / Slot 1 (left seen from the rear)
-      modules: [MD2412-EMM]
+      modules: [PowerVault MD2412 EMM]
       why: 'EMM bays (MD24OM fig. 2: "EMM 1 (EMM-A/Slot1)" left, "EMM 2 (EMM-B/Slot2)" right seen from the rear;'
     - name: EMM2
       position: '2'
       label: EMM 2
       description: EMM-B / Slot 2 (right seen from the rear)
-      modules: [MD2412-EMM]
+      modules: [PowerVault MD2412 EMM]
       why: 'EMM bays (MD24OM fig. 2: "EMM 1 (EMM-A/Slot1)" left, "EMM 2 (EMM-B/Slot2)" right seen from the rear;'
 
 model3d:
@@ -86,7 +86,7 @@ model3d:
     front: assets/Dell/MD2412.front.webp
     rear: assets/Dell/MD2412.rear.webp
     iso: assets/Dell/MD2412.iso.webp
-    model_sha256: 39a6399fe9a4a77b8aa0d87489736cc7d7949377a0bbb10896b716cad68668e3
+    model_sha256: b7bd9169bfff647c5825441a22bf3b9aa1b6d4430e0d31ad9b64d117b8de9c32
     modules: {EMM1: PowerVault MD2412 EMM, EMM2: PowerVault MD2412 EMM, PSU A: 4H60R, PSU B: 4H60R}
 
 # rack_mount (spec 1.11): MD24OM 'Installing rails' / 'Installing the enclosure': the rails are fixed to

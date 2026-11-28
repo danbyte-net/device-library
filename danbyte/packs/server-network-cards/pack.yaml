@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: server-network-cards
 name: Server network cards
-version: 1.6.54
+version: 1.6.55
 license: CC-BY-4.0
 author: Christian Rose
 description: OCP 3.0, Dell rNDC and PCIe network cards from Dell, Intel and Broadcom, for any server with a matching slot.

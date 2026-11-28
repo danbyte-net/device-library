@@ -28,7 +28,7 @@ model3d:
     front: assets/HPE/J9546A.front.webp
     rear: assets/HPE/J9546A.rear.webp
     iso: assets/HPE/J9546A.iso.webp
-    model_sha256: 6795be9d5bae0d85bbc0aa131276717f51e2be4fc8533eaeb817f148d6951ad5
+    model_sha256: 4254bc3500a3b2043d1ecec90495f2eab494322481c19840aa8898bfd834cb90
   leds:
     port:*: {source: interface.oper_status}
     MODE_1: {source: none}
