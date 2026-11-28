@@ -105,6 +105,17 @@ def comment_whys(text: str) -> tuple[dict[tuple[str, str], str], dict[str, str],
     return whys, key_whys, header
 
 
+def module_slug(model: str) -> str:
+    """A module type's model as upstream's tests spell its file name
+    (tests/device_types.py, ModuleType._slugify_model)."""
+    out = model.casefold()
+    for old, new in ((" ", "-"), ("sfp+", "sfpp"), ("poe+", "poep"), ("-+", "-plus"),
+                     ("+", "-plus-"), ("_", "-"), ("&", "-and-"), ("!", ""), ("/", "-"),
+                     (",", ""), ("'", ""), ("*", "-")):
+        out = out.replace(old, new)
+    return out[:-1] if out.endswith("-") else out
+
+
 def comment_blocks(text: str) -> list[str]:
     """Every run of ``# danbyte:`` comment lines, joined."""
     out, cur = [], []
@@ -470,7 +481,7 @@ def split_pack(repo: Repo, folder: Path, *, rules_path: Path | None = None,
                 if kind == "module":
                     pn = str(doc.get("part_number") or "").strip()
                     base_name = (pn if pn and "/" not in pn
-                                 else slugify(str(doc.get("model") or src.stem))) + src.suffix
+                                 else module_slug(str(doc.get("model") or src.stem))) + src.suffix
                 base_rel = f"danbyte/types-new/{sub}/{vendor}/{base_name}"
                 base = unpowered(port_mappings(m.strip_danbyte(doc)))
                 base_text = "---\n" + yamlio.dump(base, flow=False, spacing=False)

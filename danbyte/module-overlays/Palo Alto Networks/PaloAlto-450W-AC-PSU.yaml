@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=../../schema/module-overlay.schema.json
 # Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
 format: danbyte-library/v1
-upstream: danbyte/types-new/module-types/Palo Alto Networks/450w-ac-power-supply-pa-3400-pa-1400-series.yaml
+upstream: danbyte/types-new/module-types/Palo Alto Networks/450w-ac-power-supply-(pa-3400---pa-1400-series).yaml
 meta:
   category: module
   module_kind: psu
