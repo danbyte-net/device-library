@@ -124,7 +124,7 @@ model3d:
     front: assets/Dell/R750xs.front.webp
     rear: assets/Dell/R750xs.rear.webp
     iso: assets/Dell/R750xs.iso.webp
-    model_sha256: ad1ebdd2aab392ce7f350e04ad07864ce1070adb3c3f7ce9afda6112f2d8801c
+    model_sha256: c6cd41020bf827cc93d3c97b666a1792c58c27e3e9d9de7970ce58f071ae4e42
     modules: {PSU-1: DELL-PSU-60MM-1400W, PSU-2: DELL-PSU-60MM-1400W, NUMA 0 - OCP slot 1: BCM957414N4140C}
 
 # rack_mount (spec 1.11; owner rule for servers): the control-panel flanks are the ears, front of the flanks at

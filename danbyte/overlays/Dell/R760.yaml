@@ -109,7 +109,7 @@ model3d:
     front: assets/Dell/R760.front.webp
     rear: assets/Dell/R760.rear.webp
     iso: assets/Dell/R760.iso.webp
-    model_sha256: bae9b2197ec2142758fbba36fc567962b1ee604183c3fef9275c253e4144b1d9
+    model_sha256: 248db1ca4d5ff4c030e2aaaa2602036b077b4ec63470dfa45c5a13aeb4023d28
     modules:
       PSU-1: DELL-PSU-86MM-2400W
       PSU-2: DELL-PSU-86MM-2400W

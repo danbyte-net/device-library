@@ -112,7 +112,7 @@ model3d:
     front: assets/Dell/R750.front.webp
     rear: assets/Dell/R750.rear.webp
     iso: assets/Dell/R750.iso.webp
-    model_sha256: 1c3f4d423483e4c3f616ce422f81bdc404ca22c1d48bbf1598077cbedd70a747
+    model_sha256: 7165cd4ce0b1e605cad29ebaa837f88f523784291d252d8b98c7dfc5354ff58c
     modules:
       PSU-1: DELL-PSU-86MM-2400W
       PSU-2: DELL-PSU-86MM-2400W

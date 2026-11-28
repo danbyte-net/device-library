@@ -141,7 +141,7 @@ model3d:
     front: assets/Dell/R940.front.webp
     rear: assets/Dell/R940.rear.webp
     iso: assets/Dell/R940.iso.webp
-    model_sha256: d7683dede7f4e00e91b65397c9fc8dfd87f0148f0c7b790dc7a41200c9974194
+    model_sha256: f0df0e49b4a533206173fda3bce3e3ab368ef0abbec68344b9e73a7e6037176e
 
 # rack_mount (spec 1.11; owner rule for servers): the control-panel flanks are the ears, front of the flanks at
 rack_mount:

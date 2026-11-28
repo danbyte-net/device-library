@@ -91,7 +91,7 @@ model3d:
     front: assets/Dell/R740.front.webp
     rear: assets/Dell/R740.rear.webp
     iso: assets/Dell/R740.iso.webp
-    model_sha256: 3422c14eadf374d344d26064b72d25763d7ac0ebcf8c20cacdc8b14ebcc293fd
+    model_sha256: 6c41c59b6fc3eb96f3e86bd5209a333b4d9f6fd129dcb0929a053ac53036f029
     modules:
       PSU-1: DELL-PSU-14G-86MM-1100W
       PSU-2: DELL-PSU-14G-86MM-1100W
