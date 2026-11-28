@@ -22,7 +22,7 @@ meta:
 console-ports:
   remove:
     - name: Rear Serial
-      why: 'upstream console-port ''Rear Serial'' (de-9) left out: Dell''s ISM rear view shows no serial port on this model (an optional part at most); add it back with its anchor once a photo shows it'
+      why: 'upstream console-ports list left out (its one item ''Rear Serial'', de-9): Dell''s ISM rear view shows no serial port on this model (an optional part at most); add it back with its anchor once a photo shows it'
 
 module-bays:
   PSU-1:
@@ -87,7 +87,7 @@ model3d:
     front: assets/Dell/R760xd2.front.webp
     rear: assets/Dell/R760xd2.rear.webp
     iso: assets/Dell/R760xd2.iso.webp
-    model_sha256: 83814c3755bba355d0afbc0273ed8577f619dd3641ba78e25ea316312ea0b5cf
+    model_sha256: b61bc346c65aa23ca0894f8b2780fb01a6b9bee91c86f67cc7e6393884412a2a
     modules: {PSU-1: DELL-PSU-60MM-1400W, PSU-2: DELL-PSU-60MM-1400W, NUMA 0 - OCP slot 1: 540-BFLP}
 
 # rack_mount (spec 1.11; owner rule for servers): the control-panel flanks are the ears, front of the flanks at

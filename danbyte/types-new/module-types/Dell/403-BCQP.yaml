@@ -1,8 +1,8 @@
 ---
 manufacturer: Dell
-model: PowerVault ME5 Controller 4-port 12Gb SAS
+model: PowerVault ME5 12Gb SAS4 Port Single 2U Controller
 part_number: 403-BCQP
-comments: ME5 12 Gb/s controller module, 4 x 12Gb SAS host ports (mini-SAS HD, SFF-8644), 16 GB cache (ME5OM fig. 37)
+comments: 'ME5 12 Gb/s controller module, 4 x 12Gb SAS host ports (mini-SAS HD, SFF-8644), 16 GB cache (ME5OM fig. 37). Dell''s dell.com page title for 403-BCQP is garbled ("Dell SAS4 12GB Single Port Fibre Channel Host Bus Adapter": it is a 4-port 12Gb SAS controller, not an FC HBA); the model name follows the ME5084 sibling 403-BCQO ("Dell 12Gb SAS4 Port Single 5U Controller") for 2U, as Danbyte asked (REVIEW-30)'
 weight: 2.6
 weight_unit: kg
 interfaces:

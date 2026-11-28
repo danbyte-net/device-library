@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: hpe-aruba-5400
 name: HPE Aruba 5400R zl2
-version: 1.6.54
+version: 1.6.55
 license: CC-BY-4.0
 author: Christian Rose
 description: Aruba 5400R zl2 chassis switches with their line cards and fan tray.

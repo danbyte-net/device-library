@@ -28,25 +28,27 @@ power-ports:
       why: the R940 has two hot-plug PSUs (Dell ISM rear view fig. 8, table 10); upstream lists four
     - name: Power 4
       why: the R940 has two hot-plug PSUs (Dell ISM rear view fig. 8, table 10); upstream lists four
-  Power 1: {type: iec-60320-c20}
-  Power 2: {type: iec-60320-c20}
+  Power 1:
+    type: iec-60320-c20
+    why: 'type iec-60320-c20 (upstream iec-60320-c14): the figure''s 1600 W PSUs have C20 inlets; PSUs up to'
+  Power 2: {type: iec-60320-c20, why: 'type iec-60320-c20 (upstream iec-60320-c14), as Power 1'}
 
 interfaces:
   remove:
     - name: 10GbE 2'
       why: upstream's name with a stray quote; the network daughter card has four ports, 10GbE 1-4
     - name: 10GbE 5
-      why: the network daughter card has four ports (Dell ISM rear view item 3, R940 spec sheet); upstream lists eight
+      why: 'upstream interfaces ''10GbE 5'' to ''10GbE 8'' left out: the rear view shows one NDC with four RJ45'
     - name: 10GbE 6
-      why: the network daughter card has four ports (Dell ISM rear view item 3, R940 spec sheet); upstream lists eight
+      why: 'upstream interfaces ''10GbE 5'' to ''10GbE 8'' left out: the rear view shows one NDC with four RJ45'
     - name: 10GbE 7
-      why: the network daughter card has four ports (Dell ISM rear view item 3, R940 spec sheet); upstream lists eight
+      why: 'upstream interfaces ''10GbE 5'' to ''10GbE 8'' left out: the rear view shows one NDC with four RJ45'
     - name: 10GbE 8
-      why: the network daughter card has four ports (Dell ISM rear view item 3, R940 spec sheet); upstream lists eight
+      why: 'upstream interfaces ''10GbE 5'' to ''10GbE 8'' left out: the rear view shows one NDC with four RJ45'
   add:
     - name: 10GbE 2
       type: 10gbase-t
-      why: the second network daughter card port, named without upstream's stray quote
+      why: 'added ''10GbE 2'' (upstream''s "10GbE 2''" without the stray quote): the NDC''s second RJ45'
       after: 10GbE 1
 
 model3d:
@@ -139,7 +141,7 @@ model3d:
     front: assets/Dell/R940.front.webp
     rear: assets/Dell/R940.rear.webp
     iso: assets/Dell/R940.iso.webp
-    model_sha256: 53659819f0cbf55e6d821a7d9538efd0d2d662014eb699dc6c24813fb42ed90a
+    model_sha256: d7683dede7f4e00e91b65397c9fc8dfd87f0148f0c7b790dc7a41200c9974194
 
 # rack_mount (spec 1.11; owner rule for servers): the control-panel flanks are the ears, front of the flanks at
 rack_mount:

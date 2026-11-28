@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: palo-alto-firewalls
+name: Palo Alto Networks firewalls
+version: 1.6.55
+license: CC-BY-4.0
+author: Christian Rose
+description: Palo Alto Networks PA-1400, PA-3200 and PA-3400 next-generation firewalls with their power supplies and fan tray.
+blender: 5.3
+spec: 1.15
+requires: [generic-connectors]
+types:
+  device:
+    - Palo Alto Networks/PA-1410
+    - Palo Alto Networks/PA-1420
+    - Palo Alto Networks/PA-3220
+    - Palo Alto Networks/PA-3250
+    - Palo Alto Networks/PA-3260
+    - Palo Alto Networks/PA-3410
+    - Palo Alto Networks/PA-3420
+    - Palo Alto Networks/PA-3430
+    - Palo Alto Networks/PA-3440
+  module:
+    - Palo Alto Networks/PA-3200-FAN-TRAY
+    - Palo Alto Networks/PA-3200-PSU-650W-AC
+    - Palo Alto Networks/PA-3200-PSU-650W-DC
+    - Palo Alto Networks/PaloAlto-450W-AC-PSU

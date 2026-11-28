@@ -113,7 +113,7 @@ model3d:
     front: assets/Dell/R7515.front.webp
     rear: assets/Dell/R7515.rear.webp
     iso: assets/Dell/R7515.iso.webp
-    model_sha256: 11a3fd9a8b9c6fcea46f12927a922768d937bad8d9446bcd1be5ec21d5b75bcc
+    model_sha256: 32b83bdefc460c9ff77e49113df5ab6afd78a31858f04e4af4d01f6f0e13e41d
 
 # rack_mount (spec 1.11; owner rule for servers): the control-panel flanks are the ears, front of the flanks at
 rack_mount:

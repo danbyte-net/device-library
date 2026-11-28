@@ -79,7 +79,7 @@ model3d:
     front: assets/Dell/R660xs.front.webp
     rear: assets/Dell/R660xs.rear.webp
     iso: assets/Dell/R660xs.iso.webp
-    model_sha256: a687062d4c3005953243c75a5296fb0b7f9754b11378a327b6ad8554beca55e9
+    model_sha256: 3c21b4f95af735a77176cd8887647dcc64875b10f00f3aca641a186f5a4ddd4a
     modules: {PSU-1: DELL-PSU-60MM-1400W, PSU-2: DELL-PSU-60MM-1400W}
 
 # rack_mount (spec 1.11; owner rule for servers): the control-panel flanks are the ears, front of the flanks at

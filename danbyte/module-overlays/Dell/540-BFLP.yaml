@@ -17,8 +17,12 @@ meta:
 
 comments: Dell NVIDIA ConnectX-6 Lx dual port 10/25GbE SFP28 OCP NIC 3.0 adapter (internal lock faceplate)
 interfaces:
-  '{module}-25GbE-1': {label: ''}
-  '{module}-25GbE-2': {label: ''}
+  '{module}-25GbE-1':
+    label: ''
+    why: 'upstream label ''1'' cleared: only names / types taken from upstream; faceplate print ''PORT n'' (Mellanox UG fig. 2.4.2)'
+  '{module}-25GbE-2':
+    label: ''
+    why: 'upstream label ''2'' cleared: only names / types taken from upstream; faceplate print ''PORT n'' (Mellanox UG fig. 2.4.2)'
 
 model3d:
   file: assets/Dell/540-BFLP.glb

@@ -27,7 +27,7 @@ model3d:
     front: assets/HPE/J9987A.front.webp
     rear: assets/HPE/J9987A.rear.webp
     iso: assets/HPE/J9987A.iso.webp
-    model_sha256: a05196ff36c26fa0e37de5422aa1c24c9c66561dc5eda369a729911206d5fde9
+    model_sha256: 7b0143bb50b84446cc74575e866c4cb54a9cc3f4b962ba39f991fe46cc475e5b
   leds:
     port:*: {source: interface.oper_status}
     MODE_1: {source: none}

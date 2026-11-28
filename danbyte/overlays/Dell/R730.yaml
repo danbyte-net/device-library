@@ -61,7 +61,7 @@ model3d:
     front: assets/Dell/R730.front.webp
     rear: assets/Dell/R730.rear.webp
     iso: assets/Dell/R730.iso.webp
-    model_sha256: 27a5076302c7bf2ba253b92e573f8b2ce2e651394be935f1036868e56e465d44
+    model_sha256: a87fcda6eeefd9aa0d074bf0e71bbeae9df34d3a01261c9c42a69516e229a8db
     modules:
       PSU 1: DELL-PSU-13G-750W
       PSU 2: DELL-PSU-13G-750W

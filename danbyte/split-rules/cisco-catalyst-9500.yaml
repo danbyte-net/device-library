@@ -79,6 +79,10 @@ packs:
     name: Server network cards
     description: OCP 3.0, Dell rNDC and PCIe network cards from Dell, Intel and Broadcom, for any server with a matching slot.
     requires: [generic-connectors]
+  palo-alto-firewalls:
+    name: Palo Alto Networks firewalls
+    description: Palo Alto Networks PA-1400, PA-3200 and PA-3400 next-generation firewalls with their power supplies and fan tray.
+    requires: [generic-connectors]
   generic-panels:
     name: Generic panels
     description: RJ45 patch panels and LC, SC and ST fibre panels.
@@ -189,6 +193,12 @@ rules:
       "interfaces/10GbE [5-8]": "the network daughter card has four ports (Dell ISM rear view item 3, R940 spec sheet); upstream lists eight"
       "interfaces/10GbE 2": "the second network daughter card port, named without upstream's stray quote"
 
+  - match: "device/Palo Alto Networks/PA-32*"
+    why:
+      "power-ports/PS1": "the PA-3200's inlets are on its two hot-swap PSUs (Palo Alto hardware reference p.17), so they come with the PSU modules in bays PS1 and PS2"
+      "power-ports/PS2": "the PA-3200's inlets are on its two hot-swap PSUs (Palo Alto hardware reference p.17), so they come with the PSU modules in bays PS1 and PS2"
+      "module-bays/PS1": "the left hot-swap PSU slot seen from the rear (Palo Alto hardware reference p.17)"
+
   # -- which pack each entry goes into (the last rule that fits wins) --------
   - match: "device/Cisco/C9200*"
     pack: cisco-catalyst-9200
@@ -279,6 +289,10 @@ rules:
     pack: server-network-cards
   - match: "module/Dell/0FM487"
     pack: server-network-cards
+  - match: "device/Palo Alto Networks/*"
+    pack: palo-alto-firewalls
+  - match: "module/Palo Alto Networks/*"
+    pack: palo-alto-firewalls
   - match: "pluggable/Cisco/*"
     pack: cisco-optics
   - match: "pluggable/Cisco/STACK-T4"

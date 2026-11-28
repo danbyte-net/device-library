@@ -198,7 +198,7 @@ model3d:
     front: assets/HPE/J9850A.front.webp
     rear: assets/HPE/J9850A.rear.webp
     iso: assets/HPE/J9850A.iso.webp
-    model_sha256: 8c90f887cfa688c37288e2786fe37d89e39d395f6a6740c75fc55f5d0d08fd06
+    model_sha256: 2abb850a6cabfcbab12ebde98bcf0fab0eeb8c10f7713706ef54b13cd19c82cd
     modules: {A: J9993A, B: J9987A, C: J9546A, Fan1: J9831A}
 
 # rack_mount (spec 1.11): IGSG 2-17..2-20, the two brackets of rack kit 5066-3042 (in the box) on the chassis

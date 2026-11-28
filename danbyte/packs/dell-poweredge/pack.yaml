@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: dell-poweredge
 name: Dell PowerEdge
-version: 1.6.54
+version: 1.6.55
 license: CC-BY-4.0
 author: Christian Rose
 description: Dell PowerEdge rack servers with their power supplies.

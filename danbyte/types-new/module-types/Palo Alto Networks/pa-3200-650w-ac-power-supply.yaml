@@ -1,0 +1,9 @@
+---
+manufacturer: Palo Alto Networks
+model: PA-3200 650W AC power supply
+comments: '650 W AC hot-swap power supply for the PA-3220 / PA-3250 / PA-3260 (HWR p.17, 25-27, 37-38, 47): 100-240 VAC, C14 inlet (back-panel drawing), handle, release lever, input (~) and output LEDs. Size 53.4 x 40.5 mm face measured on HWR p.17; depth 220 mm ESTIMATE.'
+power-ports:
+  - name: PS{module}
+    type: iec-60320-c14
+    maximum_draw: 240
+    allocated_draw: 195

@@ -1,0 +1,7 @@
+---
+manufacturer: Palo Alto Networks
+model: 450W AC Power Supply (PA-3400 / PA-1400 Series)
+comments: 'Field-replaceable 450 W AC power supply (100-240 VAC, C14 inlet) of the PA-3400 and PA-1400 Series (HW references: two load-sharing 450 W slots, PS1 / PS2; same face in both rear figures). Face measured on the HW reference rear figure; length not published (model 220 mm, estimate).'
+power-ports:
+  - name: PS{module}
+    type: iec-60320-c14
