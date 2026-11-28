@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: generic-racks
 name: Generic racks
-version: 1.6.55
+version: 1.6.56
 license: CC-BY-4.0
 author: Christian Rose
 description: Rack kits and rack types (cabinets, open frames, wall cabinet), blanking panels, cable managers, shelves and 0U PDUs.

@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: hpe-proliant
 name: HPE ProLiant
-version: 1.6.55
+version: 1.6.56
 license: CC-BY-4.0
 author: Christian Rose
 description: HPE ProLiant rack servers.

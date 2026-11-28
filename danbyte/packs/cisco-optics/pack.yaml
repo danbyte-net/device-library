@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: cisco-optics
 name: Cisco optics
-version: 1.6.55
+version: 1.6.56
 license: CC-BY-4.0
 author: Christian Rose
 description: Cisco SFP, SFP+, SFP28 and QSFP transceivers and DAC cables.

@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: cisco-catalyst-8300
 name: Cisco Catalyst 8300
-version: 1.6.55
+version: 1.6.56
 license: CC-BY-4.0
 author: Christian Rose
 description: Catalyst 8300 edge routers.

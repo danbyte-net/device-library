@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: generic-panels
 name: Generic panels
-version: 1.6.55
+version: 1.6.56
 license: CC-BY-4.0
 author: Christian Rose
 description: RJ45 patch panels and LC, SC and ST fibre panels.

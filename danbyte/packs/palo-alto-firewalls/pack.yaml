@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: palo-alto-firewalls
 name: Palo Alto Networks firewalls
-version: 1.6.55
+version: 1.6.56
 license: CC-BY-4.0
 author: Christian Rose
 description: Palo Alto Networks PA-1400, PA-3200 and PA-3400 next-generation firewalls with their power supplies and fan tray.
