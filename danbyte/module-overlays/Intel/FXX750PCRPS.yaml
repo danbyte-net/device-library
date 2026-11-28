@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Intel/FXX750PCRPS.yaml
+meta:
+  category: module
+  module_kind: psu
+  roles: [power]
+  summary: 750 W AC common redundant power supply (80 PLUS Platinum) for Intel R1000 / R2000 / P4000 server systems.
+  links:
+    - kind: product-page
+      title: 750W Common Redundant Power Supply FXX750PCRPS - Product Specifications
+      url: https://www.intel.com/content/www/us/en/products/sku/60216/750w-common-redundant-power-supply-fxx750pcrps-platiumefficiency/specifications.html
+    - kind: other
+      title: FXX750PCRPS - Compatible Products
+      url: https://www.intel.com/content/www/us/en/products/sku/60216/750w-common-redundant-power-supply-fxx750pcrps-platiumefficiency/compatible.html
+    - kind: datasheet
+      title: Intel Server System R2000GZ/GL Product Family Technical Product Specification rev 2.2
+      url: https://cdrdv2.intel.com/v1/dl/getContent/840741?fileName=r2000gzgl_tps_r2_2.pdf
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/module-types/Intel/FXX1600PCRPS.yaml
+
+model3d:
+  file: assets/Intel/FXX750PCRPS.glb
+  far: assets/Intel/FXX750PCRPS.far.glb
+  renders:
+    front: assets/Intel/FXX750PCRPS.front.webp
+    rear: assets/Intel/FXX750PCRPS.rear.webp
+    iso: assets/Intel/FXX750PCRPS.iso.webp
+    model_sha256: e6cc27f2ffdedce67a7b612c2b8392e079429cb7cce323aacf5c86ff14059441
+  leds:
+    STATUS: {source: module.status}

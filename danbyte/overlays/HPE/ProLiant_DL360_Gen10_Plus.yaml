@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/HPE/ProLiant-DL360-Gen10-Plus.yaml
+meta:
+  category: server
+  roles: [compute]
+  family: ProLiant DL360
+  summary: 1U two-socket rack server, 8 SFF drive bays plus a Universal Media Bay, iLO management port, three PCIe 4.0 slots, an OCP 3.0 bay, two Flex Slot PSU bays.
+  links:
+    - kind: datasheet
+      title: QuickSpecs HPE ProLiant DL360 Gen10 Plus Server
+      url: https://support.hpe.com/hpesc/public/api/document/a50002559enw
+    - kind: datasheet
+      title: QuickSpecs HPE Flexible Slot Power Supplies (c04346217)
+      url: https://support.hpe.com/hpesc/public/api/document/c04346217
+  sources:
+    - https://raw.githubusercontent.com/netbox-community/devicetype-library/master/device-types/HPE/ProLiant-DL360-Gen10-Plus.yaml
+    - https://support.hpe.com/hpesc/public/docDisplay?docId=c04399819&page=GUID-B33760C1-3A5A-46BE-84D4-73E82041EE78.html&docLocale=en_US
+
+# weight (QuickSpecs a50002559enw p. 61: SFF minimum 13.29 kg). The model shows the 8 SFF front (owner's
+weight: 13.29
+weight_unit: kg
+module-bays:
+  PSU1:
+    modules: [865408-B21, P38995-B21, 865438-B21, P38997-B21, P03178-B21, 865434-B21, 865428-B21, P44712-B21]
+  PSU2:
+    modules: [865408-B21, P38995-B21, 865438-B21, P38997-B21, P03178-B21, 865434-B21, 865428-B21, P44712-B21]
+
+model3d:
+  file: assets/HPE/ProLiant_DL360_Gen10_Plus.glb
+  far: assets/HPE/ProLiant_DL360_Gen10_Plus.far.glb
+  empty: filler
+  renders:
+    front: assets/HPE/ProLiant_DL360_Gen10_Plus.front.webp
+    rear: assets/HPE/ProLiant_DL360_Gen10_Plus.rear.webp
+    iso: assets/HPE/ProLiant_DL360_Gen10_Plus.iso.webp
+    model_sha256: 4344e79321fa505913915d479281921dacb6115b84c34f6fc79b6c10cd0ecd2f
+    modules: {PSU1: 865408-B21, PSU2: 865408-B21}
+  leds:
+    POWER: {source: device.status}
+    HEALTH: {source: device.status}
+    NIC: {source: none}
+    UID: {source: device.locate}
+    ILO_ACT: {source: none}
+    DRIVE_1: {source: none}
+    DRIVE_1_ID: {source: none}
+    DRIVE_2: {source: none}
+    DRIVE_2_ID: {source: none}
+    DRIVE_3: {source: none}
+    DRIVE_3_ID: {source: none}
+    DRIVE_4: {source: none}
+    DRIVE_4_ID: {source: none}
+    DRIVE_5: {source: none}
+    DRIVE_5_ID: {source: none}
+    DRIVE_6: {source: none}
+    DRIVE_6_ID: {source: none}
+    DRIVE_7: {source: none}
+    DRIVE_7_ID: {source: none}
+    DRIVE_8: {source: none}
+    DRIVE_8_ID: {source: none}
+    ODD: {source: none}
+    port:*: {source: interface.oper_status}
+
+# rack_mount (spec 1.11, owner's server rule): the front flanks are part of the chassis (y 0 = their front
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: sliding

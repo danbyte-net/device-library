@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: intel-servers
+name: Intel server systems
+version: 1.6.54
+license: CC-BY-4.0
+author: Christian Rose
+description: Intel server systems with their power supplies.
+blender: 5.3
+spec: 1.15
+requires: [generic-connectors]
+types:
+  device: [Intel/R2208GZ4GC]
+  module: [Intel/FXX750PCRPS]

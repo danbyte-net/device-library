@@ -1,0 +1,9 @@
+---
+manufacturer: Dell
+model: 2400 W mixed mode PSU (86 mm)
+part_number: DELL-PSU-86MM-2400W
+comments: 'ISM PSU table: 2400 W mixed mode, Redundant 86 mm, C19 power cable (the PSU inlet is C20). The bays also take the 60 mm PSUs with Dell''s PSU adapter (ISM section Removing a power supply unit adapter), not modelled. Hot-plug PSU of the PowerEdge 16G rack servers (R760). The translucent handle is the PSU status light.'
+power-ports:
+  - name: PSU{module}
+    type: iec-60320-c20
+    maximum_draw: 2400

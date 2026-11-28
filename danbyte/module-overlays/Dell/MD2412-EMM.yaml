@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Dell/MD2412-EMM.yaml
+meta:
+  category: module
+  module_kind: other
+  family: PowerVault MD24
+  summary: Hot-swap SAS4 enclosure management module with two Mini SAS ports for the MD2412.
+  links:
+    - kind: install-guide
+      title: MD2412 and MD2424 Direct-Attach Storage for PowerEdge Servers Owner's Manual
+      url: https://dl.dell.com/content/manual48914611-md2412-and-md2424-direct-attach-storage-for-poweredge-servers-owner-s-manual.pdf?language=en-us
+
+model3d:
+  file: assets/Dell/MD2412-EMM.glb
+  far: assets/Dell/MD2412-EMM.far.glb
+  leds:
+    ID: {source: none}
+    STATUS: {source: module.status}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Dell/MD2412-EMM.front.webp
+    rear: assets/Dell/MD2412-EMM.rear.webp
+    iso: assets/Dell/MD2412-EMM.iso.webp
+    model_sha256: fe486dc8830adc4418bc326e8b57fcb7df7c9e64fe88c6d1bef61320f68321a0

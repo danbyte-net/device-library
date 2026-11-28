@@ -1,0 +1,9 @@
+---
+manufacturer: Dell
+model: 1400 W mixed mode PSU (60 mm)
+part_number: DELL-PSU-60MM-1400W
+comments: 'ISM PSU tables: 1400 W mixed mode, Redundant 60 mm, C13 power cord (the PSU inlet is C14). Hot-plug PSU of the PowerEdge 16G rack servers (R760xs, R760xd2, R660xs (and the R760 with the PSU adapter)). The translucent handle is the PSU status light.'
+power-ports:
+  - name: PSU{module}
+    type: iec-60320-c14
+    maximum_draw: 1400

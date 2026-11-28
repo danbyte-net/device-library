@@ -1,0 +1,9 @@
+---
+manufacturer: Dell
+model: 750 W AC Platinum PSU (PowerEdge R730)
+part_number: DELL-PSU-13G-750W
+comments: 'R730 Owner''s Manual Table 17: 750 W AC, Platinum or Titanium (also 495 W and 1100 W AC, 750 W / 1100 W DC); AC PSUs need the Extended Power Performance (EPP) label. Face measured on the Figure 5 line drawing (+-3 mm): C14 inlet, earth side to the right, round fan region. Dell publishes no form-factor width (93 mm from the figure). The translucent handle is the PSU status light.'
+power-ports:
+  - name: PSU{module}
+    type: iec-60320-c14
+    maximum_draw: 750

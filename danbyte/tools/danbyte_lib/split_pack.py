@@ -105,6 +105,34 @@ def comment_whys(text: str) -> tuple[dict[tuple[str, str], str], dict[str, str],
     return whys, key_whys, header
 
 
+def comment_blocks(text: str) -> list[str]:
+    """Every run of ``# danbyte:`` comment lines, joined."""
+    out, cur = [], []
+    for line in text.splitlines():
+        c = COMMENT.match(line)
+        stripped = line.strip()
+        if c:
+            cur.append(c.group(1))
+        elif cur and stripped.startswith("#"):
+            cur.append(stripped.lstrip("#").strip())
+        else:
+            if cur:
+                out.append(" ".join(cur))
+            cur = []
+    if cur:
+        out.append(" ".join(cur))
+    return out
+
+
+def _named(blocks: list[str], name: str) -> str | None:
+    """The comment that names a removed item in quotes: the pack's reason
+    for leaving it out, written anywhere in the file."""
+    for b in blocks:
+        if f"'{name}'" in b or f'"{name}"' in b:
+            return b if len(b) <= 500 else b[:499].rsplit(" ", 1)[0] + "…"
+    return None
+
+
 # -- rules ------------------------------------------------------------------
 
 
@@ -225,9 +253,13 @@ def diff_section(section: str, up: list, doc: list, *, why_of) -> dict:
         if name not in upn:
             continue
         u = up[upn.index(name)]
+        # A field the pack leaves out is cleared: a text field to "", others
+        # can't be (no such value in NetBox) and stay a problem.
         gone = [k for k in u if k not in item]
-        if gone:
-            raise Unconvertible(f"{section}: {name}: the pack drops {', '.join(gone)}")
+        hard = [k for k in gone if not isinstance(u[k], str)]
+        if hard:
+            raise Unconvertible(f"{section}: {name}: the pack drops {', '.join(hard)}")
+        item = {**item, **{k: "" for k in gone}}
         fields = {k: v for k, v in item.items() if k != "name" and u.get(k) != v}
         if fields:
             w = why_of(section, name, "change", None, None)
@@ -263,11 +295,16 @@ def diff(up: dict, doc: dict, *, why_of) -> dict:
     """The overlay body (without ``upstream``) that turns ``up`` into ``doc``."""
     out: dict = {}
     gone = [k for k in up if k not in doc]
-    if any(k in m.COMPONENT_KEYS for k in gone):
-        raise Unconvertible("the pack drops upstream component lists: "
-                            + ", ".join(k for k in gone if k in m.COMPONENT_KEYS))
+    # A component list the pack leaves out is every upstream item removed,
+    # each with its reason; other keys are dropped whole.
+    lists = [k for k in gone if k in m.COMPONENT_KEYS]
+    gone = [k for k in gone if k not in m.COMPONENT_KEYS]
     if gone:
         out["drop"] = [{"key": k, "why": why_of("drop", k, "remove", None, None)} for k in gone]
+    for key in lists:
+        sec = diff_section(key, up.get(key), [], why_of=why_of)
+        if sec:
+            out[key] = sec
     for key, value in doc.items():
         if key in m.COMPONENT_KEYS:
             if not isinstance(value, list):
@@ -348,7 +385,19 @@ def normalise(doc: dict) -> dict:
 
 
 def comparable(doc: dict) -> dict:
-    return {k: v for k, v in doc.items() if k not in ("meta",) + m.OVERLAY_KEYS}
+    """A document as two forms of the same type compare: no meta or overlay
+    keys, an empty component list the same as none, an empty text field
+    the same as none (that is how a left-out list or field merges back)."""
+    out = {}
+    for k, v in doc.items():
+        if k in ("meta",) + m.OVERLAY_KEYS:
+            continue
+        if k in m.COMPONENT_KEYS and isinstance(v, list):
+            if not v:
+                continue
+            v = [{f: x for f, x in i.items() if x != ""} if isinstance(i, dict) else i for i in v]
+        out[k] = v
+    return out
 
 
 # -- the run ----------------------------------------------------------------
@@ -428,10 +477,14 @@ def split_pack(repo: Repo, folder: Path, *, rules_path: Path | None = None,
             else:
                 up = m.load_file(repo.root / up_rel)
 
-            def why_of(section, name, action, inherited, alt, _w=whys, _r=rule_whys, _k=key):
+            blocks = comment_blocks(text)
+
+            def why_of(section, name, action, inherited, alt, _w=whys, _r=rule_whys, _k=key,
+                       _b=blocks):
                 w = _w.get((section, name)) or (inherited if action == "add" else None) \
                     or (_w.get((section, alt)) if action == "remove" and alt else None) \
-                    or rule_why(_r, section, name)
+                    or rule_why(_r, section, name) \
+                    or (_named(_b, name) if action == "remove" else None)
                 if w or action == "change":
                     return w
                 report.placeholder_whys.append(f"{_k}: {section}/{name}")

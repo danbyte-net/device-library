@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+format: danbyte-library/v1
+upstream: module-types/HPE/865408-B21.yaml
+meta:
+  category: module
+  module_kind: psu
+  roles: [power]
+  family: HPE Flexible Slot Power Supplies
+  summary: 500 W AC Flex Slot Platinum hot-plug power supply (C14 inlet) for ProLiant Gen10 / Gen10 Plus servers.
+  links:
+    - kind: datasheet
+      title: QuickSpecs HPE Flexible Slot Power Supplies (c04346217)
+      url: https://support.hpe.com/hpesc/public/api/document/c04346217
+    - kind: other
+      title: 'HPE Flexible Slot Power Supplies - Product Information Reference: Physical specifications'
+      url: https://support.hpe.com/hpesc/public/docDisplay?docId=c04399819&page=GUID-B33760C1-3A5A-46BE-84D4-73E82041EE78.html&docLocale=en_US
+  sources:
+    - https://raw.githubusercontent.com/netbox-community/devicetype-library/master/module-types/HPE/865408-B21.yaml
+    - https://support.hpe.com/hpesc/public/api/document/a50002559enw
+
+# weight (Flex Slot PSU Product Information Reference c04399819: all AC supplies 0.91 kg; 6.80 x 4.04 x
+weight: 0.91
+weight_unit: kg
+power-ports:
+  Power {module}: {type: iec-60320-c14}
+
+model3d:
+  file: assets/HPE/865408-B21.glb
+  far: assets/HPE/865408-B21.far.glb
+  renders:
+    front: assets/HPE/865408-B21.front.webp
+    rear: assets/HPE/865408-B21.rear.webp
+    iso: assets/HPE/865408-B21.iso.webp
+    model_sha256: 2b31deb54fa6dceaaf092b9fde9539f6f10b24b672f0c2862c44b75e3eec82fc
+  leds:
+    STATUS: {source: module.status}

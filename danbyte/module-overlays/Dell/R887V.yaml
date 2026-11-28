@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Dell/R887V.yaml
+meta:
+  category: module
+  module_kind: network-module
+  roles: [network]
+  family: ConnectX-4 Lx
+  summary: Dell rack network daughter card with two 10/25GbE SFP28 ports (Mellanox ConnectX-4 Lx).
+  links:
+    - kind: install-guide
+      title: Dell Mellanox Adapters User's Guide
+      url: https://downloads.dell.com/manuals/all-products/esuprt_data_center_infra_int/esuprt_data_center_infra_network_adapters/mellanox-adapters_Users-Guide_en-us.pdf
+    - kind: install-guide
+      title: NVIDIA ConnectX-4 Lx Ethernet Adapter Cards User Manual
+      url: https://docs.nvidia.com/nvidia-connectx-4-lx-ethernet-adapter-cards-user-manual.pdf
+  sources: ['https://github.com/netbox-community/devicetype-library/blob/master/module-types/Dell/R887V.yml']
+
+model3d:
+  file: assets/Dell/R887V.glb
+  far: assets/Dell/R887V.far.glb
+  renders:
+    front: assets/Dell/R887V.front.webp
+    rear: assets/Dell/R887V.rear.webp
+    iso: assets/Dell/R887V.iso.webp
+    model_sha256: 98cd8edf4147d87fb2a5c0d78ffc20a6891186e21e71ea3dfc85dac0638be9cd
+  leds:
+    ACT_{module}-25GbE-0: {source: none}
+    ACT_{module}-25GbE-2: {source: none}
+    port:*: {source: interface.oper_status}

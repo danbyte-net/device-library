@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Dell/DELL-PSU-60MM-1400W.yaml
+meta:
+  category: module
+  module_kind: psu
+  roles: [power]
+  family: PowerEdge
+  summary: 1400 W mixed-mode hot-plug power supply, 60 mm form factor, for PowerEdge 16th-generation rack servers.
+  links:
+    - kind: install-guide
+      title: Dell PowerEdge R760xs Installation and Service Manual
+      url: https://www.dell.com/support/manuals/poweredge-r760xs/r760xs_ism_pub/about-this-document
+    - kind: install-guide
+      title: Dell PowerEdge R760xd2 Installation and Service Manual
+      url: https://www.dell.com/support/manuals/poweredge-r760xd2/r760xd2_ism/about-this-document
+    - kind: install-guide
+      title: Dell PowerEdge R660xs Installation and Service Manual
+      url: https://www.dell.com/support/manuals/poweredge-r660xs/r660xs_ism_pub/about-this-document
+
+model3d:
+  file: assets/Dell/DELL-PSU-60MM-1400W.glb
+  far: assets/Dell/DELL-PSU-60MM-1400W.far.glb
+  renders:
+    front: assets/Dell/DELL-PSU-60MM-1400W.front.webp
+    rear: assets/Dell/DELL-PSU-60MM-1400W.rear.webp
+    iso: assets/Dell/DELL-PSU-60MM-1400W.iso.webp
+    model_sha256: a351f6c209dad809173f9ce382a6a310944c7875e9afcabb96bed6fcf1fd7ce6
+  leds:
+    PS_OK: {source: module.status}

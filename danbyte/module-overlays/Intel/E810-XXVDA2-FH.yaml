@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Intel/E810-XXVDA2-FH.yaml
+meta:
+  category: module
+  module_kind: network-module
+  roles: [network]
+  family: Intel Ethernet 800 Series
+  summary: PCIe 4.0 adapter with two 10/25GbE SFP28 ports, full-height bracket.
+  links:
+    - kind: install-guide
+      title: Intel Ethernet Adapter User Guide 28.0
+      url: https://downloadmirror.intel.com/769269/Adapter_User_Guide_28.0.pdf
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/module-types/Intel/E810-XXVDA2.yaml
+
+model3d:
+  file: assets/Intel/E810-XXVDA2-FH.glb
+  far: assets/Intel/E810-XXVDA2-FH.far.glb
+  renders:
+    front: assets/Intel/E810-XXVDA2-FH.front.webp
+    rear: assets/Intel/E810-XXVDA2-FH.rear.webp
+    iso: assets/Intel/E810-XXVDA2-FH.iso.webp
+    model_sha256: ebc38c4eb25b57bec075b9196d26190c625cace9a839ff0adac9606d2ce081a0
+  leds:
+    ACT_Ethernet/{module}/1: {source: none}
+    ACT_Ethernet/{module}/2: {source: none}
+    port:*: {source: interface.oper_status}

@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Dell/DELL-PSU-86MM-2400W.yaml
+meta:
+  category: module
+  module_kind: psu
+  roles: [power]
+  family: PowerEdge
+  summary: 2400 W mixed-mode hot-plug power supply, 86 mm form factor, for PowerEdge 16th-generation rack servers.
+  links:
+    - kind: install-guide
+      title: Dell PowerEdge R760 Installation and Service Manual
+      url: https://www.dell.com/support/manuals/en-us/oth-r760/per760_ism_pub/
+
+model3d:
+  file: assets/Dell/DELL-PSU-86MM-2400W.glb
+  far: assets/Dell/DELL-PSU-86MM-2400W.far.glb
+  renders:
+    front: assets/Dell/DELL-PSU-86MM-2400W.front.webp
+    rear: assets/Dell/DELL-PSU-86MM-2400W.rear.webp
+    iso: assets/Dell/DELL-PSU-86MM-2400W.iso.webp
+    model_sha256: 5b05bbabdf0627283417edc98dc7aa3588912754f2d9477bccbe74e825c3947e
+  leds:
+    PS_OK: {source: module.status}

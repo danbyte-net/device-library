@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/device-types/Intel/R2208GZ4GC.yaml
+meta:
+  category: server
+  roles: [compute]
+  family: Intel Server System R2000GZ Family
+  summary: 2U rack server (Intel Server Board S2600GZ) with 8 x 2.5-inch hot-swap bays, 4 x 1GbE, an RMM4 management port, two redundant PSU bays and two riser cages.
+  lifecycle:
+    end_of_sale: '2017-06-30'
+    source: https://www.intel.com/content/www/us/en/products/sku/56262/intel-server-system-r2208gz4gc/specifications.html
+  links:
+    - kind: product-page
+      title: Intel Server System R2208GZ4GC - Product Specifications
+      url: https://www.intel.com/content/www/us/en/products/sku/56262/intel-server-system-r2208gz4gc/specifications.html
+    - kind: datasheet
+      title: Intel Server System R2000GZ/GL Product Family Technical Product Specification rev 2.2
+      url: https://cdrdv2.intel.com/v1/dl/getContent/840741?fileName=r2000gzgl_tps_r2_2.pdf
+    - kind: support
+      title: Intel Server Products Technical Product Specifications (index)
+      url: https://www.intel.com/content/www/us/en/support/articles/000006067/server-products.html
+  sources: ['https://github.com/netbox-community/devicetype-library/tree/master/device-types/Intel']
+
+module-bays:
+  PSU1:
+    modules: [FXX750PCRPS]
+    why: two rear PSU bays (TPS Figure 8 "1st / 2nd Power Supply Module", left / right seen from the rear);
+  PSU2:
+    modules: [FXX750PCRPS]
+
+model3d:
+  file: assets/Intel/R2208GZ4GC.glb
+  far: assets/Intel/R2208GZ4GC.far.glb
+  empty: filler
+  leds:
+    POWER: {source: device.status}
+    STATUS: {source: device.status}
+    ID: {source: device.locate}
+    HDD: {source: none}
+    DRIVE0_STATUS: {source: none}
+    DRIVE0_ACT: {source: none}
+    DRIVE1_STATUS: {source: none}
+    DRIVE1_ACT: {source: none}
+    DRIVE2_STATUS: {source: none}
+    DRIVE2_ACT: {source: none}
+    DRIVE3_STATUS: {source: none}
+    DRIVE3_ACT: {source: none}
+    DRIVE4_STATUS: {source: none}
+    DRIVE4_ACT: {source: none}
+    DRIVE5_STATUS: {source: none}
+    DRIVE5_ACT: {source: none}
+    DRIVE6_STATUS: {source: none}
+    DRIVE6_ACT: {source: none}
+    DRIVE7_STATUS: {source: none}
+    DRIVE7_ACT: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Intel/R2208GZ4GC.front.webp
+    rear: assets/Intel/R2208GZ4GC.rear.webp
+    iso: assets/Intel/R2208GZ4GC.iso.webp
+    model_sha256: d47d249469d78afe000f642b862768b591a9e3689c5df7473770449bc58251ba
+    modules: {PSU1: FXX750PCRPS, PSU2: FXX750PCRPS}
+
+# rack_mount (spec 1.11): the ears are part of the chassis (TPS Figure 1: 486 mm over the ears, faces flush
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: sliding

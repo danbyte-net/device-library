@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Intel/XL710-QDA2-FH.yaml
+meta:
+  category: module
+  module_kind: network-module
+  roles: [network]
+  family: Intel Ethernet 700 Series
+  summary: PCIe 3.0 x8 adapter with two 40GbE QSFP+ ports, full-height bracket.
+  links:
+    - kind: datasheet
+      title: Intel Ethernet Converged Network Adapter XL710 product brief
+      url: https://cdrdv2-public.intel.com/641686/Intel%20Ethernet%20Converged%20Network%20Adapter%20XL710_19.pdf
+    - kind: install-guide
+      title: Intel Ethernet Adapters User's Guide (Dell)
+      url: https://dl.dell.com/manuals/all-products/esuprt_data_center_infra_int/esuprt_data_center_infra_network_adapters/intel-pro-adapters_user's-guide_en-us.pdf
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/module-types/Intel/XL710-QDA2.yaml
+
+model3d:
+  file: assets/Intel/XL710-QDA2-FH.glb
+  far: assets/Intel/XL710-QDA2-FH.far.glb
+  renders:
+    front: assets/Intel/XL710-QDA2-FH.front.webp
+    rear: assets/Intel/XL710-QDA2-FH.rear.webp
+    iso: assets/Intel/XL710-QDA2-FH.iso.webp
+    model_sha256: 8f0ce9461802520bec01a84d7a5a1c9006b02c8e920be232a5f4d721e8868586
+  leds:
+    ACT_Ethernet/{module}/1: {source: none}
+    ACT_Ethernet/{module}/2: {source: none}
+    port:*: {source: interface.oper_status}

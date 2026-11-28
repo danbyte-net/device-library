@@ -59,6 +59,26 @@ packs:
     name: HPE Aruba 5400R zl2
     description: Aruba 5400R zl2 chassis switches with their line cards and fan tray.
     requires: [generic-connectors]
+  dell-poweredge:
+    name: Dell PowerEdge
+    description: Dell PowerEdge rack servers with their power supplies.
+    requires: [generic-connectors]
+  dell-powervault:
+    name: Dell PowerVault
+    description: Dell PowerVault storage arrays and enclosures with their controllers, EMMs and power supplies.
+    requires: [generic-connectors]
+  hpe-proliant:
+    name: HPE ProLiant
+    description: HPE ProLiant rack servers.
+    requires: [generic-connectors]
+  intel-servers:
+    name: Intel server systems
+    description: Intel server systems with their power supplies.
+    requires: [generic-connectors]
+  server-network-cards:
+    name: Server network cards
+    description: OCP 3.0, Dell rNDC and PCIe network cards from Dell, Intel and Broadcom, for any server with a matching slot.
+    requires: [generic-connectors]
   generic-panels:
     name: Generic panels
     description: RJ45 patch panels and LC, SC and ST fibre panels.
@@ -158,6 +178,17 @@ rules:
     why:
       "interfaces/GigabitEthernet0/0": "the management port; upstream's file for this model doesn't list it"
 
+  - match: "device/Dell/R750xs"
+    why:
+      "module-bays/NUMA 1 - PCIe slot 8 - FH": "Dell's R750xs rear figure (ISM fig. 8, table 5) and slot table show six PCIe slots; upstream copied the R750's eight"
+  - match: "device/Dell/R940"
+    why:
+      "power-ports/Power 3": "the R940 has two hot-plug PSUs (Dell ISM rear view fig. 8, table 10); upstream lists four"
+      "power-ports/Power 4": "the R940 has two hot-plug PSUs (Dell ISM rear view fig. 8, table 10); upstream lists four"
+      "interfaces/10GbE 2'": "upstream's name with a stray quote; the network daughter card has four ports, 10GbE 1-4"
+      "interfaces/10GbE [5-8]": "the network daughter card has four ports (Dell ISM rear view item 3, R940 spec sheet); upstream lists eight"
+      "interfaces/10GbE 2": "the second network daughter card port, named without upstream's stray quote"
+
   # -- which pack each entry goes into (the last rule that fits wins) --------
   - match: "device/Cisco/C9200*"
     pack: cisco-catalyst-9200
@@ -218,6 +249,36 @@ rules:
     pack: hpe-aruba-5400
   - match: "module/HPE/*"
     pack: hpe-aruba-5400
+  - match: "device/Dell/R*"
+    pack: dell-poweredge
+  - match: "module/Dell/DELL-PSU-*"
+    pack: dell-poweredge
+  - match: "device/Dell/MD*"
+    pack: dell-powervault
+  - match: "device/Dell/ME5*"
+    pack: dell-powervault
+  - match: "module/Dell/MD*"
+    pack: dell-powervault
+  - match: "module/Dell/ME5*"
+    pack: dell-powervault
+  - match: "module/Dell/4H60R"
+    pack: dell-powervault
+  - match: "device/HPE/ProLiant*"
+    pack: hpe-proliant
+  - match: "device/Intel/*"
+    pack: intel-servers
+  - match: "module/Intel/FXX*"
+    pack: intel-servers
+  - match: "module/Intel/*-FH"
+    pack: server-network-cards
+  - match: "module/Broadcom/*"
+    pack: server-network-cards
+  - match: "module/Dell/540-*"
+    pack: server-network-cards
+  - match: "module/Dell/R887V"
+    pack: server-network-cards
+  - match: "module/Dell/0FM487"
+    pack: server-network-cards
   - match: "pluggable/Cisco/*"
     pack: cisco-optics
   - match: "pluggable/Cisco/STACK-T4"

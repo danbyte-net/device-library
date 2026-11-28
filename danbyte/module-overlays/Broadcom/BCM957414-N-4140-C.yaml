@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Broadcom/BCM957414-N-4140-C.yaml
+meta:
+  category: module
+  module_kind: network-module
+  roles: [network]
+  family: NetXtreme-E
+  summary: OCP NIC 3.0 small-form-factor adapter with two 10/25GbE SFP28 ports (Broadcom BCM57414).
+  links:
+    - kind: datasheet
+      title: Broadcom BCM957414N4140C (N225p) data sheet
+      url: https://docs.broadcom.com/doc/957414N4140C-DS
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/module-types/Broadcom/BCM957414-N-4140-C.yml
+
+model3d:
+  file: assets/Broadcom/BCM957414-N-4140-C.glb
+  far: assets/Broadcom/BCM957414-N-4140-C.far.glb
+  renders:
+    front: assets/Broadcom/BCM957414-N-4140-C.front.webp
+    rear: assets/Broadcom/BCM957414-N-4140-C.rear.webp
+    iso: assets/Broadcom/BCM957414-N-4140-C.iso.webp
+    model_sha256: 7c62d941af9f8b21bccc37a247883355b94c401325ed26d0e626124f2610d8f8
+  leds:
+    ACT_Ethernet/{module}/1: {source: none}
+    ACT_Ethernet/{module}/2: {source: none}
+    port:*: {source: interface.oper_status}

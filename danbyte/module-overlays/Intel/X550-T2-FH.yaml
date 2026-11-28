@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Intel/X550-T2-FH.yaml
+meta:
+  category: module
+  module_kind: network-module
+  roles: [network]
+  family: Intel Ethernet X550
+  summary: PCIe adapter with two 10GBASE-T RJ45 ports, full-height bracket.
+  links:
+    - kind: install-guide
+      title: Intel Ethernet Adapters User's Guide (Dell)
+      url: https://dl.dell.com/manuals/all-products/esuprt_data_center_infra_int/esuprt_data_center_infra_network_adapters/intel-pro-adapters_user's-guide_en-us.pdf
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/module-types/Intel/X550-T2.yaml
+
+model3d:
+  file: assets/Intel/X550-T2-FH.glb
+  far: assets/Intel/X550-T2-FH.far.glb
+  renders:
+    front: assets/Intel/X550-T2-FH.front.webp
+    rear: assets/Intel/X550-T2-FH.rear.webp
+    iso: assets/Intel/X550-T2-FH.iso.webp
+    model_sha256: 734ecb6c1e06d28f2225aadbdbb6625cf2df9b0ee7cf340633f67d4ba866946c
+  leds:
+    ACT_Ethernet/{module}/1: {source: none}
+    ACT_Ethernet/{module}/2: {source: none}
+    port:*: {source: interface.oper_status}

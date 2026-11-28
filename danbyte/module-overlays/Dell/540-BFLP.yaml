@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Pack note: interface names / types as the upstream NetBox module type Dell/540-BFLP.yaml (FACTS nic_cards 4)
+format: danbyte-library/v1
+upstream: module-types/Dell/540-BFLP.yaml
+meta:
+  category: module
+  module_kind: network-module
+  roles: [network]
+  family: ConnectX-6 Lx
+  summary: OCP NIC 3.0 small-form-factor adapter with two 10/25GbE SFP28 ports (NVIDIA ConnectX-6 Lx).
+  links:
+    - kind: install-guide
+      title: Dell Mellanox Adapters User's Guide
+      url: https://downloads.dell.com/manuals/all-products/esuprt_data_center_infra_int/esuprt_data_center_infra_network_adapters/mellanox-adapters_Users-Guide_en-us.pdf
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/module-types/Dell/540-BFLP.yaml
+
+comments: Dell NVIDIA ConnectX-6 Lx dual port 10/25GbE SFP28 OCP NIC 3.0 adapter (internal lock faceplate)
+interfaces:
+  '{module}-25GbE-1': {label: ''}
+  '{module}-25GbE-2': {label: ''}
+
+model3d:
+  file: assets/Dell/540-BFLP.glb
+  far: assets/Dell/540-BFLP.far.glb
+  renders:
+    front: assets/Dell/540-BFLP.front.webp
+    rear: assets/Dell/540-BFLP.rear.webp
+    iso: assets/Dell/540-BFLP.iso.webp
+    model_sha256: 39f0e0b5f8dab3f00c03215616e90dca07b2f62533825b268564ce7cb0fc92a7
+  leds:
+    ACT_{module}-25GbE-1: {source: none}
+    ACT_{module}-25GbE-2: {source: none}
+    port:*: {source: interface.oper_status}

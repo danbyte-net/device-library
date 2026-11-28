@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Dell/ME5-CTRL-ISCSI-10GBT.yaml
+meta:
+  category: module
+  module_kind: other
+  family: PowerVault ME5
+  summary: Hot-swap ME5 controller module with 4 x 10GBase-T iSCSI host ports, management Ethernet, SAS expansion and USB CLI ports.
+  links:
+    - kind: product-page
+      title: 10Gb iSCSI Base-T4 Port Single Controller
+      url: https://www.dell.com/en-in/shop/x/apd/403-bcqt/storage-drives-media
+    - kind: install-guide
+      title: Dell PowerVault ME5 Series Storage System Owner's Manual
+      url: https://dl.dell.com/content/manual52191289-dell-powervault-me5-series-storage-system-owner-s-manual.pdf?language=en-us
+    - kind: config-guide
+      title: 'ME5 Series CLI Reference Guide: port'
+      url: https://www.dell.com/support/manuals/en-us/powervault-me5024/me5_series_cli/port?guid=guid-0343cb7f-e9c2-4ca9-88b6-7ae65dc8d2d8&lang=en-us
+  sources:
+    - https://www.dell.com/en-in/shop/x/apd/403-bcqt/storage-drives-media
+    - https://www.dell.com/support/manuals/en-us/powervault-me5024/me5_series_cli/show-ports?guid=guid-b912da10-7722-4788-b151-3820b054861d&lang=en-us
+
+model3d:
+  file: assets/Dell/ME5-CTRL-ISCSI-10GBT.glb
+  far: assets/Dell/ME5-CTRL-ISCSI-10GBT.far.glb
+  leds:
+    HW_OK: {source: module.status}
+    FAULT:
+      source: module.status
+      only: [amber, red]
+    OK_TO_REMOVE: {source: none}
+    IDENTIFY: {source: none}
+    CACHE: {source: none}
+    MGMT_SPEED: {source: none}
+    MGMT_LINK: {source: none}
+    HOST_SPEED_0: {source: none}
+    HOST_SPEED_1: {source: none}
+    HOST_SPEED_2: {source: none}
+    HOST_SPEED_3: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Dell/ME5-CTRL-ISCSI-10GBT.front.webp
+    rear: assets/Dell/ME5-CTRL-ISCSI-10GBT.rear.webp
+    iso: assets/Dell/ME5-CTRL-ISCSI-10GBT.iso.webp
+    model_sha256: 9f12764d6d9b1dfe324a27908dbd30f17eb0ad9c7cfa09c34c130c9993ac255b

@@ -1,0 +1,18 @@
+---
+manufacturer: Intel
+model: I350-T4-FH
+part_number: I350T4V2
+comments: 'Intel Ethernet Server Adapter I350-T4V2 with the full-height bracket installed (Intel: low-profile bracket included in the box)'
+interfaces:
+  - name: Ethernet/{module}/1
+    type: 1000base-t
+    mgmt_only: false
+  - name: Ethernet/{module}/2
+    type: 1000base-t
+    mgmt_only: false
+  - name: Ethernet/{module}/3
+    type: 1000base-t
+    mgmt_only: false
+  - name: Ethernet/{module}/4
+    type: 1000base-t
+    mgmt_only: false

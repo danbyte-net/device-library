@@ -1,0 +1,97 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Dell/PowerVault-MD2412.yaml
+meta:
+  category: storage
+  roles: [jbod, sas]
+  family: PowerVault MD24
+  summary: 2U direct-attach SAS4 expansion enclosure for 12 x 3.5-inch drives, two hot-swap EMMs and two hot-swap 800 W PSUs.
+  links:
+    - kind: install-guide
+      title: MD2412 and MD2424 Direct-Attach Storage for PowerEdge Servers Owner's Manual
+      url: https://dl.dell.com/content/manual48914611-md2412-and-md2424-direct-attach-storage-for-poweredge-servers-owner-s-manual.pdf?language=en-us
+    - kind: support
+      title: PowerVault MD2412 support
+      url: https://www.dell.com/support/product-details/en-uk/product/storage-md2412/overview
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/device-types/Dell/PowerVault-MD2412.yaml
+
+interfaces:
+  remove:
+    - name: EMM1 SAS Port 1
+      why: 'the upstream chassis interfaces "EMM1 SAS Port 1", "EMM1 SAS Port 2", "EMM2 SAS Port 1", "EMM2 SAS Port 2" (type other) moved to the EMM module type MD2412-EMM as "EMM{module} SAS Port 1/2": bays EMM1 / EMM2 (position 1 / 2) give the same four names once both EMMs are installed (owner: EMMs are hot-swap modules)'
+    - name: EMM1 SAS Port 2
+      why: 'the upstream chassis interfaces "EMM1 SAS Port 1", "EMM1 SAS Port 2", "EMM2 SAS Port 1", "EMM2 SAS Port 2" (type other) moved to the EMM module type MD2412-EMM as "EMM{module} SAS Port 1/2": bays EMM1 / EMM2 (position 1 / 2) give the same four names once both EMMs are installed (owner: EMMs are hot-swap modules)'
+    - name: EMM2 SAS Port 1
+      why: 'the upstream chassis interfaces "EMM1 SAS Port 1", "EMM1 SAS Port 2", "EMM2 SAS Port 1", "EMM2 SAS Port 2" (type other) moved to the EMM module type MD2412-EMM as "EMM{module} SAS Port 1/2": bays EMM1 / EMM2 (position 1 / 2) give the same four names once both EMMs are installed (owner: EMMs are hot-swap modules)'
+    - name: EMM2 SAS Port 2
+      why: 'the upstream chassis interfaces "EMM1 SAS Port 1", "EMM1 SAS Port 2", "EMM2 SAS Port 1", "EMM2 SAS Port 2" (type other) moved to the EMM module type MD2412-EMM as "EMM{module} SAS Port 1/2": bays EMM1 / EMM2 (position 1 / 2) give the same four names once both EMMs are installed (owner: EMMs are hot-swap modules)'
+
+module-bays:
+  PSU A:
+    modules: [4H60R]
+  PSU B:
+    modules: [4H60R]
+  add:
+    - name: EMM1
+      position: '1'
+      label: EMM 1
+      description: EMM-A / Slot 1 (left seen from the rear)
+      modules: [MD2412-EMM]
+      why: 'EMM bays (MD24OM fig. 2: "EMM 1 (EMM-A/Slot1)" left, "EMM 2 (EMM-B/Slot2)" right seen from the rear;'
+    - name: EMM2
+      position: '2'
+      label: EMM 2
+      description: EMM-B / Slot 2 (right seen from the rear)
+      modules: [MD2412-EMM]
+      why: 'EMM bays (MD24OM fig. 2: "EMM 1 (EMM-A/Slot1)" left, "EMM 2 (EMM-B/Slot2)" right seen from the rear;'
+
+model3d:
+  file: assets/Dell/MD2412.glb
+  far: assets/Dell/MD2412.far.glb
+  empty: filler
+  leds:
+    HEALTH: {source: device.status}
+    DRIVE_FAULT: {source: none}
+    TEMP_FAULT: {source: none}
+    ELEC_FAULT: {source: none}
+    MEM_FAULT: {source: none}
+    PCI_FAULT: {source: none}
+    D0_ACT: {source: none}
+    D0_STATUS: {source: none}
+    D1_ACT: {source: none}
+    D1_STATUS: {source: none}
+    D2_ACT: {source: none}
+    D2_STATUS: {source: none}
+    D3_ACT: {source: none}
+    D3_STATUS: {source: none}
+    D4_ACT: {source: none}
+    D4_STATUS: {source: none}
+    D5_ACT: {source: none}
+    D5_STATUS: {source: none}
+    D6_ACT: {source: none}
+    D6_STATUS: {source: none}
+    D7_ACT: {source: none}
+    D7_STATUS: {source: none}
+    D8_ACT: {source: none}
+    D8_STATUS: {source: none}
+    D9_ACT: {source: none}
+    D9_STATUS: {source: none}
+    D10_ACT: {source: none}
+    D10_STATUS: {source: none}
+    D11_ACT: {source: none}
+    D11_STATUS: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Dell/MD2412.front.webp
+    rear: assets/Dell/MD2412.rear.webp
+    iso: assets/Dell/MD2412.iso.webp
+    model_sha256: 39a6399fe9a4a77b8aa0d87489736cc7d7949377a0bbb10896b716cad68668e3
+    modules: {EMM1: PowerVault MD2412 EMM, EMM2: PowerVault MD2412 EMM, PSU A: 4H60R, PSU B: 4H60R}
+
+# rack_mount (spec 1.11): MD24OM 'Installing rails' / 'Installing the enclosure': the rails are fixed to
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: fixed

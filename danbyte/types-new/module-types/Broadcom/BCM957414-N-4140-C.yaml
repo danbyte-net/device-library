@@ -1,0 +1,12 @@
+---
+manufacturer: Broadcom
+model: N225p
+part_number: BCM957414N4140C
+comments: Broadcom NetXtreme-E N225p 2 x 25GbE/10GbE SFP28 OCP NIC 3.0 small-form-factor adapter (pull tab, thumbscrew)
+interfaces:
+  - name: Ethernet/{module}/1
+    type: 25gbase-x-sfp28
+    mgmt_only: false
+  - name: Ethernet/{module}/2
+    type: 25gbase-x-sfp28
+    mgmt_only: false

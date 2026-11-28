@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Intel/I350-T4-FH.yaml
+meta:
+  category: module
+  module_kind: network-module
+  roles: [network]
+  family: Intel Ethernet Server Adapter I350
+  summary: PCIe 2.1 x4 adapter with four 1GbE RJ45 ports, full-height bracket.
+  links:
+    - kind: datasheet
+      title: Intel Ethernet Server Adapter I350 product brief
+      url: https://cdrdv2-public.intel.com/325511/Intel%20Ethernet%20Server%20Adapter%20I350-T2-T4.pdf
+    - kind: install-guide
+      title: Intel Ethernet Adapters User's Guide (Dell)
+      url: https://dl.dell.com/manuals/all-products/esuprt_data_center_infra_int/esuprt_data_center_infra_network_adapters/intel-pro-adapters_user's-guide_en-us.pdf
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/module-types/Intel/I350-T4.yaml
+
+model3d:
+  file: assets/Intel/I350-T4-FH.glb
+  far: assets/Intel/I350-T4-FH.far.glb
+  renders:
+    front: assets/Intel/I350-T4-FH.front.webp
+    rear: assets/Intel/I350-T4-FH.rear.webp
+    iso: assets/Intel/I350-T4-FH.iso.webp
+    model_sha256: afb36a237f63511f01d52c53b3e67d40796d5cb29754956f9e5d742dbbdb2e3a
+  leds:
+    SPEED_Ethernet/{module}/1: {source: none}
+    SPEED_Ethernet/{module}/2: {source: none}
+    SPEED_Ethernet/{module}/3: {source: none}
+    SPEED_Ethernet/{module}/4: {source: none}
+    port:*: {source: interface.oper_status}

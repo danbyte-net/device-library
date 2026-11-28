@@ -1,0 +1,29 @@
+---
+manufacturer: Intel
+model: R2208GZ4GC
+slug: intel-r2208gz4gc
+part_number: R2208GZ4GC
+u_height: 2
+is_full_depth: true
+airflow: front-to-rear
+comments: '[Intel Server System R2208GZ4GC (ARK)](https://www.intel.com/content/www/us/en/products/sku/56262/intel-server-system-r2208gz4gc/specifications.html): 2U, 8 x 2.5" hot-swap front bays, Intel Server Board S2600GZ4, 2 x 750 W redundant PSUs (FXX750PCRPS), RMM4, value rail kit. ARK: 16.93 x 27.95 x 3.44 in; EOL announced 2016-12-21, last order 2017-06-30, last receipt 2017-10-31. [TPS R2000GZ/GL rev 2.2](https://cdrdv2.intel.com/v1/dl/getContent/840741?fileName=r2000gzgl_tps_r2_2.pdf). Optional I/O modules (not fitted; slot blank modelled): AXX4P1GBPWLIOM, AXX10GBTWLIOM, AXX10GBNIAIOM, AXX1FDRIBIOM, AXX2FDRIBIOM.'
+console-ports:
+  - name: Serial Port A
+    type: rj-45
+interfaces:
+  - name: NIC 1
+    type: 1000base-t
+  - name: NIC 2
+    type: 1000base-t
+  - name: NIC 3
+    type: 1000base-t
+  - name: NIC 4
+    type: 1000base-t
+  - name: RMM4 NIC Port
+    type: 1000base-t
+    mgmt_only: true
+module-bays:
+  - name: PSU1
+    position: '1'
+  - name: PSU2
+    position: '2'

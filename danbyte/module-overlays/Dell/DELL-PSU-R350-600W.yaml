@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Dell/DELL-PSU-R350-600W.yaml
+meta:
+  category: module
+  module_kind: psu
+  roles: [power]
+  family: PowerEdge
+  summary: 600 W AC Platinum hot-plug power supply for the PowerEdge R350.
+  links:
+    - kind: install-guide
+      title: Dell PowerEdge R350 Installation and Service Manual (PDF)
+      url: https://dl.dell.com/topicspdf/poweredge-r350_owners-manual5_en-us.pdf
+
+model3d:
+  file: assets/Dell/DELL-PSU-R350-600W.glb
+  far: assets/Dell/DELL-PSU-R350-600W.far.glb
+  renders:
+    front: assets/Dell/DELL-PSU-R350-600W.front.webp
+    rear: assets/Dell/DELL-PSU-R350-600W.rear.webp
+    iso: assets/Dell/DELL-PSU-R350-600W.iso.webp
+    model_sha256: d1d20d0f21a8cf072a4a820931e9840c97799140fc0f5c98d9e3ac663221f19d
+  leds:
+    PS_OK: {source: module.status}
