@@ -1,0 +1,98 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Dell/PowerEdge-R760xd2.yaml
+meta:
+  category: server
+  roles: [storage]
+  family: PowerEdge
+  summary: 2U storage-dense two-socket rack server with 24 x 3.5-inch drives (12 front, 12 in a top-load mid bay); two 60 mm PSU bays, five PCIe slots, an OCP 3.0 slot, two RJ45 and the iDRAC port.
+  links:
+    - kind: install-guide
+      title: Dell PowerEdge R760xd2 Installation and Service Manual
+      url: https://www.dell.com/support/manuals/poweredge-r760xd2/r760xd2_ism/about-this-document
+    - kind: install-guide
+      title: Dell PowerEdge R760xd2 Installation and Service Manual (PDF)
+      url: https://dl.dell.com/content/manual30775379-dell-poweredge-r760xd2-installation-and-service-manual.pdf?language=en-us
+    - kind: other
+      title: Dell PowerEdge R760xd2 Technical Guide
+      url: https://www.delltechnologies.com/asset/en-gb/products/servers/technical-support/poweredge-r760xd2-technical-guide.pdf
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/device-types/Dell/PowerEdge-R760xd2.yaml
+
+console-ports:
+  remove:
+    - name: Rear Serial
+      why: 'upstream console-port ''Rear Serial'' (de-9) left out: Dell''s ISM rear view shows no serial port on this model (an optional part at most); add it back with its anchor once a photo shows it'
+
+module-bays:
+  PSU-1:
+    modules: [DELL-PSU-60MM-1400W]
+  PSU-2:
+    modules: [DELL-PSU-60MM-1400W]
+
+model3d:
+  file: assets/Dell/R760xd2.glb
+  far: assets/Dell/R760xd2.far.glb
+  empty: filler
+  leds:
+    LED_DRIVE:
+      source: device.status
+      only: [amber]
+    LED_TEMP:
+      source: device.status
+      only: [amber]
+    LED_ELECTRICAL:
+      source: device.status
+      only: [amber]
+    LED_MEMORY:
+      source: device.status
+      only: [amber]
+    LED_PCIE:
+      source: device.status
+      only: [amber]
+    HEALTH: {source: device.status}
+    POWER:
+      source: device.status
+      only: [green]
+    IDRAC_DIRECT: {source: none}
+    ACT_Gig-E 1: {source: none}
+    ACT_Gig-E 2: {source: none}
+    ACT_iDRAC: {source: none}
+    DRIVE0_ACT: {source: none}
+    DRIVE0_STATUS: {source: none}
+    DRIVE1_ACT: {source: none}
+    DRIVE1_STATUS: {source: none}
+    DRIVE2_ACT: {source: none}
+    DRIVE2_STATUS: {source: none}
+    DRIVE3_ACT: {source: none}
+    DRIVE3_STATUS: {source: none}
+    DRIVE4_ACT: {source: none}
+    DRIVE4_STATUS: {source: none}
+    DRIVE5_ACT: {source: none}
+    DRIVE5_STATUS: {source: none}
+    DRIVE6_ACT: {source: none}
+    DRIVE6_STATUS: {source: none}
+    DRIVE7_ACT: {source: none}
+    DRIVE7_STATUS: {source: none}
+    DRIVE8_ACT: {source: none}
+    DRIVE8_STATUS: {source: none}
+    DRIVE9_ACT: {source: none}
+    DRIVE9_STATUS: {source: none}
+    DRIVE10_ACT: {source: none}
+    DRIVE10_STATUS: {source: none}
+    DRIVE11_ACT: {source: none}
+    DRIVE11_STATUS: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Dell/R760xd2.front.webp
+    rear: assets/Dell/R760xd2.rear.webp
+    iso: assets/Dell/R760xd2.iso.webp
+    model_sha256: 83814c3755bba355d0afbc0273ed8577f619dd3641ba78e25ea316312ea0b5cf
+    modules: {PSU-1: DELL-PSU-60MM-1400W, PSU-2: DELL-PSU-60MM-1400W, NUMA 0 - OCP slot 1: 540-BFLP}
+
+# rack_mount (spec 1.11; owner rule for servers): the control-panel flanks are the ears, front of the flanks at
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: sliding

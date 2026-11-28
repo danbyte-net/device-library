@@ -1,0 +1,10 @@
+---
+manufacturer: Intel
+model: FXX750PCRPS
+part_number: FXX750PCRPS
+comments: '750W Common Redundant Power Supply FXX750PCRPS (Intel ARK: "750W Cold Redundant Power Supply spare 80Plus Platinum efficiency for P4000, R1000, and R2000 server chassis"). TPS R2000GZ/GL rev 2.2 section 3.1: 39/40 x 74 x 185 mm, one 40 mm fan, 2x25 card-edge output. Inlet drawn as IEC C14 in TPS Figure 8 (the text does not name it).'
+power-ports:
+  - name: PSU{module}
+    label: 750W Common Redundant Power Supply FXX750PCRPS
+    type: iec-60320-c14
+    maximum_draw: 750

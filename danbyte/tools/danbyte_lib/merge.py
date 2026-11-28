@@ -162,6 +162,10 @@ def merge_section(section: str, upstream_list, patch, problems: list | None = No
         for k, v in (fields or {}).items():
             if k in STEERING:
                 continue
+            if v == "":
+                # An empty text field clears the upstream one.
+                target.pop(k, None)
+                continue
             target[k] = copy.deepcopy(v)
 
     for entry in patch.get("add") or []:
@@ -206,6 +210,10 @@ def merge(upstream: dict, overlay: dict, *, strict: bool = True) -> dict:
             out[key] = merge_section(key, upstream.get(key), value, problems)
         else:
             out[key] = copy.deepcopy(value)
+    # A list every item of which was removed is left out, as the pack has it.
+    for key in COMPONENT_KEYS:
+        if key in overlay and key in out and out[key] == []:
+            out.pop(key)
     for entry in overlay.get("drop") or []:
         name = str(entry.get("key") if isinstance(entry, dict) else entry)
         if name in COMPONENT_KEYS or name in OVERLAY_KEYS:

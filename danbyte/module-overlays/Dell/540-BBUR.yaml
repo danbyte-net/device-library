@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Dell/540-BBUR.yaml
+meta:
+  category: module
+  module_kind: network-module
+  roles: [network]
+  family: NetXtreme-E
+  summary: Dell rack network daughter card with two 10GbE SFP+ ports (Broadcom 57412) and two 1GbE RJ45 ports (Broadcom 5720).
+  links:
+    - kind: install-guide
+      title: Dell Broadcom NetXtreme-E User's Guide (UG304)
+      url: https://dl.dell.com/manuals/all-products/esuprt_data_center_infra_int/esuprt_data_center_infra_network_adapters/broadcom-netxtreme-adapters_users-guide4_en-us.pdf
+
+model3d:
+  file: assets/Dell/540-BBUR.glb
+  far: assets/Dell/540-BBUR.far.glb
+  renders:
+    front: assets/Dell/540-BBUR.front.webp
+    rear: assets/Dell/540-BBUR.rear.webp
+    iso: assets/Dell/540-BBUR.iso.webp
+    model_sha256: 8aed38e81483cc0c19a6c44c5fbb7c9854779b06509086201b81f99259207053
+  leds:
+    ACT_{module}-10GbE-1: {source: none}
+    ACT_{module}-10GbE-2: {source: none}
+    ACT_{module}-1GbE-3: {source: none}
+    ACT_{module}-1GbE-4: {source: none}
+    port:*: {source: interface.oper_status}

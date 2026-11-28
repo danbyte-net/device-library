@@ -1,0 +1,149 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Dell/PowerEdge-R940.yaml
+meta:
+  category: server
+  roles: [compute]
+  family: PowerEdge
+  summary: 3U four-socket rack server; modelled with 24 x 2.5-inch front drives, two PSUs, thirteen PCIe slots, a four-port network daughter card, serial and the iDRAC port.
+  links:
+    - kind: install-guide
+      title: Dell PowerEdge R940 Installation and Service Manual
+      url: https://dl.dell.com/topicspdf/poweredge-r940_owners-manual_en-us.pdf
+    - kind: install-guide
+      title: Dell PowerEdge R940 Installation and Service Manual (Rev A09, with technical specifications)
+      url: https://dl.dell.com/topicspdf/poweredge-r940_owners-manual4_en-us.pdf
+    - kind: datasheet
+      title: Dell PowerEdge R940 Spec Sheet
+      url: https://i.dell.com/sites/doccontent/shared-content/data-sheets/en/Documents/poweredge-r940-spec-sheet.pdf
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/device-types/Dell/PowerEdge-R940.yaml
+
+# weight from the ISM spec chapter (R940-ISM4 table 18, 49.9 kg)
+weight: 49.9
+weight_unit: kg
+power-ports:
+  remove:
+    - name: Power 3
+      why: the R940 has two hot-plug PSUs (Dell ISM rear view fig. 8, table 10); upstream lists four
+    - name: Power 4
+      why: the R940 has two hot-plug PSUs (Dell ISM rear view fig. 8, table 10); upstream lists four
+  Power 1: {type: iec-60320-c20}
+  Power 2: {type: iec-60320-c20}
+
+interfaces:
+  remove:
+    - name: 10GbE 2'
+      why: upstream's name with a stray quote; the network daughter card has four ports, 10GbE 1-4
+    - name: 10GbE 5
+      why: the network daughter card has four ports (Dell ISM rear view item 3, R940 spec sheet); upstream lists eight
+    - name: 10GbE 6
+      why: the network daughter card has four ports (Dell ISM rear view item 3, R940 spec sheet); upstream lists eight
+    - name: 10GbE 7
+      why: the network daughter card has four ports (Dell ISM rear view item 3, R940 spec sheet); upstream lists eight
+    - name: 10GbE 8
+      why: the network daughter card has four ports (Dell ISM rear view item 3, R940 spec sheet); upstream lists eight
+  add:
+    - name: 10GbE 2
+      type: 10gbase-t
+      why: the second network daughter card port, named without upstream's stray quote
+      after: 10GbE 1
+
+model3d:
+  file: assets/Dell/R940.glb
+  far: assets/Dell/R940.far.glb
+  empty: filler
+  leds:
+    LED_DRIVE:
+      source: device.status
+      only: [amber]
+    LED_TEMP:
+      source: device.status
+      only: [amber]
+    LED_ELECTRICAL:
+      source: device.status
+      only: [amber]
+    LED_MEMORY:
+      source: device.status
+      only: [amber]
+    LED_PCIE:
+      source: device.status
+      only: [amber]
+    HEALTH: {source: device.status}
+    POWER:
+      source: device.status
+      only: [green]
+    IDRAC_DIRECT: {source: none}
+    ID: {source: device.locate}
+    ACT_iDRAC: {source: none}
+    DRIVE0_ACT: {source: none}
+    DRIVE0_STATUS: {source: none}
+    DRIVE1_ACT: {source: none}
+    DRIVE1_STATUS: {source: none}
+    DRIVE2_ACT: {source: none}
+    DRIVE2_STATUS: {source: none}
+    DRIVE3_ACT: {source: none}
+    DRIVE3_STATUS: {source: none}
+    DRIVE4_ACT: {source: none}
+    DRIVE4_STATUS: {source: none}
+    DRIVE5_ACT: {source: none}
+    DRIVE5_STATUS: {source: none}
+    DRIVE6_ACT: {source: none}
+    DRIVE6_STATUS: {source: none}
+    DRIVE7_ACT: {source: none}
+    DRIVE7_STATUS: {source: none}
+    DRIVE8_ACT: {source: none}
+    DRIVE8_STATUS: {source: none}
+    DRIVE9_ACT: {source: none}
+    DRIVE9_STATUS: {source: none}
+    DRIVE10_ACT: {source: none}
+    DRIVE10_STATUS: {source: none}
+    DRIVE11_ACT: {source: none}
+    DRIVE11_STATUS: {source: none}
+    DRIVE12_ACT: {source: none}
+    DRIVE12_STATUS: {source: none}
+    DRIVE13_ACT: {source: none}
+    DRIVE13_STATUS: {source: none}
+    DRIVE14_ACT: {source: none}
+    DRIVE14_STATUS: {source: none}
+    DRIVE15_ACT: {source: none}
+    DRIVE15_STATUS: {source: none}
+    DRIVE16_ACT: {source: none}
+    DRIVE16_STATUS: {source: none}
+    DRIVE17_ACT: {source: none}
+    DRIVE17_STATUS: {source: none}
+    DRIVE18_ACT: {source: none}
+    DRIVE18_STATUS: {source: none}
+    DRIVE19_ACT: {source: none}
+    DRIVE19_STATUS: {source: none}
+    DRIVE20_ACT: {source: none}
+    DRIVE20_STATUS: {source: none}
+    DRIVE21_ACT: {source: none}
+    DRIVE21_STATUS: {source: none}
+    DRIVE22_ACT: {source: none}
+    DRIVE22_STATUS: {source: none}
+    DRIVE23_ACT: {source: none}
+    DRIVE23_STATUS: {source: none}
+    PSU1_OK:
+      source: device.status
+      only: [green]
+    PSU2_OK:
+      source: device.status
+      only: [green]
+    ACT_10GbE 1: {source: none}
+    ACT_10GbE 2: {source: none}
+    ACT_10GbE 3: {source: none}
+    ACT_10GbE 4: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Dell/R940.front.webp
+    rear: assets/Dell/R940.rear.webp
+    iso: assets/Dell/R940.iso.webp
+    model_sha256: 53659819f0cbf55e6d821a7d9538efd0d2d662014eb699dc6c24813fb42ed90a
+
+# rack_mount (spec 1.11; owner rule for servers): the control-panel flanks are the ears, front of the flanks at
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: sliding

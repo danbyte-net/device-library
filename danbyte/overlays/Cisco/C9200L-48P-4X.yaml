@@ -54,7 +54,7 @@ model3d:
     front: assets/Cisco/C9200L-48P-4X.front.webp
     rear: assets/Cisco/C9200L-48P-4X.rear.webp
     iso: assets/Cisco/C9200L-48P-4X.iso.webp
-    model_sha256: cc77826ab1f412a6dee3199497d99a0bd2bcc837a633ec6ff6ba6c224caa0786
+    model_sha256: af6eef6137be147fdc4c32fac30de7a42f60b6b96a0f825f248bec4876df4a61
     modules: {PS0: PWR-C5-1KWAC, PS1: PWR-C5-1KWAC}
 
 # rack mounting (spec 1.11 section 8) from Cisco's install guide; mid = Cisco's 'rear-mount' figure (bracket turned round on the front holes), ~98 mm from our bracket model

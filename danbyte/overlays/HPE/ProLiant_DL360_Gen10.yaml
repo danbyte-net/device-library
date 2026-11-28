@@ -1,0 +1,84 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/HPE/ProLiant-DL360-Gen10.yaml
+meta:
+  category: server
+  roles: [compute]
+  family: ProLiant DL360
+  summary: 1U two-socket rack server, 8 SFF drive bays plus a Universal Media Bay, iLO 5 management port, embedded 4 x 1GbE, three PCIe 3.0 slots, a FlexibleLOM bay, two Flex Slot PSU bays.
+  links:
+    - kind: datasheet
+      title: QuickSpecs HPE ProLiant DL360 Gen10 Server
+      url: https://support.hpe.com/hpesc/public/api/document/a00008159enw
+    - kind: datasheet
+      title: QuickSpecs HPE Flexible Slot Power Supplies (c04346217)
+      url: https://support.hpe.com/hpesc/public/api/document/c04346217
+  sources:
+    - https://raw.githubusercontent.com/netbox-community/devicetype-library/master/device-types/HPE/ProLiant-DL360-Gen10.yaml
+    - https://support.hpe.com/hpesc/public/docDisplay?docId=c04399819&page=GUID-B33760C1-3A5A-46BE-84D4-73E82041EE78.html&docLocale=en_US
+
+# part number 867959-B21 "HPE DL360 Gen10 8SFF CTO Server", listed under "CTO Models with embedded LOM"
+part_number: 867959-B21
+interfaces:
+  add:
+    - name: Gig-E 1
+      type: 1000base-t
+      why: the embedded 4 x 1GbE adapter (QuickSpecs p. 6 callout 7), fixed RJ45 numbered left to right; names as the
+    - name: Gig-E 2
+      type: 1000base-t
+      why: the embedded 4 x 1GbE adapter (QuickSpecs p. 6 callout 7), fixed RJ45 numbered left to right; names as the
+    - name: Gig-E 3
+      type: 1000base-t
+      why: the embedded 4 x 1GbE adapter (QuickSpecs p. 6 callout 7), fixed RJ45 numbered left to right; names as the
+    - name: Gig-E 4
+      type: 1000base-t
+      why: the embedded 4 x 1GbE adapter (QuickSpecs p. 6 callout 7), fixed RJ45 numbered left to right; names as the
+
+module-bays:
+  remove:
+    - name: Embedded LOM
+      why: 'upstream bay "Embedded LOM" (position LOM, "rear: right side of the ILO labeled port ... only 4-Gig Ethernet") removed: those four ports are the fixed embedded adapter above (a bay there would duplicate them)'
+  PSU Bay 1:
+    modules: [865408-B21, 865414-B21, 865438-B21]
+  PSU Bay 2:
+    modules: [865408-B21, 865414-B21, 865438-B21]
+
+model3d:
+  file: assets/HPE/ProLiant_DL360_Gen10.glb
+  far: assets/HPE/ProLiant_DL360_Gen10.far.glb
+  empty: filler
+  renders:
+    front: assets/HPE/ProLiant_DL360_Gen10.front.webp
+    rear: assets/HPE/ProLiant_DL360_Gen10.rear.webp
+    iso: assets/HPE/ProLiant_DL360_Gen10.iso.webp
+    model_sha256: df6336519c97d90ead07f09ffeff625c63ba900d924eb10d116fd31fb7ef4191
+    modules: {PSU Bay 1: 865408-B21, PSU Bay 2: 865408-B21}
+  leds:
+    POWER: {source: device.status}
+    HEALTH: {source: device.status}
+    NIC: {source: none}
+    UID: {source: device.locate}
+    ILO_ACT: {source: none}
+    UID_REAR: {source: device.locate}
+    DRIVE_1: {source: none}
+    DRIVE_2: {source: none}
+    DRIVE_3: {source: none}
+    DRIVE_4: {source: none}
+    DRIVE_5: {source: none}
+    DRIVE_6: {source: none}
+    DRIVE_7: {source: none}
+    DRIVE_8: {source: none}
+    DRIVE_UMB1: {source: none}
+    DRIVE_UMB2: {source: none}
+    GIGE_1_ACT: {source: none}
+    GIGE_2_ACT: {source: none}
+    GIGE_3_ACT: {source: none}
+    GIGE_4_ACT: {source: none}
+    port:*: {source: interface.oper_status}
+
+# rack_mount (spec 1.11, owner's server rule): the front flanks are part of the chassis (y 0 = their front
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: sliding

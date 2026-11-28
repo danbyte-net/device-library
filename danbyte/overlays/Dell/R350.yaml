@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Dell/PowerEdge-R350.yaml
+meta:
+  category: server
+  roles: [compute]
+  family: PowerEdge
+  summary: 1U single-socket rack server; modelled with 4 x 3.5-inch front drives, two 600 W PSU bays, two RJ45, the iDRAC port and a serial port.
+  links:
+    - kind: install-guide
+      title: Dell PowerEdge R350 Installation and Service Manual (PDF)
+      url: https://dl.dell.com/topicspdf/poweredge-r350_owners-manual5_en-us.pdf
+    - kind: other
+      title: Dell PowerEdge R350 Technical Specifications (PDF)
+      url: https://dl.dell.com/topicspdf/poweredge-r350_owners-manual2_en-us.pdf
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/device-types/Dell/PowerEdge-R350.yaml
+
+# weight 13.14 kg (R350 Technical Specifications Table 2, 4 x 3.5-inch chassis, the one modelled; upstream 13)
+weight: 13.14
+module-bays:
+  PSU-1:
+    modules: [DELL-PSU-R350-600W]
+  PSU-2:
+    modules: [DELL-PSU-R350-600W]
+
+model3d:
+  file: assets/Dell/R350.glb
+  far: assets/Dell/R350.far.glb
+  empty: filler
+  leds:
+    HEALTH: {source: device.status}
+    POWER:
+      source: device.status
+      only: [green]
+    IDRAC_DIRECT: {source: none}
+    ID: {source: device.locate}
+    ACT_iDRAC: {source: none}
+    ACT_Gig-E 1: {source: none}
+    ACT_Gig-E 2: {source: none}
+    DRIVE0_ACT: {source: none}
+    DRIVE0_STATUS: {source: none}
+    DRIVE1_ACT: {source: none}
+    DRIVE1_STATUS: {source: none}
+    DRIVE2_ACT: {source: none}
+    DRIVE2_STATUS: {source: none}
+    DRIVE3_ACT: {source: none}
+    DRIVE3_STATUS: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Dell/R350.front.webp
+    rear: assets/Dell/R350.rear.webp
+    iso: assets/Dell/R350.iso.webp
+    model_sha256: ab748b7a87a8a9ba79d57b167366a7c5e44d0b86c814c2b3adad6f1c6179b178
+    modules: {PSU-1: DELL-PSU-R350-600W, PSU-2: DELL-PSU-R350-600W}
+
+# rack_mount (spec 1.11; owner rule for servers): the ear blocks / control-panel flanks are the ears, front
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: sliding

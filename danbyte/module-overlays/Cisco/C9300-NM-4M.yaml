@@ -31,6 +31,6 @@ model3d:
     front: assets/Cisco/C9300-NM-4M.front.webp
     rear: assets/Cisco/C9300-NM-4M.rear.webp
     iso: assets/Cisco/C9300-NM-4M.iso.webp
-    model_sha256: 9f915a9b39362d0ca04f5cbc94ac3664877fefb550c2c6e93dbe9760e0450767
+    model_sha256: 8cf6dd21994b1bc94e292093b92494098e59bab7b0403b71360f053e7dc701e2
   leds:
     port:*: {source: interface.oper_status}

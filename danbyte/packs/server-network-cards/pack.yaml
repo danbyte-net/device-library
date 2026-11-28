@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: server-network-cards
+name: Server network cards
+version: 1.6.54
+license: CC-BY-4.0
+author: Christian Rose
+description: OCP 3.0, Dell rNDC and PCIe network cards from Dell, Intel and Broadcom, for any server with a matching slot.
+blender: 5.3
+spec: 1.15
+requires: [generic-connectors]
+types:
+  module:
+    - Broadcom/BCM957414-N-4140-C
+    - Dell/0FM487
+    - Dell/540-BBUR
+    - Dell/540-BFLP
+    - Dell/R887V
+    - Intel/E810-CQDA2-FH
+    - Intel/E810-XXVDA2-FH
+    - Intel/I350-T4-FH
+    - Intel/X550-T2-FH
+    - Intel/X710-DA2-FH
+    - Intel/XL710-QDA2-FH

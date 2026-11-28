@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: cisco-catalyst-9500
 name: Cisco Catalyst 9500
-version: 1.6.52
+version: 1.6.54
 license: CC-BY-4.0
 author: Christian Rose
 description: Catalyst 9500 switches with their network modules, power supplies and fans.
@@ -13,6 +13,7 @@ types:
   device: [Cisco/C9500-16X, Cisco/C9500-24Y4C, Cisco/C9500-32C, Cisco/C9500-40X, Cisco/C9500-48Y4C]
   module:
     - Cisco/C9500-NM-2Q
+    - Cisco/C9500-NM-8X
     - Cisco/C9K-PWR-1600WAC-R
     - Cisco/C9K-PWR-1600WDC-R
     - Cisco/C9K-PWR-650WAC-R

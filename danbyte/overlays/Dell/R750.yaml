@@ -1,0 +1,127 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Dell/PowerEdge-R750.yml
+meta:
+  category: server
+  roles: [compute]
+  family: PowerEdge
+  summary: 2U two-socket rack server; modelled with 24 x 2.5-inch front drives, two 86 mm PSU bays, eight PCIe slots, an OCP 3.0 slot, two LOM RJ45 and the iDRAC port.
+  links:
+    - kind: install-guide
+      title: Dell PowerEdge R750 Installation and Service Manual
+      url: https://dl.dell.com/topicspdf/poweredge-r750_owners-manual_en-us.pdf
+    - kind: datasheet
+      title: Dell PowerEdge R750 Technical Specifications
+      url: https://dl.dell.com/topicspdf/poweredge-r750_owners-manual2_en-us.pdf
+    - kind: other
+      title: Dell PowerEdge R750 Technical Guide
+      url: https://i.dell.com/sites/csdocuments/Product_Docs/en/poweredge-r750-technical-guide.pdf
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/device-types/Dell/PowerEdge-R750.yml
+
+console-ports:
+  remove:
+    - name: Rear Serial
+      why: 'upstream console-port ''Rear Serial'' (de-9) left out: Dell''s ISM rear view (figure + callout table) shows no serial port on this model; add it back with its anchor once a photo shows one'
+
+module-bays:
+  PSU-1:
+    modules: [DELL-PSU-86MM-2400W]
+  PSU-2:
+    modules: [DELL-PSU-86MM-2400W]
+
+model3d:
+  file: assets/Dell/R750.glb
+  far: assets/Dell/R750.far.glb
+  empty: filler
+  leds:
+    LED_DRIVE:
+      source: device.status
+      only: [amber]
+    LED_TEMP:
+      source: device.status
+      only: [amber]
+    LED_ELECTRICAL:
+      source: device.status
+      only: [amber]
+    LED_MEMORY:
+      source: device.status
+      only: [amber]
+    LED_PCIE:
+      source: device.status
+      only: [amber]
+    HEALTH: {source: device.status}
+    POWER:
+      source: device.status
+      only: [green]
+    IDRAC_DIRECT: {source: none}
+    ID: {source: device.locate}
+    ACT_Gig-E 1: {source: none}
+    ACT_Gig-E 2: {source: none}
+    ACT_iDRAC9 1: {source: none}
+    DRIVE0_ACT: {source: none}
+    DRIVE0_STATUS: {source: none}
+    DRIVE1_ACT: {source: none}
+    DRIVE1_STATUS: {source: none}
+    DRIVE2_ACT: {source: none}
+    DRIVE2_STATUS: {source: none}
+    DRIVE3_ACT: {source: none}
+    DRIVE3_STATUS: {source: none}
+    DRIVE4_ACT: {source: none}
+    DRIVE4_STATUS: {source: none}
+    DRIVE5_ACT: {source: none}
+    DRIVE5_STATUS: {source: none}
+    DRIVE6_ACT: {source: none}
+    DRIVE6_STATUS: {source: none}
+    DRIVE7_ACT: {source: none}
+    DRIVE7_STATUS: {source: none}
+    DRIVE8_ACT: {source: none}
+    DRIVE8_STATUS: {source: none}
+    DRIVE9_ACT: {source: none}
+    DRIVE9_STATUS: {source: none}
+    DRIVE10_ACT: {source: none}
+    DRIVE10_STATUS: {source: none}
+    DRIVE11_ACT: {source: none}
+    DRIVE11_STATUS: {source: none}
+    DRIVE12_ACT: {source: none}
+    DRIVE12_STATUS: {source: none}
+    DRIVE13_ACT: {source: none}
+    DRIVE13_STATUS: {source: none}
+    DRIVE14_ACT: {source: none}
+    DRIVE14_STATUS: {source: none}
+    DRIVE15_ACT: {source: none}
+    DRIVE15_STATUS: {source: none}
+    DRIVE16_ACT: {source: none}
+    DRIVE16_STATUS: {source: none}
+    DRIVE17_ACT: {source: none}
+    DRIVE17_STATUS: {source: none}
+    DRIVE18_ACT: {source: none}
+    DRIVE18_STATUS: {source: none}
+    DRIVE19_ACT: {source: none}
+    DRIVE19_STATUS: {source: none}
+    DRIVE20_ACT: {source: none}
+    DRIVE20_STATUS: {source: none}
+    DRIVE21_ACT: {source: none}
+    DRIVE21_STATUS: {source: none}
+    DRIVE22_ACT: {source: none}
+    DRIVE22_STATUS: {source: none}
+    DRIVE23_ACT: {source: none}
+    DRIVE23_STATUS: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Dell/R750.front.webp
+    rear: assets/Dell/R750.rear.webp
+    iso: assets/Dell/R750.iso.webp
+    model_sha256: 8866f456d8ff489384d818f2dd5a9ae927595a101429071be02cf1ed572bb14a
+    modules:
+      PSU-1: DELL-PSU-86MM-2400W
+      PSU-2: DELL-PSU-86MM-2400W
+      NUMA 0 - OCP slot 1: BCM957414N4140C
+      NUMA 0 - PCIe slot 1 - FH: E810CQDA2
+
+# rack_mount (spec 1.11; owner rule for servers): the control-panel flanks are the ears, front of the flanks at
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: sliding

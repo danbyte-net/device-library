@@ -80,7 +80,7 @@ model3d:
     front: assets/Cisco/C9300L-24P-4X.front.webp
     rear: assets/Cisco/C9300L-24P-4X.rear.webp
     iso: assets/Cisco/C9300L-24P-4X.iso.webp
-    model_sha256: a5af6e75b34327cf8173acdddbe8b3d0f6819968af4ab416a7f550c432a262c1
+    model_sha256: fc7c4c80380fa167123a30ba843094200ae0193b72e747f0c68401c950dd74e4
     modules: {PS-A: PWR-C1-350WAC-P, PS-B: PWR-C1-350WAC-P, FAN 1: FAN-T2, FAN 2: FAN-T2, FAN 3: FAN-T2}
 
 # rack mounting (spec 1.11 section 8) from Cisco's install guide; mid = Cisco's mid-mount figure (bracket turned round on the front holes), ~98 mm from our bracket model; Cisco's rear mount turns the switch round (see REPORT)

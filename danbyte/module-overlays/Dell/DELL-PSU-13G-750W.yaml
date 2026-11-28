@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Dell/DELL-PSU-13G-750W.yaml
+meta:
+  category: module
+  module_kind: psu
+  roles: [power]
+  family: PowerEdge
+  summary: 750 W AC Platinum hot-plug power supply for the PowerEdge R730.
+  links:
+    - kind: install-guide
+      title: Dell PowerEdge R730 Owner's Manual (PDF)
+      url: https://dl.dell.com/topicspdf/poweredge-r730_owners-manual_en-us.pdf
+
+model3d:
+  file: assets/Dell/DELL-PSU-13G-750W.glb
+  far: assets/Dell/DELL-PSU-13G-750W.far.glb
+  renders:
+    front: assets/Dell/DELL-PSU-13G-750W.front.webp
+    rear: assets/Dell/DELL-PSU-13G-750W.rear.webp
+    iso: assets/Dell/DELL-PSU-13G-750W.iso.webp
+    model_sha256: 2ade58d746ab5cf1e37d0684306e40dc4af68fd76ee9206c05a3ed4751d5987c
+  leds:
+    PS_OK: {source: module.status}

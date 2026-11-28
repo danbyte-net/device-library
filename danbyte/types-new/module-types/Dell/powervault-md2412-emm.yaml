@@ -1,0 +1,14 @@
+---
+manufacturer: Dell
+model: PowerVault MD2412 EMM
+comments: Enclosure management module of the MD2412 (hot-swap; not interchangeable with the MD2424 EMM; three fans inside)
+weight: 2.43
+weight_unit: kg
+interfaces:
+  - name: EMM{module} SAS Port 1
+    type: other
+  - name: EMM{module} SAS Port 2
+    type: other
+console-ports:
+  - name: EMM{module} Debug Port
+    type: usb-c

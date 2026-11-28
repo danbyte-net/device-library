@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Dell/403-BCQP.yaml
+meta:
+  category: module
+  module_kind: other
+  family: PowerVault ME5
+  summary: Hot-swap ME5 controller module with 4 x 12Gb SAS (mini-SAS HD) host ports, management Ethernet, SAS expansion and USB CLI ports.
+  links:
+    - kind: product-page
+      title: Dell SAS4 12GB Single Port Fibre Channel Host Bus Adapter
+      url: https://www.dell.com/en-in/shop/x/apd/403-bcqp/storage-drives-media
+    - kind: install-guide
+      title: Dell PowerVault ME5 Series Storage System Owner's Manual
+      url: https://dl.dell.com/content/manual52191289-dell-powervault-me5-series-storage-system-owner-s-manual.pdf?language=en-us
+    - kind: config-guide
+      title: 'ME5 Series CLI Reference Guide: port'
+      url: https://www.dell.com/support/manuals/en-us/powervault-me5024/me5_series_cli/port?guid=guid-0343cb7f-e9c2-4ca9-88b6-7ae65dc8d2d8&lang=en-us
+  sources:
+    - https://www.dell.com/en-in/shop/x/apd/403-bcqp/storage-drives-media
+    - https://www.dell.com/support/manuals/en-us/powervault-me5024/me5_series_cli/show-ports?guid=guid-b912da10-7722-4788-b151-3820b054861d&lang=en-us
+
+model3d:
+  file: assets/Dell/ME5-CTRL-SAS-MSHD.glb
+  far: assets/Dell/ME5-CTRL-SAS-MSHD.far.glb
+  leds:
+    HW_OK: {source: module.status}
+    FAULT:
+      source: module.status
+      only: [amber, red]
+    OK_TO_REMOVE: {source: none}
+    IDENTIFY: {source: none}
+    CACHE: {source: none}
+    MGMT_SPEED: {source: none}
+    MGMT_LINK: {source: none}
+    HOST_STATUS_0: {source: none}
+    HOST_STATUS_1: {source: none}
+    HOST_STATUS_2: {source: none}
+    HOST_STATUS_3: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Dell/ME5-CTRL-SAS-MSHD.front.webp
+    rear: assets/Dell/ME5-CTRL-SAS-MSHD.rear.webp
+    iso: assets/Dell/ME5-CTRL-SAS-MSHD.iso.webp
+    model_sha256: 896003fc6f5fb6839d238f57aedfef2cae310f0dbf29dce4707b3fad2585f15c

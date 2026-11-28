@@ -1,0 +1,9 @@
+---
+manufacturer: Dell
+model: 600 W AC Platinum PSU (PowerEdge R350)
+part_number: DELL-PSU-R350-600W
+comments: 'R350 Technical Specifications Table 4: 600 W AC Platinum, the only PSU listed; hot swappable (ISM). Face measured on ISM Figure 3: C14 inlet, earth side to the left. Dell publishes no form-factor width (60 mm from the figure). The translucent handle is the PSU status light.'
+power-ports:
+  - name: PSU{module}
+    type: iec-60320-c14
+    maximum_draw: 600

@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: dell-powervault
+name: Dell PowerVault
+version: 1.6.54
+license: CC-BY-4.0
+author: Christian Rose
+description: Dell PowerVault storage arrays and enclosures with their controllers, EMMs and power supplies.
+blender: 5.3
+spec: 1.15
+requires: [generic-connectors]
+types:
+  device: [Dell/MD2412, Dell/ME5024]
+  module:
+    - Dell/4H60R
+    - Dell/MD2412-EMM
+    - Dell/ME5-CTRL-FC32-SFP
+    - Dell/ME5-CTRL-ISCSI-10GBT
+    - Dell/ME5-CTRL-ISCSI-SFP28
+    - Dell/ME5-CTRL-SAS-MSHD
+    - Dell/ME5-PCM-580W

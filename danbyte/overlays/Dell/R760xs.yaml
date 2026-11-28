@@ -1,0 +1,124 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Dell/PowerEdge-R760xs.yaml
+meta:
+  category: server
+  roles: [compute]
+  family: PowerEdge
+  summary: 2U two-socket rack server; modelled with 16 + 8 x 2.5-inch front drives, two rear drives, two 60 mm PSU bays, six low-profile PCIe slots, an OCP 3.0 slot, two RJ45 and the iDRAC port.
+  links:
+    - kind: install-guide
+      title: Dell PowerEdge R760xs Installation and Service Manual
+      url: https://www.dell.com/support/manuals/poweredge-r760xs/r760xs_ism_pub/about-this-document
+    - kind: install-guide
+      title: Dell PowerEdge R760xs Installation and Service Manual (PDF)
+      url: https://dl.dell.com/content/manual46164916-poweredge-r760xs-installation-and-service-manual.pdf?language=en-us
+    - kind: other
+      title: Dell PowerEdge R760xs Technical Guide
+      url: https://www.delltechnologies.com/asset/en-gb/products/servers/technical-support/poweredge-r760xs-technical-guide.pdf
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/device-types/Dell/PowerEdge-R760xs.yaml
+
+module-bays:
+  PSU-1:
+    position: '1'
+    modules: [DELL-PSU-60MM-1400W]
+  PSU-2:
+    position: '2'
+    modules: [DELL-PSU-60MM-1400W]
+
+model3d:
+  file: assets/Dell/R760xs.glb
+  far: assets/Dell/R760xs.far.glb
+  empty: filler
+  leds:
+    LED_DRIVE:
+      source: device.status
+      only: [amber]
+    LED_TEMP:
+      source: device.status
+      only: [amber]
+    LED_ELECTRICAL:
+      source: device.status
+      only: [amber]
+    LED_MEMORY:
+      source: device.status
+      only: [amber]
+    LED_PCIE:
+      source: device.status
+      only: [amber]
+    HEALTH: {source: device.status}
+    POWER:
+      source: device.status
+      only: [green]
+    IDRAC_DIRECT: {source: none}
+    ID: {source: device.locate}
+    ACT_eth1: {source: none}
+    ACT_eth2: {source: none}
+    ACT_iDRAC9 1: {source: none}
+    DRIVE0_ACT: {source: none}
+    DRIVE0_STATUS: {source: none}
+    DRIVE1_ACT: {source: none}
+    DRIVE1_STATUS: {source: none}
+    DRIVE2_ACT: {source: none}
+    DRIVE2_STATUS: {source: none}
+    DRIVE3_ACT: {source: none}
+    DRIVE3_STATUS: {source: none}
+    DRIVE4_ACT: {source: none}
+    DRIVE4_STATUS: {source: none}
+    DRIVE5_ACT: {source: none}
+    DRIVE5_STATUS: {source: none}
+    DRIVE6_ACT: {source: none}
+    DRIVE6_STATUS: {source: none}
+    DRIVE7_ACT: {source: none}
+    DRIVE7_STATUS: {source: none}
+    DRIVE8_ACT: {source: none}
+    DRIVE8_STATUS: {source: none}
+    DRIVE9_ACT: {source: none}
+    DRIVE9_STATUS: {source: none}
+    DRIVE10_ACT: {source: none}
+    DRIVE10_STATUS: {source: none}
+    DRIVE11_ACT: {source: none}
+    DRIVE11_STATUS: {source: none}
+    DRIVE12_ACT: {source: none}
+    DRIVE12_STATUS: {source: none}
+    DRIVE13_ACT: {source: none}
+    DRIVE13_STATUS: {source: none}
+    DRIVE14_ACT: {source: none}
+    DRIVE14_STATUS: {source: none}
+    DRIVE15_ACT: {source: none}
+    DRIVE15_STATUS: {source: none}
+    DRIVE16_ACT: {source: none}
+    DRIVE16_STATUS: {source: none}
+    DRIVE17_ACT: {source: none}
+    DRIVE17_STATUS: {source: none}
+    DRIVE18_ACT: {source: none}
+    DRIVE18_STATUS: {source: none}
+    DRIVE19_ACT: {source: none}
+    DRIVE19_STATUS: {source: none}
+    DRIVE20_ACT: {source: none}
+    DRIVE20_STATUS: {source: none}
+    DRIVE21_ACT: {source: none}
+    DRIVE21_STATUS: {source: none}
+    DRIVE22_ACT: {source: none}
+    DRIVE22_STATUS: {source: none}
+    DRIVE23_ACT: {source: none}
+    DRIVE23_STATUS: {source: none}
+    REAR_DRIVE0_ACT: {source: none}
+    REAR_DRIVE0_STATUS: {source: none}
+    REAR_DRIVE1_ACT: {source: none}
+    REAR_DRIVE1_STATUS: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Dell/R760xs.front.webp
+    rear: assets/Dell/R760xs.rear.webp
+    iso: assets/Dell/R760xs.iso.webp
+    model_sha256: 00ed4be29217c2a79a6d0c13c39e4de993316dee42e8946db5a036ad20eaac56
+    modules: {PSU-1: DELL-PSU-60MM-1400W, PSU-2: DELL-PSU-60MM-1400W, NUMA 0 - OCP slot 1: 540-BFLP}
+
+# rack_mount (spec 1.11; owner rule for servers): the control-panel flanks are the ears, front of the flanks at
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: sliding

@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Dell/PowerEdge-R730.yaml
+meta:
+  category: server
+  roles: [compute]
+  family: PowerEdge
+  summary: 2U two-socket rack server with a front LCD panel; modelled with 8 x 3.5-inch front drives, two PSU bays, seven PCIe slots, a network daughter card slot, the iDRAC port and a serial port.
+  links:
+    - kind: install-guide
+      title: Dell PowerEdge R730 Owner's Manual (PDF)
+      url: https://dl.dell.com/topicspdf/poweredge-r730_owners-manual_en-us.pdf
+    - kind: datasheet
+      title: Dell PowerEdge R730 Spec Sheet
+      url: https://i.dell.com/sites/doccontent/shared-content/data-sheets/en/documents/dell-poweredge-r730-spec-sheet.pdf
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/device-types/Dell/PowerEdge-R730.yaml
+
+module-bays:
+  PSU 1:
+    modules: [DELL-PSU-13G-750W]
+  PSU 2:
+    modules: [DELL-PSU-13G-750W]
+  Network Daughter Card Slot 1:
+    modules: [0FM487]
+  add:
+    - name: PCIe Slot 7
+      position: PCIe-7
+      label: '7'
+      why: default riser 3 (slots 6 + 7); upstream stops at slot 6. Name / position / label as upstream's pattern
+
+model3d:
+  file: assets/Dell/R730.glb
+  far: assets/Dell/R730.far.glb
+  empty: filler
+  leds:
+    LCD: {source: device.status}
+    POWER:
+      source: device.status
+      only: [green]
+    ID: {source: device.locate}
+    ACT_iDRAC: {source: none}
+    DRIVE0_ACT: {source: none}
+    DRIVE0_STATUS: {source: none}
+    DRIVE1_ACT: {source: none}
+    DRIVE1_STATUS: {source: none}
+    DRIVE2_ACT: {source: none}
+    DRIVE2_STATUS: {source: none}
+    DRIVE3_ACT: {source: none}
+    DRIVE3_STATUS: {source: none}
+    DRIVE4_ACT: {source: none}
+    DRIVE4_STATUS: {source: none}
+    DRIVE5_ACT: {source: none}
+    DRIVE5_STATUS: {source: none}
+    DRIVE6_ACT: {source: none}
+    DRIVE6_STATUS: {source: none}
+    DRIVE7_ACT: {source: none}
+    DRIVE7_STATUS: {source: none}
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Dell/R730.front.webp
+    rear: assets/Dell/R730.rear.webp
+    iso: assets/Dell/R730.iso.webp
+    model_sha256: 27a5076302c7bf2ba253b92e573f8b2ce2e651394be935f1036868e56e465d44
+    modules:
+      PSU 1: DELL-PSU-13G-750W
+      PSU 2: DELL-PSU-13G-750W
+      Network Daughter Card Slot 1: 0FM487
+      PCIe Slot 4: X550T2
+
+# rack_mount (spec 1.11; owner rule for servers): the ear blocks / control-panel flanks are the ears, front
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: sliding

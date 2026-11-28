@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Dell/4H60R.yaml
+meta:
+  category: module
+  module_kind: psu
+  family: PowerVault MD24
+  summary: 800 W AC hot-swap power supply for the MD2412 / MD2424.
+  links:
+    - kind: install-guide
+      title: MD2412 and MD2424 Direct-Attach Storage for PowerEdge Servers Owner's Manual
+      url: https://dl.dell.com/content/manual48914611-md2412-and-md2424-direct-attach-storage-for-poweredge-servers-owner-s-manual.pdf?language=en-us
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/device-types/Dell/PowerVault-MD2412.yaml
+
+model3d:
+  file: assets/Dell/4H60R.glb
+  far: assets/Dell/4H60R.far.glb
+  leds:
+    STATUS: {source: module.status}
+  renders:
+    front: assets/Dell/4H60R.front.webp
+    rear: assets/Dell/4H60R.rear.webp
+    iso: assets/Dell/4H60R.iso.webp
+    model_sha256: b91bf30e45b07187a0fab0221b19b2a9f2935e9640b8c8e36788cc5cf1970cea

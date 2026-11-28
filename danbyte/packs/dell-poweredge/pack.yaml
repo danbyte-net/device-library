@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: dell-poweredge
+name: Dell PowerEdge
+version: 1.6.54
+license: CC-BY-4.0
+author: Christian Rose
+description: Dell PowerEdge rack servers with their power supplies.
+blender: 5.3
+spec: 1.15
+requires: [generic-connectors]
+types:
+  device:
+    - Dell/R350
+    - Dell/R660xs
+    - Dell/R730
+    - Dell/R740
+    - Dell/R750
+    - Dell/R750xs
+    - Dell/R7515
+    - Dell/R760
+    - Dell/R760xd2
+    - Dell/R760xs
+    - Dell/R940
+  module:
+    - Dell/DELL-PSU-13G-750W
+    - Dell/DELL-PSU-14G-86MM-1100W
+    - Dell/DELL-PSU-60MM-1400W
+    - Dell/DELL-PSU-86MM-2400W
+    - Dell/DELL-PSU-R350-600W

@@ -1,0 +1,123 @@
+# yaml-language-server: $schema=../../schema/overlay.schema.json
+format: danbyte-library/v1
+upstream: device-types/Dell/PowerEdge-R7515.yaml
+meta:
+  category: server
+  roles: [compute]
+  family: PowerEdge
+  summary: 2U single-socket AMD rack server; modelled with 24 x 2.5-inch front drives, two stacked PSUs, five PCIe slots, two RJ45, serial and the iDRAC port.
+  links:
+    - kind: install-guide
+      title: Dell PowerEdge R7515 Installation and Service Manual
+      url: https://dl.dell.com/topicspdf/poweredge-r7515_owners-manual_en-us.pdf
+    - kind: datasheet
+      title: Dell PowerEdge R7515 Technical Specifications
+      url: https://dl.dell.com/topicspdf/poweredge-r7515_owners-manual2_en-us.pdf
+    - kind: datasheet
+      title: Dell PowerEdge R7515 Spec Sheet
+      url: https://i.dell.com/sites/csdocuments/Product_Docs/en/poweredge-r7515-spec-sheet.pdf
+    - kind: other
+      title: Dell PowerEdge R7515 Technical Guide
+      url: https://i.dell.com/sites/csdocuments/Product_Docs/en/poweredge-r7515-technical-guide.pdf
+  sources:
+    - https://github.com/netbox-community/devicetype-library/blob/master/device-types/Dell/PowerEdge-R7515.yaml
+
+# weight of the modelled 24 x 2.5-inch configuration (TS table 2, 23.72 kg)
+weight: 23.72
+weight_unit: kg
+model3d:
+  file: assets/Dell/R7515.glb
+  far: assets/Dell/R7515.far.glb
+  empty: filler
+  leds:
+    LED_DRIVE:
+      source: device.status
+      only: [amber]
+    LED_TEMP:
+      source: device.status
+      only: [amber]
+    LED_ELECTRICAL:
+      source: device.status
+      only: [amber]
+    LED_MEMORY:
+      source: device.status
+      only: [amber]
+    LED_PCIE:
+      source: device.status
+      only: [amber]
+    HEALTH: {source: device.status}
+    POWER:
+      source: device.status
+      only: [green]
+    IDRAC_DIRECT: {source: none}
+    ID: {source: device.locate}
+    ACT_iDRAC: {source: none}
+    ACT_Gig-E 1: {source: none}
+    ACT_Gig-E 2: {source: none}
+    DRIVE0_ACT: {source: none}
+    DRIVE0_STATUS: {source: none}
+    DRIVE1_ACT: {source: none}
+    DRIVE1_STATUS: {source: none}
+    DRIVE2_ACT: {source: none}
+    DRIVE2_STATUS: {source: none}
+    DRIVE3_ACT: {source: none}
+    DRIVE3_STATUS: {source: none}
+    DRIVE4_ACT: {source: none}
+    DRIVE4_STATUS: {source: none}
+    DRIVE5_ACT: {source: none}
+    DRIVE5_STATUS: {source: none}
+    DRIVE6_ACT: {source: none}
+    DRIVE6_STATUS: {source: none}
+    DRIVE7_ACT: {source: none}
+    DRIVE7_STATUS: {source: none}
+    DRIVE8_ACT: {source: none}
+    DRIVE8_STATUS: {source: none}
+    DRIVE9_ACT: {source: none}
+    DRIVE9_STATUS: {source: none}
+    DRIVE10_ACT: {source: none}
+    DRIVE10_STATUS: {source: none}
+    DRIVE11_ACT: {source: none}
+    DRIVE11_STATUS: {source: none}
+    DRIVE12_ACT: {source: none}
+    DRIVE12_STATUS: {source: none}
+    DRIVE13_ACT: {source: none}
+    DRIVE13_STATUS: {source: none}
+    DRIVE14_ACT: {source: none}
+    DRIVE14_STATUS: {source: none}
+    DRIVE15_ACT: {source: none}
+    DRIVE15_STATUS: {source: none}
+    DRIVE16_ACT: {source: none}
+    DRIVE16_STATUS: {source: none}
+    DRIVE17_ACT: {source: none}
+    DRIVE17_STATUS: {source: none}
+    DRIVE18_ACT: {source: none}
+    DRIVE18_STATUS: {source: none}
+    DRIVE19_ACT: {source: none}
+    DRIVE19_STATUS: {source: none}
+    DRIVE20_ACT: {source: none}
+    DRIVE20_STATUS: {source: none}
+    DRIVE21_ACT: {source: none}
+    DRIVE21_STATUS: {source: none}
+    DRIVE22_ACT: {source: none}
+    DRIVE22_STATUS: {source: none}
+    DRIVE23_ACT: {source: none}
+    DRIVE23_STATUS: {source: none}
+    PSU1_OK:
+      source: device.status
+      only: [green]
+    PSU2_OK:
+      source: device.status
+      only: [green]
+    port:*: {source: interface.oper_status}
+  renders:
+    front: assets/Dell/R7515.front.webp
+    rear: assets/Dell/R7515.rear.webp
+    iso: assets/Dell/R7515.iso.webp
+    model_sha256: 11a3fd9a8b9c6fcea46f12927a922768d937bad8d9446bcd1be5ec21d5b75bcc
+
+# rack_mount (spec 1.11; owner rule for servers): the control-panel flanks are the ears, front of the flanks at
+rack_mount:
+  ears: true
+  positions: {front: 0}
+  default: front
+  rails: sliding

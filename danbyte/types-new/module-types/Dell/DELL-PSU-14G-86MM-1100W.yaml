@@ -1,0 +1,9 @@
+---
+manufacturer: Dell
+model: 1100 W PSU (86 mm, 14G)
+part_number: DELL-PSU-14G-86MM-1100W
+comments: 'Hot-plug PSU of the PowerEdge 14th-generation rack servers as in the R740 rear figure (ISM fig. 9): C14 inlet (earth side towards the handle), fan right. The translucent handle is the PSU status light (ISM). Fits the R740 PSU bays (TG table 14 Redundant 86mm).'
+power-ports:
+  - name: PSU{module}
+    type: iec-60320-c14
+    maximum_draw: 1100

@@ -2,7 +2,7 @@
 format: danbyte-library/v1
 id: hpe-aruba-5400
 name: HPE Aruba 5400R zl2
-version: 1.6.52
+version: 1.6.54
 license: CC-BY-4.0
 author: Christian Rose
 description: Aruba 5400R zl2 chassis switches with their line cards and fan tray.
@@ -11,4 +11,4 @@ spec: 1.15
 requires: [generic-connectors]
 types:
   device: [HPE/J9821A, HPE/J9850A]
-  module: [HPE/J9546A, HPE/J9831A, HPE/J9987A, HPE/J9993A]
+  module: [HPE/865408-B21, HPE/J9546A, HPE/J9831A, HPE/J9987A, HPE/J9993A]

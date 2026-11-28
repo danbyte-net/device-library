@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Dell/0FM487.yaml
+meta:
+  category: module
+  module_kind: network-module
+  roles: [network]
+  family: PowerEdge
+  summary: Network daughter card with four 1GbE RJ45 ports (Broadcom 5720) for PowerEdge 14th-generation rack servers.
+  links:
+    - kind: install-guide
+      title: Dell PowerEdge R740 Installation and Service Manual
+      url: https://dl.dell.com/topicspdf/poweredge-r740_owners-manual_en-us.pdf
+  sources: ['https://github.com/netbox-community/devicetype-library/blob/master/module-types/Dell/0FM487.yml']
+
+model3d:
+  file: assets/Dell/0FM487.glb
+  far: assets/Dell/0FM487.far.glb
+  renders:
+    front: assets/Dell/0FM487.front.webp
+    rear: assets/Dell/0FM487.rear.webp
+    iso: assets/Dell/0FM487.iso.webp
+    model_sha256: 3ff59a8f7fa44002e9fce3506a729246e15a2f9d34ef380ef94ae63f1e2ee722
+  leds:
+    ACT_{module}-1GbE-0: {source: none}
+    ACT_{module}-1GbE-1: {source: none}
+    ACT_{module}-1GbE-2: {source: none}
+    ACT_{module}-1GbE-3: {source: none}
+    port:*: {source: interface.oper_status}

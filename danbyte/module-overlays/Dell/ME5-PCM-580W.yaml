@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Dell/powervault-me5-2u-power-cooling-module-580w.yaml
+meta:
+  category: module
+  module_kind: psu
+  family: PowerVault ME5
+  summary: 580 W AC power cooling module with integrated fans for ME5 2U enclosures.
+  links:
+    - kind: install-guide
+      title: Dell PowerVault ME5 Series Storage System Owner's Manual
+      url: https://dl.dell.com/content/manual52191289-dell-powervault-me5-series-storage-system-owner-s-manual.pdf?language=en-us
+
+model3d:
+  file: assets/Dell/ME5-PCM-580W.glb
+  far: assets/Dell/ME5-PCM-580W.far.glb
+  leds:
+    PCM_OK: {source: module.status}
+    AC_FAIL:
+      source: module.status
+      only: [amber, red]
+    FAN_FAIL:
+      source: module.status
+      only: [amber, red]
+    DC_FAIL:
+      source: module.status
+      only: [amber, red]
+  renders:
+    front: assets/Dell/ME5-PCM-580W.front.webp
+    rear: assets/Dell/ME5-PCM-580W.rear.webp
+    iso: assets/Dell/ME5-PCM-580W.iso.webp
+    model_sha256: c18476f9e387b6d6777b03836bcb70960939713b64be0b2a9177407b8df20516

@@ -1,0 +1,12 @@
+---
+manufacturer: Intel
+model: X710-DA2-FH
+part_number: 540-BDRD
+comments: Intel Ethernet Converged Network Adapter X710-DA2, full-height bracket (Dell 540-BDRD 'Intel X710 Dual Port 10GbE SFP+ Adapter, PCIe Full Height, V2'; Intel retail X710DA2 ships with both brackets)
+interfaces:
+  - name: Ethernet/{module}/1
+    type: 10gbase-x-sfpp
+    mgmt_only: false
+  - name: Ethernet/{module}/2
+    type: 10gbase-x-sfpp
+    mgmt_only: false

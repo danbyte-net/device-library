@@ -1,0 +1,22 @@
+---
+manufacturer: Dell
+model: 540-BBUR
+part_number: 540-BBUR
+comments: Dell Broadcom 57412 2 Port 10Gb SFP+ + 5720 2 Port 1Gb Base-T rNDC
+interfaces:
+  - name: '{module}-10GbE-1'
+    label: '1'
+    type: 10gbase-x-sfpp
+    mgmt_only: false
+  - name: '{module}-10GbE-2'
+    label: '2'
+    type: 10gbase-x-sfpp
+    mgmt_only: false
+  - name: '{module}-1GbE-3'
+    label: '3'
+    type: 1000base-t
+    mgmt_only: false
+  - name: '{module}-1GbE-4'
+    label: '4'
+    type: 1000base-t
+    mgmt_only: false

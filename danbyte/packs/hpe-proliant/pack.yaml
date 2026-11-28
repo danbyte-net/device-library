@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../schema/pack.schema.json
+format: danbyte-library/v1
+id: hpe-proliant
+name: HPE ProLiant
+version: 1.6.54
+license: CC-BY-4.0
+author: Christian Rose
+description: HPE ProLiant rack servers.
+blender: 5.3
+spec: 1.15
+requires: [generic-connectors]
+types:
+  device: [HPE/ProLiant_DL360_Gen10, HPE/ProLiant_DL360_Gen10_Plus]

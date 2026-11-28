@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../schema/module-overlay.schema.json
+# Danbyte-only hardware: the NetBox part is in the upstream: base, for offering to NetBox later.
+format: danbyte-library/v1
+upstream: danbyte/types-new/module-types/Dell/DELL-PSU-14G-86MM-1100W.yaml
+meta:
+  category: module
+  module_kind: psu
+  roles: [power]
+  family: PowerEdge
+  summary: 1100 W hot-plug power supply, 86 mm form factor, for PowerEdge 14th-generation rack servers.
+  links:
+    - kind: install-guide
+      title: Dell PowerEdge R740 Installation and Service Manual
+      url: https://dl.dell.com/topicspdf/poweredge-r740_owners-manual_en-us.pdf
+    - kind: other
+      title: Dell PowerEdge R740 / R740xd Technical Guide
+      url: https://i.dell.com/sites/csdocuments/Shared-Content_data-Sheets_Documents/en/aa/PowerEdge_R740_R740xd_Technical_Guide.pdf
+
+model3d:
+  file: assets/Dell/DELL-PSU-14G-86MM-1100W.glb
+  far: assets/Dell/DELL-PSU-14G-86MM-1100W.far.glb
+  renders:
+    front: assets/Dell/DELL-PSU-14G-86MM-1100W.front.webp
+    rear: assets/Dell/DELL-PSU-14G-86MM-1100W.rear.webp
+    iso: assets/Dell/DELL-PSU-14G-86MM-1100W.iso.webp
+    model_sha256: c2016b4b7a18926d1e4d269957b1b464bd2f974ac3d04717dca11e310d859e5d
+  leds:
+    PS_OK: {source: module.status}
